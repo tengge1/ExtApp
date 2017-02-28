@@ -37,24 +37,29 @@ Ext.define('App.view.main.LoginController', {
             centered: true
         });
         mask.show();
-        Ext.Ajax.request({
-            url: '/api/Login/Login?username=' + username + '&password=' + password,
-            method: 'POST',
-            success: function (response, opts) {
-                var obj = Ext.JSON.decode(response.responseText);
-                if (obj.Code == 200) {
-                    var config = Ext.create('util.config');
-                    config.setState('login');
-                    window.location.reload();
-                } else {
-                    Ext.Msg.alert('消息', obj.Msg);
-                }
-            },
-            failure: function (response, opts) {
-                mask.hide();
-                Ext.Msg.alert('错误', response.responseText);
-            }
-        });
+        //Ext.Ajax.request({
+        //    url: '/api/Login/Login?username=' + username + '&password=' + password,
+        //    method: 'POST',
+        //    success: function (response, opts) {
+        //        var obj = Ext.JSON.decode(response.responseText);
+        //        if (obj.Code == 200) {
+        //            var config = Ext.create('util.config');
+        //            config.setState('login');
+        //            window.location.reload();
+        //        } else {
+        //            Ext.Msg.alert('消息', obj.Msg);
+        //        }
+        //    },
+        //    failure: function (response, opts) {
+        //        mask.hide();
+        //        Ext.Msg.alert('错误', response.responseText);
+        //    }
+        //});
+        setTimeout(function () { // 登录
+            var config = Ext.create('util.config');
+            config.setState('login');
+            window.location.reload();
+        }, 2000);
     },
 
     onResetClick: function () { // 点击重置按钮

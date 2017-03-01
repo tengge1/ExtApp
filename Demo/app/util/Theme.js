@@ -14,7 +14,7 @@ Ext.define('App.util.Theme', {
     },
 
     setTheme: function (theme) { // 动态设置主题
-        var href = '/ext/themes/theme-' + theme + '/theme-' + theme + '-all.css';
+        var href = 'ext/themes/theme-' + theme + '/theme-' + theme + '-all.css';
         var link = Ext.fly('theme');
 
         if (!link) {

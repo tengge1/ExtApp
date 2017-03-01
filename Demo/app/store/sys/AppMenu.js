@@ -8,8 +8,7 @@ Ext.define('App.store.sys.AppMenu', {
     model: 'App.model.sys.AppMenu',
 
     proxy: {
-        type: 'ajax',
-        url: '/api/AppMenu/List',
+        type: 'memory',
         reader: 'json'
     },
 

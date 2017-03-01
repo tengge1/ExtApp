@@ -7,7 +7,7 @@ Ext.define('App.view.sys.dept.ListController', {
     alias: 'controller.deptlist',
 
     init: function () { // 默认展开根节点
-        this.getView().expandAll();
+        //this.getView().expandAll();
     },
 
     refresh() { // 刷新树节点，展开到当前位置

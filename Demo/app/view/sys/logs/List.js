@@ -17,6 +17,7 @@ Ext.define('App.view.sys.logs.List', {
 
     columns: [{
         xtype: 'rownumberer',
+        width: 40
     }, {
         xtype: 'datecolumn',
         text: '时间',

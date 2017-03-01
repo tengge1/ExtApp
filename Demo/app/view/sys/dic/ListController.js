@@ -16,49 +16,49 @@ Ext.define('App.view.sys.dic.ListController', {
     ],
 
     init: function () { // 页面初始化
-        var me = this;
-        var view = this.getView();
-        var tree = view.down('treepanel');
-        var store = Ext.create('store.diclist');
-        var root = tree.getRootNode();
-        root.removeAll();
-        root.appendChild({
-            text: '用户字典',
-            leaf: false
-        });
-        root.appendChild({
-            text: '系统字典',
-            leaf: false
-        });
-        store.load({
-            callback: function () {
-                for (var i in store.data.items) {
-                    var item = store.data.items[i];
-                    if (item.data.Type == 0) { // 系统字典
-                        root.childNodes[1].appendChild({
-                            text: item.data.Name + '[' + item.data.Code + ']',
-                            leaf: true,
-                            ID: item.data.ID,
-                            Name: item.data.Name,
-                            Code: item.data.Code,
-                            Type: item.data.Type,
-                            Memo: item.data.Memo
-                        });
-                    } else { // 用户字典
-                        root.childNodes[0].appendChild({
-                            text: item.data.Name + '[' + item.data.Code + ']',
-                            leaf: true,
-                            ID: item.data.ID,
-                            Name: item.data.Name,
-                            Code: item.data.Code,
-                            Type: item.data.Type,
-                            Memo: item.data.Memo
-                        });
-                    }
-                }
-                tree.expandAll();
-            }
-        });
+        //var me = this;
+        //var view = this.getView();
+        //var tree = view.down('treepanel');
+        //var store = Ext.create('store.diclist');
+        //var root = tree.getRootNode();
+        //root.removeAll();
+        //root.appendChild({
+        //    text: '用户字典',
+        //    leaf: false
+        //});
+        //root.appendChild({
+        //    text: '系统字典',
+        //    leaf: false
+        //});
+        //store.load({
+        //    callback: function () {
+        //        for (var i in store.data.items) {
+        //            var item = store.data.items[i];
+        //            if (item.data.Type == 0) { // 系统字典
+        //                root.childNodes[1].appendChild({
+        //                    text: item.data.Name + '[' + item.data.Code + ']',
+        //                    leaf: true,
+        //                    ID: item.data.ID,
+        //                    Name: item.data.Name,
+        //                    Code: item.data.Code,
+        //                    Type: item.data.Type,
+        //                    Memo: item.data.Memo
+        //                });
+        //            } else { // 用户字典
+        //                root.childNodes[0].appendChild({
+        //                    text: item.data.Name + '[' + item.data.Code + ']',
+        //                    leaf: true,
+        //                    ID: item.data.ID,
+        //                    Name: item.data.Name,
+        //                    Code: item.data.Code,
+        //                    Type: item.data.Type,
+        //                    Memo: item.data.Memo
+        //                });
+        //            }
+        //        }
+        //        tree.expandAll();
+        //    }
+        //});
     },
 
     refreshDic: function () { // 刷新字典列表

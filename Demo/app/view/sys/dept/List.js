@@ -17,9 +17,36 @@ Ext.define("App.view.sys.dept.List", {
     rootVisible: true,
 
     root: {
-        ID: 0,
         text: '顶级机构',
-        Name: '顶级机构'
+        Name: '顶级机构',
+        Status: 0,
+        leaf: false,
+        expanded: true,
+        children: [{
+            text: '中国移动',
+            Name: '中国移动',
+            Code: 'zgyd',
+            Status: 0,
+            leaf: false,
+            expanded: true,
+            children: [{
+                text: '北京分部',
+                Name: '北京分部',
+                Status: 0,
+                leaf: true
+            }, {
+                text: '上海分部',
+                Name: '上海分部',
+                Status: 0,
+                leaf: true
+            }]
+        }, {
+            text: '中国联通',
+            Name: '中国联通',
+            Code: 'zglt',
+            Status: 0,
+            leaf: true
+        }]
     },
 
     default: {
@@ -48,7 +75,7 @@ Ext.define("App.view.sys.dept.List", {
     }],
 
     listeners: {
-        beforeitemexpand: 'onTreeItemExpand'
+        //beforeitemexpand: 'onTreeItemExpand'
     },
 
     tbar: [{
@@ -65,7 +92,7 @@ Ext.define("App.view.sys.dept.List", {
         listeners: {
             click: 'onEditClick'
         }
-    },{
+    }, {
         xtype: 'button',
         text: '刷新',
         iconCls: 'Arrowrefresh',

@@ -27,7 +27,29 @@ Ext.define('App.view.sys.dic.List', {
 
         root: {
             expanded: true,
-            children: []
+            children: [{
+                text: '用户字典',
+                leaf: false,
+                expanded: true,
+                children: [{
+                    text: '测试一[test1]',
+                    leaf: true
+                }, {
+                    text: '测试二[test2]',
+                    leaf: true
+                }]
+            }, {
+                text: '系统字典',
+                leaf: false,
+                expanded: true,
+                children: [{
+                    text: '日志类型[LogType]',
+                    leaf: true
+                }, {
+                    text: '日志来源[LogSource]',
+                    leaf: true
+                }, ]
+            }]
         },
 
         tbar: [{

@@ -21,7 +21,7 @@ Ext.define('App.view.sys.config.ListController', {
         var tree = view.down('treepanel');
         var store = Ext.create('store.configsectionlist');
         tree.setStore(store);
-        store.reload();
+        //store.reload();
     },
 
     refreshConfigSection: function () { // 刷新配置节点
@@ -29,7 +29,7 @@ Ext.define('App.view.sys.config.ListController', {
         var view = me.getView();
         var tree = view.down('treepanel');
         var store = tree.getStore();
-        store.reload();
+        //store.reload();
     },
 
     refreshConfig: function () { // 刷新配置
@@ -37,7 +37,7 @@ Ext.define('App.view.sys.config.ListController', {
         var view = me.getView();
         var grid = view.down('grid');
         var store = grid.getStore();
-        store.reload();
+        //store.reload();
     },
 
     renderStatus: function (value) { // 渲染状态

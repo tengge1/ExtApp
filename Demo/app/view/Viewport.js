@@ -7,6 +7,7 @@ Ext.define('App.view.Viewport', {
     alias: 'widget.mainviewport',
 
     requires: [
+        'App.view.main.accordion.Index',
         'App.view.main.desktop.Index',
         'App.util.Config'
     ],

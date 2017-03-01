@@ -7,8 +7,8 @@ Ext.Loader.setConfig({
     enabled: true,
     disableCaching: true,
     paths: {
-        Ext: '/ext',
-        App: '/app'
+        Ext: 'ext',
+        App: 'app'
     }
 });
 

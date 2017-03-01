@@ -143,10 +143,10 @@
     <Content Include="app\view\sys\dic\List.js" />
     <Content Include="app\view\sys\dic\ListController.js" />
     <Content Include="app\view\main\accordion\AppMenuController.js" />
-    <Content Include="app\view\sys\appmenu\Edit.js" />
-    <Content Include="app\view\sys\appmenu\Add.js" />
-    <Content Include="app\view\sys\appmenu\EditController.js" />
-    <Content Include="app\view\sys\appmenu\AddController.js" />
+    <Content Include="app\view\sys\appMenu\Edit.js" />
+    <Content Include="app\view\sys\appMenu\Add.js" />
+    <Content Include="app\view\sys\appMenu\EditController.js" />
+    <Content Include="app\view\sys\appMenu\AddController.js" />
     <Content Include="app\view\main\ChangePwd.js" />
     <Content Include="app\view\main\accordion\IndexController.js" />
     <Content Include="app\view\main\desktop\BogusMenuModule.js" />
@@ -156,8 +156,8 @@
     <Content Include="app\view\main\desktop\Settings.js" />
     <Content Include="app\view\main\desktop\Wallpaper.js" />
     <Content Include="app\view\main\LoginController.js" />
-    <Content Include="app\view\sys\appmenu\List.js" />
-    <Content Include="app\view\sys\appmenu\ListController.js" />
+    <Content Include="app\view\sys\appMenu\List.js" />
+    <Content Include="app\view\sys\appMenu\ListController.js" />
     <Content Include="app\view\main\ChangePwdController.js" />
     <Content Include="app\view\sys\logs\List.js" />
     <Content Include="app\view\sys\logs\ListController.js" />

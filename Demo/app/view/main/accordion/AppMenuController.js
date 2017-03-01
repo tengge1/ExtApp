@@ -2,7 +2,7 @@
 * 菜单视图控制器
 */
 
-Ext.define('App.view.main.accordion.appMenuController', {
+Ext.define('App.view.main.accordion.AppMenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.appmenu',
 

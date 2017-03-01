@@ -10,8 +10,7 @@ Ext.define('App.store.sys.Dic', {
     model: 'App.model.sys.Dic',
 
     proxy: {
-        type: 'ajax',
-        url: '/api/Dic/List',
+        type: 'memory',
         reader: {
             type: 'json',
             totalProperty: 'Total',

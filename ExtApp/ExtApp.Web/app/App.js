@@ -50,6 +50,14 @@ Ext.apply(Ext, {
                 }
             }
         });
+    },
+
+    printStoreData: function (store) { // 输出Store中的数据，测试用
+        var arr = new Array();
+        store.data.each(function (i) {
+            arr.push(i.data);
+        })
+        console.log(JSON.stringify(arr));
     }
 });
 

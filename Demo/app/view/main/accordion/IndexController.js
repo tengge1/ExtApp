@@ -44,17 +44,8 @@ Ext.define('App.view.main.accordion.IndexController', {
         Ext.Msg.confirm('消息', '是否注销？', function (btn) {
             if (btn == 'yes') {
                 var config = Ext.create('util.config');
-                Ext.Ajax.request({
-                    url: '/api/Login/Logout',
-                    method: 'POST',
-                    success: function (response, opts) {
-                        var obj = Ext.JSON.decode(response.responseText);
-                        if (obj.Code == 200) {
-                            config.setState('nologin');
-                            window.location.reload();
-                        }
-                    }
-                });
+                config.setState('nologin');
+                window.location.reload();
             }
         });
     },

@@ -10,8 +10,7 @@ Ext.define('App.store.sys.Dept', {
     model: 'App.model.sys.Dept',
 
     proxy: {
-        type: 'ajax',
-        url: '/api/Dept/List',
+        type: 'memory',
         reader: 'json'
     },
 

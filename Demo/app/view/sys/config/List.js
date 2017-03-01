@@ -26,11 +26,44 @@ Ext.define('App.view.sys.config.List', {
         rootVisible: true,
 
         root: {
-            text: '所有配置',
-            expanded: true,
-            children: [],
-            ID: 0,
-            PID: 0
+            "text": "所有配置",
+            "leaf": false,
+            "expanded": true,
+            "children": [{
+                "text": "组织机构配置",
+                "leaf": true
+            }, {
+                "text": "用户配置",
+                "leaf": true
+            }, {
+                "text": "权限配置",
+                "leaf": false,
+                "expanded": false,
+                "children": [{
+                    "text": "角色配置",
+                    "leaf": true
+                }, {
+                    "text": "系统菜单配置",
+                    "leaf": true
+                }]
+            }, {
+                "text": "数据字典配置",
+                "leaf": true
+            }, {
+                "text": "系统日志配置",
+                "leaf": true
+            }, {
+                "text": "文件配置",
+                "leaf": false,
+                "expanded": false,
+                children: [{
+                    "text": "上传配置",
+                    "leaf": true
+                }, {
+                    "text": "下载配置",
+                    "leaf": true
+                }]
+            }]
         },
 
         tbar: [{

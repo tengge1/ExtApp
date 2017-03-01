@@ -61,6 +61,6 @@ tool.setTheme(theme);
 // 启动应用程序
 Ext.application({
     name: 'ExtApp',
-    appFolder: '/app',
+    appFolder: 'app',
     autoCreateViewport: 'App.view.Viewport'
 });

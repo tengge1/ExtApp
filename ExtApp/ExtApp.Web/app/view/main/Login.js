@@ -22,6 +22,7 @@ Ext.define('App.view.main.Login', {
         iconCls: 'Lock',
         bodyPadding: 10,
         defaultType: 'textfield',
+        buttonAlign: 'center',
 
         items: [{
             allowBlank: false,
@@ -40,14 +41,10 @@ Ext.define('App.view.main.Login', {
 
         buttons: [{
             text: '登录',
-            listeners: {
-                click: 'onLoginClick'
-            }
+            handler: 'onLoginClick'
         }, {
             text: '清空',
-            listeners: {
-                click: 'onResetClick'
-            }
+            handler: 'onResetClick'
         }]
     }]
 });

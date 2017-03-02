@@ -11,10 +11,10 @@ Ext.define('App.view.main.LoginController', {
     ],
 
     init: function () {
-        var controller = this;
+        var me = this;
         Ext.getBody().on('keypress', function (e) {
             if (e.keyCode == Ext.EventObject.ENTER) {
-                controller.onLoginClick();
+                me.onLoginClick();
             }
         });
     },
@@ -26,11 +26,9 @@ Ext.define('App.view.main.LoginController', {
         }
 
         var values = form.getValues();
-        var username = values.username;
-        var password = values.password;
 
         // 调用api控制器
-        var mask = new Ext.LoadMask({
+        var mask = Ext.create('Ext.LoadMask', {
             target: this.getView(),
             msg: '正在登录...',
             indicator: true,
@@ -38,7 +36,7 @@ Ext.define('App.view.main.LoginController', {
         });
         mask.show();
         Ext.Ajax.request({
-            url: '/api/Login/Login?username=' + username + '&password=' + password,
+            url: '/api/Login/Login?username=' + values.username + '&password=' + values.password,
             method: 'POST',
             success: function (response, opts) {
                 var obj = Ext.JSON.decode(response.responseText);
@@ -52,7 +50,7 @@ Ext.define('App.view.main.LoginController', {
             },
             failure: function (response, opts) {
                 mask.hide();
-                Ext.Msg.alert('错误', response.responseText);
+                Ext.Msg.alert('错误', response.statusText);
             }
         });
     },

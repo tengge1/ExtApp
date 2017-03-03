@@ -86,5 +86,57 @@ namespace ExtApp
                 Msg = "注销成功！"
             };
         }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="oldPassword"></param>
+        /// <param name="newPassword"></param>
+        /// <param name="confirmPassword"></param>
+        /// <returns></returns>
+        public static Result ChangePassword(string oldPassword, string newPassword, string confirmPassword)
+        {
+            if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
+            {
+                return new Result
+                {
+                    Code = 300,
+                    Msg = "密码不允许为空！"
+                };
+            }
+            if (newPassword != confirmPassword)
+            {
+                return new Result
+                {
+                    Code = 300,
+                    Msg = "新密码和确认密码不相同！"
+                };
+            }
+
+            // 校验原密码
+            var username = AdminHelper.Admin.Username;
+            var session = NHibernateHelper.GetCurrentSession();
+            var query = session.QueryOver<User>();
+            var users = query.Where(o => o.Username == username && o.Password == oldPassword).List();
+            if (users.Count == 0)
+            {
+                return new Result
+                {
+                    Code = 300,
+                    Msg = "原密码错误！"
+                };
+            }
+
+            // 修改密码
+            var user = users.FirstOrDefault();
+            user.Password = newPassword;
+            session.SaveOrUpdate(user);
+
+            return new Result
+            {
+                Code = 200,
+                Msg = "密码修改成功！"
+            };
+        }
     }
 }

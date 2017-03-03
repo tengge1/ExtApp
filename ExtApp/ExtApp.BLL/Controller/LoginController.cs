@@ -54,11 +54,8 @@ namespace ExtApp.BLL.Controller
         [HttpPost]
         public JsonResult ChangePwd(string oldPwd, string newPwd, string confirmPwd)
         {
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "密码修改成功！"
-            });
+            var result = AdminHelper.ChangePassword(oldPwd, newPwd, confirmPwd);
+            return Json(result);
         }
     }
 }

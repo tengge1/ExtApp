@@ -28,13 +28,23 @@ namespace ExtApp.BLL.Controller
         [HttpGet]
         public JsonResult List(int pageSize, int pageNum, string name = "", string status = "")
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from Role where Status<>-1 and (Name like :name or Code like :name) order by Layer,ID desc");
-            query.SetParameter("name", "%" + name + "%");
-            int total = query.List().Count;
-            query.SetFirstResult((pageNum - 1) * pageSize);
-            query.SetMaxResults(pageSize);
-            IList<Role> list = query.List<Role>();
+            var session = NHibernateHelper.GetCurrentSession();
+            var query = session.QueryOver<Role>().Where(o => o.Status != -1);
+
+            // 编码、名称
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(o => o.Name.Contains(name) || o.Code.Contains(name));
+            }
+
+            // 状态
+            if (!string.IsNullOrEmpty(status))
+            {
+                query = query.Where(o => o.Status.ToString() == status);
+            }
+
+            var total = query.RowCount();
+            var list = query.Skip((pageNum - 1) * pageSize).Take(pageSize).List<Role>();
             return Json(new ListResult<Role>
             {
                 Code = 200,

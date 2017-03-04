@@ -41,7 +41,7 @@ namespace ExtApp.Model
         /// 性别（0-男，1-女，其他-未设置）
         /// </summary>
         [Property(4)]
-        public virtual int Sex { get; set; }
+        public virtual int? Sex { get; set; }
 
         /// <summary>
         /// 角色

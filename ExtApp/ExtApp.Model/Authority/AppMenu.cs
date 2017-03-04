@@ -61,7 +61,6 @@ namespace ExtApp.Model
         [Property(6)]
         public virtual string Icon { get; set; }
 
-
         /// <summary>
         /// 排序
         /// </summary>

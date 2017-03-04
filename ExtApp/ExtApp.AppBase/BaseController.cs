@@ -7,7 +7,7 @@ using System.Web.Http;
 
 using Newtonsoft.Json;
 
-namespace ExtApp.BLL
+namespace ExtApp
 {
     /// <summary>
     /// 所有API控制器的基类

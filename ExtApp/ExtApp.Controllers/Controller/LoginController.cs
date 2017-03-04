@@ -8,7 +8,7 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 
-namespace ExtApp.BLL.Controller
+namespace ExtApp.Controller
 {
     /// <summary>
     /// 登录控制器

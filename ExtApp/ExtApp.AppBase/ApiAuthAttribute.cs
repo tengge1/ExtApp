@@ -8,7 +8,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using System.Web.Security;
 
-namespace ExtApp.BLL
+namespace ExtApp
 {
     /// <summary>
     /// ApiController权限验证属性

@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExtApp.BLL
+namespace ExtApp
 {
     /// <summary>
     /// json执行结果

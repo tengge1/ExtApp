@@ -38,8 +38,8 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate.Mapping.Attributes, Version=4.0.0.1, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
@@ -69,30 +69,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\ApiAuthAttribute.cs" />
-    <Compile Include="Base\BaseController.cs" />
-    <Compile Include="Controller\ConfigSectionController.cs" />
-    <Compile Include="Controller\ConfigController.cs" />
-    <Compile Include="Controller\DicItemController.cs" />
-    <Compile Include="Helper\AdminHelper.cs" />
-    <Compile Include="Helper\JsonHelper.cs" />
-    <Compile Include="Base\JsonResult.cs" />
-    <Compile Include="Controller\DeptController.cs" />
-    <Compile Include="Controller\AppMenuController.cs" />
-    <Compile Include="Controller\LogController.cs" />
-    <Compile Include="Controller\DicController.cs" />
-    <Compile Include="Controller\RoleController.cs" />
-    <Compile Include="Controller\UserController.cs" />
-    <Compile Include="Helper\LogHelper.cs" />
-    <Compile Include="Helper\NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Base\WebApiConfig.cs" />
-    <Compile Include="Controller\LoginController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
+      <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>
+      <Name>ExtApp.AppBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExtApp.DAL\ExtApp.DAL.csproj">
       <Project>{fa5711ca-28d6-466f-939b-a47b76e41c8e}</Project>
       <Name>ExtApp.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtApp.Helpers\ExtApp.Helpers.csproj">
+      <Project>{dbd9fa7e-16d7-4013-94d7-ea00094abe94}</Project>
+      <Name>ExtApp.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExtApp.Model\ExtApp.Model.csproj">
       <Project>{a712414b-a079-44a0-8489-cdc5eed7b0eb}</Project>

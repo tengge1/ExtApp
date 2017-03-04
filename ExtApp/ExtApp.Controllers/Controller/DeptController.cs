@@ -10,7 +10,7 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 
-namespace ExtApp.BLL.Controller
+namespace ExtApp.Controller
 {
     /// <summary>
     /// 组织机构控制器

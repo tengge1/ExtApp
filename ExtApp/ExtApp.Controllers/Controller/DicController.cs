@@ -10,40 +10,42 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 
-namespace ExtApp.BLL.Controller
+namespace ExtApp.Controller
 {
     /// <summary>
-    /// 用户控制器
+    /// 字典控制器
     /// </summary>
-    public class UserController : ApiBase
+    public class DicController : ApiBase
     {
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="keyword"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="pageNum"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(string keyword, int pageSize, int pageNum)
+        public JsonResult List()
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from User where Username like :keyword or Name like :keyword");
-            query.SetParameter("keyword", "%" + keyword + "%");
-            var list = query.List<User>().ToList();
-            return Json(list);
+            var session = NHibernateHelper.GetCurrentSession();
+            IQuery query = session.CreateQuery("from Dic where Status=0 order by ID");
+            var list = query.List<Dic>();
+            return Json(new ListResult<Dic>
+            {
+                Code = 200,
+                Msg = "获取数据成功！",
+                Total = list.Count(),
+                Items = list
+            });
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(User user)
+        public JsonResult Add(Dic model)
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(user);
+            var session = NHibernateHelper.GetCurrentSession();
+            session.SaveOrUpdate(model);
             return Json(new Result
             {
                 Code = 200,
@@ -54,13 +56,13 @@ namespace ExtApp.BLL.Controller
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(User user)
+        public JsonResult Edit(Dic model)
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(user);
+            var session = NHibernateHelper.GetCurrentSession();
+            session.SaveOrUpdate(model);
             session.Flush();
             return Json(new Result
             {
@@ -77,8 +79,10 @@ namespace ExtApp.BLL.Controller
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            session.Delete("from User where ID=" + id);
+            var session = NHibernateHelper.GetCurrentSession();
+            var model = session.Get<Dic>(id);
+            model.Status = -1;
+            session.SaveOrUpdate(model);
             session.Flush();
             return Json(new Result
             {

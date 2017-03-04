@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-using ExtApp.Model;
-using ExtApp.BLL;
 using NHibernate;
 using System.Web.SessionState;
 

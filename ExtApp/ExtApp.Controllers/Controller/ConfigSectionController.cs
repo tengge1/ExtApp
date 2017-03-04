@@ -10,12 +10,12 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 
-namespace ExtApp.BLL.Controller
+namespace ExtApp.Controller
 {
     /// <summary>
-    /// 字典控制器
+    /// 配置节控制器
     /// </summary>
-    public class DicController : ApiBase
+    public class ConfigSectionController : ApiBase
     {
         /// <summary>
         /// 获取列表
@@ -25,9 +25,9 @@ namespace ExtApp.BLL.Controller
         public JsonResult List()
         {
             var session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from Dic where Status=0 order by ID");
-            var list = query.List<Dic>();
-            return Json(new ListResult<Dic>
+            IQuery query = session.CreateQuery("from ConfigSection where Status=0 order by ID");
+            var list = query.List<ConfigSection>();
+            return Json(new ListResult<ConfigSection>
             {
                 Code = 200,
                 Msg = "获取数据成功！",
@@ -42,7 +42,7 @@ namespace ExtApp.BLL.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(Dic model)
+        public JsonResult Add(ConfigSection model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(model);
@@ -59,7 +59,7 @@ namespace ExtApp.BLL.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(Dic model)
+        public JsonResult Edit(ConfigSection model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(model);
@@ -80,7 +80,7 @@ namespace ExtApp.BLL.Controller
         public JsonResult Delete(int id)
         {
             var session = NHibernateHelper.GetCurrentSession();
-            var model = session.Get<Dic>(id);
+            var model = session.Get<ConfigSection>(id);
             model.Status = -1;
             session.SaveOrUpdate(model);
             session.Flush();

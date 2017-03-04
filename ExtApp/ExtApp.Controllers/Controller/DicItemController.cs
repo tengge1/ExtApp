@@ -10,26 +10,26 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 
-namespace ExtApp.BLL.Controller
+namespace ExtApp.Controller
 {
     /// <summary>
-    /// 配置控制器
+    /// 字典项目控制器
     /// </summary>
-    public class ConfigController : ApiBase
+    public class DicItemController : ApiBase
     {
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="PID"></param>
+        /// <param name="dicID"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int PID)
+        public JsonResult List(int dicID)
         {
             var session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from Config where Status=0 and Section.ID=:PID order by ID");
-            query.SetParameter("PID", PID);
-            var list = query.List<Config>();
-            return Json(new ListResult<Config>
+            IQuery query = session.CreateQuery("from DicItem where Status=0 and Dict.ID=:dicID order by Layer");
+            query.SetParameter("dicID", dicID);
+            var list = query.List<DicItem>();
+            return Json(new ListResult<DicItem>
             {
                 Code = 200,
                 Msg = "获取数据成功！",
@@ -44,7 +44,7 @@ namespace ExtApp.BLL.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(Config model)
+        public JsonResult Add(DicItem model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(model);
@@ -61,7 +61,7 @@ namespace ExtApp.BLL.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(Config model)
+        public JsonResult Edit(DicItem model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(model);
@@ -82,7 +82,7 @@ namespace ExtApp.BLL.Controller
         public JsonResult Delete(int id)
         {
             var session = NHibernateHelper.GetCurrentSession();
-            var model = session.Get<Config>(id);
+            var model = session.Get<DicItem>(id);
             model.Status = -1;
             session.SaveOrUpdate(model);
             session.Flush();

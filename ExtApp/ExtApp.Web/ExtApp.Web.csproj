@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -56,8 +56,8 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate.Mapping.Attributes, Version=4.0.0.1, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
@@ -4075,13 +4075,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\ExtApp.BLL\ExtApp.BLL.csproj">
-      <Project>{20748b52-179d-4d4b-a78c-4fe2aaaaff47}</Project>
-      <Name>ExtApp.BLL</Name>
+    <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
+      <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>
+      <Name>ExtApp.AppBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExtApp.DAL\ExtApp.DAL.csproj">
-      <Project>{fa5711ca-28d6-466f-939b-a47b76e41c8e}</Project>
-      <Name>ExtApp.DAL</Name>
+    <ProjectReference Include="..\ExtApp.Controllers\ExtApp.Controllers.csproj">
+      <Project>{096b6634-f37f-4d05-ad56-741d17e1ec4a}</Project>
+      <Name>ExtApp.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtApp.Helpers\ExtApp.Helpers.csproj">
+      <Project>{dbd9fa7e-16d7-4013-94d7-ea00094abe94}</Project>
+      <Name>ExtApp.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExtApp.Model\ExtApp.Model.csproj">
       <Project>{a712414b-a079-44a0-8489-cdc5eed7b0eb}</Project>

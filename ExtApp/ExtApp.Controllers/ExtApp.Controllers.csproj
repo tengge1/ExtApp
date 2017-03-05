@@ -73,7 +73,7 @@
     <Compile Include="Controller\AppMenuController.cs" />
     <Compile Include="Controller\ConfigController.cs" />
     <Compile Include="Controller\ConfigSectionController.cs" />
-    <Compile Include="Controller\DeptController.cs" />
+    <Compile Include="Personnel\DeptController.cs" />
     <Compile Include="Controller\DicController.cs" />
     <Compile Include="Controller\DicItemController.cs" />
     <Compile Include="Controller\LogController.cs" />

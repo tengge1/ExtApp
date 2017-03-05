@@ -8,19 +8,59 @@ Ext.define('App.model.sys.Dept', {
     fields: [
         'ID', {
             name: 'PID',
-            mapping: function (data) {
-                return data.PDept == null ? 0 : data.PDept.ID;
+            mapping: function (value) {
+                return value.PDept == null ? 0 : value.PDept.ID;
             }
         }, {
             name: 'PName',
-            mapping: function (data) {
-                return data.PDept == null ? '' : data.PDept.Name;
+            mapping: function (value) {
+                return value.PDept == null ? '' : value.PDept.Name;
             }
         },
         'Code',
-        'Name',
-        'Layer',
+        'Name', {
+            name: 'TypeID',
+            mapping: function (value) {
+                return value.Type == null ? 0 : value.Type.ID;
+            }
+        }, {
+            name: 'TypeCode',
+            mapping: function (value) {
+                return value.Type == null ? '' : value.Type.Code;
+            }
+        }, {
+            name: 'TypeName',
+            mapping: function (value) {
+                return value.Type == null ? '' : value.Type.Name;
+            }
+        }, {
+            name: 'HeadID',
+            mapping: function (value) {
+                return value.Head == null ? 0 : value.Head.ID;
+            }
+        }, {
+            name: 'HeadName',
+            mapping: function (value) {
+                return value.Head == null ? '' : value.Head.Name;
+            }
+        }, {
+            name: 'AddUserID',
+            mapping: function (value) {
+                return value.AddUser == null ? 0 : value.AddUser.ID;
+            }
+        }, {
+            name: 'AddUserName',
+            mapping: function (value) {
+                return value.AddUser == null ? '' : value.AddUser.Name;
+            }
+        }, {
+            name: 'AddTime',
+            mapping: function (value) {
+                return value.AddTime == null ? '' : value.AddTime;
+            }
+        },
+        'Sort',
         'Status',
-        'Memo'
+        'Comment'
     ]
 });

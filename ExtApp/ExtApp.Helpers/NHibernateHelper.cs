@@ -50,7 +50,7 @@ namespace ExtApp
 
             if (currentSession == null)
             {
-                currentSession = sessionFactory.OpenSession();
+                currentSession = sessionFactory.OpenSession(new SQLWatcher());
                 context.Items[CurrentSessionKey] = currentSession;
             }
 

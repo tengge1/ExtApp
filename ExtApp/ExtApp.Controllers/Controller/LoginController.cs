@@ -28,7 +28,7 @@ namespace ExtApp.Controller
             var result = AdminHelper.Login(username, password);
             if (result.Code == 200)
             {
-                LogHelper.Info("用户" + username + "登录成功！", type: LogType.User);
+                //LogHelper.Info("用户" + username + "登录成功！", type: LogType.User);
             }
             result.user = null;
             return Json(result);

@@ -1,13 +1,12 @@
-﻿/**
-* 组织机构存储
-*/
+﻿
+// ------------------ 组织机构Store -----------------------
 
-Ext.define('App.store.sys.Dept', {
+Ext.define('App.store.personnel.Dept', {
     extend: 'Ext.data.Store',
     alias: 'store.deptlist',
     storeId: 'deptlist',
 
-    model: 'App.model.sys.Dept',
+    model: 'App.model.personnel.Dept',
 
     proxy: {
         type: 'ajax',

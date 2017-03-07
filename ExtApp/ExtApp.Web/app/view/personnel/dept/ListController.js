@@ -1,13 +1,13 @@
-﻿/**
-* 组织机构管理控制器
-*/
+﻿
+// -------------- 组织机构管理控制器 ------------------
 
-Ext.define('App.view.sys.dept.ListController', {
+Ext.define('App.view.personnel.dept.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptlist',
 
     init: function () { // 默认展开根节点
-        this.getView().expandAll();
+        //var deptTree = ;
+
     },
 
     refresh() { // 刷新树节点，展开到当前位置
@@ -28,7 +28,7 @@ Ext.define('App.view.sys.dept.ListController', {
 
     onTreeItemExpand: function (node, eOpts) { // 展开树的节点
         node.removeAll();
-        var store = Ext.create('App.store.sys.Dept');
+        var store = Ext.create('App.store.personnel.Dept');
         store.load({
             callback: function (records, operation, success) {
                 var data = store.getData();
@@ -77,7 +77,7 @@ Ext.define('App.view.sys.dept.ListController', {
             Ext.Msg.alert('消息', '请选择节点！');
             return;
         }
-        var win = Ext.create('App.view.sys.dept.Add');
+        var win = Ext.create('App.view.personnel.dept.Add');
         win.getController().setParentMenu(selected[0].data.ID, selected[0].data.Name);
         win.show();
     },
@@ -88,7 +88,7 @@ Ext.define('App.view.sys.dept.ListController', {
             Ext.Msg.alert('消息', '请选择节点！');
             return;
         }
-        var win = Ext.create('App.view.sys.dept.Edit');
+        var win = Ext.create('App.view.personnel.dept.Edit');
         win.down('form').getForm().loadRecord(selected[0]);
         win.show();
     },

@@ -38,39 +38,69 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 性别（0-男，1-女，其他-未设置）
+        /// 性别（1-男，2-女，其他-未设置）
         /// </summary>
         [Property(4)]
-        public virtual int? Sex { get; set; }
-
-        /// <summary>
-        /// 角色
-        /// </summary>
-        [ManyToOne(5, ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
-        public virtual Role UserRole { get; set; }
+        public virtual int Sex { get; set; }
 
         /// <summary>
         /// 机构
         /// </summary>
-        [ManyToOne(6, ClassType = typeof(Dept), Column = "DeptID", Lazy = Laziness.False)]
+        [ManyToOne(5, ClassType = typeof(Dept), Column = "DeptID", Lazy = Laziness.False)]
         public virtual Dept UserDept { get; set; }
+
+        /// <summary>
+        /// 角色
+        /// </summary>
+        [ManyToOne(6, ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
+        public virtual Role UserRole { get; set; }
+
+        /// <summary>
+        /// 职务
+        /// </summary>
+        [Property(7)]
+        public virtual string Duty { get; set; }
+
+        /// <summary>
+        /// 电话号码
+        /// </summary>
+        [Property(8)]
+        public virtual string Phone { get; set; }
+
+        /// <summary>
+        /// 电子邮件
+        /// </summary>
+        [Property(9)]
+        public virtual string Email { get; set; }
+
+        /// <summary>
+        /// 头像
+        /// </summary>
+        [Property(10)]
+        public virtual string FaceUrl { get; set; }
+
+        /// <summary>
+        /// 添加时间
+        /// </summary>
+        [Property(11)]
+        public virtual DateTime AddTime { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(7)]
-        public virtual int Layer { get; set; }
+        [Property(12)]
+        public virtual int Sort { get; set; }
 
         /// <summary>
-        /// 状态
+        /// 状态（0-正常，-1-删除）
         /// </summary>
-        [Property(8)]
+        [Property(13)]
         public virtual int Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(9)]
-        public virtual string Memo { get; set; }
+        [Property(14)]
+        public virtual string Comment { get; set; }
     }
 }

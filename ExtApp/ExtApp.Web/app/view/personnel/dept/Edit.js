@@ -1,13 +1,12 @@
-﻿/**
-* 编辑机构
-*/
+﻿
+// ---------------- 组织机构编辑 ------------------
 
-Ext.define('App.view.sys.dept.Edit', {
+Ext.define('App.view.personnel.dept.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.deptedit',
 
     requires: [
-        'App.view.sys.dept.EditController'
+        'App.view.personnel.dept.EditController'
     ],
 
     controller: 'deptedit',

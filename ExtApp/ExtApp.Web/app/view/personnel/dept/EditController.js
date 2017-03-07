@@ -1,8 +1,7 @@
-﻿/**
-* 用户添加控制器
-*/
+﻿
+// ---------------- 组织机构编辑控制器 --------------------
 
-Ext.define('App.view.sys.dept.EditController', {
+Ext.define('App.view.personnel.dept.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptedit',
 

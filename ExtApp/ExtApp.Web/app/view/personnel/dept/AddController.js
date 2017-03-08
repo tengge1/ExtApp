@@ -1,9 +1,9 @@
 ﻿
-// ---------------- 组织机构编辑控制器 --------------------
+// ---------------- 组织机构添加Controller --------------------
 
-Ext.define('App.view.personnel.dept.EditController', {
+Ext.define('App.view.personnel.dept.AddController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.deptedit',
+    alias: 'controller.deptadd',
 
     onSaveClick: function () { // 点击保存按钮
         var win = this.getView();
@@ -18,7 +18,7 @@ Ext.define('App.view.personnel.dept.EditController', {
             };
         }
         Ext.Ajax.request({
-            url: '/api/Dept/Edit',
+            url: '/api/Dept/Add',
             method: 'POST',
             jsonData: values,
             success: function (response, opts) {

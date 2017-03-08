@@ -127,8 +127,8 @@
     <Content Include="app\store\sys\Role.js" />
     <Content Include="app\util\Style.js" />
     <Content Include="app\util\Config.js" />
-    <Content Include="app\view\personnel\dept\Edit.js" />
-    <Content Include="app\view\personnel\dept\EditController.js" />
+    <Content Include="app\view\personnel\dept\Add.js" />
+    <Content Include="app\view\personnel\dept\AddController.js" />
     <Content Include="app\view\personnel\dept\List.js" />
     <Content Include="app\view\personnel\dept\ListController.js" />
     <Content Include="app\view\sys\dic\EditItem.js" />

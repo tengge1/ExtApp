@@ -18,9 +18,19 @@ Ext.define("App.view.personnel.dept.List", {
     items: [{
         xtype: 'treepanel',
         region: 'west',
+        title: '组织机构',
         width: 200,
         rootVisible: false,
-        store: Ext.create('App.store.personnel.DeptTree')
+        collapsible: true,
+        split: true,
+        store: Ext.create('App.store.personnel.DeptTree'),
+        tools: [{
+            itemId: 'refresh',
+            type: 'refresh',
+            callback: function () {
+
+            }
+        }]
     }, {
         xtype: 'panel',
         region: 'center',
@@ -29,8 +39,14 @@ Ext.define("App.view.personnel.dept.List", {
             xtype: 'form',
             border: true,
             frame: true,
+            buttonAlign: 'center',
             width: 500,
             height: 300,
+            padding: 5,
+            defaults: {
+                labelWidth: 40,
+                labelAlign: 'right'
+            },
             items: [{
                 xtype: 'textfield',
                 fieldLabel: '名称'
@@ -45,18 +61,13 @@ Ext.define("App.view.personnel.dept.List", {
         handler: 'onAddClick'
     }, {
         xtype: 'button',
-        text: '编辑',
-        iconCls: 'Applicationedit',
-        handler: 'onEditClick'
-    }, {
-        xtype: 'button',
-        text: '刷新',
-        iconCls: 'Arrowrefresh',
-        handler: 'onRefreshClick'
-    }, {
-        xtype: 'button',
         text: '删除',
         iconCls: 'Delete',
         handler: 'onDeleteClick'
+    }, {
+        xtype: 'button',
+        text: '保存',
+        iconCls: 'Pagesave',
+        handler: ''
     }]
 });

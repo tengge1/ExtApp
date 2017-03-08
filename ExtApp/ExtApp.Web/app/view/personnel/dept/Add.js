@@ -33,7 +33,21 @@ Ext.define('App.view.personnel.dept.Add', {
             name: 'PID',
             fieldLabel: '<span style="color:red;">*</span>上级',
             editable: false,
-            allowBlank: false
+            allowBlank: false,
+            displayField: 'text',
+            value: '',
+            store: Ext.create('Ext.data.TreeStore', {
+                fields: ['id', 'text'],
+                root: {
+                    text: '天朝部门',
+                    expanded: true,
+                    children: [{
+                        text: '部门一'
+                    }, {
+                        text: '部门二'
+                    }]
+                }
+            })
         }, {
             xtype: 'textfield',
             name: 'Name',

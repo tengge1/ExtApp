@@ -118,6 +118,7 @@
     <Content Include="app\view\sys\config\EditController.js" />
     <Content Include="app\view\sys\config\List.js" />
     <Content Include="app\view\sys\config\ListController.js" />
+    <Content Include="app\widget\DeptSelect.js" />
     <Content Include="app\widget\SearchForm.js" />
     <Content Include="app\plugin\TabCloseMenu.js" />
     <Content Include="app\store\personnel\Dept.js" />

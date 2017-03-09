@@ -12,11 +12,22 @@ Ext.define('App.view.personnel.dept.AddController', {
             return;
         }
         var values = form.getValues();
+
+        debugger;
+        // 上级机构
         if (values.PID != '0') {
             values.PDept = {
                 ID: values.PID
             };
         }
+
+        // 类型
+        if (values.TypeID != '') {
+            values.Type = {
+                ID: values.TypeID
+            };
+        }
+
         Ext.Ajax.request({
             url: '/api/Dept/Add',
             method: 'POST',
@@ -27,9 +38,9 @@ Ext.define('App.view.personnel.dept.AddController', {
                 if (obj.Code == 200) { // 成功
                     win.hide();
                     var list = Ext.ComponentQuery.query('deptlist')[0];
-                    list.getController().refresh();
+                    list.controller.refresh();
                 } else { // 失败
-                    Ext.Msg.alert('消息', obj.Msg);
+                    Ext.Msg.alert('消息', obj.statusText);
                 }
             },
             failure: function (response, opts) {

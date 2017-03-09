@@ -6,7 +6,7 @@ Ext.define('App.view.personnel.dept.Add', {
     alias: 'widget.deptadd',
 
     requires: [
-        'Ext.ux.TreePicker',
+        'App.widget.DeptSelect',
         'App.view.personnel.dept.AddController'
     ],
 
@@ -29,25 +29,10 @@ Ext.define('App.view.personnel.dept.Add', {
             labelWidth: 50
         },
         items: [{
-            xtype: 'treepicker',
+            xtype: 'deptselect',
             name: 'PID',
             fieldLabel: '<span style="color:red;">*</span>上级',
-            editable: false,
-            allowBlank: false,
-            displayField: 'text',
-            value: '',
-            store: Ext.create('Ext.data.TreeStore', {
-                fields: ['id', 'text'],
-                root: {
-                    text: '天朝部门',
-                    expanded: true,
-                    children: [{
-                        text: '部门一'
-                    }, {
-                        text: '部门二'
-                    }]
-                }
-            })
+            allowBlank: false
         }, {
             xtype: 'textfield',
             name: 'Name',
@@ -63,7 +48,8 @@ Ext.define('App.view.personnel.dept.Add', {
             name: 'TypeID',
             fieldLabel: '<span style="color:red;">*</span>类型',
             editable: false,
-            allowBlank: false
+            allowBlank: false,
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'HeadID',

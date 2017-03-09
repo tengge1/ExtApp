@@ -41,6 +41,9 @@ namespace ExtApp.Controller
         [HttpPost]
         public JsonResult Add([FromBody]Dept dept)
         {
+            var userID = AdminHelper.Admin.ID;
+            dept.AddTime = DateTime.Now;
+            dept.AddUser = new Model.User { ID = userID };
             return Json(bll.Add(dept));
         }
 

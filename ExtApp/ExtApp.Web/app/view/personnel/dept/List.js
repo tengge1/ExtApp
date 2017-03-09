@@ -51,6 +51,27 @@ Ext.define("App.view.personnel.dept.List", {
                 xtype: 'textfield',
                 fieldLabel: '名称'
             }]
+        }, {
+            xtype: 'numberfield',
+            name: 'Layer',
+            fieldLabel: '排序',
+            allowBlank: false,
+            value: 0
+        }, {
+            xtype: 'combo',
+            store: [[
+                0, '启用'
+            ], [
+                -1, '禁用'
+            ]],
+            name: 'Status',
+            value: 0,
+            editable: false,
+            fieldLabel: '状态'
+        }, {
+            xtype: 'textarea',
+            name: 'Comment',
+            fieldLabel: '备注'
         }]
     }],
 

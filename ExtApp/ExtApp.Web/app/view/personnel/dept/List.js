@@ -72,6 +72,8 @@ Ext.define("App.view.personnel.dept.List", {
             xtype: 'textarea',
             name: 'Comment',
             fieldLabel: '备注'
+        }, {
+            xtype: 'textfield'
         }]
     }],
 

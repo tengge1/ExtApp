@@ -6,6 +6,7 @@ Ext.define("App.view.personnel.dept.List", {
     alias: 'widget.deptlist',
 
     requires: [
+        'App.widget.DeptSelect',
         'App.view.personnel.dept.ListController'
     ],
 
@@ -27,53 +28,76 @@ Ext.define("App.view.personnel.dept.List", {
         tools: [{
             itemId: 'refresh',
             type: 'refresh',
-            callback: function () {
-
+            callback: function (sender) {
+                sender.up('treepanel').getStore().load();
             }
         }]
     }, {
         xtype: 'panel',
         region: 'center',
         layout: 'center',
+
         items: [{
             xtype: 'form',
+            border: false,
+            layout: 'form',
             border: true,
             frame: true,
-            buttonAlign: 'center',
-            width: 500,
-            height: 300,
-            padding: 5,
             defaults: {
-                labelWidth: 40,
-                labelAlign: 'right'
+                margin: 10
+            },
+            fieldDefaults: {
+                labelAlign: 'right',
+                labelWidth: 50
             },
             items: [{
+                xtype: 'deptselect',
+                name: 'PID',
+                fieldLabel: '<span style="color:red;">*</span>上级',
+                allowBlank: false
+            }, {
                 xtype: 'textfield',
-                fieldLabel: '名称'
+                name: 'Name',
+                fieldLabel: '<span style="color:red;">*</span>名称',
+                allowBlank: false
+            }, {
+                xtype: 'combo',
+                store: [[
+                    0, '机构'
+                ], [
+                    1, '区域'
+                ]],
+                name: 'TypeID',
+                fieldLabel: '<span style="color:red;">*</span>类型',
+                editable: false,
+                allowBlank: false,
+                emptyText: '请选择'
+            }, {
+                xtype: 'textfield',
+                name: 'HeadID',
+                fieldLabel: '<span style="color:red;">*</span>负责人'
+            }, {
+                xtype: 'numberfield',
+                name: 'Layer',
+                fieldLabel: '排序',
+                allowBlank: false,
+                value: 0
+            }, {
+                xtype: 'combo',
+                store: [[
+                    0, '启用'
+                ], [
+                    -1, '禁用'
+                ]],
+                name: 'Status',
+                value: 0,
+                editable: false,
+                fieldLabel: '状态'
+            }, {
+                xtype: 'textarea',
+                name: 'Comment',
+                fieldLabel: '备注'
             }]
-        }, {
-            xtype: 'numberfield',
-            name: 'Layer',
-            fieldLabel: '排序',
-            allowBlank: false,
-            value: 0
-        }, {
-            xtype: 'combo',
-            store: [[
-                0, '启用'
-            ], [
-                -1, '禁用'
-            ]],
-            name: 'Status',
-            value: 0,
-            editable: false,
-            fieldLabel: '状态'
-        }, {
-            xtype: 'textarea',
-            name: 'Comment',
-            fieldLabel: '备注'
-        }, {
-            xtype: 'textfield'
         }]
     }],
 

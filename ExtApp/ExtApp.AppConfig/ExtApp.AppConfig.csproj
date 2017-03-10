@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FA5711CA-28D6-466F-939B-A47B76E41C8E}</ProjectGuid>
+    <ProjectGuid>{944F7E70-AEC4-4853-ADB1-A9332EC9676C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExtApp.DAL</RootNamespace>
-    <AssemblyName>ExtApp.DAL</AssemblyName>
+    <RootNamespace>ExtApp.AppConfig</RootNamespace>
+    <AssemblyName>ExtApp.AppConfig</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,22 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NHibernate.Mapping.Attributes, Version=4.0.0.1, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.Mapping.Attributes.4.0.0.1\lib\net40\NHibernate.Mapping.Attributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Spring.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spring.Net.1.0.0.0\lib\net45\Spring.Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,27 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Personnel\DeptDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
-      <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>
-      <Name>ExtApp.AppBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExtApp.Helpers\ExtApp.Helpers.csproj">
-      <Project>{dbd9fa7e-16d7-4013-94d7-ea00094abe94}</Project>
-      <Name>ExtApp.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExtApp.Model\ExtApp.Model.csproj">
-      <Project>{a712414b-a079-44a0-8489-cdc5eed7b0eb}</Project>
-      <Name>ExtApp.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

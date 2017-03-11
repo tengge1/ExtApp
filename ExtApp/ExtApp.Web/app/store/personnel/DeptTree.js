@@ -24,6 +24,7 @@ Ext.define('App.store.personnel.DeptTree', {
                 ID: 0,
                 PID: null,
                 Name: '顶级机构',
+                id: 0,
                 text: '顶级机构',
                 expanded: true,
                 leaf: false
@@ -48,6 +49,7 @@ Ext.define('App.store.personnel.DeptTree', {
                 ID: record.raw.ID,
                 PID: record.raw.PID,
                 Name: record.raw.Name,
+                id: record.raw.ID,
                 text: record.raw.Name,
                 expanded: id == 0 ? true : false
             };

@@ -24,7 +24,7 @@ Ext.define("App.view.personnel.dept.List", {
         rootVisible: false,
         collapsible: true,
         split: true,
-        store: Ext.create('App.store.personnel.DeptTree'),
+        store: Ext.getStore('depttreelist', 'App.store.personnel.DeptTree'),
         tools: [{
             itemId: 'refresh',
             type: 'refresh',

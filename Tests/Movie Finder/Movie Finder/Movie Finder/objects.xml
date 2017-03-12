@@ -1,0 +1,10 @@
+﻿<objects xmlns="http://www.springframework.net">
+
+  <object id="MyMovieLister" type="Movie_Finder.MovieLister, Movie Finder">
+    <property name="movieFinder" ref="MyMovieFinder" />
+  </object>
+
+  <object id="MyMovieFinder" type="Movie_Finder.SimpleMovieFinder, Movie Finder">
+  </object>
+
+</objects>

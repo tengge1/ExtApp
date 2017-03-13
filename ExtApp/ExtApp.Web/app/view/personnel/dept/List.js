@@ -15,6 +15,7 @@ Ext.define("App.view.personnel.dept.List", {
     title: '组织机构管理',
     layout: 'border',
     closable: true,
+    store: Ext.create('App.store.personnel.DeptTree'),
 
     items: [{
         xtype: 'treepanel',
@@ -24,12 +25,12 @@ Ext.define("App.view.personnel.dept.List", {
         rootVisible: false,
         collapsible: true,
         split: true,
-        store: Ext.getStore('depttreelist', 'App.store.personnel.DeptTree'),
+        store: Ext.create('App.store.personnel.DeptTree'),
         tools: [{
             itemId: 'refresh',
             type: 'refresh',
             callback: function (sender) {
-                sender.up('treepanel').getStore().load();
+                sender.getStore().load();
             }
         }]
     }, {
@@ -68,6 +69,7 @@ Ext.define("App.view.personnel.dept.List", {
                     1, '区域'
                 ]],
                 name: 'TypeID',
+                store: null,
                 fieldLabel: '<span style="color:red;">*</span>类型',
                 editable: false,
                 allowBlank: false,

@@ -5,8 +5,15 @@ Ext.define('App.view.personnel.dept.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptlist',
 
-    init: function () { // 默认展开根节点
+    init: function () { // 初始化
+        var me = this;
+        var view = me.getView();
 
+        //var store = Ext.create('App.store.personnel.DeptTree');
+        //view.down('treepanel').setStore(store);
+        //store = Ext.create('App.store.personnel.DeptTree');
+        //view.down('deptselect').setStore(store);
+        //store.load();
     },
 
     refresh: function () { // 刷新树节点，展开到当前位置

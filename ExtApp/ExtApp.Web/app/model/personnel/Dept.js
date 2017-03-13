@@ -4,6 +4,7 @@
 Ext.define('App.model.personnel.Dept', {
     extend: 'Ext.data.Model',
 
+    idProperty: 'ID',
     fields: [
         'ID', {
             name: 'PID',

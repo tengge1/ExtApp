@@ -19,7 +19,9 @@ Ext.define('App.store.personnel.DeptTree', {
 
     listeners: {
         load: function (sender, records, successful, operation, node, eOpts) { // 数据加载
-            node.removeAll();
+            if (!successful) {
+                return;
+            }
             var root = {
                 ID: 0,
                 PID: null,
@@ -27,21 +29,19 @@ Ext.define('App.store.personnel.DeptTree', {
                 id: 0,
                 text: '顶级机构',
                 expanded: true,
-                leaf: false
+                leaf: false,
+                children: []
             };
-            node.appendChild(root);
-            node.lastChild.data.ID = root.ID;
-            node.lastChild.data.PID = root.PID;
-            node.lastChild.data.Name = root.Name;
-            sender.fillTree(root, node.lastChild, records, sender); // 当前结点，节点，所有记录
+            sender.fillTree(root, records, sender);
+            sender.setRoot(root);
         }
     },
 
-    fillTree: function (node, tree, records, sender) { // 构建一棵树
+    fillTree: function (node, records, sender) { // 构建一棵树
         var id = node.ID;
         for (var i = 0; i < records.length; i++) {
             var record = records[i];
-            if (record.raw.PID != id) {
+            if (record.data.PID != id) {
                 continue;
             }
 
@@ -51,26 +51,24 @@ Ext.define('App.store.personnel.DeptTree', {
                 Name: record.raw.Name,
                 id: record.raw.ID,
                 text: record.raw.Name,
-                expanded: id == 0 ? true : false
+                expanded: id == 0 ? true : false,
+                children: []
             };
 
             // 判断是否有子节点
             var leaf = true;
             for (var j = 0; j < records.length; j++) {
                 var record1 = records[j];
-                if (record1.raw.PID == record.raw.ID) {
+                if (record1.data.PID == record.data.ID) {
                     leaf = false;
                     break;
                 }
             }
             node1.leaf = leaf;
-            tree.appendChild(node1);
-            tree.lastChild.data.ID = node1.ID;
-            tree.lastChild.data.PID = node1.PID;
-            tree.lastChild.data.Name = node1.Name;
 
             // 添加子节点
-            sender.fillTree(node1, tree.lastChild, records, sender);
+            sender.fillTree(node1, records, sender);
+            node.children.push(node1);
         }
     }
 });

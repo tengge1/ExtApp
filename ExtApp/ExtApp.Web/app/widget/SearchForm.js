@@ -1,6 +1,5 @@
-﻿/**
-* 搜索栏FormPanel（frame去掉边框）
-*/
+﻿
+// ---------------- 搜索栏FormPanel -------------------
 
 Ext.define('App.widget.SearchForm', {
     extend: 'Ext.form.Panel',

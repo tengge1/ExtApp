@@ -15,7 +15,6 @@ Ext.define("App.view.personnel.dept.List", {
     title: '组织机构管理',
     layout: 'border',
     closable: true,
-    store: Ext.create('App.store.personnel.DeptTree'),
 
     items: [{
         xtype: 'treepanel',

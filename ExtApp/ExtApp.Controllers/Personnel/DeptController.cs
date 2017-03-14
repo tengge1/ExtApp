@@ -30,7 +30,27 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult List()
         {
-            return Json(bll.List());
+            var list = bll.List().Select(o => new
+            {
+                ID = o.ID,
+                PID = o.PDept == null ? 0 : o.PDept.ID,
+                PName = o.PDept == null ? "" : o.PDept.Name,
+                Code = o.Code,
+                Name = o.Name,
+                TypeID = o.Type == null ? 0 : o.Type.ID,
+                TypeCode = o.Type == null ? "" : o.Type.Code,
+                TypeName = o.Type == null ? "" : o.Type.Name,
+                HeadID = o.Head == null ? 0 : o.Head.ID,
+                HeadName = o.Head == null ? "" : o.Head.Name,
+                AddUserID = o.AddUser == null ? 0 : o.AddUser.ID,
+                AddUserName = o.AddUser == null ? "" : o.AddUser.Name,
+                AddTime = o.AddTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                Sort = o.Sort,
+                Status = o.Status,
+                Comment = o.Comment
+            }).ToList();
+
+            return Json(list);
         }
 
         /// <summary>

@@ -13,6 +13,7 @@ Ext.Loader.setConfig({
 });
 
 // 引入常用js文件
+Ext.require('App.widget.Notify');
 Ext.require('App.plugin.ProgressBarPager');
 Ext.require('App.widget.SearchForm');
 
@@ -24,20 +25,9 @@ Ext.apply(Ext, {
     },
 
     notify: function (title, msg) { // 提醒
-        var win = Ext.create('Ext.ux.window.Notification', {
+        var win = Ext.create('App.widget.Notify', {
             title: title,
-            width: 180,
-            height: 100,
-            position: 'br',
-            manager: Ext.ComponentQuery.query('mainviewport')[0],
-            slideInDuration: 800,
-            slideBackDuration: 300,
-            autoCloseDelay: 3000,
-            slideInAnimation: 'bounceOut',
-            slideBackAnimation: 'easeIn',
-            spacing: 10,
-            html: msg,
-            bodyPadding: 5
+            html: msg
         });
         win.show();
     },
@@ -50,6 +40,14 @@ Ext.apply(Ext, {
                 }
             }
         });
+    },
+
+    get: function () { // get提交
+
+    },
+
+    post: function (url, params, callback) { // post提交
+
     },
 
     printStoreData: function (store) { // 输出Store中的数据，测试用

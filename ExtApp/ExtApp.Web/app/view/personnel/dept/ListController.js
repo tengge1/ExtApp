@@ -11,17 +11,18 @@ Ext.define('App.view.personnel.dept.ListController', {
 
     refresh: function () { // 刷新树节点，展开到当前位置
         // 获取path
-        var store = this.getView().getStore();
-        var selected = this.getView().getSelection();
-        if (selected.length > 0) {
+        var tree = this.getView().down('treepanel');
+        var store = tree.getStore();
+        var selected = tree.getSelection();
+        if (selected.length > 0) { // 选中了某个节点
             var path = selected[0].getPath();
             store.load();
-            this.getView().getRootNode().collapse();
-            this.getView().expandPath(path);
-        } else {
+            tree.getRootNode().collapse();
+            tree.expandPath(path);
+        } else { // 没有选中某个节点
             store.load();
-            this.getView().getRootNode().collapse();
-            this.getView().expandAll();
+            tree.getRootNode().collapse();
+            tree.expandAll();
         }
     },
 
@@ -46,30 +47,22 @@ Ext.define('App.view.personnel.dept.ListController', {
     },
 
     onDeleteClick: function () { // 点击删除按钮
-        var view = this.getView();
-        var tree = view.down('tree');
-        var selected = tree.getSelection();
+        var me = this;
+        var selected = this.getView().down('treepanel').getSelection();
         if (selected.length == 0) {
-            Ext.notify('消息', '请选择节点！');
+            App.notify('消息', '请选择节点！');
             return;
         }
-        var me = this;
-        Ext.confirm('消息', '要删除该机构？', function () {
-            Ext.Ajax.request({
-                url: '/api/Dept/Delete?id=' + selected[0].data.ID,
-                method: 'POST',
-                success: function (response, opts) {
-                    var obj = Ext.JSON.decode(response.responseText);
-                    if (obj.Code == 200) {
-                        me.refresh();
-                    } else {
-                        Ext.Msg.alert('错误', obj.Msg);
-                    }
-                },
-                failure: function (response, opts) {
-                    Ext.Msg.alert('错误', response.responseText);
+        App.confirm('消息', '要删除该机构？', function () {
+            App.post('/api/Dept/Delete?id=' + selected[0].data.ID, function (data) {
+                var obj = JSON.parse(data);
+                if (obj.Code == 200) {
+                    App.notify('消息', '操作成功');
+                    me.refresh();
+                } else {
+                    App.alert('错误', obj.Msg);
                 }
-            });
+            })
         });
     }
 });

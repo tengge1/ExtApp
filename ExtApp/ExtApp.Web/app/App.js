@@ -13,12 +13,12 @@ Ext.Loader.setConfig({
 });
 
 // 引入常用js文件
-Ext.require('App.widget.Notify');
 Ext.require('App.plugin.ProgressBarPager');
 Ext.require('App.widget.SearchForm');
 
-// Ext方法扩展
-Ext.apply(Ext, {
+// 扩展App的常用方法
+var App = App || {};
+Ext.apply(App, {
 
     alert: function (title, msg) { // 消息
         Ext.Msg.alert(title, msg);
@@ -42,12 +42,39 @@ Ext.apply(Ext, {
         });
     },
 
-    get: function () { // get提交
-
+    get: function (url, callback) { // get提交
+        Ext.Ajax.request({
+            url: url,
+            method: 'GET',
+            success: function (response, opts) {
+                var data = response.responseText;
+                if (typeof (callback) == 'function') {
+                    callback(data);
+                }
+            },
+            failure: function (response, opts) {
+                Ext.Msg.alert('错误', response.statusText);
+            }
+        });
     },
 
     post: function (url, params, callback) { // post提交
-
+        Ext.Ajax.request({
+            url: url,
+            method: 'POST',
+            params: typeof (params) == 'function' ? null : params, // 验证第二个参数是post参数还是回调函数
+            success: function (response, opts) {
+                var data = response.responseText;
+                if (typeof (params) == 'function') { // 第二个参数是回调函数
+                    params(data);
+                } else if (typeof (callback) == 'function') { // 第三个参数是回调函数
+                    callback(data)
+                }
+            },
+            failure: function (response, opts) {
+                Ext.Msg.alert('错误', response.statusText);
+            }
+        });
     },
 
     printStoreData: function (store) { // 输出Store中的数据，测试用

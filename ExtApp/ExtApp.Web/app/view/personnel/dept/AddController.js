@@ -13,7 +13,6 @@ Ext.define('App.view.personnel.dept.AddController', {
         }
         var values = form.getValues();
 
-        debugger;
         // 上级机构
         if (values.PID != '0') {
             values.PDept = {
@@ -28,23 +27,15 @@ Ext.define('App.view.personnel.dept.AddController', {
             };
         }
 
-        Ext.Ajax.request({
-            url: '/api/Dept/Add',
-            method: 'POST',
-            jsonData: values,
-            success: function (response, opts) {
-                var data = response.responseText;
-                var obj = Ext.JSON.decode(data);
-                if (obj.Code == 200) { // 成功
-                    win.hide();
-                    var list = Ext.ComponentQuery.query('deptlist')[0];
-                    list.controller.refresh();
-                } else { // 失败
-                    Ext.Msg.alert('消息', obj.statusText);
-                }
-            },
-            failure: function (response, opts) {
-                Ext.Msg.alert('消息', response.responseText);
+        App.post('/api/Dept/Add', values, function (data) {
+            var obj = JSON.parse(data);
+            if (obj.Code == 200) { // 成功
+                win.hide();
+                var list = Ext.ComponentQuery.query('deptlist')[0];
+                list.controller.refresh();
+                App.notify('消息', '操作成功');
+            } else { // 失败
+                Ext.Msg.alert('消息', obj.Msg);
             }
         });
     },

@@ -53,7 +53,7 @@ Ext.define('App.view.personnel.dept.Add', {
         }, {
             xtype: 'textfield',
             name: 'HeadID',
-            fieldLabel: '<span style="color:red;">*</span>负责人'
+            fieldLabel: '负责人'
         }, {
             xtype: 'numberfield',
             name: 'Layer',

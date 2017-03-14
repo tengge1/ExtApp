@@ -21,7 +21,7 @@ Ext.define("App.view.personnel.dept.List", {
         region: 'west',
         title: '组织机构',
         width: 200,
-        rootVisible: false,
+        rootVisible: true,
         collapsible: true,
         split: true,
         store: Ext.create('App.store.personnel.DeptTree'),

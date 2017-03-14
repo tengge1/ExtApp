@@ -40,7 +40,7 @@ namespace ExtApp.DAL
             // 判断名称是否重复
             if (dept.PDept == null) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept == null && o.Name == dept.Name).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept == null && o.Name == dept.Name && o.Status != -1).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result

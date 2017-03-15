@@ -68,7 +68,7 @@ Ext.define('App.view.personnel.dept.Add', {
                 0, '禁用'
             ]],
             name: 'status',
-            value: 0,
+            value: 1,
             editable: false,
             fieldLabel: '状态'
         }, {

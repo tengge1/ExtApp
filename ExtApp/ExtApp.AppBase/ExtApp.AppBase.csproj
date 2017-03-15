@@ -80,6 +80,9 @@
   <ItemGroup>
     <Compile Include="ApiAuthAttribute.cs" />
     <Compile Include="BaseController.cs" />
+    <Compile Include="CustomBodyAttribute.cs" />
+    <Compile Include="CustomParameterBinding.cs" />
+    <Compile Include="EmptyTask.cs" />
     <Compile Include="JsonResult.cs" />
     <Compile Include="WebApiConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

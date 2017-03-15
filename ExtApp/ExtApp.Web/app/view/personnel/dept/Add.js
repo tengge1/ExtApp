@@ -30,12 +30,12 @@ Ext.define('App.view.personnel.dept.Add', {
         },
         items: [{
             xtype: 'deptselect',
-            name: 'pid',
+            name: 'PID',
             fieldLabel: '<span style="color:red;">*</span>上级',
             allowBlank: false
         }, {
             xtype: 'textfield',
-            name: 'name',
+            name: 'Name',
             fieldLabel: '<span style="color:red;">*</span>名称',
             allowBlank: false
         }, {
@@ -45,18 +45,18 @@ Ext.define('App.view.personnel.dept.Add', {
             ], [
                 1, '区域'
             ]],
-            name: 'typeID',
+            name: 'TypeID',
             fieldLabel: '<span style="color:red;">*</span>类型',
             editable: false,
             allowBlank: false,
             emptyText: '请选择'
         }, {
             xtype: 'textfield',
-            name: 'headID',
+            name: 'HeadID',
             fieldLabel: '负责人'
         }, {
             xtype: 'numberfield',
-            name: 'sort',
+            name: 'Sort',
             fieldLabel: '排序',
             allowBlank: false,
             value: 0
@@ -67,13 +67,13 @@ Ext.define('App.view.personnel.dept.Add', {
             ], [
                 0, '禁用'
             ]],
-            name: 'status',
+            name: 'Status',
             value: 1,
             editable: false,
             fieldLabel: '状态'
         }, {
             xtype: 'textarea',
-            name: 'comment',
+            name: 'Comment',
             fieldLabel: '备注'
         }]
     },

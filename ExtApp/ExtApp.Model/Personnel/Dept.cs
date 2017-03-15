@@ -22,7 +22,7 @@ namespace ExtApp.Model
         /// <summary>
         /// 父机构
         /// </summary>
-        [ManyToOne(1, ClassType = typeof(Dept), Column = "PID")]
+        [ManyToOne(1, ClassType = typeof(Dept), Column = "PID", Lazy = Laziness.Proxy)]
         public virtual Dept PDept { get; set; }
 
         /// <summary>

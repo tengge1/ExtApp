@@ -56,30 +56,24 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="pid"></param>
-        /// <param name="name"></param>
-        /// <param name="typeID"></param>
-        /// <param name="headID"></param>
-        /// <param name="sort"></param>
-        /// <param name="status"></param>
-        /// <param name="comment"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(int pid, string name, int? typeID, int? headID, int? sort, int? status = 1, string comment = "")
+        public JsonResult Add([FromBody]UserAddModel model)
         {
             var dept = new Dept
             {
                 ID = 0,
-                PDept = new Dept { ID = pid },
+                PDept = new Dept { ID = model.PID },
                 Code = "",
-                Name = name,
-                Type = typeID == null ? null : new DicItem { ID = typeID.Value },
-                Head = headID == null ? null : new User { ID = headID.Value },
+                Name = model.Name,
+                Type = model.TypeID == null ? null : new DicItem { ID = model.TypeID.Value },
+                Head = model.HeadID == null ? null : new User { ID = model.HeadID.Value },
                 AddUser = AdminHelper.Admin,
                 AddTime = DateTime.Now,
-                Sort = sort == null ? 0 : sort.Value,
-                Status = status == null ? 1 : status.Value,
-                Comment = comment
+                Sort = model.Sort == null ? 0 : model.Sort.Value,
+                Status = model.Status == null ? 1 : model.Status.Value,
+                Comment = model.Comment
             };
             return Json(bll.Add(dept));
         }

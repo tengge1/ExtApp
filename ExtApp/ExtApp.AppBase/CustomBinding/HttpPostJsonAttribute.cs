@@ -9,10 +9,10 @@ using System.Web.Http.Controllers;
 namespace ExtApp
 {
     /// <summary>
-    /// 自定义绑定属性
+    /// HttpPost发送Json数据时绑定
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
-    public sealed class CustomBodyAttribute : ParameterBindingAttribute
+    public sealed class JsonBodyAttribute : ParameterBindingAttribute
     {
         /// <summary>
         /// 数据绑定
@@ -23,7 +23,7 @@ namespace ExtApp
         {
             if (parameter == null)
                 throw new ArgumentException("无效参数");
-            return new CustomParameterBinding(parameter);
+            return new HttpJsonBodyBinding(parameter);
         }
     }
 }

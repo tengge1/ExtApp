@@ -11,16 +11,16 @@ using System.Web.Http.Metadata;
 namespace ExtApp
 {
     /// <summary>
-    /// 自定义参数绑定
+    /// Api Controller通过HttpPost传送JSON数据时进行参数绑定
     /// </summary>
     /// <see cref="http://www.tuicool.com/articles/YJBjA3y"/>
-    public class CustomParameterBinding : HttpParameterBinding
+    public class HttpJsonBodyBinding : HttpParameterBinding
     {
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="descriptor"></param>
-        public CustomParameterBinding(HttpParameterDescriptor descriptor)
+        public HttpJsonBodyBinding(HttpParameterDescriptor descriptor)
             : base(descriptor)
         {
 

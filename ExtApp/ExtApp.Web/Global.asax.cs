@@ -32,11 +32,6 @@ namespace ExtApp.Web
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            // 初始化数据库数据
-            ISession session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from DeptRoleMenu");
-            int count = query.List().Count;
-
             // 写日志
             LogHelper.Info("系统启动");
         }

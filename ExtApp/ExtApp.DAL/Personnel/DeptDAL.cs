@@ -40,7 +40,7 @@ namespace ExtApp.DAL
             // 判断名称是否重复
             if (dept.PDept == null) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept == null && o.Name == dept.Name && o.Status != -1).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.Status != -1).JoinQueryOver(o => o.PDept).Where(o => o == null).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result
@@ -52,7 +52,7 @@ namespace ExtApp.DAL
             }
             else // 不是顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept != null && o.PDept.ID == dept.PDept.ID).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.Status != -1).JoinQueryOver(o => o.PDept).Where(o => o.ID == dept.PDept.ID).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result
@@ -79,7 +79,7 @@ namespace ExtApp.DAL
             var list = new List<Dept>();
             if (dept.PDept == null) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept == null).OrderBy(o => o.Code).Desc.Take(1).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().OrderBy(o => o.Code).Desc.JoinQueryOver(o => o.PDept).Where(o => o == null).Take(1).SingleOrDefault();
                 if (dept1 == null) // 第一个
                 {
                     Code = "001";
@@ -91,7 +91,7 @@ namespace ExtApp.DAL
             }
             else // 不是顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept != null && o.PDept.Code == PCode).OrderBy(o => o.Code).Desc.Take(1).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().OrderBy(o => o.Code).Desc.JoinQueryOver(o => o.PDept).Where(o => o.Code == PCode).Take(1).SingleOrDefault();
                 if (dept1 == null) // 第一个
                 {
                     Code = PCode + "001";

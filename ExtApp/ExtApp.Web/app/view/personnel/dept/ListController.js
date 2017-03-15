@@ -34,7 +34,7 @@ Ext.define('App.view.personnel.dept.ListController', {
     onEditClick: function () { // 点击编辑按钮
         var selected = this.getView().getSelection();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请选择节点！');
+            Ext.Msg.alert('消息', '请选择机构！');
             return;
         }
         var win = Ext.create('App.view.personnel.dept.Edit');

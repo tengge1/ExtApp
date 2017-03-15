@@ -8,5 +8,5 @@ Ext.define('App.widget.DeptSelect', {
     fieldLabel: '机构',
     valueField: 'ID',
     displayField: 'Name',
-    store: Ext.getStore('depttreelist', 'App.store.personnel.DeptTree')
+    store: Ext.create('App.store.personnel.DeptTree')
 });

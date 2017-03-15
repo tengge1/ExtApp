@@ -9,23 +9,10 @@ Ext.define('App.view.personnel.dept.AddController', {
         var win = this.getView();
         var form = win.down('form');
         if (!form.isValid()) {
+            App.notify('消息', '请填写完整');
             return;
         }
         var values = form.getValues();
-
-        // 上级机构
-        if (values.PID != '0') {
-            values.PDept = {
-                ID: values.PID
-            };
-        }
-
-        // 类型
-        if (values.TypeID != '') {
-            values.Type = {
-                ID: values.TypeID
-            };
-        }
 
         App.post('/api/Dept/Add', values, function (data) {
             var obj = JSON.parse(data);
@@ -35,7 +22,7 @@ Ext.define('App.view.personnel.dept.AddController', {
                 list.controller.refresh();
                 App.notify('消息', '操作成功');
             } else { // 失败
-                Ext.Msg.alert('消息', obj.Msg);
+                App.alert('消息', obj.Msg);
             }
         });
     },

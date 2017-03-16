@@ -7,14 +7,14 @@ using System.Web.Routing;
 using System.Web.SessionState;
 
 using NHibernate;
-using Spring.Context.Support;
+using Spring.Web.Mvc;
 
 namespace ExtApp.Web
 {
     /// <summary>
     /// Web应用程序
     /// </summary>
-    public class WebApplication : System.Web.HttpApplication
+    public class WebApplication : SpringMvcApplication
     {
         /// <summary>
         /// 初始化
@@ -34,11 +34,26 @@ namespace ExtApp.Web
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            // 创建Spring依赖注入容器
-            WebApplicationContext ctx = ContextRegistry.GetContext() as WebApplicationContext;
-
             // 写日志
             LogHelper.Info("系统启动");
+        }
+
+        protected override System.Web.Http.Dependencies.IDependencyResolver BuildWebApiDependencyResolver()
+        {
+            //get the 'default' resolver, populated from the 'main' config metadata
+            var resolver = base.BuildWebApiDependencyResolver();
+
+            //check if its castable to a SpringWebApiDependencyResolver
+            var springResolver = resolver as SpringWebApiDependencyResolver;
+
+            //if it is, add additional config sources as needed
+            if (springResolver != null)
+            {
+                //springResolver.AddChildApplicationContextConfigurationLocation("assembly://ExtApp.AppConfig/ExtApp.AppConfig/Controller.xml");
+            }
+
+            //return the fully-configured resolver
+            return resolver;
         }
     }
 }

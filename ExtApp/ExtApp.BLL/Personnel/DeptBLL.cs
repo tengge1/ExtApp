@@ -17,7 +17,7 @@ namespace ExtApp.BLL
         /// <summary>
         /// DAL
         /// </summary>
-        private DeptDAL dal = new DeptDAL();
+        private DeptDAL dal;
 
         /// <summary>
         /// 获取所有

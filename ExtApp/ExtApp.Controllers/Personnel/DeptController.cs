@@ -21,7 +21,7 @@ namespace ExtApp.Controller
         /// <summary>
         /// bll
         /// </summary>
-        private DeptBLL bll = new DeptBLL();
+        private  DeptBLL bll;
 
         /// <summary>
         /// 获取所有

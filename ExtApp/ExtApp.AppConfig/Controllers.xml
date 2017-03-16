@@ -1,0 +1,8 @@
+﻿<objects xmlns="http://www.springframework.net">
+
+  <object id="DeptController" type="ExtApp.Controller.DeptController, ExtApp.Controller">
+    <property name="bll" ref="DeptBLL" />
+  </object>
+
+</objects>
+

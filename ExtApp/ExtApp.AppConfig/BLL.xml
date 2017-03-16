@@ -1,6 +1,6 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
-  <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL">
+  <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL" singleton="false">
     <property name="dal" ref="DeptDAL" />
   </object>
 

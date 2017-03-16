@@ -38,22 +38,14 @@ namespace ExtApp.Web
             LogHelper.Info("系统启动");
         }
 
-        protected override System.Web.Http.Dependencies.IDependencyResolver BuildWebApiDependencyResolver()
+        /// <summary>
+        /// 解决“会话状态已创建一个会话 ID，但由于响应已被应用程序刷新而无法保存它。”错误
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Session_Start(object sender, EventArgs e)
         {
-            //get the 'default' resolver, populated from the 'main' config metadata
-            var resolver = base.BuildWebApiDependencyResolver();
-
-            //check if its castable to a SpringWebApiDependencyResolver
-            var springResolver = resolver as SpringWebApiDependencyResolver;
-
-            //if it is, add additional config sources as needed
-            if (springResolver != null)
-            {
-                //springResolver.AddChildApplicationContextConfigurationLocation("assembly://ExtApp.AppConfig/ExtApp.AppConfig/Controller.xml");
-            }
-
-            //return the fully-configured resolver
-            return resolver;
+            var sessionId = Session.SessionID;
         }
     }
 }

@@ -4104,9 +4104,21 @@
       <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>
       <Name>ExtApp.AppBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExtApp.AppConfig\ExtApp.AppConfig.csproj">
+      <Project>{944f7e70-aec4-4853-adb1-a9332ec9676c}</Project>
+      <Name>ExtApp.AppConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtApp.BLL\ExtApp.BLL.csproj">
+      <Project>{20748b52-179d-4d4b-a78c-4fe2aaaaff47}</Project>
+      <Name>ExtApp.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExtApp.Controllers\ExtApp.Controllers.csproj">
       <Project>{096b6634-f37f-4d05-ad56-741d17e1ec4a}</Project>
       <Name>ExtApp.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtApp.DAL\ExtApp.DAL.csproj">
+      <Project>{fa5711ca-28d6-466f-939b-a47b76e41c8e}</Project>
+      <Name>ExtApp.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExtApp.Helpers\ExtApp.Helpers.csproj">
       <Project>{dbd9fa7e-16d7-4013-94d7-ea00094abe94}</Project>

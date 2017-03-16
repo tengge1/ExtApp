@@ -23,10 +23,8 @@ namespace ExtApp.Web
         {
             // 开启ApiController的Session功能
             this.PostAuthenticateRequest += (sender, e) => HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
-            base.Init();
 
-            // 创建Spring依赖注入容器
-            WebApplicationContext ctx = ContextRegistry.GetContext() as WebApplicationContext;
+            base.Init();
         }
 
         /// <summary>
@@ -35,6 +33,9 @@ namespace ExtApp.Web
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            // 创建Spring依赖注入容器
+            WebApplicationContext ctx = ContextRegistry.GetContext() as WebApplicationContext;
 
             // 写日志
             LogHelper.Info("系统启动");

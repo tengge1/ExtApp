@@ -1,30 +1,7 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
-  <object id="homePageResult" type="Spring.Web.Support.Result, Spring.Web">
-    <property name="TargetPage" value="~/Default.aspx"/>
-    <property name="Mode" value="Transfer"/>
-    <property name="Parameters">
-      <dictionary>
-        <entry key="literal" value="My Text"/>
-        <entry key="name" value="%{UserInfo.FullName}"/>
-        <entry key="host" value="%{Request.UserHostName}"/>
-      </dictionary>
-    </property>
-  </object>
-
-  <object id="loginPageResult" type="Spring.Web.Support.Result, Spring.Web">
-    <property name="TargetPage" value="Login.aspx"/>
-    <property name="Mode" value="Redirect"/>
-  </object>
-
-  <object type="UserRegistration.aspx" parent="basePage">
-    <property name="UserManager" ref="userManager"/>
-    <property name="Results">
-      <dictionary>
-        <entry key="userSaved" value-ref="homePageResult"/>
-        <entry key="cancel" value-ref="loginPageResult"/>
-      </dictionary>
-    </property>
+  <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL">
+    <property name="dal" ref="DeptDAL" />
   </object>
 
 </objects>

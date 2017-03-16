@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using System.Web.SessionState;
 
 using NHibernate;
-using System.Web.SessionState;
+using Spring.Context.Support;
 
 namespace ExtApp.Web
 {
@@ -23,6 +24,9 @@ namespace ExtApp.Web
             // 开启ApiController的Session功能
             this.PostAuthenticateRequest += (sender, e) => HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
             base.Init();
+
+            // 创建Spring依赖注入容器
+            WebApplicationContext ctx = ContextRegistry.GetContext() as WebApplicationContext;
         }
 
         /// <summary>

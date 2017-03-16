@@ -5,9 +5,15 @@ Ext.define('App.view.personnel.dept.AddController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptadd',
 
+    reset: function () { // 重置添加窗体
+        var view = this.getView();
+        view.down('form').getForm().reset();
+        view.down('deptselect').reset();
+    },
+
     onSaveClick: function () { // 点击保存按钮
-        var win = this.getView();
-        var form = win.down('form');
+        var view = this.getView();
+        var form = view.down('form');
         if (!form.isValid()) {
             App.notify('消息', '请填写完整');
             return;
@@ -17,7 +23,7 @@ Ext.define('App.view.personnel.dept.AddController', {
         App.post('/api/Dept/Add', values, function (data) {
             var obj = JSON.parse(data);
             if (obj.Code == 200) { // 成功
-                win.hide();
+                view.hide();
                 var list = Ext.ComponentQuery.query('deptlist')[0];
                 list.controller.refresh();
                 App.notify('消息', '操作成功');

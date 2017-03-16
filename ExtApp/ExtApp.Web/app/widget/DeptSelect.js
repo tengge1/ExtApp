@@ -8,5 +8,9 @@ Ext.define('App.widget.DeptSelect', {
     fieldLabel: '机构',
     valueField: 'ID',
     displayField: 'Name',
-    store: Ext.create('App.store.personnel.DeptTree')
+    store: Ext.create('App.store.personnel.DeptTree'),
+
+    reset: function () { // 重置控件，刷新机构树
+        this.getStore().reload();
+    }
 });

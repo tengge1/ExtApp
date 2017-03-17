@@ -8,6 +8,7 @@ using System.Web.SessionState;
 
 using NHibernate;
 using Spring.Web.Mvc;
+using log4net;
 
 namespace ExtApp.Web
 {
@@ -35,7 +36,9 @@ namespace ExtApp.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             // 写日志
-            LogHelper.Info("系统启动");
+            // LogHelper.Info("系统启动");
+            ILog log = LogManager.GetLogger("myLogger");
+            log.Error("hello world");
         }
 
         /// <summary>

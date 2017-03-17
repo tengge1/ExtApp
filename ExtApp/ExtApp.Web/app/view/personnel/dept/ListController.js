@@ -31,19 +31,14 @@ Ext.define('App.view.personnel.dept.ListController', {
         win.show();
     },
 
-    onEditClick: function () { // 点击编辑按钮
-        var selected = this.getView().getSelection();
+    onTreeItemClick: function (view, record, item, index, e, eOpts) {
+        var view = this.getView();
+        var selected = view.down('treepanel').getSelection();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请选择机构！');
+            App.notify('消息', '请选择机构');
             return;
         }
-        var win = Ext.create('App.view.personnel.dept.Edit');
-        win.down('form').getForm().loadRecord(selected[0]);
-        win.show();
-    },
-
-    onRefreshClick: function () { // 点击刷新按钮
-        this.refresh();
+        view.down('form').getForm().loadRecord(selected[0]);
     },
 
     onDeleteClick: function () { // 点击删除按钮
@@ -63,6 +58,27 @@ Ext.define('App.view.personnel.dept.ListController', {
                     App.alert('错误', obj.Msg);
                 }
             })
+        });
+    },
+
+    onSaveClick: function () { // 点击保存按钮
+        var me = this;
+        var view = this.getView();
+        var form = view.down('form');
+        if (!form.isValid()) {
+            App.notify('消息', '请填写完整');
+            return;
+        }
+        var values = form.getValues();
+
+        App.post('/api/Dept/Edit', values, function (data) {
+            var obj = JSON.parse(data);
+            if (obj.Code == 200) { // 成功
+                me.refresh();
+                App.notify('消息', '操作成功');
+            } else { // 失败
+                App.alert('消息', obj.Msg);
+            }
         });
     }
 });

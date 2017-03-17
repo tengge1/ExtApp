@@ -14,6 +14,19 @@ namespace ExtApp.DAL
     public class DeptDAL
     {
         /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public Dept Get(int ID)
+        {
+            var session = NHibernateHelper.GetCurrentSession();
+            var model = session.QueryOver<Dept>()
+                .Where(o => o.ID == ID).SingleOrDefault();
+            return model;
+        }
+
+        /// <summary>
         /// 获取所有
         /// </summary>
         /// <returns></returns>

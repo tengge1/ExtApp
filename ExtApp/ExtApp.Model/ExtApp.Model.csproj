@@ -84,11 +84,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Personnel\View\UserAddModel.cs" />
+    <Compile Include="Result\DataResult.cs" />
+    <Compile Include="Personnel\View\DeptEditModel.cs" />
+    <Compile Include="Personnel\View\DeptAddModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LoginResult.cs" />
-    <Compile Include="ListResult.cs" />
-    <Compile Include="Result.cs" />
+    <Compile Include="Result\LoginResult.cs" />
+    <Compile Include="Result\ListResult.cs" />
+    <Compile Include="Result\Result.cs" />
     <Compile Include="Authority\AppMenu.cs" />
     <Compile Include="Core\ConfigSection.cs" />
     <Compile Include="Core\Config.cs" />

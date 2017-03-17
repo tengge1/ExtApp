@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 namespace ExtApp.Model
 {
     /// <summary>
-    /// 返回分页结果
+    /// 登录结果模型
     /// </summary>
-    public class ListResult<T> : Result
+    public class LoginResult : Result
     {
         /// <summary>
-        /// 记录总数
+        /// 登录用户信息
         /// </summary>
-        public int Total { get; set; }
+        public User user { get; set; }
 
         /// <summary>
-        /// 当前页记录
+        /// 登录票据
         /// </summary>
-        public IList<T> Items { get; set; }
+        public string Ticket { get; set; }
     }
 }

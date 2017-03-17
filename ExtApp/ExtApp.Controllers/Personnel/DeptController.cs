@@ -21,7 +21,7 @@ namespace ExtApp.Controller
         /// <summary>
         /// bll
         /// </summary>
-        private  DeptBLL bll;
+        private DeptBLL bll;
 
         /// <summary>
         /// 获取所有
@@ -59,7 +59,7 @@ namespace ExtApp.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add([FromBody]UserAddModel model)
+        public JsonResult Add([FromBody]DeptAddModel model)
         {
             var dept = new Dept
             {
@@ -81,11 +81,26 @@ namespace ExtApp.Controller
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="dept"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(Dept dept)
+        public JsonResult Edit(DeptEditModel model)
         {
+            // 获取机构
+            var dept = bll.Get(model.ID);
+            if (dept == null)
+            {
+                return Error("机构不存在！");
+            }
+
+            dept.Comment = model.Comment;
+            dept.Head = model.HeadID == null ? null : new User { ID = model.HeadID.Value };
+            dept.Name = model.Name;
+            dept.PDept = model.PID == 0 ? null : new Dept { ID = model.PID };
+            dept.Sort = model.Sort == null ? 0 : model.Sort.Value;
+            dept.Status = model.Status == null ? 1 : model.Status.Value;
+            dept.Type = model.TypeID == null ? null : new DicItem { ID = model.TypeID.Value };
+
             return Json(bll.Edit(dept));
         }
 

@@ -53,7 +53,8 @@ Ext.define('App.view.personnel.dept.Add', {
         }, {
             xtype: 'textfield',
             name: 'HeadID',
-            fieldLabel: '负责人'
+            fieldLabel: '负责人',
+            disabled: true
         }, {
             xtype: 'numberfield',
             name: 'Sort',

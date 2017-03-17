@@ -28,10 +28,11 @@ Ext.define("App.view.personnel.dept.List", {
         tools: [{
             itemId: 'refresh',
             type: 'refresh',
-            callback: function (sender) {
-                sender.getStore().load();
-            }
-        }]
+            callback: 'refresh'
+        }],
+        listeners: {
+            itemclick: 'onTreeItemClick' // 点击树的节点
+        }
     }, {
         xtype: 'panel',
         region: 'center',
@@ -42,7 +43,7 @@ Ext.define("App.view.personnel.dept.List", {
             border: false,
             layout: 'form',
             border: true,
-            frame: true,
+            title: '机构信息',
             defaults: {
                 margin: 10
             },
@@ -51,6 +52,9 @@ Ext.define("App.view.personnel.dept.List", {
                 labelWidth: 50
             },
             items: [{
+                xtype: 'hidden',
+                name: 'ID'
+            }, {
                 xtype: 'deptselect',
                 name: 'PID',
                 fieldLabel: '<span style="color:red;">*</span>上级',
@@ -76,10 +80,11 @@ Ext.define("App.view.personnel.dept.List", {
             }, {
                 xtype: 'textfield',
                 name: 'HeadID',
-                fieldLabel: '<span style="color:red;">*</span>负责人'
+                fieldLabel: '<span style="color:red;">*</span>负责人',
+                disabled: true
             }, {
                 xtype: 'numberfield',
-                name: 'Layer',
+                name: 'Sort',
                 fieldLabel: '排序',
                 allowBlank: false,
                 value: 0
@@ -116,6 +121,6 @@ Ext.define("App.view.personnel.dept.List", {
         xtype: 'button',
         text: '保存',
         iconCls: 'Pagesave',
-        handler: ''
+        handler: 'onSaveClick'
     }]
 });

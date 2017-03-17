@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace ExtApp.Model
 {
     /// <summary>
-    /// 添加用户参数
+    /// 编辑机构模型
     /// </summary>
-    public class UserAddModel
+    public class DeptEditModel
     {
+        public int ID { get; set; }
         public int PID { get; set; }
         public string Name { get; set; }
         public int? TypeID { get; set; }

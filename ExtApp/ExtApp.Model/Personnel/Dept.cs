@@ -68,7 +68,7 @@ namespace ExtApp.Model
         public virtual int Sort { get; set; }
 
         /// <summary>
-        /// 状态（0-正常，-1-删除）
+        /// 状态（1-启用，0-禁用，-1-删除）
         /// </summary>
         [Property(9)]
         public virtual int Status { get; set; }

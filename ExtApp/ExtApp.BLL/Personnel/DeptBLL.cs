@@ -20,6 +20,16 @@ namespace ExtApp.BLL
         private DeptDAL dal;
 
         /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public Dept Get(int ID)
+        {
+            return dal.Get(ID);
+        }
+
+        /// <summary>
         /// 获取所有
         /// </summary>
         /// <returns></returns>

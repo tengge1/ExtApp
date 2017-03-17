@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ExtApp.Model
 {
     /// <summary>
-    /// 返回执行结果
+    /// 执行结果模型
     /// </summary>
     public class Result
     {

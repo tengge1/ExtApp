@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminHelper.cs" />
+    <Compile Include="FileLogHelper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="NHibernateHelper.cs" />

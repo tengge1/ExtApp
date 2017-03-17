@@ -12,7 +12,7 @@ using ExtApp.Model;
 namespace ExtApp
 {
     /// <summary>
-    /// 日志帮助类
+    /// 日志帮助类（记录在数据库）
     /// </summary>
     public sealed class LogHelper
     {

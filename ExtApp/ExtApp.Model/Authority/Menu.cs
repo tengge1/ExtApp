@@ -11,7 +11,7 @@ namespace ExtApp.Model
     /// 系统菜单表
     /// </summary>
     [Class(Table = "AppMenu")]
-    public class AppMenu
+    public class Menu
     {
         /// <summary>
         /// 菜单ID
@@ -20,22 +20,22 @@ namespace ExtApp.Model
         public virtual int ID { get; set; }
 
         /// <summary>
-        /// 名称
-        /// </summary>
-        [Property(1, NotNull = true)]
-        public virtual string Name { get; set; }
-
-        /// <summary>
         /// 编码
         /// </summary>
-        [Property(2, NotNull = true)]
+        [Property(1, NotNull = true)]
         public virtual string Code { get; set; }
 
         /// <summary>
         /// 父节点编码
         /// </summary>
-        [Property(3, NotNull = true)]
+        [Property(2, NotNull = true)]
         public virtual int PID { get; set; }
+
+        /// <summary>
+        /// 名称
+        /// </summary>
+        [Property(3, NotNull = true)]
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// 类型（1-模块，2-url）
@@ -65,10 +65,10 @@ namespace ExtApp.Model
         /// 排序
         /// </summary>
         [Property(7)]
-        public virtual int Layer { get; set; }
+        public virtual int Sort { get; set; }
 
         /// <summary>
-        /// 状态（0-正常，-1-删除）
+        /// 状态（1-启用，0-禁用，-1-删除）
         /// </summary>
         [Property(8)]
         public virtual int Status { get; set; }
@@ -77,6 +77,6 @@ namespace ExtApp.Model
         /// 备注
         /// </summary>
         [Property(9)]
-        public virtual string Memo { get; set; }
+        public virtual string Comment { get; set; }
     }
 }

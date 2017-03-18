@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sort.cs" />
     <Compile Include="Result\DataResult.cs" />
     <Compile Include="Personnel\View\DeptEditModel.cs" />
     <Compile Include="Personnel\View\DeptAddModel.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Result\LoginResult.cs" />
     <Compile Include="Result\ListResult.cs" />
     <Compile Include="Result\Result.cs" />
-    <Compile Include="Authority\AppMenu.cs" />
+    <Compile Include="Authority\Menu.cs" />
     <Compile Include="Core\ConfigSection.cs" />
     <Compile Include="Core\Config.cs" />
     <Compile Include="Authority\DeptRoleMenu.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="Core\DicType.cs" />
     <Compile Include="Core\Dic.cs" />
     <Compile Include="Core\Log.cs" />
-    <Compile Include="Authority\LoginSession.cs" />
     <Compile Include="Core\LogLevel.cs" />
     <Compile Include="Core\LogSource.cs" />
     <Compile Include="Core\LogType.cs" />

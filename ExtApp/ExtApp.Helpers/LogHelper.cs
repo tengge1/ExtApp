@@ -24,8 +24,8 @@ namespace ExtApp
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
         /// <param name="level">级别</param>
-        /// <param name="memo">备注</param>
-        public static void SaveLog(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, LogLevel level = LogLevel.Info, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void SaveLog(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, LogLevel level = LogLevel.Info, string comment = "")
         {
             var log = new Log
             {
@@ -34,7 +34,7 @@ namespace ExtApp
                 Content = content,
                 IP = "127.0.0.1",
                 Level = level,
-                Memo = memo,
+                Comment = comment,
                 Source = source,
                 Status = 0,
                 Title = title,
@@ -57,10 +57,10 @@ namespace ExtApp
         /// <param name="content">内容</param>
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
-        /// <param name="memo">备注</param>
-        public static void Fatal(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void Fatal(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string comment = "")
         {
-            SaveLog(title, content, type, source, LogLevel.Fatal, memo);
+            SaveLog(title, content, type, source, LogLevel.Fatal, comment);
         }
 
         /// <summary>
@@ -70,10 +70,10 @@ namespace ExtApp
         /// <param name="content">内容</param>
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
-        /// <param name="memo">备注</param>
-        public static void Error(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void Error(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string comment = "")
         {
-            SaveLog(title, content, type, source, LogLevel.Error, memo);
+            SaveLog(title, content, type, source, LogLevel.Error, comment);
         }
 
         /// <summary>
@@ -83,10 +83,10 @@ namespace ExtApp
         /// <param name="content">内容</param>
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
-        /// <param name="memo">备注</param>
-        public static void Warn(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void Warn(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string comment = "")
         {
-            SaveLog(title, content, type, source, LogLevel.Warn, memo);
+            SaveLog(title, content, type, source, LogLevel.Warn, comment);
         }
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace ExtApp
         /// <param name="content">内容</param>
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
-        /// <param name="memo">备注</param>
-        public static void Info(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void Info(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string comment = "")
         {
-            SaveLog(title, content, type, source, LogLevel.Info, memo);
+            SaveLog(title, content, type, source, LogLevel.Info, comment);
         }
 
         /// <summary>
@@ -109,10 +109,10 @@ namespace ExtApp
         /// <param name="content">内容</param>
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
-        /// <param name="memo">备注</param>
-        public static void Log(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void Log(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string comment = "")
         {
-            SaveLog(title, content, type, source, LogLevel.Info, memo);
+            SaveLog(title, content, type, source, LogLevel.Info, comment);
         }
 
         /// <summary>
@@ -122,10 +122,10 @@ namespace ExtApp
         /// <param name="content">内容</param>
         /// <param name="type">类型</param>
         /// <param name="source">来源</param>
-        /// <param name="memo">备注</param>
-        public static void Debug(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string memo = "")
+        /// <param name="comment">备注</param>
+        public static void Debug(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, string comment = "")
         {
-            SaveLog(title, content, type, source, LogLevel.Debug, memo);
+            SaveLog(title, content, type, source, LogLevel.Debug, comment);
         }
     }
 }

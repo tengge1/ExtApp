@@ -26,7 +26,7 @@ namespace ExtApp.Controller
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             IQuery query = session.CreateQuery("from AppMenu order by PID,Layer");
-            var list = query.List<AppMenu>();
+            var list = query.List<Menu>();
             return Json(list);
         }
 
@@ -36,7 +36,7 @@ namespace ExtApp.Controller
         /// <param name="appMenu"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(AppMenu appMenu)
+        public JsonResult Add(Menu appMenu)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
 
@@ -46,7 +46,7 @@ namespace ExtApp.Controller
             {
                 IQuery query1 = session.CreateQuery("from AppMenu where ID=:pid");
                 query1.SetParameter("pid", appMenu.PID);
-                AppMenu appMenu1 = query1.UniqueResult<AppMenu>();
+                Menu appMenu1 = query1.UniqueResult<Menu>();
                 if (appMenu1 != null)
                 {
                     PCode = appMenu1.Code;
@@ -57,7 +57,7 @@ namespace ExtApp.Controller
             string Code = "";
             IQuery query = session.CreateQuery("from AppMenu where PID=:pid");
             query.SetParameter("pid", appMenu.PID);
-            IList<AppMenu> list = query.List<AppMenu>();
+            IList<Menu> list = query.List<Menu>();
             for (var i = 1; i <= 999; i++)
             {
                 if (i < 10) // 1-9
@@ -94,7 +94,7 @@ namespace ExtApp.Controller
         /// <param name="appMenu"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(AppMenu appMenu)
+        public JsonResult Edit(Menu appMenu)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(appMenu);

@@ -14,9 +14,9 @@ namespace ExtApp.Model
     public class Dept
     {
         /// <summary>
-        /// 机构ID
+        /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(Class = "identity")]
+        [Id(0, Name = "ID"), Generator(0, Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>

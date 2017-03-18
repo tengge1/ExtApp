@@ -34,8 +34,8 @@ namespace ExtApp.Model
         /// <summary>
         /// 菜单
         /// </summary>
-        [ManyToOne(3, ClassType = typeof(AppMenu), Column = "MenuID")]
-        public virtual AppMenu Menu { get; set; }
+        [ManyToOne(3, ClassType = typeof(Menu), Column = "MenuID")]
+        public virtual Menu Menu { get; set; }
 
         /// <summary>
         /// 状态
@@ -47,6 +47,6 @@ namespace ExtApp.Model
         /// 备注
         /// </summary>
         [Property(5)]
-        public virtual string Memo { get; set; }
+        public virtual string Comment { get; set; }
     }
 }

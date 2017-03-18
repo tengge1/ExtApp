@@ -38,7 +38,7 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 性别（1-男，2-女，其他-未设置）
+        /// 性别（0-未设置，1-男，2-女）
         /// </summary>
         [Property(4)]
         public virtual int Sex { get; set; }
@@ -47,13 +47,13 @@ namespace ExtApp.Model
         /// 机构
         /// </summary>
         [ManyToOne(5, ClassType = typeof(Dept), Column = "DeptID", Lazy = Laziness.False)]
-        public virtual Dept UserDept { get; set; }
+        public virtual Dept Dept { get; set; }
 
         /// <summary>
         /// 角色
         /// </summary>
         [ManyToOne(6, ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
-        public virtual Role UserRole { get; set; }
+        public virtual Role Role { get; set; }
 
         /// <summary>
         /// 职务
@@ -68,39 +68,51 @@ namespace ExtApp.Model
         public virtual string Phone { get; set; }
 
         /// <summary>
-        /// 电子邮件
+        /// 电子邮箱
         /// </summary>
         [Property(9)]
         public virtual string Email { get; set; }
 
         /// <summary>
-        /// 头像
+        /// 出生日期
         /// </summary>
         [Property(10)]
+        public virtual DateTime? Birthday { get; set; }
+
+        /// <summary>
+        /// 地址
+        /// </summary>
+        [Property(11)]
+        public virtual string Address { get; set; }
+
+        /// <summary>
+        /// 头像
+        /// </summary>
+        [Property(12)]
         public virtual string FaceUrl { get; set; }
 
         /// <summary>
         /// 添加时间
         /// </summary>
-        [Property(11)]
+        [Property(13)]
         public virtual DateTime AddTime { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(12)]
+        [Property(14)]
         public virtual int Sort { get; set; }
 
         /// <summary>
-        /// 状态（0-正常，-1-删除）
+        /// 状态（1-启用，0-禁用，-1-删除）
         /// </summary>
-        [Property(13)]
+        [Property(15)]
         public virtual int Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(14)]
+        [Property(16)]
         public virtual string Comment { get; set; }
     }
 }

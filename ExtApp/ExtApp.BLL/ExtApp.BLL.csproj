@@ -102,6 +102,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authority\DeptRoleMenuBLL.cs" />
+    <Compile Include="Authority\MenuBLL.cs" />
+    <Compile Include="Authority\RoleBLL.cs" />
+    <Compile Include="BaseBLL.cs" />
+    <Compile Include="Core\ConfigBLL.cs" />
+    <Compile Include="Core\ConfigSectionBLL.cs" />
+    <Compile Include="Core\DicBLL.cs" />
+    <Compile Include="Core\DicItemBLL.cs" />
+    <Compile Include="Core\LogBLL.cs" />
     <Compile Include="Personnel\DeptBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

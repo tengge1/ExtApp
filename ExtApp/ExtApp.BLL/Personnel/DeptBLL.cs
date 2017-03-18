@@ -12,7 +12,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 机构BLL
     /// </summary>
-    public class DeptBLL
+    public class DeptBLL : BaseBLL<Dept>
     {
         /// <summary>
         /// DAL
@@ -20,30 +20,11 @@ namespace ExtApp.BLL
         private DeptDAL dal;
 
         /// <summary>
-        /// 获取
-        /// </summary>
-        /// <param name="ID"></param>
-        /// <returns></returns>
-        public Dept Get(int ID)
-        {
-            return dal.Get(ID);
-        }
-
-        /// <summary>
-        /// 获取所有
-        /// </summary>
-        /// <returns></returns>
-        public IList<Dept> List()
-        {
-            return dal.List();
-        }
-
-        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="dept"></param>
         /// <returns></returns>
-        public Result Add(Dept dept)
+        public new Result Add(Dept dept)
         {
             return dal.Add(dept);
         }
@@ -53,19 +34,9 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="dept"></param>
         /// <returns></returns>
-        public Result Edit(Dept dept)
+        public new Result Edit(Dept dept)
         {
             return dal.Edit(dept);
-        }
-
-        /// <summary>
-        /// 删除
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Result Delete(int id)
-        {
-            return dal.Delete(id);
         }
     }
 }

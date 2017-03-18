@@ -35,10 +35,10 @@ namespace ExtApp.Model
         /// 排序
         /// </summary>
         [Property(3)]
-        public virtual int Layer { get; set; }
+        public virtual int Sort { get; set; }
 
         /// <summary>
-        /// 状态
+        /// 状态（1-启用，0-禁用，-1-删除）
         /// </summary>
         [Property(4)]
         public virtual int Status { get; set; }
@@ -47,6 +47,6 @@ namespace ExtApp.Model
         /// 备注
         /// </summary>
         [Property(5)]
-        public virtual string Memo { get; set; }
+        public virtual string Comment { get; set; }
     }
 }

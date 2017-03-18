@@ -81,6 +81,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ConfigSectionDAL.cs" />
+    <Compile Include="Core\ConfigDAL.cs" />
+    <Compile Include="Core\DicItemDAL.cs" />
+    <Compile Include="Core\DicDAL.cs" />
+    <Compile Include="Core\LogDAL.cs" />
     <Compile Include="Personnel\DeptDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -102,7 +107,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Authority\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -38,15 +38,21 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 状态（0-正常，-1-删除）
+        /// 排序
         /// </summary>
         [Property(4)]
+        public virtual int Sort { get; set; }
+
+        /// <summary>
+        /// 状态（1-启用，0-禁用，-1-删除）
+        /// </summary>
+        [Property(5)]
         public virtual int Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(5)]
-        public virtual string Memo { get; set; }
+        [Property(6)]
+        public virtual string Comment { get; set; }
     }
 }

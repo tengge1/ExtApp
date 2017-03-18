@@ -27,8 +27,9 @@ Ext.define('App.view.personnel.dept.ListController', {
     },
 
     onAddClick: function () { // 点击添加按钮
-        var win = Ext.create('App.view.personnel.dept.Add');
-        win.show();
+        var view = Ext.create('App.view.personnel.dept.Add');
+        view.controller.reset();
+        view.show();
     },
 
     onTreeItemClick: function (view, record, item, index, e, eOpts) {

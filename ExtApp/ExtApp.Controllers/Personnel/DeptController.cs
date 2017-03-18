@@ -99,7 +99,7 @@ namespace ExtApp.Controller
             dept.PDept = model.PID == 0 ? null : new Dept { ID = model.PID };
             dept.Sort = model.Sort == null ? 0 : model.Sort.Value;
             dept.Status = model.Status == null ? 1 : model.Status.Value;
-            dept.Type = model.TypeID == null ? null : new DicItem { ID = model.TypeID.Value };
+            dept.Type = (model.TypeID == null || model.TypeID == 0) ? null : new DicItem { ID = model.TypeID.Value };
 
             return Json(bll.Edit(dept));
         }

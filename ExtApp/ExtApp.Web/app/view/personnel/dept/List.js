@@ -72,7 +72,6 @@ Ext.define("App.view.personnel.dept.List", {
                     1, '区域'
                 ]],
                 name: 'TypeID',
-                store: null,
                 fieldLabel: '<span style="color:red;">*</span>类型',
                 editable: false,
                 allowBlank: false,

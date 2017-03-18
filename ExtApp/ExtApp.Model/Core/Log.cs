@@ -77,6 +77,6 @@ namespace ExtApp.Model
         /// 备注
         /// </summary>
         [Property(10)]
-        public virtual string Memo { get; set; }
+        public virtual string Comment { get; set; }
     }
 }

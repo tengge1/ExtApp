@@ -53,7 +53,7 @@ namespace ExtApp.DAL
             // 判断名称是否重复
             if (dept.PDept == null) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.Status != -1).JoinQueryOver(o => o.PDept).Where(o => o == null).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.Status != -1 && o.PDept == null).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result
@@ -65,7 +65,7 @@ namespace ExtApp.DAL
             }
             else // 不是顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.Status != -1).JoinQueryOver(o => o.PDept).Where(o => o.ID == dept.PDept.ID).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.Status != -1 && o.PDept != null).JoinQueryOver(o => o.PDept).Where(o => o.ID == dept.PDept.ID && o.Status != -1).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result
@@ -80,7 +80,7 @@ namespace ExtApp.DAL
             var PCode = "";
             if (dept.PDept != null) // 不是顶级机构
             {
-                var pDept = session.QueryOver<Dept>().Where(o => o.ID == dept.PDept.ID).SingleOrDefault();
+                var pDept = session.QueryOver<Dept>().Where(o => o.ID == dept.PDept.ID && o.Status != -1).SingleOrDefault();
                 if (pDept != null)
                 {
                     PCode = pDept.Code;
@@ -137,7 +137,7 @@ namespace ExtApp.DAL
             // 判断是否重复
             if (dept.PDept == null) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept == null && o.Name == dept.Name && o.ID != dept.ID).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.ID != dept.ID && o.PDept == null).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result
@@ -149,7 +149,7 @@ namespace ExtApp.DAL
             }
             else // 不是顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept != null && o.PDept.ID == dept.PDept.ID && o.Name == dept.Name && o.ID != dept.ID).SingleOrDefault();
+                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.ID != dept.ID && o.PDept != null).JoinQueryOver(o => o.PDept).Where(o => o.ID == dept.PDept.ID && o.Status != -1).SingleOrDefault();
                 if (dept1 != null)
                 {
                     return new Result

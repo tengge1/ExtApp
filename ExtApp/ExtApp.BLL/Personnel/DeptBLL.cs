@@ -15,18 +15,13 @@ namespace ExtApp.BLL
     public class DeptBLL : BaseBLL<Dept>
     {
         /// <summary>
-        /// DAL
-        /// </summary>
-        private DeptDAL dal;
-
-        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="dept"></param>
         /// <returns></returns>
         public new Result Add(Dept dept)
         {
-            return dal.Add(dept);
+            return (dal as DeptDAL).Add(dept);
         }
 
         /// <summary>
@@ -36,7 +31,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public new Result Edit(Dept dept)
         {
-            return dal.Edit(dept);
+            return (dal as DeptDAL).Edit(dept);
         }
     }
 }

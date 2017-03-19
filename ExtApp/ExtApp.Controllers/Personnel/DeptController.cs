@@ -112,7 +112,15 @@ namespace ExtApp.Controller
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            return Json(bll.Delete(id));
+            var result = bll.Delete(id);
+            if (result)
+            {
+                return base.Success("删除成功");
+            }
+            else
+            {
+                return base.Success("删除失败");
+            }
         }
     }
 }

@@ -143,3 +143,8 @@ Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the spec
 2017-03-19 20:22:45,387 [14]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-19 20:37:25,387 [32]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-19 20:48:24,963 [42]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 07:32:57,864 [8]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 07:40:40,267 [26]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 07:47:50,984 [27]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 07:52:38,208 [38]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 07:53:45,710 [45]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

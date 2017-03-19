@@ -300,6 +300,7 @@ namespace ExtApp.DAL
                 try
                 {
                     session.Delete(model);
+                    session.Flush();
                 }
                 catch (Exception e)
                 {

@@ -19,24 +19,38 @@ Ext.define('App.view.core.logs.List', {
         xtype: 'gridpanel',
         border: false,
         frame: false,
+
         columns: [{
             xtype: 'rownumberer',
-            width: 40
+            width: 40,
+            titleAlign: 'center'
+        }, {
+            xtype: 'actioncolumn',
+            iconCls: 'Applicationviewdetail',
+            tooltip: '查看',
+            width: 50,
+            titleAlign: 'center',
+            align: 'center',
+            handler: 'onViewAction'
         }, {
             text: '时间',
             dataIndex: 'AddTime',
+            titleAlign: 'center',
             width: 150
         }, {
             text: '标题',
             dataIndex: 'Title',
+            titleAlign: 'center',
             width: 220
         }, {
             text: '类型',
             dataIndex: 'Type',
+            titleAlign: 'center',
             renderer: 'renderType'
         }, {
             text: '来源',
             dataIndex: 'Source',
+            titleAlign: 'center',
             renderer: 'renderSource'
         }, {
             text: '等级',
@@ -44,12 +58,15 @@ Ext.define('App.view.core.logs.List', {
             renderer: 'renderLevel'
         }, {
             text: '用户',
-            dataIndex: 'AddUserName'
+            titleAlign: 'center',
+            dataIndex: 'UserName'
         }, {
             text: 'IP',
+            titleAlign: 'center',
             dataIndex: 'IP'
         }, {
             text: '备注',
+            titleAlign: 'center',
             dataIndex: 'Comment',
             flex: 1
         }],
@@ -57,6 +74,13 @@ Ext.define('App.view.core.logs.List', {
             xtype: 'searchform',
 
             items: [{
+                xtype: 'textfield',
+                fieldLabel: '查询',
+                labelWidth: 50,
+                width: 180,
+                name: 'name',
+                emptyText: '标题/内容'
+            }, {
                 xtype: 'combo',
                 fieldLabel: '类型',
                 width: 160,
@@ -120,19 +144,15 @@ Ext.define('App.view.core.logs.List', {
                     '调试'
                 ]]
             }, {
-                xtype: 'textfield',
-                fieldLabel: '关键词',
-                labelWidth: 50,
-                width: 200,
-                name: 'keyword',
-                emptyText: '标题/内容',
-                triggers: {
-                    search: {
-                        weight: 1,
-                        cls: Ext.baseCSSPrefix + 'form-search-trigger',
-                        handler: 'onSearchClick'
-                    }
-                }
+                xtype: 'button',
+                text: '查找',
+                margin: '0 0 0 10',
+                handler: 'onSearchClick'
+            }, {
+                xtype: 'button',
+                text: '重置',
+                margin: '0 0 0 10',
+                handler: 'onResetClick'
             }]
         }],
 

@@ -29,21 +29,21 @@ namespace ExtApp.Controller
         /// </summary>
         /// <param name="firstResult"></param>
         /// <param name="fetchSize"></param>
-        /// <param name="keyword"></param>
+        /// <param name="name"></param>
         /// <param name="type"></param>
         /// <param name="source"></param>
         /// <param name="level"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int firstResult, int fetchSize, string keyword = null, int? type = null, int? source = null, int? level = null)
+        public JsonResult List(int firstResult, int fetchSize, string name = null, int? type = null, int? source = null, int? level = null)
         {
             ICriterion query = Restrictions.Eq("Status", 0);
 
             // 关键词
-            if (keyword != null)
+            if (name != null)
             {
-                var query1 = Restrictions.Like("Title", keyword, MatchMode.Anywhere);
-                var query2 = Restrictions.Like("Content", keyword, MatchMode.Anywhere);
+                var query1 = Restrictions.Like("Title", name, MatchMode.Anywhere);
+                var query2 = Restrictions.Like("Content", name, MatchMode.Anywhere);
                 var query3 = Restrictions.Or(query1, query2);
                 query = Restrictions.And(query, query3);
             }

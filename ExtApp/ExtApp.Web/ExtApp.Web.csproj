@@ -167,6 +167,7 @@
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\sys\ConfigSection.js" />
     <Content Include="app\store\sys\Config.js" />
+    <Content Include="app\view\core\logs\View.js" />
     <Content Include="app\view\main\desktop\SettingsController.js" />
     <Content Include="app\view\sys\config\AddSection.js" />
     <Content Include="app\view\sys\config\AddSectionController.js" />

@@ -21,10 +21,22 @@ Ext.define('App.view.core.logs.ListController', {
     onSearchClick: function () { // 搜索
         var view = this.getView();
         var values = view.down('form').getForm().getValues();
-        var store = view.getStore();
+        var store = view.down('gridpanel').getStore();
         store.load({
             params: values
         });
+    },
+
+    onResetClick: function () { // 重置
+        var view = this.getView();
+        view.down('form').getForm().reset();
+    },
+
+    onViewAction: function (grid, rowIndex, colIndex) { // 查看
+        var record = grid.getStore().getAt(rowIndex);
+        var win = Ext.create('App.view.core.logs.View');
+        win.down('form').getForm().loadRecord(record);
+        win.show();
     },
 
     renderType: function (value) { // 渲染类型

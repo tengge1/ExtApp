@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using ExtApp.Model;
 using NHibernate.Criterion;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ExtApp.DAL
 {
@@ -343,6 +345,117 @@ namespace ExtApp.DAL
                 criteria.Add(i);
             }
             return criteria.List<T>().Count();
+        }
+
+        /// <summary>
+        /// 获取一棵树（模型需要有ID、PID、Name字段）
+        /// </summary>
+        /// <param name="query">查询条件</param>
+        /// <param name="rootId">树根id</param>
+        /// <param name="rootName">树根名称</param>
+        /// <param name="idProperty">生成树节点id属性名称</param>
+        /// <param name="nameProperty">生成树name节点名称</param>
+        /// <returns></returns>
+        public virtual JObject Tree(IList<ICriterion> query, int rootId = 0, string rootName = "root", string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
+        {
+            // 获取数据
+            var session = NHibernateHelper.GetCurrentSession();
+            var criteria = session.CreateCriteria<T>();
+            foreach (var i in query)
+            {
+                criteria.Add(i);
+            }
+            var data = criteria.List<T>();
+
+            try
+            {
+                // 将data转换为JArray
+                JArray list = list = JsonConvert.DeserializeObject<JArray>(JsonConvert.SerializeObject(data));
+
+                // 构建一棵树
+                var tree = NewTree(rootId, rootName, idProperty, nameProperty, childrenProperty);
+                if (HasChildren(tree, ref list))
+                {
+                    tree["leaf"] = false;
+                }
+                else
+                {
+                    tree["leaf"] = true;
+                }
+                BuildTree(ref tree, tree["ID"].Value<string>(), ref list);
+                return tree;
+            }
+            catch (Exception e)
+            {
+                var log = FileLogHelper.GetLogger(this.GetType());
+                log.Error(e.Message, e);
+                return NewTree(rootId, rootName, idProperty, nameProperty, childrenProperty);
+            }
+        }
+
+        /// <summary>
+        /// 生成一棵新树
+        /// </summary>
+        /// <param name="rootId"></param>
+        /// <param name="rootName"></param>
+        /// <param name="idProperty"></param>
+        /// <param name="nameProperty"></param>
+        /// <param name="childrenProperty"></param>
+        /// <returns></returns>
+        private JObject NewTree(int rootId, string rootName, string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
+        {
+            var tree = new JObject();
+            tree[idProperty] = rootId;
+            tree[nameProperty] = rootName;
+            tree[childrenProperty] = new JArray();
+            return tree;
+        }
+
+        /// <summary>
+        /// 判断是否有根节点
+        /// </summary>
+        /// <param name="node">节点</param>
+        /// <param name="list">数据列表</param>
+        /// <returns></returns>
+        private bool HasChildren(JObject node, ref JArray list)
+        {
+            var ID = node["ID"].Value<string>();
+            var count = list.Where(o => o["PID"].Value<string>() == ID).Count();
+            if (count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 使用递归创建一棵树
+        /// </summary>
+        /// <param name="pNode">父节点</param>
+        /// <param name="nodeId">父节点Id</param>
+        /// <param name="list">数据列表</param>
+        /// <param name="idProperty"></param>
+        /// <param name="nameProperty"></param>
+        /// <param name="childrenProperty"></param>
+        private void BuildTree(ref JObject pNode, string nodeId, ref JArray list, string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
+        {
+            var list1 = list.Where(o => o["PID"].ToString() == nodeId).ToList();
+            foreach (var i in list1)
+            {
+                var node1 = new JObject();
+                node1[idProperty] = i["ID"].Value<int>();
+                node1[nameProperty] = i["Name"].Value<string>();
+                if (HasChildren(node1, ref list))
+                {
+                    node1["leaf"] = false;
+                }
+                else
+                {
+                    node1["leaf"] = true;
+                }
+                BuildTree(ref node1, i["ID"].ToString(), ref list);
+                (pNode[childrenProperty] as JArray).Add(node1);
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ExtApp.DAL;
 using ExtApp.Model;
 using NHibernate.Criterion;
+using Newtonsoft.Json.Linq;
 
 namespace ExtApp.BLL
 {
@@ -190,6 +191,20 @@ namespace ExtApp.BLL
         public virtual int Count(IList<ICriterion> query)
         {
             return dal.Count(query);
+        }
+
+        /// <summary>
+        /// 获取一棵树（模型需要有ID、PID、Name字段）
+        /// </summary>
+        /// <param name="query">查询条件</param>
+        /// <param name="rootId">树根id</param>
+        /// <param name="rootName">树根名称</param>
+        /// <param name="idProperty">生成树节点id属性名称</param>
+        /// <param name="nameProperty">生成树name节点名称</param>
+        /// <returns></returns>
+        public virtual JObject Tree(IList<ICriterion> query, int rootId = 0, string rootName = "root", string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
+        {
+            return dal.Tree(query, rootId, rootName, idProperty, nameProperty, childrenProperty);
         }
     }
 }

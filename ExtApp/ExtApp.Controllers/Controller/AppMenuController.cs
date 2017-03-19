@@ -25,7 +25,7 @@ namespace ExtApp.Controller
         public JsonResult List()
         {
             ISession session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from AppMenu order by PID,Layer");
+            IQuery query = session.CreateQuery("from Menu order by PID,Layer");
             var list = query.List<Menu>();
             return Json(list);
         }
@@ -44,7 +44,7 @@ namespace ExtApp.Controller
             string PCode = "";
             if (appMenu.PID > 0) // 不是顶级菜单
             {
-                IQuery query1 = session.CreateQuery("from AppMenu where ID=:pid");
+                IQuery query1 = session.CreateQuery("from Menu where ID=:pid");
                 query1.SetParameter("pid", appMenu.PID);
                 Menu appMenu1 = query1.UniqueResult<Menu>();
                 if (appMenu1 != null)
@@ -55,7 +55,7 @@ namespace ExtApp.Controller
 
             // 为当前结点生成Code
             string Code = "";
-            IQuery query = session.CreateQuery("from AppMenu where PID=:pid");
+            IQuery query = session.CreateQuery("from Menu where PID=:pid");
             query.SetParameter("pid", appMenu.PID);
             IList<Menu> list = query.List<Menu>();
             for (var i = 1; i <= 999; i++)

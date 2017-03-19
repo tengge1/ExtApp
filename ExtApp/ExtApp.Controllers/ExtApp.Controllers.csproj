@@ -51,8 +51,8 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
@@ -103,14 +103,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AppMenuController.cs" />
+    <Compile Include="Controller\MenuController.cs" />
     <Compile Include="Controller\ConfigController.cs" />
     <Compile Include="Controller\ConfigSectionController.cs" />
     <Compile Include="Personnel\DeptController.cs" />
     <Compile Include="Controller\DicController.cs" />
     <Compile Include="Controller\DicItemController.cs" />
     <Compile Include="Controller\LogController.cs" />
-    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Authority\LoginController.cs" />
     <Compile Include="Controller\RoleController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +136,9 @@
       <Project>{a712414b-a079-44a0-8489-cdc5eed7b0eb}</Project>
       <Name>ExtApp.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

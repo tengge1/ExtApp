@@ -1,5 +1,10 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
+  <!-- 登录 -->
+  <object type="ExtApp.Controller.LoginController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="LoginBLL" />
+  </object>
+
   <object type="ExtApp.Controller.DeptController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="DeptBLL" />
   </object>

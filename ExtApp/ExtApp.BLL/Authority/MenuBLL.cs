@@ -11,7 +11,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 菜单BLL
     /// </summary>
-    public class MenuBLL
+    public class MenuBLL : BaseBLL<Menu>
     {
 
     }

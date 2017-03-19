@@ -51,7 +51,7 @@ namespace ExtApp
             {
                 return new LoginResult
                 {
-                    Code = 200,
+                    Code = 300,
                     Msg = "用户名或密码错误！"
                 };
             }

@@ -111,6 +111,7 @@
     <Compile Include="Core\DicBLL.cs" />
     <Compile Include="Core\DicItemBLL.cs" />
     <Compile Include="Core\LogBLL.cs" />
+    <Compile Include="Authority\LoginBLL.cs" />
     <Compile Include="Personnel\DeptBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

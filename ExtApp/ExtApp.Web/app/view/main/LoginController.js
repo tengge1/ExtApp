@@ -35,22 +35,15 @@ Ext.define('App.view.main.LoginController', {
             centered: true
         });
         mask.show();
-        Ext.Ajax.request({
-            url: '/api/Login/Login?username=' + values.username + '&password=' + values.password,
-            method: 'POST',
-            success: function (response, opts) {
-                var obj = Ext.JSON.decode(response.responseText);
-                if (obj.Code == 200) {
-                    var config = Ext.create('util.config');
-                    config.setState('login');
-                    window.location.reload();
-                } else {
-                    Ext.Msg.alert('消息', obj.Msg);
-                }
-            },
-            failure: function (response, opts) {
+        App.post('/api/Login/Login', values, function (r) {
+            var obj = JSON.parse(r);
+            if (obj.Code == 200) {
+                var config = Ext.create('util.config');
+                config.setState('login');
+                window.location.reload();
+            } else {
                 mask.hide();
-                Ext.Msg.alert('错误', response.statusText);
+                App.alert('消息', obj.Msg);
             }
         });
     },

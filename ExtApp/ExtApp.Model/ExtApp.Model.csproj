@@ -84,6 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authority\View\ChangePwdModel.cs" />
+    <Compile Include="Authority\View\LoginModel.cs" />
     <Compile Include="Sort.cs" />
     <Compile Include="Result\DataResult.cs" />
     <Compile Include="Personnel\View\DeptEditModel.cs" />

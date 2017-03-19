@@ -13,3 +13,27 @@
 2017-03-18 21:00:30,069 [9]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-19 07:45:52,080 [8]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-19 07:47:06,893 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 09:34:24,477 [6]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.LoginBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 09:34:24,495 [6]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object LoginBLL
+2017-03-19 09:34:24,496 [6]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.LoginController#0
+2017-03-19 09:34:29,976 [6]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.LoginBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 09:34:29,977 [6]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object LoginBLL
+2017-03-19 09:34:29,977 [6]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.LoginController#0
+2017-03-19 09:35:56,473 [8]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 09:37:37,639 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 09:38:31,026 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 09:51:05,820 [24]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

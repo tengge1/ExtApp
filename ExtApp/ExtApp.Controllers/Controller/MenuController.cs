@@ -9,14 +9,20 @@ using System.Web.Http;
 using System.Web.Http.Results;
 
 using ExtApp.Model;
+using ExtApp.BLL;
 
 namespace ExtApp.Controller
 {
     /// <summary>
-    /// 系统菜单控制器
+    /// 菜单控制器
     /// </summary>
-    public class AppMenuController : ApiBase
+    public class MenuController : ApiBase
     {
+        /// <summary>
+        /// bll
+        /// </summary>
+        private MenuBLL bll;
+
         /// <summary>
         /// 获取列表
         /// </summary>
@@ -24,9 +30,7 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult List()
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from Menu order by PID,Layer");
-            var list = query.List<Menu>();
+            var list = bll.List("Sort", Sort.Asc);
             return Json(list);
         }
 

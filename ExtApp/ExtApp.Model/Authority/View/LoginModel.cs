@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtApp.Model;
-
-namespace ExtApp.DAL
+namespace ExtApp.Model
 {
     /// <summary>
-    /// 菜单DAL
+    /// 登录模型
     /// </summary>
-    public class MenuDAL : BaseDAL<Menu>
+    public class LoginModel
     {
-
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -95,7 +95,7 @@ namespace ExtApp.Model
         /// 添加时间
         /// </summary>
         [Property(13)]
-        public virtual DateTime AddTime { get; set; }
+        public virtual DateTime? AddTime { get; set; }
 
         /// <summary>
         /// 排序

@@ -155,17 +155,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\App.js" />
-    <Content Include="app\model\authority\MenuTree.js" />
     <Content Include="app\model\sys\DicItem.js" />
     <Content Include="app\model\sys\Dic.js" />
     <Content Include="app\model\sys\ConfigSection.js" />
     <Content Include="app\model\sys\Config.js" />
     <Content Include="app\model\personnel\Dept.js" />
     <Content Include="app\model\sys\LogginSession.js" />
-    <Content Include="app\model\sys\Log.js" />
+    <Content Include="app\model\core\Log.js" />
     <Content Include="app\model\sys\Role.js" />
     <Content Include="app\plugin\ProgressBarPager.js" />
-    <Content Include="app\store\authority\MenuTree.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\sys\ConfigSection.js" />
     <Content Include="app\store\sys\Config.js" />
@@ -186,7 +184,7 @@
     <Content Include="app\plugin\TabCloseMenu.js" />
     <Content Include="app\store\personnel\Dept.js" />
     <Content Include="app\store\sys\DicItem.js" />
-    <Content Include="app\store\sys\Log.js" />
+    <Content Include="app\store\core\Log.js" />
     <Content Include="app\store\sys\Dic.js" />
     <Content Include="app\store\sys\Role.js" />
     <Content Include="app\util\Style.js" />
@@ -205,7 +203,7 @@
     <Content Include="app\view\sys\dic\AddController.js" />
     <Content Include="app\view\sys\dic\List.js" />
     <Content Include="app\view\sys\dic\ListController.js" />
-    <Content Include="app\view\main\accordion\AppMenuController.js" />
+    <Content Include="app\view\main\accordion\MenuController.js" />
     <Content Include="app\view\sys\appMenu\Edit.js" />
     <Content Include="app\view\sys\appMenu\Add.js" />
     <Content Include="app\view\sys\appMenu\EditController.js" />
@@ -222,8 +220,8 @@
     <Content Include="app\view\sys\appMenu\List.js" />
     <Content Include="app\view\sys\appMenu\ListController.js" />
     <Content Include="app\view\main\ChangePwdController.js" />
-    <Content Include="app\view\sys\logs\List.js" />
-    <Content Include="app\view\sys\logs\ListController.js" />
+    <Content Include="app\view\core\logs\List.js" />
+    <Content Include="app\view\core\logs\ListController.js" />
     <Content Include="app\view\sys\role\Edit.js" />
     <Content Include="app\view\sys\role\EditController.js" />
     <Content Include="app\view\sys\role\List.js" />
@@ -231,12 +229,12 @@
     <Content Include="app\view\sys\user\AddController.js" />
     <Content Include="app\view\sys\user\EditController.js" />
     <Content Include="app\view\sys\user\ListController.js" />
-    <Content Include="app\model\sys\AppMenu.js" />
+    <Content Include="app\model\authority\Menu.js" />
     <Content Include="app\model\sys\User.js" />
-    <Content Include="app\store\sys\AppMenu.js" />
+    <Content Include="app\store\authority\Menu.js" />
     <Content Include="app\store\sys\User.js" />
     <Content Include="app\util\Theme.js" />
-    <Content Include="app\view\main\accordion\AppMenu.js" />
+    <Content Include="app\view\main\accordion\Menu.js" />
     <Content Include="app\view\main\accordion\Index.js" />
     <Content Include="app\view\main\Login.js" />
     <Content Include="app\view\sys\user\Add.js" />

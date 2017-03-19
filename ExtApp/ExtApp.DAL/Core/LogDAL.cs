@@ -11,7 +11,7 @@ namespace ExtApp.DAL
     /// <summary>
     /// 日志DAL
     /// </summary>
-    public class LogDAL
+    public class LogDAL : BaseDAL<Log>
     {
 
     }

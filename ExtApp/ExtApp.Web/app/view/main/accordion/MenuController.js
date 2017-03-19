@@ -2,13 +2,13 @@
 * 菜单视图控制器
 */
 
-Ext.define('App.view.main.accordion.AppMenuController', {
+Ext.define('App.view.main.accordion.MenuController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.appmenu',
+    alias: 'controller.menu',
 
     init: function () { // 初始化菜单
         // 获取数据
-        var store = Ext.create('App.store.sys.AppMenu');
+        var store = Ext.create('App.store.authority.Menu');
         var view = this.getView();
         store.load({
             callback: function (records, operation, success) {
@@ -64,7 +64,7 @@ Ext.define('App.view.main.accordion.AppMenuController', {
         if (node.childNodes.length > 0) {
             return;
         }
-        var store = Ext.create('App.store.sys.AppMenu');
+        var store = Ext.create('App.store.authority.Menu');
         store.load({
             callback: function (records, operation, success) {
                 var data = store.getData();

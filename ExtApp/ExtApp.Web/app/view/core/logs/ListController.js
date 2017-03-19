@@ -1,13 +1,12 @@
-﻿/**
-* 日志控制器
-*/
+﻿
+// ------- 日志控制器 -------
 
-Ext.define('App.view.sys.logs.ListController', {
+Ext.define('App.view.core.logs.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.loglist',
 
     requires: [
-        'App.store.sys.Log'
+        'App.store.core.Log'
     ],
 
     init: function () {

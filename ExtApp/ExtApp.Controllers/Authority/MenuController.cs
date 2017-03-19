@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
+using NHibernate.Criterion;
 
 using ExtApp.Model;
 using ExtApp.BLL;
@@ -22,6 +23,16 @@ namespace ExtApp.Controller
         /// bll
         /// </summary>
         private MenuBLL bll;
+
+        /// <summary>
+        /// 树形结构
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult Tree()
+        {
+            var obj = bll.Tree(Restrictions.Eq("Status", 1));
+            return base.Tree(obj);
+        }
 
         /// <summary>
         /// 获取列表

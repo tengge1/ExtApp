@@ -103,13 +103,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\MenuController.cs" />
+    <Compile Include="Authority\MenuController.cs" />
     <Compile Include="Controller\ConfigController.cs" />
     <Compile Include="Controller\ConfigSectionController.cs" />
     <Compile Include="Personnel\DeptController.cs" />
     <Compile Include="Controller\DicController.cs" />
     <Compile Include="Controller\DicItemController.cs" />
-    <Compile Include="Controller\LogController.cs" />
+    <Compile Include="Core\LogController.cs" />
     <Compile Include="Authority\LoginController.cs" />
     <Compile Include="Controller\RoleController.cs" />
     <Compile Include="Controller\UserController.cs" />
@@ -137,9 +137,7 @@
       <Name>ExtApp.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

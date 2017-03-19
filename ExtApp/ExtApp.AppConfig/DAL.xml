@@ -1,7 +1,15 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
+  <!-- 菜单 -->
+  <object id="MenuDAL" type="ExtApp.DAL.MenuDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 日志 -->
+  <object id="LogDAL" type="ExtApp.DAL.LogDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 机构 -->
   <object id="DeptDAL" type="ExtApp.DAL.DeptDAL, ExtApp.DAL">
   </object>
 
 </objects>
-

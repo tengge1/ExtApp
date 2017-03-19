@@ -11,7 +11,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 日志BLL
     /// </summary>
-    public class LogDAL
+    public class LogBLL : BaseBLL<Log>
     {
 
     }

@@ -1,9 +1,9 @@
 ﻿/**
-* 菜单树模型
+* 菜单模型
 */
 
-Ext.define('App.model.authority.MenuTree', {
-    extend: 'Ext.data.TreeModel',
+Ext.define('App.model.authority.Menu', {
+    extend: 'Ext.data.Model',
 
     fields: [
         'ID',

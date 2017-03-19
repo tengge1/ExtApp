@@ -1,16 +1,16 @@
 ﻿/**
-* 系统菜单视图
+* 菜单视图
 */
 
-Ext.define('App.view.main.accordion.AppMenu', {
+Ext.define('App.view.main.accordion.Menu', {
     extend: 'Ext.container.Container',
-    alias: 'widget.appmenu',
+    alias: 'widget.menu',
 
     requires: [
-        'App.view.main.accordion.AppMenuController'
+        'App.view.main.accordion.MenuController'
     ],
 
-    controller: 'appmenu',
+    controller: 'menu',
 
     layout: 'accordion',
     title: '系统菜单',

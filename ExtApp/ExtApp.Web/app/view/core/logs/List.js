@@ -1,13 +1,12 @@
-﻿/**
-* 日志列表
-*/
+﻿
+// ---------- 日志列表 -------------
 
-Ext.define('App.view.sys.logs.List', {
+Ext.define('App.view.core.logs.List', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.loglist',
 
     requires: [
-        'App.view.sys.logs.ListController'
+        'App.view.core.logs.ListController'
     ],
 
     controller: 'loglist',
@@ -19,10 +18,8 @@ Ext.define('App.view.sys.logs.List', {
         xtype: 'rownumberer',
         width: 40
     }, {
-        xtype: 'datecolumn',
         text: '时间',
         dataIndex: 'AddTime',
-        format: 'Y-m-d H:i:s',
         width: 150
     }, {
         text: '标题',
@@ -42,13 +39,13 @@ Ext.define('App.view.sys.logs.List', {
         renderer: 'renderLevel'
     }, {
         text: '用户',
-        dataIndex: 'AddUser'
+        dataIndex: 'AddUserName'
     }, {
         text: 'IP',
         dataIndex: 'IP'
     }, {
         text: '备注',
-        dataIndex: 'Memo',
+        dataIndex: 'Comment',
         flex: 1
     }],
 

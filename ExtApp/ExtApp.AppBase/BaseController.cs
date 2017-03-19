@@ -7,6 +7,7 @@ using System.Web.Http;
 
 using Newtonsoft.Json;
 using ExtApp.Model;
+using Newtonsoft.Json.Linq;
 
 namespace ExtApp
 {
@@ -77,18 +78,33 @@ namespace ExtApp
         /// <summary>
         /// 返回一个列表消息
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="total"></param>
         /// <param name="items"></param>
         /// <returns></returns>
-        public JsonResult List<T>(int total, IList<T> items)
+        public JsonResult List(int total, List<object> items)
         {
-            var result = new ListResult<T>
+            var result = new ListResult
             {
-                Code = 100,
+                Code = 200,
                 Msg = "获取成功",
                 Total = total,
                 Items = items
+            };
+            return Json(result);
+        }
+
+        /// <summary>
+        /// 返回一棵树
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public JsonResult Tree(JObject obj)
+        {
+            var result = new DataResult
+            {
+                Code = 200,
+                Msg = "获取成功",
+                Data = obj
             };
             return Json(result);
         }

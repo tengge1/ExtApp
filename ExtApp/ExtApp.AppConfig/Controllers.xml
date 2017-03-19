@@ -5,6 +5,17 @@
     <property name="bll" ref="LoginBLL" />
   </object>
 
+  <!-- 菜单 -->
+  <object type="ExtApp.Controller.MenuController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="MenuBLL" />
+  </object>
+
+  <!-- 日志 -->
+  <object type="ExtApp.Controller.LogController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="LogBLL" />
+  </object>
+
+  <!-- 机构 -->
   <object type="ExtApp.Controller.DeptController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="DeptBLL" />
   </object>

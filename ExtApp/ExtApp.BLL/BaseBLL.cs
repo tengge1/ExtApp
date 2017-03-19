@@ -20,7 +20,7 @@ namespace ExtApp.BLL
         /// <summary>
         /// 数据层
         /// </summary>
-        private BaseDAL<T> dal;
+        protected BaseDAL<T> dal;
 
         /// <summary>
         /// 根据ID获取
@@ -60,7 +60,7 @@ namespace ExtApp.BLL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(List<ICriterion> query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             return dal.List(query, sortProperty, sort);
         }
@@ -124,7 +124,7 @@ namespace ExtApp.BLL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, List<ICriterion> query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             return dal.List(firstResult, fetchSize, query, sortProperty, sort);
         }
@@ -139,7 +139,7 @@ namespace ExtApp.BLL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, List<ICriterion> query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             return dal.List(firstResult, fetchSize, query, out total, sortProperty, sort);
         }
@@ -188,7 +188,7 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public virtual int Count(IList<ICriterion> query)
+        public virtual int Count(IList<SimpleExpression> query)
         {
             return dal.Count(query);
         }
@@ -202,7 +202,7 @@ namespace ExtApp.BLL
         /// <param name="idProperty">生成树节点id属性名称</param>
         /// <param name="nameProperty">生成树name节点名称</param>
         /// <returns></returns>
-        public virtual JObject Tree(IList<ICriterion> query, int rootId = 0, string rootName = "root", string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
+        public virtual JObject Tree(SimpleExpression query, int rootId = 0, string rootName = "root", string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
         {
             return dal.Tree(query, rootId, rootName, idProperty, nameProperty, childrenProperty);
         }

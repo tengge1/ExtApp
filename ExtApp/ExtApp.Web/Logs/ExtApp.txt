@@ -37,3 +37,104 @@ Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the spec
 2017-03-19 09:37:37,639 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-19 09:38:31,026 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-19 09:51:05,820 [24]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 14:49:14,486 [6]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 14:53:38,354 [13]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 15:02:16,097 [24]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 15:10:18,679 [25]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:10:18,708 [25]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:10:18,710 [25]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:22:29,792 [17]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:22:29,793 [17]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:22:29,794 [17]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:22:31,129 [13]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:22:31,130 [13]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:22:31,131 [13]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:22:32,031 [6]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:22:32,032 [6]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:22:32,033 [6]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:25:31,666 [5]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:25:31,695 [5]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:25:31,699 [5]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:25:34,238 [13]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:25:34,239 [13]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:25:34,241 [13]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:25:35,061 [5]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:25:35,063 [5]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:25:35,063 [5]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:25:35,390 [18]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:25:35,391 [18]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:25:35,392 [18]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:25:35,694 [13]ERROR Spring.Objects.ObjectWrapper - Failed setting property 'dal'
+Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the specified context [ExtApp.BLL.MenuBLL].
+   在 Spring.Expressions.PropertyOrFieldNode.InitializeNode(Object context) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 146
+   在 Spring.Expressions.PropertyOrFieldNode.Set(Object context, EvaluationContext evalContext, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\PropertyOrFieldNode.cs:行号 256
+   在 Spring.Expressions.BaseNode.SetValue(Object context, Object newValue) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Expressions\BaseNode.cs:行号 206
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(IExpression propertyExpression, Object val) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 265
+   在 Spring.Objects.ObjectWrapper.SetPropertyValue(PropertyValue pv) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 281
+   在 Spring.Objects.ObjectWrapper.SetPropertyValues(IPropertyValues propertyValues, Boolean ignoreUnknown) 位置 c:\_prj\spring-net\src\Spring\Spring.Core\Objects\ObjectWrapper.cs:行号 340
+2017-03-19 15:25:35,695 [13]ERROR Spring.Objects.Factory.Support.WebObjectFactory -    GetObjectInternal: error obtaining object MenuBLL
+2017-03-19 15:25:35,696 [13]ERROR Spring.Objects.Factory.Support.WebObjectFactory - GetObjectInternal: error obtaining object ExtApp.Controller.MenuController#0
+2017-03-19 15:50:46,837 [6]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 15:56:50,175 [13]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 17:53:44,880 [91]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 17:54:51,587 [93]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 17:57:10,304 [93]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 17:59:43,042 [93]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 18:02:53,379 [85]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-19 18:05:54,461 [93]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

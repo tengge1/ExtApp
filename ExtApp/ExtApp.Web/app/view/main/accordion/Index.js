@@ -8,7 +8,7 @@ Ext.define('App.view.main.accordion.Index', {
 
     requires: [
         'App.view.main.accordion.IndexController',
-        'App.view.main.accordion.AppMenu',
+        'App.view.main.accordion.Menu',
         'App.plugin.TabCloseMenu'
     ],
 
@@ -124,7 +124,7 @@ Ext.define('App.view.main.accordion.Index', {
         title: '系统菜单',
         layout: 'fit',
         items: [{
-            xtype: 'appmenu'
+            xtype: 'menu'
         }]
     }, {
         region: 'south',

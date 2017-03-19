@@ -1,11 +1,21 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
   <!-- 登录 -->
-  <object id="LoginBLL" type="ExtApp.BLL.LoginBLL, ExtApp.BLL" singleton="false">
+  <object id="LoginBLL" type="ExtApp.BLL.LoginBLL, ExtApp.BLL">
+  </object>
+
+  <!-- 菜单 -->
+  <object id="MenuBLL" type="ExtApp.BLL.MenuBLL, ExtApp.BLL">
+    <property name="dal" ref="MenuDAL" />
+  </object>
+
+  <!-- 日志 -->
+  <object id="LogBLL" type="ExtApp.BLL.LogBLL, ExtApp.BLL">
+    <property name="dal" ref="LogDAL" />
   </object>
 
   <!-- 组织机构 -->
-  <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL" singleton="false">
+  <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL">
     <property name="dal" ref="DeptDAL" />
   </object>
 

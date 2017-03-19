@@ -28,7 +28,7 @@ namespace ExtApp.DAL
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            criteria.Add(Expression.Eq(idProperty, ID));
+            criteria.Add(Restrictions.Eq(idProperty, ID));
             return criteria.UniqueResult<T>();
         }
 
@@ -71,14 +71,11 @@ namespace ExtApp.DAL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(List<ICriterion> query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            foreach (var i in query) // 查询条件
-            {
-                criteria.Add(i);
-            }
+            criteria.Add(query); // 查询条件
             if (sort == Sort.Asc) // 正序
             {
                 criteria.AddOrder(Order.Asc(sortProperty));
@@ -101,7 +98,7 @@ namespace ExtApp.DAL
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
             criteria.SetFirstResult(firstResult);
-            criteria.SetFetchSize(fetchSize);
+            criteria.SetMaxResults(fetchSize);
             return criteria.List<T>();
         }
 
@@ -123,7 +120,7 @@ namespace ExtApp.DAL
             // 分页
             criteria = session.CreateCriteria<T>();
             criteria.SetFirstResult(firstResult);
-            criteria.SetFetchSize(fetchSize);
+            criteria.SetMaxResults(fetchSize);
             return criteria.List<T>();
         }
 
@@ -148,7 +145,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetFetchSize(fetchSize);
+            criteria.SetMaxResults(fetchSize);
             return criteria.List<T>();
         }
 
@@ -180,7 +177,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetFetchSize(fetchSize);
+            criteria.SetMaxResults(fetchSize);
             return criteria.List<T>();
         }
 
@@ -193,14 +190,11 @@ namespace ExtApp.DAL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, List<ICriterion> query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            foreach (var i in query) // 查询条件
-            {
-                criteria.Add(i);
-            }
+            criteria.Add(query);
             if (sort == Sort.Asc) // 正序
             {
                 criteria.AddOrder(Order.Asc(sortProperty));
@@ -210,7 +204,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetFetchSize(fetchSize);
+            criteria.SetMaxResults(fetchSize);
             return criteria.List<T>();
         }
 
@@ -224,7 +218,7 @@ namespace ExtApp.DAL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, List<ICriterion> query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
 
@@ -234,10 +228,7 @@ namespace ExtApp.DAL
 
             // 分页
             criteria = session.CreateCriteria<T>();
-            foreach (var i in query) // 查询条件
-            {
-                criteria.Add(i);
-            }
+            criteria.Add(query); // 查询条件
             if (sort == Sort.Asc) // 正序
             {
                 criteria.AddOrder(Order.Asc(sortProperty));
@@ -247,7 +238,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetFetchSize(fetchSize);
+            criteria.SetMaxResults(fetchSize);
             return criteria.List<T>();
         }
 
@@ -302,7 +293,7 @@ namespace ExtApp.DAL
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            criteria.Add(Expression.Eq("ID", ID));
+            criteria.Add(Restrictions.Eq("ID", ID));
             var model = criteria.UniqueResult<T>();
             if (model != null)
             {
@@ -336,7 +327,7 @@ namespace ExtApp.DAL
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public virtual int Count(IList<ICriterion> query)
+        public virtual int Count(IList<SimpleExpression> query)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
@@ -356,15 +347,12 @@ namespace ExtApp.DAL
         /// <param name="idProperty">生成树节点id属性名称</param>
         /// <param name="nameProperty">生成树name节点名称</param>
         /// <returns></returns>
-        public virtual JObject Tree(IList<ICriterion> query, int rootId = 0, string rootName = "root", string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
+        public virtual JObject Tree(ICriterion query, int rootId = 0, string rootName = "root", string idProperty = "id", string nameProperty = "text", string childrenProperty = "children")
         {
             // 获取数据
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            foreach (var i in query)
-            {
-                criteria.Add(i);
-            }
+            criteria.Add(query);
             var data = criteria.List<T>();
 
             try

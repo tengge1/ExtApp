@@ -49,25 +49,61 @@ namespace ExtApp.Controller
             }
 
             // 类型
-            if (type != null)
+            if (type == 0) // 系统事件
             {
-                var query1 = Restrictions.Eq("Type", type);
+                var query1 = Restrictions.Eq("Type", LogType.System);
+                query = Restrictions.And(query, query1);
+            }
+            else if (type == 1) // 用户事件
+            {
+                var query1 = Restrictions.Eq("Type", LogType.User);
                 query = Restrictions.And(query, query1);
             }
 
             // 来源
-            if (source != null)
+            if (source == 0) // Web系统
             {
-                var query1 = Restrictions.Eq("Source", source);
+                var query1 = Restrictions.Eq("Source", LogSource.WebApp);
+                query = Restrictions.And(query, query1);
+            }
+            else if (source == 1) // 移动应用
+            {
+                var query1 = Restrictions.Eq("Source", LogSource.MobileApp);
+                query = Restrictions.And(query, query1);
+            }
+            else if (source == 2) // 桌面客户端
+            {
+                var query1 = Restrictions.Eq("Source", LogSource.DesktopApp);
                 query = Restrictions.And(query, query1);
             }
 
             // 等级
-            if (level != null)
+            if (level == 0) // 崩溃
             {
-                var query1 = Restrictions.Eq("Level", level);
+                var query1 = Restrictions.Eq("Level", LogLevel.Fatal);
                 query = Restrictions.And(query, query1);
             }
+            else if (level == 1) // 错误
+            {
+                var query1 = Restrictions.Eq("Level", LogLevel.Error);
+                query = Restrictions.And(query, query1);
+            }
+            else if (level == 2) // 警告
+            {
+                var query1 = Restrictions.Eq("Level", LogLevel.Warn);
+                query = Restrictions.And(query, query1);
+            }
+            else if (level == 3) // 消息
+            {
+                var query1 = Restrictions.Eq("Level", LogLevel.Info);
+                query = Restrictions.And(query, query1);
+            }
+            else if (level == 4) // 调试
+            {
+                var query1 = Restrictions.Eq("Level", LogLevel.Debug);
+                query = Restrictions.And(query, query1);
+            }
+
             var total = 0;
             var list = bll.List(firstResult, fetchSize, query, out total);
 

@@ -12,10 +12,10 @@ Ext.define('App.view.core.logs.ListController', {
     init: function () {
         var view = this.getView();
         var store = Ext.create('store.loglist');
-        view.setStore(store);
+        view.down('gridpanel').setStore(store);
         view.down('pagingtoolbar').setStore(store);
         store.reload();
-        this.getView().down('pagingtoolbar').moveFirst();
+        view.down('pagingtoolbar').moveFirst();
     },
 
     onSearchClick: function () { // 搜索

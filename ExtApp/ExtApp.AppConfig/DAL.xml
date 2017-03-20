@@ -8,6 +8,10 @@
   <object id="LogDAL" type="ExtApp.DAL.LogDAL, ExtApp.DAL">
   </object>
 
+  <!-- 用户 -->
+  <object id="UserDAL" type="ExtApp.DAL.UserDAL, ExtApp.DAL">
+  </object>
+
   <!-- 机构 -->
   <object id="DeptDAL" type="ExtApp.DAL.DeptDAL, ExtApp.DAL">
   </object>

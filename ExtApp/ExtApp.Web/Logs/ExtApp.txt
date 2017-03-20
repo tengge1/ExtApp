@@ -148,3 +148,218 @@ Spring.Core.InvalidPropertyException: 'dal' node cannot be resolved for the spec
 2017-03-20 07:47:50,984 [27]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-20 07:52:38,208 [38]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-20 07:53:45,710 [45]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 21:32:11,968 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 21:48:46,885 [30]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 21:48:49,805 [30]ERROR ExtApp.DAL.DeptDAL - Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeDictionary(JsonWriter writer, IDictionary values, JsonDictionaryContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 362
+2017-03-20 21:53:25,639 [30]ERROR ExtApp.DAL.DeptDAL - Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeDictionary(JsonWriter writer, IDictionary values, JsonDictionaryContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 362
+2017-03-20 21:58:32,473 [18]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 21:58:35,758 [17]ERROR ExtApp.DAL.DeptDAL - Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeDictionary(JsonWriter writer, IDictionary values, JsonDictionaryContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 362
+2017-03-20 21:58:37,506 [14]ERROR ExtApp.DAL.DeptDAL - Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeDictionary(JsonWriter writer, IDictionary values, JsonDictionaryContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 362
+2017-03-20 21:58:38,639 [17]ERROR ExtApp.DAL.DeptDAL - Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeDictionary(JsonWriter writer, IDictionary values, JsonDictionaryContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 362
+2017-03-20 22:00:06,853 [17]ERROR ExtApp.DAL.DeptDAL - Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected with type 'ExtApp.Model.Dept'. Path '[0].AddUser.__interceptor.Session.persistenceContext['context.entitiesByKey']'.
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeDictionary(JsonWriter writer, IDictionary values, JsonDictionaryContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeISerializable(JsonWriter writer, ISerializable value, JsonISerializableContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   在 Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 362
+2017-03-20 22:01:16,843 [24]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 22:01:22,904 [24]ERROR ExtApp.DAL.DeptDAL - 值不能为 null。
+参数名: value
+System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.Linq.Extensions.Value[T,U](IEnumerable`1 value)
+   在 Newtonsoft.Json.Linq.Extensions.Value[U](IEnumerable`1 value)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 411
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:02:43,200 [24]ERROR ExtApp.DAL.DeptDAL - 值不能为 null。
+参数名: value
+System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.Linq.Extensions.Value[T,U](IEnumerable`1 value)
+   在 Newtonsoft.Json.Linq.Extensions.Value[U](IEnumerable`1 value)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 411
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:03:54,521 [17]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 22:04:00,403 [17]ERROR ExtApp.DAL.DeptDAL - 值不能为 null。
+参数名: value
+System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.Linq.Extensions.Value[T,U](IEnumerable`1 value)
+   在 Newtonsoft.Json.Linq.Extensions.Value[U](IEnumerable`1 value)
+   在 ExtApp.DAL.BaseDAL`1.<>c__DisplayClass17_0.<HasChildren>b__0(JToken o) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:06:08,059 [17]ERROR ExtApp.DAL.DeptDAL - 值不能为 null。
+参数名: value
+System.ArgumentNullException: 值不能为 null。
+参数名: value
+   在 Newtonsoft.Json.Linq.Extensions.Value[T,U](IEnumerable`1 value)
+   在 Newtonsoft.Json.Linq.Extensions.Value[U](IEnumerable`1 value)
+   在 ExtApp.DAL.BaseDAL`1.<>c__DisplayClass17_0.<HasChildren>b__0(JToken o) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:06:59,174 [24]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 22:07:05,361 [24]ERROR ExtApp.DAL.DeptDAL - Cannot access child value on Newtonsoft.Json.Linq.JValue.
+System.InvalidOperationException: Cannot access child value on Newtonsoft.Json.Linq.JValue.
+   在 Newtonsoft.Json.Linq.JToken.get_Item(Object key)
+   在 ExtApp.DAL.BaseDAL`1.<>c__DisplayClass17_0.<HasChildren>b__0(JToken o) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:09:45,510 [17]ERROR ExtApp.DAL.DeptDAL - Cannot access child value on Newtonsoft.Json.Linq.JValue.
+System.InvalidOperationException: Cannot access child value on Newtonsoft.Json.Linq.JValue.
+   在 Newtonsoft.Json.Linq.JToken.get_Item(Object key)
+   在 ExtApp.DAL.BaseDAL`1.<>c__DisplayClass17_0.<HasChildren>b__0(JToken o) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:10:55,718 [17]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 22:11:02,131 [17]ERROR ExtApp.DAL.DeptDAL - Error reading JToken from JsonReader. Path '', line 0, position 0.
+Newtonsoft.Json.JsonReaderException: Error reading JToken from JsonReader. Path '', line 0, position 0.
+   在 Newtonsoft.Json.Linq.JToken.ReadFrom(JsonReader reader, JsonLoadSettings settings)
+   在 Newtonsoft.Json.Linq.JToken.Parse(String json, JsonLoadSettings settings)
+   在 Newtonsoft.Json.Linq.JToken.Parse(String json)
+   在 ExtApp.DAL.BaseDAL`1.<>c__DisplayClass17_0.<HasChildren>b__0(JToken o) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:15:30,138 [5]ERROR ExtApp.DAL.DeptDAL - Error reading JToken from JsonReader. Path '', line 0, position 0.
+Newtonsoft.Json.JsonReaderException: Error reading JToken from JsonReader. Path '', line 0, position 0.
+   在 Newtonsoft.Json.Linq.JToken.ReadFrom(JsonReader reader, JsonLoadSettings settings)
+   在 Newtonsoft.Json.Linq.JToken.Parse(String json, JsonLoadSettings settings)
+   在 Newtonsoft.Json.Linq.JToken.Parse(String json)
+   在 ExtApp.DAL.BaseDAL`1.<>c__DisplayClass17_0.<HasChildren>b__0(JToken o) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   在 System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   在 ExtApp.DAL.BaseDAL`1.HasChildren(JObject node, JArray& list) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 412
+   在 ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) 位置 D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 366
+2017-03-20 22:21:36,913 [21]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-20 22:30:16,786 [40]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

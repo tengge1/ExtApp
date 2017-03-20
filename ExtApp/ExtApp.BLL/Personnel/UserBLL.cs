@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 using ExtApp.Model;
 
-namespace ExtApp.DAL
+namespace ExtApp.BLL
 {
     /// <summary>
-    /// 用户DAL
+    /// 用户BLL
     /// </summary>
-    public class UserDAL : BaseDAL<User>
+    public class UserBLL : BaseBLL<User>
     {
 
     }

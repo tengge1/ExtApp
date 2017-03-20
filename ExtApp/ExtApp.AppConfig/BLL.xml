@@ -14,6 +14,11 @@
     <property name="dal" ref="LogDAL" />
   </object>
 
+  <!-- 用户 -->
+  <object id="UserBLL" type="ExtApp.BLL.UserBLL, ExtApp.BLL">
+    <property name="dal" ref="UserDAL" />
+  </object>
+
   <!-- 组织机构 -->
   <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL">
     <property name="dal" ref="DeptDAL" />

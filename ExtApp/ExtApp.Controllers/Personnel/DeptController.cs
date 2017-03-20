@@ -10,6 +10,7 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 using ExtApp.BLL;
+using NHibernate.Criterion;
 
 namespace ExtApp.Controller
 {
@@ -51,6 +52,18 @@ namespace ExtApp.Controller
             }).ToList();
 
             return Json(list);
+        }
+
+        /// <summary>
+        /// 获取树
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult Tree()
+        {
+            var query = Restrictions.Gt("Status", -1);
+            var obj = bll.Tree(query);
+            return base.Tree(obj);
         }
 
         /// <summary>

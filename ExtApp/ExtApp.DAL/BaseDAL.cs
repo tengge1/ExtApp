@@ -359,7 +359,7 @@ namespace ExtApp.DAL
             try
             {
                 // 将data转换为JArray
-                JArray list = list = JsonConvert.DeserializeObject<JArray>(JsonConvert.SerializeObject(data));
+                JArray list = JsonHelper.ToObject<JArray>(JsonHelper.ToJson(data));
 
                 // 构建一棵树
                 var tree = NewTree(rootId, rootName, idProperty, nameProperty, childrenProperty);
@@ -408,8 +408,8 @@ namespace ExtApp.DAL
         /// <returns></returns>
         private bool HasChildren(JObject node, ref JArray list)
         {
-            var ID = node["ID"].Value<string>();
-            var count = list.Where(o => o["PID"].Value<string>() == ID).Count();
+            var ID = node["id"].Value<int>();
+            var count = list.Where(o => o["PDept"] != null && JToken.Parse(o["PDept"].ToString())["ID"].Value<int>() == ID).Count();
             if (count > 0)
             {
                 return true;

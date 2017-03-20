@@ -13,10 +13,10 @@ Ext.define('App.store.sys.User', {
         type: 'ajax',
         url: '/api/User/List',
         reader: 'json',
-        startParam: 'pageNum',
-        limitParam: 'pageSize',
+        startParam: 'firstResult',
+        limitParam: 'fetchSize',
         extraParams: {
-            keyword: ''
+            name: ''
         }
     }
 });

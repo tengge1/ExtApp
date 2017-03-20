@@ -18,7 +18,8 @@ namespace ExtApp
         /// </summary>
         private static JsonSerializerSettings setting = new JsonSerializerSettings
         {
-            DateFormatString = "yyyy-MM-dd HH:mm:ss"
+            DateFormatString = "yyyy-MM-dd HH:mm:ss",
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
         };
 
         /// <summary>

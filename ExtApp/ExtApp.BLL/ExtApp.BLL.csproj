@@ -113,6 +113,7 @@
     <Compile Include="Core\LogBLL.cs" />
     <Compile Include="Authority\LoginBLL.cs" />
     <Compile Include="Personnel\DeptBLL.cs" />
+    <Compile Include="Personnel\UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

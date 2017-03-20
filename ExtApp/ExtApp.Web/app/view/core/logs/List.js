@@ -145,7 +145,7 @@ Ext.define('App.view.core.logs.List', {
                 ]]
             }, {
                 xtype: 'button',
-                text: '查找',
+                text: '搜索',
                 margin: '0 0 0 10',
                 handler: 'onSearchClick'
             }, {

@@ -11,7 +11,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 机构角色菜单BLL
     /// </summary>
-    public class DeptRoleMenuBLL
+    public class DeptRoleMenuBLL : BaseBLL<DeptRoleMenu>
     {
 
     }

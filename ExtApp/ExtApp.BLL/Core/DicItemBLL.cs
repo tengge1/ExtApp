@@ -11,7 +11,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 字典项BLL
     /// </summary>
-    public class DicItemBLL
+    public class DicItemBLL : BaseBLL<DicItem>
     {
 
     }

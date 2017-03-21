@@ -1,5 +1,9 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
+  <!-- 机构角色菜单 -->
+  <object id="DeptRoleMenuBLL" type="ExtApp.BLL.DeptRoleMenuBLL, ExtApp.BLL">
+  </object>
+
   <!-- 登录 -->
   <object id="LoginBLL" type="ExtApp.BLL.LoginBLL, ExtApp.BLL">
   </object>
@@ -9,24 +13,44 @@
     <property name="dal" ref="MenuDAL" />
   </object>
 
-  <!-- 日志 -->
-  <object id="LogBLL" type="ExtApp.BLL.LogBLL, ExtApp.BLL">
-    <property name="dal" ref="LogDAL" />
-  </object>
-
-  <!-- 用户 -->
-  <object id="UserBLL" type="ExtApp.BLL.UserBLL, ExtApp.BLL">
-    <property name="dal" ref="UserDAL" />
-  </object>
-
   <!-- 角色 -->
   <object id="RoleBLL" type="ExtApp.BLL.RoleBLL, ExtApp.BLL">
     <property name="dal" ref="RoleDAL" />
   </object>
 
+  <!-- 配置 -->
+  <object id="ConfigBLL" type="ExtApp.BLL.ConfigBLL, ExtApp.BLL">
+    <property name="dal" ref="ConfigDAL" />
+  </object>
+
+  <!-- 配置节点 -->
+  <object id="ConfigSectionBLL" type="ExtApp.BLL.ConfigSectionBLL, ExtApp.BLL">
+    <property name="dal" ref="ConfigSectionDAL" />
+  </object>
+
+  <!-- 字典 -->
+  <object id="DicBLL" type="ExtApp.BLL.DicBLL, ExtApp.BLL">
+    <property name="dal" ref="DicDAL" />
+  </object>
+
+  <!-- 字典项 -->
+  <object id="DicItemBLL" type="ExtApp.BLL.DicItemBLL, ExtApp.BLL">
+    <property name="dal" ref="DicItemDAL" />
+  </object>
+
+  <!-- 日志 -->
+  <object id="LogBLL" type="ExtApp.BLL.LogBLL, ExtApp.BLL">
+    <property name="dal" ref="LogDAL" />
+  </object>
+
   <!-- 组织机构 -->
   <object id="DeptBLL" type="ExtApp.BLL.DeptBLL, ExtApp.BLL">
     <property name="dal" ref="DeptDAL" />
+  </object>
+
+  <!-- 用户 -->
+  <object id="UserBLL" type="ExtApp.BLL.UserBLL, ExtApp.BLL">
+    <property name="dal" ref="UserDAL" />
   </object>
 
 </objects>

@@ -11,7 +11,7 @@ namespace ExtApp.DAL
     /// <summary>
     /// 配置节点DAL
     /// </summary>
-    public class ConfigSectionDAL
+    public class ConfigSectionDAL : BaseDAL<ConfigSection>
     {
 
     }

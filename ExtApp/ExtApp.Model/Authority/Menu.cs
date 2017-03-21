@@ -20,16 +20,16 @@ namespace ExtApp.Model
         public virtual int ID { get; set; }
 
         /// <summary>
-        /// 编码
-        /// </summary>
-        [Property(1, NotNull = true)]
-        public virtual string Code { get; set; }
-
-        /// <summary>
         /// 父节点编码
         /// </summary>
-        [Property(2, NotNull = true)]
+        [Property(1, NotNull = true)]
         public virtual int PID { get; set; }
+
+        /// <summary>
+        /// 编码
+        /// </summary>
+        [Property(2, NotNull = true)]
+        public virtual string Code { get; set; }
 
         /// <summary>
         /// 名称
@@ -65,13 +65,13 @@ namespace ExtApp.Model
         /// 排序
         /// </summary>
         [Property(7)]
-        public virtual int Sort { get; set; }
+        public virtual int? Sort { get; set; }
 
         /// <summary>
-        /// 状态（1-启用，0-禁用，-1-删除）
+        /// 状态（1-启用，0-禁用）
         /// </summary>
         [Property(8)]
-        public virtual int Status { get; set; }
+        public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注

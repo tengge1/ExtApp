@@ -59,19 +59,19 @@ namespace ExtApp.Model
         /// 添加时间
         /// </summary>
         [Property(7)]
-        public virtual DateTime AddTime { get; set; }
+        public virtual DateTime? AddTime { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
         [Property(8)]
-        public virtual int Sort { get; set; }
+        public virtual int? Sort { get; set; }
 
         /// <summary>
-        /// 状态（1-启用，0-禁用，-1-删除）
+        /// 状态（1-启用，0-禁用）
         /// </summary>
         [Property(9)]
-        public virtual int Status { get; set; }
+        public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注

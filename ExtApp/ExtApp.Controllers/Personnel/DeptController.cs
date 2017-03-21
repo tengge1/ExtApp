@@ -45,7 +45,7 @@ namespace ExtApp.Controller
                 HeadName = o.Head == null ? "" : o.Head.Name,
                 AddUserID = o.AddUser == null ? 0 : o.AddUser.ID,
                 AddUserName = o.AddUser == null ? "" : o.AddUser.Name,
-                AddTime = o.AddTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                AddTime = o.AddTime == null ? "" : o.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                 Sort = o.Sort,
                 Status = o.Status,
                 Comment = o.Comment

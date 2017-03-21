@@ -38,10 +38,10 @@ namespace ExtApp.Model
         public virtual Menu Menu { get; set; }
 
         /// <summary>
-        /// 状态
+        /// 状态（1-启用，0-禁用）
         /// </summary>
         [Property(4)]
-        public virtual int Status { get; set; }
+        public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注

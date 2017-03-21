@@ -41,13 +41,13 @@ namespace ExtApp.Model
         /// 排序
         /// </summary>
         [Property(4)]
-        public virtual int Sort { get; set; }
+        public virtual int? Sort { get; set; }
 
         /// <summary>
-        /// 状态（1-启用，0-禁用，-1-删除）
+        /// 状态（1-启用，0-禁用）
         /// </summary>
         [Property(5)]
-        public virtual int Status { get; set; }
+        public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注

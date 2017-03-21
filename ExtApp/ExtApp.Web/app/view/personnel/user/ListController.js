@@ -10,19 +10,19 @@ Ext.define('App.view.personnel.user.ListController', {
     init: function () { // 页面初始化
         var view = this.getView();
         var store = Ext.create('store.userlist');
-        view.setStore(store);
+        view.down('gridpanel').setStore(store);
         view.down('pagingtoolbar').setStore(store);
         store.reload();
-        this.getView().down('pagingtoolbar').moveFirst();
+        view.down('pagingtoolbar').moveFirst();
     },
 
     renderSex: function (value) { // 渲染性别
-        if (value == 0) {
+        if (value == 1) {
             return '男'
-        } else if (value == 1) {
+        } else if (value == 2) {
             return '女';
         } else {
-            return value;
+            return '';
         }
     },
 

@@ -38,10 +38,10 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 性别（0-未设置，1-男，2-女）
+        /// 性别（1-男，2-女）
         /// </summary>
         [Property(4)]
-        public virtual int Sex { get; set; }
+        public virtual int? Sex { get; set; }
 
         /// <summary>
         /// 机构
@@ -101,13 +101,13 @@ namespace ExtApp.Model
         /// 排序
         /// </summary>
         [Property(14)]
-        public virtual int Sort { get; set; }
+        public virtual int? Sort { get; set; }
 
         /// <summary>
-        /// 状态（1-启用，0-禁用，-1-删除）
+        /// 状态（1-启用，0-禁用）
         /// </summary>
         [Property(15)]
-        public virtual int Status { get; set; }
+        public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注

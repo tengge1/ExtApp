@@ -34,7 +34,7 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult List(int firstResult, int maxResults, string name = null)
         {
-            ICriterion query = Restrictions.Eq("Status", 0);
+            ICriterion query = Restrictions.Gt("Status", -1);
 
             // 关键词
             if (name != null)
@@ -54,10 +54,17 @@ namespace ExtApp.Controller
                 Username = o.Username,
                 Name = o.Name,
                 Sex = o.Sex,
-                RoleID = o.Role == null ? 0 : o.Role.ID,
-                RoleName = o.Role == null ? "" : o.Role.Name,
                 DeptID = o.Dept == null ? 0 : o.Dept.ID,
                 DeptName = o.Dept == null ? "" : o.Dept.Name,
+                RoleID = o.Role == null ? 0 : o.Role.ID,
+                RoleName = o.Role == null ? "" : o.Role.Name,
+                Duty = o.Duty,
+                Phone = o.Phone,
+                Email = o.Email,
+                Birthday = o.Birthday == null ? "" : o.Birthday.Value.ToString("yyyy-MM-dd"),
+                Address = o.Address,
+                FaceUrl = o.FaceUrl,
+                AddTime = o.AddTime,
                 Sort = o.Sort,
                 Status = o.Status,
                 Comment = o.Comment

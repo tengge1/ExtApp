@@ -11,11 +11,12 @@ Ext.define('App.store.personnel.User', {
     proxy: {
         type: 'ajax',
         url: '/api/User/List',
-        reader: 'json',
+        reader: {
+            type: 'json',
+            totalProperty: 'Total',
+            rootProperty: 'Items'
+        },
         startParam: 'firstResult',
-        limitParam: 'maxResults',
-        extraParams: {
-            name: ''
-        }
+        limitParam: 'maxResults'
     }
 });

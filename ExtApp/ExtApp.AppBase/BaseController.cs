@@ -81,9 +81,9 @@ namespace ExtApp
         /// <param name="total"></param>
         /// <param name="items"></param>
         /// <returns></returns>
-        public JsonResult List(int total, List<object> items)
+        public JsonResult List<T>(int total, IList<T> items)
         {
-            var result = new ListResult
+            var result = new ListResult<T>
             {
                 Code = 200,
                 Msg = "获取成功",

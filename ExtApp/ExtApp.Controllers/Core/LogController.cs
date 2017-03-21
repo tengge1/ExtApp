@@ -28,14 +28,14 @@ namespace ExtApp.Controller
         /// 获取列表
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
         /// <param name="source"></param>
         /// <param name="level"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int firstResult, int fetchSize, string name = null, int? type = null, int? source = null, int? level = null)
+        public JsonResult List(int firstResult, int maxResults, string name = null, int? type = null, int? source = null, int? level = null)
         {
             ICriterion query = Restrictions.Eq("Status", 0);
 
@@ -105,7 +105,7 @@ namespace ExtApp.Controller
             }
 
             var total = 0;
-            var list = bll.List(firstResult, fetchSize, query, out total);
+            var list = bll.List(firstResult, maxResults, query, out total);
 
             return base.List(total, list.Select(o => new
             {

@@ -1,13 +1,12 @@
-﻿/**
-* 角色仓库
-*/
+﻿
+// ---------- 角色Store ------------
 
-Ext.define('App.store.sys.Role', {
+Ext.define('App.store.authority.Role', {
     extend: 'Ext.data.Store',
     alias: 'store.rolelist',
     storeId: 'rolelist',
 
-    model: 'App.model.sys.Role',
+    model: 'App.model.authority.Role',
 
     proxy: {
         type: 'ajax',
@@ -17,7 +16,7 @@ Ext.define('App.store.sys.Role', {
             totalProperty: 'Total',
             rootProperty: 'Items'
         },
-        pageParam: 'pageNum',
-        limitParam: 'pageSize'
+        startParam: 'firstResult',
+        limitParam: 'maxResults'
     }
 });

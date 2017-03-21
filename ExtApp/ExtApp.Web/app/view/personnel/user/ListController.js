@@ -1,13 +1,10 @@
-﻿/**
-* 用户管理控制器
-*/
-
-Ext.define('App.view.sys.user.ListController', {
+﻿
+Ext.define('App.view.personnel.user.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.userlist',
 
     requires: [
-        'App.store.sys.User'
+        'App.store.personnel.User'
     ],
 
     init: function () { // 页面初始化

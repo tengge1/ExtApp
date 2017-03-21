@@ -17,7 +17,7 @@ Ext.define('App.store.core.Log', {
             rootProperty: 'Items'
         },
         startParam: 'firstResult',
-        limitParam: 'fetchSize'
+        limitParam: 'maxResults'
     },
 
     autoSync: true,

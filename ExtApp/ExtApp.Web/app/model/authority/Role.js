@@ -1,16 +1,15 @@
-﻿/**
-* 角色模型
-*/
+﻿
+// --------- 角色模型 -------------
 
-Ext.define('App.model.sys.Role', {
+Ext.define('App.model.authority.Role', {
     extend: 'Ext.data.Model',
 
     fields: [
         'ID',
         'Code',
         'Name',
-        'Layer',
+        'Sort',
         'Status',
-        'Memo'
+        'Comment'
     ]
 });

@@ -1,14 +1,13 @@
-﻿/**
-* 角色列表控制器
-*/
+﻿
+// --------- 角色控制器 --------------
 
-Ext.define('App.view.sys.role.ListController', {
+Ext.define('App.view.authority.role.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.rolelist',
 
     requires: [
-        'App.store.sys.Role',
-        'App.view.sys.role.Edit'
+        'App.store.authority.Role',
+        'App.view.authority.role.Edit'
     ],
 
     init: function () {

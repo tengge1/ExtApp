@@ -1,8 +1,7 @@
-﻿/**
-* 用户管理控制器
-*/
+﻿
+// -------- 用户编辑控制器 -------
 
-Ext.define('App.view.sys.user.EditController', {
+Ext.define('App.view.personnel.user.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.useredit',
 

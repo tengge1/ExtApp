@@ -91,14 +91,14 @@ namespace ExtApp.DAL
         /// 获取列表（分页）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize)
+        public virtual IList<T> List(int firstResult, int maxResults)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
             criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(fetchSize);
+            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 
@@ -106,10 +106,10 @@ namespace ExtApp.DAL
         /// 获取列表（分页和总数）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="total"></param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, out int total)
+        public virtual IList<T> List(int firstResult, int maxResults, out int total)
         {
             var session = NHibernateHelper.GetCurrentSession();
 
@@ -120,7 +120,7 @@ namespace ExtApp.DAL
             // 分页
             criteria = session.CreateCriteria<T>();
             criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(fetchSize);
+            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 
@@ -128,11 +128,11 @@ namespace ExtApp.DAL
         /// 获取列表（带分页和排序）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
@@ -145,7 +145,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(fetchSize);
+            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 
@@ -153,12 +153,12 @@ namespace ExtApp.DAL
         /// 获取列表（带分页、排序和总数）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="total">总数</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
 
@@ -177,7 +177,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(fetchSize);
+            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 
@@ -185,12 +185,12 @@ namespace ExtApp.DAL
         /// 获取列表（带分页、查询条件和排序）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="query">查询条件</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
@@ -204,7 +204,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(fetchSize);
+            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 
@@ -212,13 +212,13 @@ namespace ExtApp.DAL
         /// 获取列表（带分页、查询条件、排序和总数）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="query">查询条件</param>
         /// <param name="total">总数</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
 
@@ -238,7 +238,7 @@ namespace ExtApp.DAL
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
             criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(fetchSize);
+            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 

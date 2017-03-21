@@ -1,8 +1,7 @@
-﻿/**
-* 用户模型
-*/
+﻿
+// ---------- 用户模型 ------------
 
-Ext.define('App.model.sys.User', {
+Ext.define('App.model.personnel.User', {
     extend: 'Ext.data.Model',
 
     fields: [

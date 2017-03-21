@@ -1,13 +1,10 @@
-﻿/**
-* 用户列表
-*/
-
-Ext.define("App.view.sys.user.List", {
+﻿
+Ext.define("App.view.personnel.user.List", {
     extend: 'Ext.grid.Panel',
     alias: 'widget.userlist',
 
     requires: [
-        'App.view.sys.user.ListController',
+        'App.view.personnel.user.ListController',
         'App.plugin.ProgressBarPager'
     ],
 

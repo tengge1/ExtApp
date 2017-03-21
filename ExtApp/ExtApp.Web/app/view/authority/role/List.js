@@ -1,13 +1,12 @@
-﻿/**
-* 角色列表
-*/
+﻿
+// ---------- 角色列表 ------------
 
-Ext.define('App.view.sys.role.List', {
+Ext.define('App.view.authority.role.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.rolelist',
 
     requires: [
-        'App.view.sys.role.ListController',
+        'App.view.authority.role.ListController',
         'App.plugin.ProgressBarPager',
         'App.widget.SearchForm'
     ],

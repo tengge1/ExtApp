@@ -363,3 +363,6 @@ Newtonsoft.Json.JsonReaderException: Error reading JToken from JsonReader. Path 
    ÔÚ ExtApp.DAL.BaseDAL`1.Tree(ICriterion query, Int32 rootId, String rootName, String idProperty, String nameProperty, String childrenProperty) Î»ÖÃ D:\github\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:ÐÐºÅ 366
 2017-03-20 22:21:36,913 [21]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-20 22:30:16,786 [40]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-21 22:13:16,855 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-21 22:15:06,283 [13]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-21 22:17:14,983 [15]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

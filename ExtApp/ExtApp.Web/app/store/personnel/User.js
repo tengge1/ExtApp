@@ -1,20 +1,19 @@
-﻿/**
-* 用户仓库
-*/
+﻿
+// ------- 用户Store -------
 
-Ext.define('App.store.sys.User', {
+Ext.define('App.store.personnel.User', {
     extend: 'Ext.data.Store',
     alias: 'store.userlist',
     storeId: 'userlist',
 
-    model: 'App.model.sys.User',
+    model: 'App.model.personnel.User',
 
     proxy: {
         type: 'ajax',
         url: '/api/User/List',
         reader: 'json',
         startParam: 'firstResult',
-        limitParam: 'fetchSize',
+        limitParam: 'maxResults',
         extraParams: {
             name: ''
         }

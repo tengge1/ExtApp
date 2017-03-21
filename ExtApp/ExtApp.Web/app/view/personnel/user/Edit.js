@@ -1,13 +1,12 @@
-﻿/**
-* 编辑用户
-*/
+﻿
+// -------- 编辑用户 -------
 
-Ext.define('App.view.sys.user.Edit', {
+Ext.define('App.view.personnel.user.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.useredit',
 
     requires: [
-        'App.view.sys.user.EditController'
+        'App.view.personnel.user.EditController'
     ],
 
     controller: 'useredit',

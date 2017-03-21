@@ -20,6 +20,11 @@
     <property name="bll" ref="UserBLL" />
   </object>
 
+  <!-- 角色 -->
+  <object type="ExtApp.Controller.RoleController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="RoleBLL" />
+  </object>
+
   <!-- 机构 -->
   <object type="ExtApp.Controller.DeptController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="DeptBLL" />

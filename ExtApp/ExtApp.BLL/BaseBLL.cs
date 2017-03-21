@@ -69,79 +69,79 @@ namespace ExtApp.BLL
         /// 获取列表（分页）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize)
+        public virtual IList<T> List(int firstResult, int maxResults)
         {
-            return dal.List(firstResult, fetchSize);
+            return dal.List(firstResult, maxResults);
         }
 
         /// <summary>
         /// 获取列表（分页和总数）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="total"></param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, out int total)
+        public virtual IList<T> List(int firstResult, int maxResults, out int total)
         {
-            return dal.List(firstResult, fetchSize, out total);
+            return dal.List(firstResult, maxResults, out total);
         }
 
         /// <summary>
         /// 获取列表（带分页和排序）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
-            return dal.List(firstResult, fetchSize, sortProperty, sort);
+            return dal.List(firstResult, maxResults, sortProperty, sort);
         }
 
         /// <summary>
         /// 获取列表（带分页、排序和总数）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="total">总数</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
-            return dal.List(firstResult, fetchSize, out total, sortProperty, sort);
+            return dal.List(firstResult, maxResults, out total, sortProperty, sort);
         }
 
         /// <summary>
         /// 获取列表（带分页、查询条件和排序）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="query">查询条件</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
-            return dal.List(firstResult, fetchSize, query, sortProperty, sort);
+            return dal.List(firstResult, maxResults, query, sortProperty, sort);
         }
 
         /// <summary>
         /// 获取列表（带分页、查询条件、排序和总数）
         /// </summary>
         /// <param name="firstResult"></param>
-        /// <param name="fetchSize"></param>
+        /// <param name="maxResults"></param>
         /// <param name="query">查询条件</param>
         /// <param name="total">总数</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int fetchSize, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
-            return dal.List(firstResult, fetchSize, query, out total, sortProperty, sort);
+            return dal.List(firstResult, maxResults, query, out total, sortProperty, sort);
         }
 
         /// <summary>

@@ -1,8 +1,7 @@
-﻿/**
-* 编辑角色控制器
-*/
+﻿
+// --------- 编辑角色控制器 ---------
 
-Ext.define('App.view.sys.role.EditController', {
+Ext.define('App.view.authority.role.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.roleedit',
 

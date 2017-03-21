@@ -12,6 +12,10 @@
   <object id="UserDAL" type="ExtApp.DAL.UserDAL, ExtApp.DAL">
   </object>
 
+  <!-- 角色 -->
+  <object id="RoleDAL" type="ExtApp.DAL.RoleDAL, ExtApp.DAL">
+  </object>
+
   <!-- 机构 -->
   <object id="DeptDAL" type="ExtApp.DAL.DeptDAL, ExtApp.DAL">
   </object>

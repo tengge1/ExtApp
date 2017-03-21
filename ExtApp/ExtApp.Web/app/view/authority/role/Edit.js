@@ -1,13 +1,12 @@
-﻿/**
-* 编辑角色
-*/
+﻿
+// --------- 编辑角色 -------------
 
-Ext.define('App.view.sys.role.Edit', {
+Ext.define('App.view.authority.role.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.roleedit',
 
     requires: [
-        'App.view.sys.role.EditController'
+        'App.view.authority.role.EditController'
     ],
 
     controller: 'roleedit',

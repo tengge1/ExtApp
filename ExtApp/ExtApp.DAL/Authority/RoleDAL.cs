@@ -11,7 +11,7 @@ namespace ExtApp.DAL
     /// <summary>
     /// 角色DAL
     /// </summary>
-    public class RoleDAL
+    public class RoleDAL : BaseDAL<Role>
     {
 
     }

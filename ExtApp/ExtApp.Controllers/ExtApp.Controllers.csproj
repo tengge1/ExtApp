@@ -111,7 +111,7 @@
     <Compile Include="Controller\DicItemController.cs" />
     <Compile Include="Core\LogController.cs" />
     <Compile Include="Authority\LoginController.cs" />
-    <Compile Include="Controller\RoleController.cs" />
+    <Compile Include="Authority\RoleController.cs" />
     <Compile Include="Personnel\UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

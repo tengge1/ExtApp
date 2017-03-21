@@ -11,7 +11,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 角色BLL
     /// </summary>
-    public class RoleBLL
+    public class RoleBLL : BaseBLL<Role>
     {
 
     }

@@ -15,14 +15,14 @@ using NHibernate.Criterion;
 namespace ExtApp.Controller
 {
     /// <summary>
-    /// 用户控制器
+    /// 角色控制器
     /// </summary>
-    public class UserController : ApiBase
+    public class RoleController : ApiBase
     {
         /// <summary>
         /// bll
         /// </summary>
-        private UserBLL bll;
+        private RoleBLL bll;
 
         /// <summary>
         /// 获取列表
@@ -30,70 +30,57 @@ namespace ExtApp.Controller
         /// <param name="firstResult"></param>
         /// <param name="maxResults"></param>
         /// <param name="name"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int firstResult, int maxResults, string name = null)
+        public JsonResult List(int firstResult, int maxResults, string name = "", int? status = null)
         {
-            ICriterion query = Restrictions.Eq("Status", 0);
+            ICriterion query = Restrictions.Gt("Status", -1);
 
-            // 关键词
-            if (name != null)
+            // 编码、名称
+            if (!string.IsNullOrEmpty(name))
             {
-                var query1 = Restrictions.Like("Username", name, MatchMode.Anywhere);
+                var query1 = Restrictions.Like("Code", name, MatchMode.Anywhere);
                 var query2 = Restrictions.Like("Name", name, MatchMode.Anywhere);
                 var query3 = Restrictions.Or(query1, query2);
                 query = Restrictions.And(query, query3);
             }
 
+            // 状态
+            if (status != null)
+            {
+                var query1 = Restrictions.Eq("Status", status);
+                query = Restrictions.And(query, query1);
+            }
+
             var total = 0;
             var list = bll.List(firstResult, maxResults, query, out total);
 
-            return base.List(total, list.Select(o => new
-            {
-                ID = o.ID,
-                Username = o.Username,
-                Name = o.Name,
-                Sex = o.Sex,
-                RoleID = o.Role == null ? 0 : o.Role.ID,
-                RoleName = o.Role == null ? "" : o.Role.Name,
-                DeptID = o.Dept == null ? 0 : o.Dept.ID,
-                DeptName = o.Dept == null ? "" : o.Dept.Name,
-                Sort = o.Sort,
-                Status = o.Status,
-                Comment = o.Comment
-            }).ToList<object>());
+            return base.List<Role>(total, list);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="role"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(User user)
+        public JsonResult Add(Role role)
         {
-            bll.Add(user);
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "添加成功！"
-            });
+            bll.Add(role);
+            return base.Success("添加成功");
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="role"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(User user)
+        public JsonResult Edit(Role role)
         {
-            bll.Edit(user);
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "修改成功！"
-            });
+            bll.Edit(role);
+            return base.Success("修改成功");
         }
 
         /// <summary>
@@ -105,11 +92,14 @@ namespace ExtApp.Controller
         public JsonResult Delete(int ID)
         {
             var result = bll.Delete(ID);
-            if (result == true)
+            if (result)
             {
-                return Success("删除成功！");
+                return base.Success("删除成功！");
             }
-            return Success("删除失败！");
+            else
+            {
+                return base.Error("删除失败！");
+            }
         }
     }
 }

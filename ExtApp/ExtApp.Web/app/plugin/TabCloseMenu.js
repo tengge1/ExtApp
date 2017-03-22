@@ -1,4 +1,7 @@
-﻿
+﻿/*
+* 标签页关闭插件
+*/
+
 Ext.define('App.plugin.TabCloseMenu', {
     extend: 'Ext.ux.TabCloseMenu',
     alias: 'plugin.tabclosemenu',

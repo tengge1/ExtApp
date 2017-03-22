@@ -1,4 +1,7 @@
-﻿
+﻿/*
+* 配置类
+*/
+
 Ext.define('App.util.Config', {
     extend: 'Ext.Base',
     alias: 'util.config',

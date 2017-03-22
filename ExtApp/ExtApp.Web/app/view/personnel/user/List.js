@@ -78,7 +78,8 @@ Ext.define("App.view.personnel.user.List", {
         }],
 
         columns: [{
-            xtype: 'rownumberer'
+            xtype: 'rownumberer',
+            width: 40
         }, {
             text: '用户名',
             dataIndex: 'Username'
@@ -88,13 +89,16 @@ Ext.define("App.view.personnel.user.List", {
         }, {
             text: '性别',
             dataIndex: 'Sex',
-            renderer: 'renderSex'
+            renderer: App.renderer.sex
         }, {
             text: '所属机构',
             dataIndex: 'DeptName'
         }, {
             text: '角色',
             dataIndex: 'RoleName'
+        }, {
+            text: '职责',
+            dataIndex: 'Duty'
         }, {
             text: '手机',
             dataIndex: 'Phone'
@@ -103,7 +107,8 @@ Ext.define("App.view.personnel.user.List", {
             dataIndex: 'Sort'
         }, {
             text: '状态',
-            dataIndex: 'Status'
+            dataIndex: 'Status',
+            renderer: App.renderer.status
         }, {
             text: '备注',
             dataIndex: 'Comment'

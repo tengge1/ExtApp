@@ -80,6 +80,11 @@ Ext.apply(App, {
             arr.push(i.data);
         })
         console.log(JSON.stringify(arr));
+    },
+
+    renderer: { // 渲染器
+        status: Ext.create('App.renderer.StatusRenderer').render, // 渲染状态
+        sex: Ext.create('App.renderer.SexRenderer').render // 渲染性别
     }
 });
 

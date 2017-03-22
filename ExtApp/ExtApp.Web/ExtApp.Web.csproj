@@ -163,6 +163,8 @@
     <Content Include="app\model\core\Log.js" />
     <Content Include="app\model\authority\Role.js" />
     <Content Include="app\plugin\ProgressBarPager.js" />
+    <Content Include="app\renderer\SexRenderer.js" />
+    <Content Include="app\renderer\StatusRenderer.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\ConfigSection.js" />
     <Content Include="app\store\core\Config.js" />

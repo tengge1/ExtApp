@@ -16,22 +16,13 @@ Ext.define('App.view.personnel.user.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
-    renderSex: function (value) { // 渲染性别
-        if (value == 1) {
-            return '男'
-        } else if (value == 2) {
-            return '女';
-        } else {
-            return '';
-        }
-    },
-
-    onAddClick: function () { // 点击添加按钮
-        var win = Ext.create('App.view.sys.user.Add');
+    onAddClick: function () { // 添加
+        var win = Ext.create('App.view.personnel.user.Edit');
+        win.setTitle('添加用户');
         win.show();
     },
 
-    onEditClick: function () { // 点击编辑按钮
+    onEditClick: function () { // 编辑
         var selected = this.getView().getSelectionModel().getSelected();
         if (selected.length == 0) {
             Ext.Msg.alert('消息', '请先选择一行！');
@@ -42,7 +33,7 @@ Ext.define('App.view.personnel.user.ListController', {
         win.show();
     },
 
-    onDeleteClick: function () { // 点击删除按钮
+    onDeleteClick: function () { // 删除
         var selected = this.getView().getSelectionModel().getSelected();
         if (selected.length == 0) {
             Ext.Msg.alert('消息', '请先选择一行！');

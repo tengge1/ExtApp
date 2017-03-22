@@ -11,7 +11,7 @@ namespace ExtApp.DAL
     /// <summary>
     /// 字典DAL
     /// </summary>
-    public class DicDAL
+    public class DicDAL : BaseDAL<Dic>
     {
 
     }

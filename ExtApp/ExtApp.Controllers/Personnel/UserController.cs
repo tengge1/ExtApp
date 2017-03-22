@@ -46,7 +46,7 @@ namespace ExtApp.Controller
             }
 
             var total = 0;
-            var list = bll.List(firstResult, maxResults, query, out total);
+            var list = bll.List(firstResult, maxResults, out total, query);
 
             return base.List(total, list.Select(o => new
             {

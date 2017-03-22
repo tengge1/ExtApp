@@ -9,27 +9,33 @@ using System.Web.Http;
 using System.Web.Http.Results;
 
 using ExtApp.Model;
+using ExtApp.BLL;
 
 namespace ExtApp.Controller
 {
     /// <summary>
-    /// 字典项目控制器
+    /// 配置控制器
     /// </summary>
-    public class DicItemController : ApiBase
+    public class ConfigController : ApiBase
     {
+        /// <summary>
+        /// bll
+        /// </summary>
+        private ConfigBLL bll;
+
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="dicID"></param>
+        /// <param name="PID"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int dicID)
+        public JsonResult List(int PID)
         {
             var session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from DicItem where Status=0 and Dict.ID=:dicID order by Layer");
-            query.SetParameter("dicID", dicID);
-            var list = query.List<DicItem>();
-            return Json(new ListResult<DicItem>
+            IQuery query = session.CreateQuery("from Config where Status=0 and Section.ID=:PID order by ID");
+            query.SetParameter("PID", PID);
+            var list = query.List<Config>();
+            return Json(new ListResult<Config>
             {
                 Code = 200,
                 Msg = "获取数据成功！",
@@ -44,7 +50,7 @@ namespace ExtApp.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(DicItem model)
+        public JsonResult Add(Config model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(model);
@@ -61,7 +67,7 @@ namespace ExtApp.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(DicItem model)
+        public JsonResult Edit(Config model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(model);
@@ -82,7 +88,7 @@ namespace ExtApp.Controller
         public JsonResult Delete(int id)
         {
             var session = NHibernateHelper.GetCurrentSession();
-            var model = session.Get<DicItem>(id);
+            var model = session.Get<Config>(id);
             model.Status = -1;
             session.SaveOrUpdate(model);
             session.Flush();

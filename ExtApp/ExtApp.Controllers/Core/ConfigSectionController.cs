@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 
 using ExtApp.Model;
+using ExtApp.BLL;
 
 namespace ExtApp.Controller
 {
@@ -17,6 +18,11 @@ namespace ExtApp.Controller
     /// </summary>
     public class ConfigSectionController : ApiBase
     {
+        /// <summary>
+        /// bll
+        /// </summary>
+        private ConfigSectionBLL bll;
+
         /// <summary>
         /// 获取列表
         /// </summary>

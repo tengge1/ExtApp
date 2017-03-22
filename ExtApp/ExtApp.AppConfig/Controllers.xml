@@ -1,5 +1,10 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
+  <!-- 机构角色菜单 -->
+  <object type="ExtApp.Controller.DeptRoleMenuController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="DeptRoleMenuBLL" />
+  </object>
+
   <!-- 登录 -->
   <object type="ExtApp.Controller.LoginController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="LoginBLL" />
@@ -10,19 +15,34 @@
     <property name="bll" ref="MenuBLL" />
   </object>
 
-  <!-- 日志 -->
-  <object type="ExtApp.Controller.LogController, ExtApp.Controller" singleton="false">
-    <property name="bll" ref="LogBLL" />
-  </object>
-
-  <!-- 用户 -->
-  <object type="ExtApp.Controller.UserController, ExtApp.Controller" singleton="false">
-    <property name="bll" ref="UserBLL" />
-  </object>
-
   <!-- 角色 -->
   <object type="ExtApp.Controller.RoleController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="RoleBLL" />
+  </object>
+
+  <!-- 配置 -->
+  <object type="ExtApp.Controller.ConfigController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="ConfigBLL" />
+  </object>
+
+  <!-- 配置节点 -->
+  <object type="ExtApp.Controller.ConfigSectionController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="ConfigSectionBLL" />
+  </object>
+
+  <!-- 字典 -->
+  <object type="ExtApp.Controller.DicController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="DicBLL" />
+  </object>
+
+  <!-- 字典项 -->
+  <object type="ExtApp.Controller.DicItemController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="DicItemBLL" />
+  </object>
+
+  <!-- 日志 -->
+  <object type="ExtApp.Controller.LogController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="LogBLL" />
   </object>
 
   <!-- 机构 -->
@@ -30,5 +50,9 @@
     <property name="bll" ref="DeptBLL" />
   </object>
 
+  <!-- 用户 -->
+  <object type="ExtApp.Controller.UserController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="UserBLL" />
+  </object>
 </objects>
 

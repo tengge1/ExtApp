@@ -11,7 +11,7 @@ namespace ExtApp.BLL
     /// <summary>
     /// 配置BLL
     /// </summary>
-    public class ConfigBLL
+    public class ConfigBLL : BaseBLL<Config>
     {
 
     }

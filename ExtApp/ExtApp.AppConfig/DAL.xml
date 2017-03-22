@@ -1,23 +1,43 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
+  <!-- 机构角色菜单 -->
+  <object id="DeptRoleMenuDAL" type="ExtApp.DAL.DeptRoleMenuDAL, ExtApp.DAL">
+  </object>
+
   <!-- 菜单 -->
   <object id="MenuDAL" type="ExtApp.DAL.MenuDAL, ExtApp.DAL">
-  </object>
-
-  <!-- 日志 -->
-  <object id="LogDAL" type="ExtApp.DAL.LogDAL, ExtApp.DAL">
-  </object>
-
-  <!-- 用户 -->
-  <object id="UserDAL" type="ExtApp.DAL.UserDAL, ExtApp.DAL">
   </object>
 
   <!-- 角色 -->
   <object id="RoleDAL" type="ExtApp.DAL.RoleDAL, ExtApp.DAL">
   </object>
 
+  <!-- 配置 -->
+  <object id="ConfigDAL" type="ExtApp.DAL.ConfigDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 配置节点 -->
+  <object id="ConfigSectionDAL" type="ExtApp.DAL.ConfigSectionDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 字典 -->
+  <object id="DicDAL" type="ExtApp.DAL.DicDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 字典项 -->
+  <object id="DicItemDAL" type="ExtApp.DAL.DicItemDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 日志 -->
+  <object id="LogDAL" type="ExtApp.DAL.LogDAL, ExtApp.DAL">
+  </object>
+
   <!-- 机构 -->
   <object id="DeptDAL" type="ExtApp.DAL.DeptDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 用户 -->
+  <object id="UserDAL" type="ExtApp.DAL.UserDAL, ExtApp.DAL">
   </object>
 
 </objects>

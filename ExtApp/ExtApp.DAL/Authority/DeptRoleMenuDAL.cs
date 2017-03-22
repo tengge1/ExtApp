@@ -11,7 +11,7 @@ namespace ExtApp.DAL
     /// <summary>
     /// 机构角色菜单DAL
     /// </summary>
-    public class DeptRoleMenuDAL
+    public class DeptRoleMenuDAL : BaseDAL<DeptRoleMenu>
     {
 
     }

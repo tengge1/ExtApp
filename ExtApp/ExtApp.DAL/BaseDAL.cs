@@ -33,49 +33,20 @@ namespace ExtApp.DAL
         }
 
         /// <summary>
-        /// 获取列表
-        /// </summary>
-        /// <returns></returns>
-        public virtual IList<T> List()
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-            var criteria = session.CreateCriteria<T>();
-            return criteria.List<T>();
-        }
-
-        /// <summary>
-        /// 获取列表（带排序）
-        /// </summary>
-        /// <param name="sortProperty">排序字段</param>
-        /// <param name="sort">排序类型</param>
-        /// <returns></returns>
-        public virtual IList<T> List(string sortProperty = "ID", Sort sort = Sort.Desc)
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-            var criteria = session.CreateCriteria<T>();
-            if (sort == Sort.Asc) // 正序
-            {
-                criteria.AddOrder(Order.Asc(sortProperty));
-            }
-            else // 逆序
-            {
-                criteria.AddOrder(Order.Desc(sortProperty));
-            }
-            return criteria.List<T>();
-        }
-
-        /// <summary>
         /// 获取列表（带查询条件和排序）
         /// </summary>
-        /// <param name="query">查询条件</param>
+        /// <param name="query">查询条件（无查询条件可为null）</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            criteria.Add(query); // 查询条件
+            if (query != null)
+            {
+                criteria.Add(query); // 查询条件
+            }
             if (sort == Sort.Asc) // 正序
             {
                 criteria.AddOrder(Order.Asc(sortProperty));
@@ -84,127 +55,6 @@ namespace ExtApp.DAL
             {
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
-            return criteria.List<T>();
-        }
-
-        /// <summary>
-        /// 获取列表（分页）
-        /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults)
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-            var criteria = session.CreateCriteria<T>();
-            criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(maxResults);
-            return criteria.List<T>();
-        }
-
-        /// <summary>
-        /// 获取列表（分页和总数）
-        /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <param name="total"></param>
-        /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults, out int total)
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-
-            // 总数
-            var criteria = session.CreateCriteria<T>();
-            total = criteria.List<T>().Count();
-
-            // 分页
-            criteria = session.CreateCriteria<T>();
-            criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(maxResults);
-            return criteria.List<T>();
-        }
-
-        /// <summary>
-        /// 获取列表（带分页和排序）
-        /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <param name="sortProperty">排序字段</param>
-        /// <param name="sort">排序类型</param>
-        /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults, string sortProperty = "ID", Sort sort = Sort.Desc)
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-            var criteria = session.CreateCriteria<T>();
-            if (sort == Sort.Asc) // 正序
-            {
-                criteria.AddOrder(Order.Asc(sortProperty));
-            }
-            else // 逆序
-            {
-                criteria.AddOrder(Order.Desc(sortProperty));
-            }
-            criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(maxResults);
-            return criteria.List<T>();
-        }
-
-        /// <summary>
-        /// 获取列表（带分页、排序和总数）
-        /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <param name="total">总数</param>
-        /// <param name="sortProperty">排序字段</param>
-        /// <param name="sort">排序类型</param>
-        /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-
-            // 总数
-            var criteria = session.CreateCriteria<T>();
-            total = criteria.List<T>().Count();
-
-            // 分页
-            criteria = session.CreateCriteria<T>();
-            if (sort == Sort.Asc) // 正序
-            {
-                criteria.AddOrder(Order.Asc(sortProperty));
-            }
-            else // 逆序
-            {
-                criteria.AddOrder(Order.Desc(sortProperty));
-            }
-            criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(maxResults);
-            return criteria.List<T>();
-        }
-
-        /// <summary>
-        /// 获取列表（带分页、查询条件和排序）
-        /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <param name="query">查询条件</param>
-        /// <param name="sortProperty">排序字段</param>
-        /// <param name="sort">排序类型</param>
-        /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults, ICriterion query, string sortProperty = "ID", Sort sort = Sort.Desc)
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-            var criteria = session.CreateCriteria<T>();
-            criteria.Add(query);
-            if (sort == Sort.Asc) // 正序
-            {
-                criteria.AddOrder(Order.Asc(sortProperty));
-            }
-            else // 逆序
-            {
-                criteria.AddOrder(Order.Desc(sortProperty));
-            }
-            criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(maxResults);
             return criteria.List<T>();
         }
 
@@ -213,22 +63,29 @@ namespace ExtApp.DAL
         /// </summary>
         /// <param name="firstResult"></param>
         /// <param name="maxResults"></param>
-        /// <param name="query">查询条件</param>
         /// <param name="total">总数</param>
+        /// <param name="query">查询条件（无查询条件可为null）</param>
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults, ICriterion query, out int total, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual IList<T> List(int firstResult, int maxResults, out int total, ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
 
             // 总数
             var criteria = session.CreateCriteria<T>();
+            if (query != null)
+            {
+                criteria.Add(query);
+            }
             total = criteria.List<T>().Count();
 
             // 分页
             criteria = session.CreateCriteria<T>();
-            criteria.Add(query); // 查询条件
+            if (query != null)
+            {
+                criteria.Add(query);
+            }
             if (sort == Sort.Asc) // 正序
             {
                 criteria.AddOrder(Order.Asc(sortProperty));
@@ -313,28 +170,17 @@ namespace ExtApp.DAL
         }
 
         /// <summary>
-        /// 获取总数
-        /// </summary>
-        /// <returns></returns>
-        public virtual int Count()
-        {
-            var session = NHibernateHelper.GetCurrentSession();
-            var criteria = session.CreateCriteria<T>();
-            return criteria.List<T>().Count();
-        }
-
-        /// <summary>
         /// 获取数量（带查询条件）
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public virtual int Count(IList<SimpleExpression> query)
+        public virtual int Count(ICriterion query = null)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            foreach (var i in query)
+            if (query != null)
             {
-                criteria.Add(i);
+                criteria.Add(query);
             }
             return criteria.List<T>().Count();
         }

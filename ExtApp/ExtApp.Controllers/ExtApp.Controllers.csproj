@@ -103,12 +103,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authority\DeptRoleMenuController.cs" />
     <Compile Include="Authority\MenuController.cs" />
-    <Compile Include="Controller\ConfigController.cs" />
-    <Compile Include="Controller\ConfigSectionController.cs" />
+    <Compile Include="Core\ConfigController.cs" />
+    <Compile Include="Core\ConfigSectionController.cs" />
     <Compile Include="Personnel\DeptController.cs" />
-    <Compile Include="Controller\DicController.cs" />
-    <Compile Include="Controller\DicItemController.cs" />
+    <Compile Include="Core\DicController.cs" />
+    <Compile Include="Core\DicItemController.cs" />
     <Compile Include="Core\LogController.cs" />
     <Compile Include="Authority\LoginController.cs" />
     <Compile Include="Authority\RoleController.cs" />

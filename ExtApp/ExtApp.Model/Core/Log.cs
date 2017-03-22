@@ -71,7 +71,7 @@ namespace ExtApp.Model
         /// 状态
         /// </summary>
         [Property(9)]
-        public virtual int Status { get; set; }
+        public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注

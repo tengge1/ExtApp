@@ -1,6 +1,4 @@
 ﻿
-// ----------------- 日志Store -------------------
-
 Ext.define('App.store.core.Log', {
     extend: 'Ext.data.Store',
     alias: 'store.loglist',

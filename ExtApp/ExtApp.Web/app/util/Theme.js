@@ -1,7 +1,4 @@
-﻿/*
-* 主题工具类
-*/
-
+﻿
 Ext.define('App.util.Theme', {
     extend: 'Ext.Base',
 

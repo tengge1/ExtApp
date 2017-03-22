@@ -1,6 +1,4 @@
 ﻿
-// ------------------ 组织机构Store -----------------------
-
 Ext.define('App.store.personnel.Dept', {
     extend: 'Ext.data.Store',
     alias: 'store.deptlist',

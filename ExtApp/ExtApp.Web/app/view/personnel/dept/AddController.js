@@ -1,6 +1,4 @@
 ﻿
-// ---------------- 组织机构添加Controller --------------------
-
 Ext.define('App.view.personnel.dept.AddController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptadd',

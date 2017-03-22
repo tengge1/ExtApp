@@ -1,7 +1,4 @@
-﻿/**
-* 登录视图控制器
-*/
-
+﻿
 Ext.define('App.view.main.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',

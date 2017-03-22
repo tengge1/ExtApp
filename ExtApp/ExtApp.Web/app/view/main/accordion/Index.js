@@ -1,7 +1,4 @@
-﻿/**
-* 折叠面板样式
-*/
-
+﻿
 Ext.define('App.view.main.accordion.Index', {
     extend: 'Ext.container.Container',
     alias: 'widget.index',

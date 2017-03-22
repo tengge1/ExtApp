@@ -1,7 +1,4 @@
-﻿/**
-* 菜单视图
-*/
-
+﻿
 Ext.define('App.view.main.accordion.Menu', {
     extend: 'Ext.container.Container',
     alias: 'widget.menu',

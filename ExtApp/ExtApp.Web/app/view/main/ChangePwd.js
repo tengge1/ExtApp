@@ -1,7 +1,4 @@
-﻿/**
-* 修改密码
-*/
-
+﻿
 Ext.define('App.view.main.ChangePwd', {
     extend: 'Ext.window.Window',
     alias: 'widget.changepwd',

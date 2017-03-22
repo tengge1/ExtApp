@@ -1,7 +1,4 @@
-﻿/**
-* 登录视图
-*/
-
+﻿
 Ext.define('App.view.main.Login', {
     extend: 'Ext.container.Container',
     alias: 'widget.login',

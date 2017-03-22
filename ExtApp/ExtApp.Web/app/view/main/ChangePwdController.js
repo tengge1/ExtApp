@@ -1,7 +1,4 @@
-﻿/**
-* 修改密码控制器
-*/
-
+﻿
 Ext.define('App.view.main.ChangePwdController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.changepwd',

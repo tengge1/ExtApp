@@ -1,6 +1,4 @@
 ﻿
-// -------------- 组织机构管理控制器 ------------------
-
 Ext.define('App.view.personnel.dept.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptlist',

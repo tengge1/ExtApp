@@ -1,6 +1,4 @@
 ﻿
-// ---------- 日志列表 -------------
-
 Ext.define('App.view.core.logs.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.loglist',

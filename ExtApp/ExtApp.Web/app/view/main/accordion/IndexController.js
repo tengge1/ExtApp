@@ -1,7 +1,4 @@
-﻿/**
-* 首页视图控制器
-*/
-
+﻿
 Ext.define('App.view.main.accordion.IndexController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.index',

@@ -1,7 +1,4 @@
-﻿/**
-* 主视图
-*/
-
+﻿
 Ext.define('App.view.Viewport', {
     extend: 'Ext.container.Viewport',
     alias: 'widget.mainviewport',

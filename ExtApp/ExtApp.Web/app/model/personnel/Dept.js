@@ -1,6 +1,4 @@
 ﻿
-// ---------------- 组织机构Model ------------------
-
 Ext.define('App.model.personnel.Dept', {
     extend: 'Ext.data.Model',
 

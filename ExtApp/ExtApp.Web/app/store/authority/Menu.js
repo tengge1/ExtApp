@@ -1,7 +1,4 @@
-﻿/**
-* 菜单Store
-*/
-
+﻿
 Ext.define('App.store.authority.Menu', {
     extend: 'Ext.data.Store',
     alias: 'store.menulist',

@@ -1,7 +1,4 @@
-﻿/*
-* 框架样式工具类
-*/
-
+﻿
 Ext.define('App.util.Style', {
     extend: 'Ext.Base',
 

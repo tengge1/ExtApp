@@ -1,6 +1,4 @@
 ﻿
-// ---------- 日志查看 -------------
-
 Ext.define('App.view.core.logs.View', {
     extend: 'Ext.window.Window',
     alias: 'widget.logview',

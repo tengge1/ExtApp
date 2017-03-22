@@ -1,21 +1,18 @@
-﻿/**
-* 菜单模型
-*/
-
+﻿
 Ext.define('App.model.authority.Menu', {
     extend: 'Ext.data.Model',
 
     fields: [
         'ID',
-        'Name',
-        'Code',
         'PID',
+        'Code',
+        'Name',
         'UrlType',
         'Url',
         'IconType',
         'Icon',
-        'Layer',
+        'Sort',
         'Status',
-        'Memo'
+        'Comment'
     ]
 });

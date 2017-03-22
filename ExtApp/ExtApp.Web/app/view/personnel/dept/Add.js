@@ -1,6 +1,4 @@
 ﻿
-// ---------------- 组织机构添加 ------------------
-
 Ext.define('App.view.personnel.dept.Add', {
     extend: 'Ext.window.Window',
     alias: 'widget.deptadd',

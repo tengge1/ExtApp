@@ -1,6 +1,4 @@
 ﻿
-// ------------------ 组织机构树形Store -----------------------
-
 Ext.define('App.store.personnel.DeptTree', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.depttreelist',

@@ -1,7 +1,4 @@
-﻿/**
-* ExtApp应用程序
-*/
-
+﻿
 // 配置自动加载
 Ext.Loader.setConfig({
     enabled: true,

@@ -1,6 +1,4 @@
 ﻿
-// ------- 日志控制器 -------
-
 Ext.define('App.view.core.logs.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.loglist',

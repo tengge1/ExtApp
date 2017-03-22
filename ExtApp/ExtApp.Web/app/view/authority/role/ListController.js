@@ -1,6 +1,4 @@
 ﻿
-// --------- 角色控制器 --------------
-
 Ext.define('App.view.authority.role.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.rolelist',

@@ -1,6 +1,4 @@
 ﻿
-// -------- 编辑用户 -------
-
 Ext.define('App.view.personnel.user.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.useredit',

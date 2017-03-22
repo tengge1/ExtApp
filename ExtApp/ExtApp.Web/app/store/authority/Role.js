@@ -1,6 +1,4 @@
 ﻿
-// ---------- 角色Store ------------
-
 Ext.define('App.store.authority.Role', {
     extend: 'Ext.data.Store',
     alias: 'store.rolelist',

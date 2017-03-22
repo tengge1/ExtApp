@@ -1,6 +1,4 @@
 ﻿
-// ------------- 组织机构管理 -----------------
-
 Ext.define("App.view.personnel.dept.List", {
     extend: 'Ext.panel.Panel',
     alias: 'widget.deptlist',

@@ -41,7 +41,7 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult List()
         {
-            var list = bll.List("Sort", Sort.Asc);
+            var list = bll.List(null, "Sort", Sort.Asc);
             return Json(list);
         }
 

@@ -3,27 +3,30 @@ Ext.define('App.view.personnel.user.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.useredit',
 
-    onSaveClick: function () { // 点击保存按钮
-        var win = this.getView();
-        var form = win.down('form');
-        var values = form.getValues();
-        Ext.Ajax.request({
-            url: '/api/User/Edit',
-            method: 'POST',
-            params: values,
-            success: function (response, opts) {
-                var data = response.responseText;
-                var obj = Ext.JSON.decode(data);
-                if (obj.Code == 200) { // 添加成功
-                    win.hide();
-                    var store = Ext.ComponentQuery.query('userlist')[0].getStore();
-                    store.load();
-                } else { // 添加失败
-                    Ext.Msg.alert('消息', obj.Msg);
-                }
-            },
-            failure: function (response, opts) {
-                Ext.Msg.alert('消息', response.responseText);
+    reset: function () { // 重置
+        this.getView().down('form').reset();
+    },
+
+    onSaveClick: function () { // 保存
+        var view = this.getView();
+        var values = view.down('form').form.getValues();
+
+        var url = '';
+        if (values.ID == '' || values.ID == 0) {
+            url = '/api/User/Add';
+        } else {
+            url = '/api/User/Edit';
+        }
+
+        App.post(url, values, function (data) {
+            var obj = JSON.parse(data);
+            if (obj.Code == 200) { // 添加成功
+                win.hide();
+                var view = Ext.ComponentQuery.query('userlist')[0];
+                view.down('pagingtoolbar').moveFirst();
+                App.notify('消息', '添加成功！');
+            } else { // 添加失败
+                App.alert('错误', obj.Msg);
             }
         });
     },

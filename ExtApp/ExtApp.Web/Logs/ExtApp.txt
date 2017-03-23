@@ -2,3 +2,4 @@
 2017-03-23 07:34:33,831 [10]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-23 07:43:52,382 [8]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 2017-03-23 07:47:18,532 [8]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-03-23 12:19:30,667 [7]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

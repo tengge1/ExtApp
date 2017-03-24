@@ -9,6 +9,7 @@ Ext.define('App.view.core.logs.View', {
     layout: 'fit',
     width: 500,
     modal: true,
+    maximizable: true,
 
     items: [{
         xtype: 'form',

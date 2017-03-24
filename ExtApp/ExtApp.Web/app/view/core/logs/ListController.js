@@ -37,6 +37,13 @@ Ext.define('App.view.core.logs.ListController', {
         win.show();
     },
 
+    onCellDblClick: function (grid, cell, colIndex, record, row, rowIndex) { // 双击事件
+        var record = grid.getStore().getAt(rowIndex);
+        var win = Ext.create('App.view.core.logs.View');
+        win.down('form').getForm().loadRecord(record);
+        win.show();
+    },
+
     renderType: function (value) { // 渲染类型
         if (value == 0) {
             return '系统事件';

@@ -18,56 +18,6 @@ Ext.define('App.view.core.logs.List', {
         border: false,
         frame: false,
 
-        columns: [{
-            xtype: 'rownumberer',
-            width: 40,
-            titleAlign: 'center'
-        }, {
-            xtype: 'actioncolumn',
-            iconCls: 'Applicationviewdetail',
-            tooltip: '查看',
-            width: 50,
-            titleAlign: 'center',
-            align: 'center',
-            handler: 'onViewAction'
-        }, {
-            text: '时间',
-            dataIndex: 'AddTime',
-            titleAlign: 'center',
-            width: 150
-        }, {
-            text: '标题',
-            dataIndex: 'Title',
-            titleAlign: 'center',
-            width: 220
-        }, {
-            text: '类型',
-            dataIndex: 'Type',
-            titleAlign: 'center',
-            renderer: 'renderType'
-        }, {
-            text: '来源',
-            dataIndex: 'Source',
-            titleAlign: 'center',
-            renderer: 'renderSource'
-        }, {
-            text: '等级',
-            dataIndex: 'Level',
-            renderer: 'renderLevel'
-        }, {
-            text: '用户',
-            titleAlign: 'center',
-            dataIndex: 'UserName'
-        }, {
-            text: 'IP',
-            titleAlign: 'center',
-            dataIndex: 'IP'
-        }, {
-            text: '备注',
-            titleAlign: 'center',
-            dataIndex: 'Comment',
-            flex: 1
-        }],
         tbar: [{
             xtype: 'searchform',
 
@@ -154,11 +104,66 @@ Ext.define('App.view.core.logs.List', {
             }]
         }],
 
+        columns: [{
+            xtype: 'rownumberer',
+            width: 40,
+            titleAlign: 'center'
+        }, {
+            xtype: 'actioncolumn',
+            iconCls: 'Applicationviewdetail',
+            tooltip: '查看',
+            width: 50,
+            titleAlign: 'center',
+            align: 'center',
+            handler: 'onViewAction'
+        }, {
+            text: '时间',
+            dataIndex: 'AddTime',
+            titleAlign: 'center',
+            width: 150
+        }, {
+            text: '标题',
+            dataIndex: 'Title',
+            titleAlign: 'center',
+            width: 220
+        }, {
+            text: '类型',
+            dataIndex: 'Type',
+            titleAlign: 'center',
+            renderer: 'renderType'
+        }, {
+            text: '来源',
+            dataIndex: 'Source',
+            titleAlign: 'center',
+            renderer: 'renderSource'
+        }, {
+            text: '等级',
+            dataIndex: 'Level',
+            renderer: 'renderLevel'
+        }, {
+            text: '用户',
+            titleAlign: 'center',
+            dataIndex: 'UserName'
+        }, {
+            text: 'IP',
+            titleAlign: 'center',
+            dataIndex: 'IP'
+        }, {
+            text: '备注',
+            titleAlign: 'center',
+            dataIndex: 'Comment',
+            flex: 1
+        }],
+
         bbar: {
             xtype: 'pagingtoolbar',
             displayInfo: true,
             pageSize: 25,
             plugins: 'progressbarpager'
-        }
+        },
+
+        listeners: {
+            celldblclick: 'onCellDblClick'
+        },
     }]
 });

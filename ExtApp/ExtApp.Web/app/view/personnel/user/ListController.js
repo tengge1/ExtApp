@@ -16,6 +16,10 @@ Ext.define('App.view.personnel.user.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
+    refresh: function () { // 刷新
+        this.getView().down('pagingtoolbar').moveFirst();
+    },
+
     onAddClick: function () { // 添加
         var win = Ext.create('App.view.personnel.user.Edit');
         win.setTitle('添加用户');

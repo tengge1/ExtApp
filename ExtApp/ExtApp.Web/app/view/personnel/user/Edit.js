@@ -4,6 +4,7 @@ Ext.define('App.view.personnel.user.Edit', {
     alias: 'widget.useredit',
 
     requires: [
+        'App.widget.DeptSelect',
         'App.view.personnel.user.EditController'
     ],
 
@@ -12,7 +13,9 @@ Ext.define('App.view.personnel.user.Edit', {
     title: '编辑用户',
     width: 600,
     height: 340,
+    modal: true,
     layout: 'fit',
+    iconCls: 'User',
 
     items: {
         xtype: 'form',
@@ -32,28 +35,41 @@ Ext.define('App.view.personnel.user.Edit', {
         }, {
             xtype: 'textfield',
             name: 'Username',
-            fieldLabel: '用户名'
+            fieldLabel: '<span style="color:red;">*</span>用户名',
+            allowBlank: false
         }, {
             xtype: 'textfield',
             name: 'Password',
-            fieldLabel: '密码'
+            fieldLabel: '<span style="color:red;">*</span>密码',
+            allowBlank: false
         }, {
             xtype: 'textfield',
             name: 'Name',
-            fieldLabel: '姓名'
+            fieldLabel: '姓名',
+            allowBlank: false
         }, {
             xtype: 'combo',
             name: 'Sex',
             fieldLabel: '性别',
-            store: [[1, '男'], [2, '女']]
+            store: [[1, '男'], [2, '女']],
+            editable: false,
+            emptyText: '请选择'
         }, {
-            xtype: 'combo',
+            xtype: 'deptselect',
             name: 'DeptID',
-            fieldLabel: '机构'
+            fieldLabel: '<span style="color:red;">*</span>机构',
+            allowBlank: false,
+            emptyText: '请选择'
         }, {
             xtype: 'combo',
             name: 'RoleID',
-            fieldLabel: '角色'
+            fieldLabel: '<span style="color:red;">*</span>角色',
+            editable: false,
+            store: Ext.create('App.store.authority.RoleAll'),
+            valueField: 'ID',
+            displayField: 'Name',
+            allowBlank: false,
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'Duty',

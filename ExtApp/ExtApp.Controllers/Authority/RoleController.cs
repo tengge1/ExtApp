@@ -27,6 +27,39 @@ namespace ExtApp.Controller
         /// <summary>
         /// 获取列表
         /// </summary>
+        /// <param name="name"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult List(string name = "", int? status = null)
+        {
+            ICriterion query = Restrictions.Gt("Status", -1);
+
+            // 编码、名称
+            if (!string.IsNullOrEmpty(name))
+            {
+                var query1 = Restrictions.Like("Code", name, MatchMode.Anywhere);
+                var query2 = Restrictions.Like("Name", name, MatchMode.Anywhere);
+                var query3 = Restrictions.Or(query1, query2);
+                query = Restrictions.And(query, query3);
+            }
+
+            // 状态
+            if (status != null)
+            {
+                var query1 = Restrictions.Eq("Status", status);
+                query = Restrictions.And(query, query1);
+            }
+
+            var total = 0;
+            var list = bll.List(query, "ID", Sort.Asc);
+
+            return base.List<Role>(total, list);
+        }
+
+        /// <summary>
+        /// 获取列表
+        /// </summary>
         /// <param name="firstResult"></param>
         /// <param name="maxResults"></param>
         /// <param name="name"></param>

@@ -74,33 +74,63 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(User user)
+        public JsonResult Add(UserEditModel model)
         {
-            bll.Add(user);
-            return Json(new Result
+            var user = new User
             {
-                Code = 200,
-                Msg = "添加成功！"
-            });
+                ID = 0,
+                Username = model.Username,
+                Password = model.Password,
+                Name = model.Name,
+                Sex = model.Sex == null ? 0 : model.Sex,
+                Dept = model.DeptID == null ? null : new Dept { ID = model.DeptID.Value },
+                Role = model.RoleID == null ? null : new Role { ID = model.RoleID.Value },
+                Duty = model.Duty,
+                Phone = model.Phone,
+                Email = model.Email,
+                Birthday = model.Birthday,
+                Address = model.Address,
+                Sort = model.Sort == null ? 0 : model.Sort,
+                Comment = model.Comment,
+                AddTime = DateTime.Now,
+                isAdmin = false,
+                Status = 1
+            };
+            bll.Add(user);
+            return Success("添加成功！");
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(User user)
+        public JsonResult Edit(UserEditModel model)
         {
-            bll.Edit(user);
-            return Json(new Result
+            var user = new User
             {
-                Code = 200,
-                Msg = "修改成功！"
-            });
+                ID = 0,
+                Username = model.Username,
+                Password = model.Password,
+                Name = model.Name,
+                Sex = model.Sex == null ? 0 : model.Sex,
+                Dept = model.DeptID == null ? null : new Dept { ID = model.DeptID.Value },
+                Role = model.RoleID == null ? null : new Role { ID = model.RoleID.Value },
+                Duty = model.Duty,
+                Phone = model.Phone,
+                Email = model.Email,
+                Birthday = model.Birthday,
+                Address = model.Address,
+                Sort = model.Sort == null ? 0 : model.Sort,
+                Comment = model.Comment,
+                Status = model.Status
+            };
+            bll.Edit(user);
+            return Success("编辑成功！");
         }
 
         /// <summary>

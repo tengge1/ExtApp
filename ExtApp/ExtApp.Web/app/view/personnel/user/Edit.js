@@ -14,6 +14,7 @@ Ext.define('App.view.personnel.user.Edit', {
     width: 600,
     height: 340,
     modal: true,
+    maximizable: true,
     layout: 'fit',
     iconCls: 'User',
 
@@ -45,14 +46,15 @@ Ext.define('App.view.personnel.user.Edit', {
         }, {
             xtype: 'textfield',
             name: 'Name',
-            fieldLabel: '姓名',
+            fieldLabel: '<span style="color:red;">*</span>姓名',
             allowBlank: false
         }, {
             xtype: 'combo',
             name: 'Sex',
-            fieldLabel: '性别',
+            fieldLabel: '<span style="color:red;">*</span>性别',
             store: [[1, '男'], [2, '女']],
             editable: false,
+            allowBlank: false,
             emptyText: '请选择'
         }, {
             xtype: 'deptselect',
@@ -83,9 +85,11 @@ Ext.define('App.view.personnel.user.Edit', {
             name: 'Email',
             fieldLabel: '电子邮箱'
         }, {
-            xtype: 'textfield',
+            xtype: 'datefield',
             name: 'Birthday',
-            fieldLabel: '出生日期'
+            fieldLabel: '出生日期',
+            editable: false,
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'Address',

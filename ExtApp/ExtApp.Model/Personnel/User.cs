@@ -114,5 +114,11 @@ namespace ExtApp.Model
         /// </summary>
         [Property(16)]
         public virtual string Comment { get; set; }
+
+        /// <summary>
+        /// 是否是超级管理员
+        /// </summary>
+        [Property(17)]
+        public virtual bool isAdmin { get; set; }
     }
 }

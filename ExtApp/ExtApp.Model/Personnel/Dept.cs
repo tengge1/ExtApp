@@ -38,10 +38,10 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 类型（Organization-机构，District-区域）
+        /// 类型（1-机构，2-区域）
         /// </summary>
-        [ManyToOne(4, ClassType = typeof(DicItem), Column = "TypeID")]
-        public virtual DicItem Type { get; set; }
+        [Property(4)]
+        public virtual int Type { get; set; }
 
         /// <summary>
         /// 负责人

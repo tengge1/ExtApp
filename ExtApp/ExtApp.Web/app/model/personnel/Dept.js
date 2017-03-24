@@ -9,9 +9,7 @@ Ext.define('App.model.personnel.Dept', {
         'PName', // 父机构名称
         'Code', // 编码
         'Name', // 名称
-        'TypeID', // 类型ID
-        'TypeCode', // 类型编码
-        'TypeName', // 类型名称
+        'Type', // 类型（1-机构、2-区域）
         'HeadID', // 负责人ID
         'HeadName', // 负责人名称
         'AddUserID', // 添加人ID

@@ -65,11 +65,11 @@ Ext.define("App.view.personnel.dept.List", {
             }, {
                 xtype: 'combo',
                 store: [[
-                    0, '机构'
+                    1, '机构'
                 ], [
-                    1, '区域'
+                    2, '区域'
                 ]],
-                name: 'TypeID',
+                name: 'Type',
                 fieldLabel: '<span style="color:red;">*</span>类型',
                 editable: false,
                 allowBlank: false,

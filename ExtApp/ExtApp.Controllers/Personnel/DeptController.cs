@@ -38,9 +38,7 @@ namespace ExtApp.Controller
                 PName = o.PDept == null ? "" : o.PDept.Name,
                 Code = o.Code,
                 Name = o.Name,
-                TypeID = o.Type == null ? 0 : o.Type.ID,
-                TypeCode = o.Type == null ? "" : o.Type.Code,
-                TypeName = o.Type == null ? "" : o.Type.Name,
+                Type = o.Type,
                 HeadID = o.Head == null ? 0 : o.Head.ID,
                 HeadName = o.Head == null ? "" : o.Head.Name,
                 AddUserID = o.AddUser == null ? 0 : o.AddUser.ID,
@@ -71,7 +69,7 @@ namespace ExtApp.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add([FromBody]DeptAddModel model)
+        public JsonResult Add([FromBody]DeptEditModel model)
         {
             var dept = new Dept
             {
@@ -79,7 +77,7 @@ namespace ExtApp.Controller
                 PDept = new Dept { ID = model.PID },
                 Code = "",
                 Name = model.Name,
-                Type = model.TypeID == null ? null : new DicItem { ID = model.TypeID.Value },
+                Type = model.Type == null ? 0 : model.Type.Value,
                 Head = model.HeadID == null ? null : new User { ID = model.HeadID.Value },
                 AddUser = AdminHelper.Admin,
                 AddTime = DateTime.Now,
@@ -111,7 +109,7 @@ namespace ExtApp.Controller
             dept.PDept = model.PID == 0 ? null : new Dept { ID = model.PID };
             dept.Sort = model.Sort == null ? 0 : model.Sort.Value;
             dept.Status = model.Status == null ? 1 : model.Status.Value;
-            dept.Type = (model.TypeID == null || model.TypeID == 0) ? null : new DicItem { ID = model.TypeID.Value };
+            dept.Type = model.Type == null ? 0 : model.Type.Value;
 
             return Json(bll.Edit(dept));
         }

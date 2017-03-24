@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ExtApp.Model;
+using NHibernate.Criterion;
 
 namespace ExtApp.DAL
 {
@@ -13,6 +14,86 @@ namespace ExtApp.DAL
     /// </summary>
     public class DeptDAL : BaseDAL<Dept>
     {
+        /// <summary>
+        /// 获取子部门
+        /// </summary>
+        /// <param name="PID"></param>
+        /// <returns></returns>
+        public IList<DeptTreeNode> GetChildNodes(int PID)
+        {
+            // 先获取所有数据
+            var list = base.List(null, "Sort", Sort.Asc);
+            var nodes = new List<DeptTreeNode>();
+
+            if (PID == 0) // 根节点
+            {
+                var list1 = list.Where(o => o.PDept == null).ToList();
+                foreach (var i in list1)
+                {
+                    var node = new DeptTreeNode
+                    {
+                        AddTime = i.AddTime,
+                        AddUser = i.AddUser,
+                        Code = i.Code,
+                        Comment = i.Comment,
+                        expandable = "false",
+                        expanded = "false",
+                        Head = i.Head,
+                        id = i.ID,
+                        ID = i.ID,
+                        leaf = "true",
+                        Name = i.Name,
+                        PDept = i.PDept,
+                        Sort = i.Sort,
+                        Status = i.Status,
+                        text = i.Name,
+                        Type = i.Type
+                    };
+                    if (list.Where(o => o.PDept != null && o.PDept.ID == i.ID).Count() > 0) // 有子部门
+                    {
+                        node.expandable = "true";
+                        node.expanded = "true";
+                        node.leaf = "false";
+                    }
+                    nodes.Add(node);
+                }
+            }
+            else // 不是根节点
+            {
+                var list1 = list.Where(o => o.PDept != null && o.PDept.ID == PID).ToList();
+                foreach (var i in list1)
+                {
+                    var node = new DeptTreeNode
+                    {
+                        AddTime = i.AddTime,
+                        AddUser = i.AddUser,
+                        Code = i.Code,
+                        Comment = i.Comment,
+                        expandable = "false",
+                        expanded = "false",
+                        Head = i.Head,
+                        id = i.ID,
+                        ID = i.ID,
+                        leaf = "true",
+                        Name = i.Name,
+                        PDept = i.PDept,
+                        Sort = i.Sort,
+                        Status = i.Status,
+                        text = i.Name,
+                        Type = i.Type
+                    };
+                    if (list.Where(o => o.PDept != null && o.PDept.ID == i.ID).Count() > 0) // 有子部门
+                    {
+                        node.expandable = "true";
+                        node.expanded = "true";
+                        node.leaf = "false";
+                    }
+                    nodes.Add(node);
+                }
+            }
+            return nodes;
+        }
+
         /// <summary>
         /// 添加
         /// </summary>

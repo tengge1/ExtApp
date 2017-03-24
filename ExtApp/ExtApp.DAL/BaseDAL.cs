@@ -33,6 +33,32 @@ namespace ExtApp.DAL
         }
 
         /// <summary>
+        /// 根据条件获取
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="sortProperty"></param>
+        /// <param name="sort"></param>
+        /// <returns></returns>
+        public virtual IList<T> Get(ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
+        {
+            var session = NHibernateHelper.GetCurrentSession();
+            var criteria = session.CreateCriteria<T>();
+            if (query != null)
+            {
+                criteria.Add(query);
+            }
+            if (sort == Sort.Asc) // 正序
+            {
+                criteria.AddOrder(Order.Asc(sortProperty));
+            }
+            else // 逆序
+            {
+                criteria.AddOrder(Order.Desc(sortProperty));
+            }
+            return criteria.List<T>();
+        }
+
+        /// <summary>
         /// 获取列表（带查询条件和排序）
         /// </summary>
         /// <param name="query">查询条件（无查询条件可为null）</param>

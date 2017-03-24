@@ -55,15 +55,14 @@ namespace ExtApp.Controller
         }
 
         /// <summary>
-        /// 获取树
+        /// 获取所有子部门
         /// </summary>
+        /// <param name="PID"></param>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult Tree()
+        public JsonResult GetChildNodes(int PID)
         {
-            var query = Restrictions.Gt("Status", -1);
-            var obj = bll.Tree(query);
-            return base.Tree(obj);
+            var list = bll.GetChildNodes(PID);
+            return base.List<DeptTreeNode>(list.Count(), list);
         }
 
         /// <summary>

@@ -15,6 +15,16 @@ namespace ExtApp.BLL
     public class DeptBLL : BaseBLL<Dept>
     {
         /// <summary>
+        /// 获取所有子部门
+        /// </summary>
+        /// <param name="PID"></param>
+        /// <returns></returns>
+        public IList<DeptTreeNode> GetChildNodes(int PID)
+        {
+            return (dal as DeptDAL).GetChildNodes(PID);
+        }
+
+        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="dept"></param>

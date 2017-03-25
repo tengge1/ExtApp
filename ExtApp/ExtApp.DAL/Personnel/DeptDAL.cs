@@ -36,14 +36,15 @@ namespace ExtApp.DAL
                         AddUser = i.AddUser,
                         Code = i.Code,
                         Comment = i.Comment,
-                        expandable = "false",
-                        expanded = "false",
+                        expandable = false,
+                        expanded = false,
                         Head = i.Head,
                         id = i.ID,
                         ID = i.ID,
-                        leaf = "true",
+                        leaf = true,
                         Name = i.Name,
                         PDept = i.PDept,
+                        PID = i.PDept == null ? 0 : i.PDept.ID,
                         Sort = i.Sort,
                         Status = i.Status,
                         text = i.Name,
@@ -51,9 +52,9 @@ namespace ExtApp.DAL
                     };
                     if (list.Where(o => o.PDept != null && o.PDept.ID == i.ID).Count() > 0) // 有子部门
                     {
-                        node.expandable = "true";
-                        node.expanded = "true";
-                        node.leaf = "false";
+                        node.expandable = true;
+                        node.expanded = true;
+                        node.leaf = false;
                     }
                     nodes.Add(node);
                 }
@@ -69,14 +70,15 @@ namespace ExtApp.DAL
                         AddUser = i.AddUser,
                         Code = i.Code,
                         Comment = i.Comment,
-                        expandable = "false",
-                        expanded = "false",
+                        expandable = false,
+                        expanded = false,
                         Head = i.Head,
                         id = i.ID,
                         ID = i.ID,
-                        leaf = "true",
+                        leaf = true,
                         Name = i.Name,
                         PDept = i.PDept,
+                        PID = i.PDept == null ? 0 : i.PDept.ID,
                         Sort = i.Sort,
                         Status = i.Status,
                         text = i.Name,
@@ -84,9 +86,9 @@ namespace ExtApp.DAL
                     };
                     if (list.Where(o => o.PDept != null && o.PDept.ID == i.ID).Count() > 0) // 有子部门
                     {
-                        node.expandable = "true";
-                        node.expanded = "true";
-                        node.leaf = "false";
+                        node.expandable = true;
+                        node.expanded = false;
+                        node.leaf = false;
                     }
                     nodes.Add(node);
                 }

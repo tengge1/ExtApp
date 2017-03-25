@@ -13,8 +13,9 @@ namespace ExtApp.Model
     {
         public int id { get; set; }
         public string text { get; set; }
-        public string leaf { get; set; }
-        public string expandable { get; set; }
-        public string expanded { get; set; }
+        public bool leaf { get; set; }
+        public bool expandable { get; set; }
+        public bool expanded { get; set; }
+        public int? PID { get; set; }
     }
 }

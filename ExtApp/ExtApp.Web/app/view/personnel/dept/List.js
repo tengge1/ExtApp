@@ -65,10 +65,13 @@ Ext.define("App.view.personnel.dept.List", {
                 xtype: 'hidden',
                 name: 'ID'
             }, {
-                xtype: 'deptselect',
-                name: 'PID',
-                fieldLabel: '<span style="color:red;">*</span>上级',
-                allowBlank: false
+                xtype: 'hidden',
+                name: 'PID'
+            }, {
+                xtype: 'textfield',
+                name: 'PName',
+                fieldLabel: '上级',
+                readOnly: true
             }, {
                 xtype: 'textfield',
                 name: 'Name',
@@ -87,11 +90,6 @@ Ext.define("App.view.personnel.dept.List", {
                 allowBlank: false,
                 emptyText: '请选择'
             }, {
-                xtype: 'textfield',
-                name: 'HeadID',
-                fieldLabel: '<span style="color:red;">*</span>负责人',
-                disabled: true
-            }, {
                 xtype: 'numberfield',
                 name: 'Sort',
                 fieldLabel: '排序',
@@ -100,12 +98,12 @@ Ext.define("App.view.personnel.dept.List", {
             }, {
                 xtype: 'combo',
                 store: [[
-                    0, '启用'
+                    1, '启用'
                 ], [
-                    -1, '禁用'
+                    0, '禁用'
                 ]],
                 name: 'Status',
-                value: 0,
+                value: 1,
                 editable: false,
                 fieldLabel: '状态'
             }, {

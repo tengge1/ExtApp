@@ -17,5 +17,6 @@ namespace ExtApp.Model
         public bool expandable { get; set; }
         public bool expanded { get; set; }
         public int? PID { get; set; }
+        public string PName { get; set; }
     }
 }

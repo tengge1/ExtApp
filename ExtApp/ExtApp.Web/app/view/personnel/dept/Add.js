@@ -30,7 +30,8 @@ Ext.define('App.view.personnel.dept.Add', {
             xtype: 'deptselect',
             name: 'PID',
             fieldLabel: '<span style="color:red;">*</span>上级',
-            allowBlank: false
+            allowBlank: false,
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'Name',
@@ -48,11 +49,6 @@ Ext.define('App.view.personnel.dept.Add', {
             editable: false,
             allowBlank: false,
             emptyText: '请选择'
-        }, {
-            xtype: 'textfield',
-            name: 'HeadID',
-            fieldLabel: '负责人',
-            disabled: true
         }, {
             xtype: 'numberfield',
             name: 'Sort',

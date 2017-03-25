@@ -59,6 +59,11 @@ Ext.define('App.view.personnel.dept.ListController', {
             return;
         }
 
+        if (ID == '0') {
+            App.notify('消息', '无法编辑顶级部门！');
+            return;
+        }
+
         if (!form.isValid()) {
             App.notify('消息', '请填写完整！');
             return;

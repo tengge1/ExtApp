@@ -39,8 +39,6 @@ namespace ExtApp.Controller
                 Code = o.Code,
                 Name = o.Name,
                 Type = o.Type,
-                HeadID = o.Head == null ? 0 : o.Head.ID,
-                HeadName = o.Head == null ? "" : o.Head.Name,
                 AddUserID = o.AddUser == null ? 0 : o.AddUser.ID,
                 AddUserName = o.AddUser == null ? "" : o.AddUser.Name,
                 AddTime = o.AddTime == null ? "" : o.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -78,7 +76,6 @@ namespace ExtApp.Controller
                 Code = "",
                 Name = model.Name,
                 Type = model.Type == null ? 0 : model.Type.Value,
-                Head = model.HeadID == null ? null : new User { ID = model.HeadID.Value },
                 AddUser = AdminHelper.Admin,
                 AddTime = DateTime.Now,
                 Sort = model.Sort == null ? 0 : model.Sort.Value,
@@ -104,7 +101,6 @@ namespace ExtApp.Controller
             }
 
             dept.Comment = model.Comment;
-            dept.Head = model.HeadID == null ? null : new User { ID = model.HeadID.Value };
             dept.Name = model.Name;
             dept.PDept = model.PID == 0 ? null : new Dept { ID = model.PID };
             dept.Sort = model.Sort == null ? 0 : model.Sort.Value;

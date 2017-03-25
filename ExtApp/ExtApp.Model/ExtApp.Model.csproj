@@ -105,12 +105,12 @@
     <Compile Include="Authority\DeptRoleMenu.cs" />
     <Compile Include="Personnel\Dept.cs" />
     <Compile Include="Core\DicItem.cs" />
-    <Compile Include="Core\DicType.cs" />
+    <Compile Include="Enum\DicType.cs" />
     <Compile Include="Core\Dic.cs" />
     <Compile Include="Core\Log.cs" />
-    <Compile Include="Core\LogLevel.cs" />
-    <Compile Include="Core\LogSource.cs" />
-    <Compile Include="Core\LogType.cs" />
+    <Compile Include="Enum\LogLevel.cs" />
+    <Compile Include="Enum\LogSource.cs" />
+    <Compile Include="Enum\LogType.cs" />
     <Compile Include="Authority\Role.cs" />
     <Compile Include="Personnel\User.cs" />
     <Compile Include="Workflow\Flow.cs" />

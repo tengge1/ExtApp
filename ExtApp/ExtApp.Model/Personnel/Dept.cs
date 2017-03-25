@@ -22,7 +22,7 @@ namespace ExtApp.Model
         /// <summary>
         /// 父机构
         /// </summary>
-        [ManyToOne(1, ClassType = typeof(Dept), Column = "PID", Lazy = Laziness.Proxy)]
+        [ManyToOne(1, ClassType = typeof(Dept), Column = "PID", Lazy = Laziness.False)]
         public virtual Dept PDept { get; set; }
 
         /// <summary>
@@ -44,15 +44,9 @@ namespace ExtApp.Model
         public virtual int Type { get; set; }
 
         /// <summary>
-        /// 负责人
-        /// </summary>
-        [ManyToOne(5, ClassType = typeof(User), Column = "HeadID")]
-        public virtual User Head { get; set; }
-
-        /// <summary>
         /// 添加人
         /// </summary>
-        [ManyToOne(6, ClassType = typeof(User), Column = "AddUserID")]
+        [ManyToOne(6, ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
         public virtual User AddUser { get; set; }
 
         /// <summary>

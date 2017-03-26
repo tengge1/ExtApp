@@ -89,7 +89,7 @@ namespace ExtApp.BLL
             {
                 ID = 0,
                 Username = p.Username,
-                Password = p.Password,
+                Password = PasswordHelper.Crypt(p.Password),
                 Name = p.Name,
                 Sex = p.Sex == null ? 0 : p.Sex,
                 Dept = p.DeptID == null ? null : new Dept { ID = p.DeptID.Value },

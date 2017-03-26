@@ -107,6 +107,7 @@
     <Compile Include="JsonHelper.cs" />
     <Compile Include="LogHelper.cs" />
     <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="PasswordHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLWatcher.cs" />
     <Compile Include="StringHelper.cs" />

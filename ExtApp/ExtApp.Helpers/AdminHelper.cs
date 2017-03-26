@@ -45,7 +45,7 @@ namespace ExtApp
             var session = NHibernateHelper.GetCurrentSession();
             var query = session.CreateQuery("from User where Username=:username and Password=:password");
             query.SetParameter("username", username);
-            query.SetParameter("password", password);
+            query.SetParameter("password", PasswordHelper.Crypt(password));
             var user = query.UniqueResult<User>();
             if (user == null)
             {

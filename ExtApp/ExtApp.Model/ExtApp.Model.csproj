@@ -91,7 +91,9 @@
     <Compile Include="Authority\View\ChangePwdModel.cs" />
     <Compile Include="Authority\View\LoginModel.cs" />
     <Compile Include="Core\View\LogListParam.cs" />
+    <Compile Include="Core\View\MenuNode.cs" />
     <Compile Include="Enum\Sort.cs" />
+    <Compile Include="ExtJs\TreeNode.cs" />
     <Compile Include="Personnel\View\DeptTreeNode.cs" />
     <Compile Include="Personnel\View\UserListParam.cs" />
     <Compile Include="Personnel\View\UserEditParam.cs" />

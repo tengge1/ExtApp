@@ -3,7 +3,7 @@ Ext.define('App.view.main.accordion.MenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menu',
 
-    init: function () { // 初始化菜单
+    init: function () {
         // 获取数据
         var store = Ext.create('App.store.authority.Menu');
         var view = this.getView();

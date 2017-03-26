@@ -16,7 +16,7 @@ Ext.define('App.view.main.LoginController', {
         });
     },
 
-    onLoginClick: function () { // 点击登录按钮
+    onLoginClick: function () {
         var form = this.getView().down('form').getForm();
         if (!form.isValid()) {
             return;
@@ -24,7 +24,6 @@ Ext.define('App.view.main.LoginController', {
 
         var values = form.getValues();
 
-        // 调用api控制器
         var mask = Ext.create('Ext.LoadMask', {
             target: this.getView(),
             msg: '正在登录...',
@@ -45,7 +44,7 @@ Ext.define('App.view.main.LoginController', {
         });
     },
 
-    onResetClick: function () { // 点击重置按钮
+    onResetClick: function () {
         this.getView().down('form').getForm().reset();
     }
 });

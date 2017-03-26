@@ -13,7 +13,7 @@ Ext.define('App.view.main.Login', {
 
     items: [{
         xtype: 'form',
-        title: 'ExtJs权限管理系统',
+        title: 'ExtJs权限管理平台',
         frame: true,
         width: 320,
         iconCls: 'Lock',
@@ -22,18 +22,18 @@ Ext.define('App.view.main.Login', {
         buttonAlign: 'center',
 
         items: [{
-            allowBlank: false,
-            fieldLabel: '用户名',
             name: 'Username',
+            fieldLabel: '用户名',
             iconCls: 'User',
-            emptyText: '请输入用户名'
+            emptyText: '请输入用户名',
+            allowBlank: false
         }, {
-            allowBlank: false,
-            fieldLabel: '密　码',
             name: 'Password',
+            fieldLabel: '密　码',
+            inputType: 'password',
             iconCls: 'Lock',
             emptyText: '请输入密码',
-            inputType: 'password'
+            allowBlank: false
         }],
 
         buttons: [{

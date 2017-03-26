@@ -48,7 +48,7 @@ namespace ExtApp.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult ChangePwd(ChangePwdModel model)
+        public JsonResult ChangePwd([FromBody]ChangePwdModel model)
         {
             return Json(bll.ChangePwd(model));
         }

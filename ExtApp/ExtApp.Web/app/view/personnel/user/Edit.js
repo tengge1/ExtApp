@@ -117,14 +117,10 @@ Ext.define('App.view.personnel.user.Edit', {
     buttons: [{
         text: '保存',
         iconCls: 'Accept',
-        listeners: {
-            click: 'onSaveClick'
-        }
+        handler: 'onSaveClick'
     }, {
         text: '取消',
         iconCls: 'Cancel',
-        listeners: {
-            click: 'onCancelClick'
-        }
+        handler: 'onCancelClick'
     }]
 });

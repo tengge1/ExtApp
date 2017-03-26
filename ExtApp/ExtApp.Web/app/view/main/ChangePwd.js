@@ -11,7 +11,9 @@ Ext.define('App.view.main.ChangePwd', {
 
     title: '修改密码',
     layout: 'fit',
+    iconCls: 'Lock',
     modal: true,
+    resizable: false,
 
     items: {
         xtype: 'form',
@@ -21,30 +23,32 @@ Ext.define('App.view.main.ChangePwd', {
         },
         items: [{
             name: 'oldPwd',
-            fieldLabel: '旧密码',
+            fieldLabel: '原密码',
+            emptyText: '请填写原密码',
+            allowBlank: false,
             margin: '15 10 5 10'
         }, {
             name: 'newPwd',
             fieldLabel: '新密码',
+            emptyText: '请填写新密码',
+            allowBlank: false,
             margin: '5 10 5 10'
         }, {
             name: 'confirmPwd',
             fieldLabel: '确认密码',
+            emptyText: '请再次填写新密码',
+            allowBlank: false,
             margin: '5 10 15 10'
         }]
     },
 
     buttons: [{
-        xtype: 'button',
         text: '确定',
-        listeners: {
-            click: 'onClickOK'
-        }
+        iconCls: 'Accept',
+        handler: 'onClickOK'
     }, {
-        xtype: 'button',
         text: '取消',
-        listeners: {
-            click: 'onClickCancel'
-        }
+        iconCls: 'Cancel',
+        handler: 'onClickCancel'
     }]
 });

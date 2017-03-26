@@ -6,6 +6,7 @@
 
   <!-- 登录 -->
   <object id="LoginBLL" type="ExtApp.BLL.LoginBLL, ExtApp.BLL">
+    <property name="dal" ref="UserDAL" />
   </object>
 
   <!-- 菜单 -->
@@ -54,4 +55,3 @@
   </object>
 
 </objects>
-

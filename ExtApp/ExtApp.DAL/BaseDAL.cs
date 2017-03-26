@@ -39,7 +39,7 @@ namespace ExtApp.DAL
         /// <param name="sortProperty"></param>
         /// <param name="sort"></param>
         /// <returns></returns>
-        public virtual IList<T> Get(ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual T Get(ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
@@ -55,7 +55,7 @@ namespace ExtApp.DAL
             {
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
-            return criteria.List<T>();
+            return criteria.UniqueResult<T>();
         }
 
         /// <summary>

@@ -3,27 +3,26 @@ Ext.define('App.view.main.ChangePwdController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.changepwd',
 
-    onClickOK: function () { // 点击确定按钮
+    onClickOK: function () {
         var view = this.getView();
-        Ext.Ajax.request({
-            url: '/api/Login/ChangePwd?oldPwd=&newPwd=&confirmPwd=',
-            method: 'POST',
-            success: function (response, opts) {
-                var obj = Ext.JSON.decode(response.responseText);
-                if (obj.Code == 200) {
-                    view.hide();
-                    Ext.Msg.alert('消息', '密码修改成功！');
-                } else {
-                    Ext.Msg.alert('消息', obj.Msg);
-                }
-            },
-            failure: function (response, opts) {
-                Ext.Msg.alert('错误', response.responseText);
+        var form = view.down('form').form;
+        if (!form.isValid()) {
+            App.notify('消息', '请填写完整！');
+            return;
+        }
+        var values = form.getValues();
+        App.post('/api/Login/ChangePwd', values, function (r) {
+            var obj = JSON.parse(r);
+            if (obj.Code == 200) {
+                view.hide();
+                App.notify('消息', obj.Msg);
+            } else {
+                App.alert('错误', obj.Msg);
             }
         });
     },
 
-    onClickCancel: function () { // 点击取消按钮
+    onClickCancel: function () {
         this.getView().hide();
     }
 });

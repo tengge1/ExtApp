@@ -12,6 +12,29 @@ namespace ExtApp.Model
     public class LoginResult : Result
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public LoginResult()
+        {
+
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="msg"></param>
+        /// <param name="user"></param>
+        /// <param name="ticket"></param>
+        public LoginResult(int code, string msg, User user = null, string ticket = null)
+        {
+            this.Code = code;
+            this.Msg = msg;
+            this.user = user;
+            this.Ticket = ticket;
+        }
+
+        /// <summary>
         /// 登录用户信息
         /// </summary>
         public User user { get; set; }

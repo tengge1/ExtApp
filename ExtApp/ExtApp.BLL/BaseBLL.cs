@@ -85,9 +85,25 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public virtual bool Delete(int ID)
+        public virtual Result Delete(int ID)
         {
-            return dal.Delete(ID);
+            var result = dal.Delete(ID);
+            if (result == true)
+            {
+                return new Result
+                {
+                    Code = 200,
+                    Msg = "删除成功！"
+                };
+            }
+            else
+            {
+                return new Result
+                {
+                    Code = 300,
+                    Msg = "删除失败！"
+                };
+            }
         }
 
         /// <summary>

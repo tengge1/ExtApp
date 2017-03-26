@@ -100,6 +100,14 @@ Ext.define('App.view.personnel.user.Edit', {
             value: 0,
             fieldLabel: '排序'
         }, {
+            xtype: 'combo',
+            name: 'Status',
+            fieldLabel: '状态',
+            store: [[1, '启用'], [0, '禁用']],
+            editable: false,
+            allowBlank: false,
+            value: 1
+        }, {
             xtype: 'textarea',
             name: 'Comment',
             fieldLabel: '备注',

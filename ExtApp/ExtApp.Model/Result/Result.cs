@@ -12,12 +12,31 @@ namespace ExtApp.Model
     public class Result
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public Result()
+        {
+
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="Code">状态码</param>
+        /// <param name="Msg">状态说明</param>
+        public Result(int Code, string Msg)
+        {
+            this.Code = Code;
+            this.Msg = Msg;
+        }
+
+        /// <summary>
         /// 状态码（200-成功，300-失败，301-登录超时）
         /// </summary>
         public int Code { get; set; }
 
         /// <summary>
-        /// 状态码说明
+        /// 状态说明
         /// </summary>
         public string Msg { get; set; }
     }

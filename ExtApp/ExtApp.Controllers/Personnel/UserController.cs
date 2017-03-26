@@ -27,26 +27,13 @@ namespace ExtApp.Controller
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <param name="name"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int firstResult, int maxResults, string name = null)
+        public JsonResult List([FromUri]UserListParam p)
         {
-            ICriterion query = Restrictions.Gt("Status", -1);
-
-            // 关键词
-            if (name != null)
-            {
-                var query1 = Restrictions.Like("Username", name, MatchMode.Anywhere);
-                var query2 = Restrictions.Like("Name", name, MatchMode.Anywhere);
-                var query3 = Restrictions.Or(query1, query2);
-                query = Restrictions.And(query, query3);
-            }
-
             var total = 0;
-            var list = bll.List(firstResult, maxResults, out total, query);
+            var list = bll.List(p, out total);
 
             return base.List(total, list.Select(o => new
             {
@@ -74,63 +61,25 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(UserEditModel model)
+        public JsonResult Add(UserEditParam p)
         {
-            var user = new User
-            {
-                ID = 0,
-                Username = model.Username,
-                Password = model.Password,
-                Name = model.Name,
-                Sex = model.Sex == null ? 0 : model.Sex,
-                Dept = model.DeptID == null ? null : new Dept { ID = model.DeptID.Value },
-                Role = model.RoleID == null ? null : new Role { ID = model.RoleID.Value },
-                Duty = model.Duty,
-                Phone = model.Phone,
-                Email = model.Email,
-                Birthday = model.Birthday,
-                Address = model.Address,
-                Sort = model.Sort == null ? 0 : model.Sort,
-                Comment = model.Comment,
-                AddTime = DateTime.Now,
-                isAdmin = false,
-                Status = 1
-            };
-            bll.Add(user);
-            return Success("添加成功！");
+            var result = bll.Add(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(UserEditModel model)
+        public JsonResult Edit(UserEditParam p)
         {
-            var user = new User
-            {
-                ID = 0,
-                Username = model.Username,
-                Password = model.Password,
-                Name = model.Name,
-                Sex = model.Sex == null ? 0 : model.Sex,
-                Dept = model.DeptID == null ? null : new Dept { ID = model.DeptID.Value },
-                Role = model.RoleID == null ? null : new Role { ID = model.RoleID.Value },
-                Duty = model.Duty,
-                Phone = model.Phone,
-                Email = model.Email,
-                Birthday = model.Birthday,
-                Address = model.Address,
-                Sort = model.Sort == null ? 0 : model.Sort,
-                Comment = model.Comment,
-                Status = model.Status
-            };
-            bll.Edit(user);
-            return Success("编辑成功！");
+            var result = bll.Edit(p);
+            return Json(result);
         }
 
         /// <summary>
@@ -142,11 +91,7 @@ namespace ExtApp.Controller
         public JsonResult Delete(int ID)
         {
             var result = bll.Delete(ID);
-            if (result == true)
-            {
-                return Success("删除成功！");
-            }
-            return Success("删除失败！");
+            return Json(result);
         }
     }
 }

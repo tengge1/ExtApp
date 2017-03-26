@@ -4,6 +4,7 @@ Ext.define("App.view.personnel.user.List", {
     alias: 'widget.userlist',
 
     requires: [
+        'App.widget.DeptSelect',
         'App.view.personnel.user.ListController'
     ],
 
@@ -51,19 +52,32 @@ Ext.define("App.view.personnel.user.List", {
                 name: 'name',
                 emptyText: '用户名/姓名'
             }, {
+                xtype: 'deptselect',
+                name: 'DeptID',
+                fieldLabel: '机构',
+                emptyText: '全部'
+            }, {
+                xtype: 'combo',
+                name: 'RoleID',
+                fieldLabel: '角色',
+                width: 150,
+                editable: false,
+                store: Ext.create('App.store.authority.RoleAll'),
+                valueField: 'ID',
+                displayField: 'Name',
+                emptyText: '全部'
+            }, {
                 xtype: 'combo',
                 fieldLabel: '状态',
                 name: 'Status',
                 width: 130,
                 store: [[
-                    '0', '全部'
-                ], [
                     '1', '启用'
                 ], [
                     '0', '禁用'
                 ]],
-                value: 0,
-                editable: false
+                editable: false,
+                emptyText: '全部'
             }, {
                 xtype: 'button',
                 text: '搜索',

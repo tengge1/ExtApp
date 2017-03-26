@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace ExtApp.Model
 {
     /// <summary>
-    /// 编辑用户模型
+    /// 用户编辑参数
     /// </summary>
-    public class UserEditModel
+    public class UserEditParam
     {
         public int ID { get; set; }
         public string Username { get; set; }

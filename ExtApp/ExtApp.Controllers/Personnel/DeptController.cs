@@ -64,23 +64,23 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add([FromBody]DeptEditModel model)
+        public JsonResult Add([FromBody]DeptEditParam p)
         {
             var dept = new Dept
             {
                 ID = 0,
-                PDept = new Dept { ID = model.PID },
+                PDept = new Dept { ID = p.PID },
                 Code = "",
-                Name = model.Name,
-                Type = model.Type == null ? 0 : model.Type.Value,
+                Name = p.Name,
+                Type = p.Type == null ? 0 : p.Type.Value,
                 AddUser = AdminHelper.Admin,
                 AddTime = DateTime.Now,
-                Sort = model.Sort == null ? 0 : model.Sort.Value,
-                Status = model.Status == null ? 1 : model.Status.Value,
-                Comment = model.Comment
+                Sort = p.Sort == null ? 0 : p.Sort.Value,
+                Status = p.Status == null ? 1 : p.Status.Value,
+                Comment = p.Comment
             };
             return Json(bll.Add(dept));
         }
@@ -91,21 +91,21 @@ namespace ExtApp.Controller
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(DeptEditModel model)
+        public JsonResult Edit(DeptEditParam p)
         {
             // 获取机构
-            var dept = bll.Get(model.ID);
+            var dept = bll.Get(p.ID);
             if (dept == null)
             {
                 return Error("机构不存在！");
             }
 
-            dept.Comment = model.Comment;
-            dept.Name = model.Name;
-            dept.PDept = model.PID == 0 ? null : new Dept { ID = model.PID };
-            dept.Sort = model.Sort == null ? 0 : model.Sort.Value;
-            dept.Status = model.Status == null ? 1 : model.Status.Value;
-            dept.Type = model.Type == null ? 0 : model.Type.Value;
+            dept.Comment = p.Comment;
+            dept.Name = p.Name;
+            dept.PDept = p.PID == 0 ? null : new Dept { ID = p.PID };
+            dept.Sort = p.Sort == null ? 0 : p.Sort.Value;
+            dept.Status = p.Status == null ? 1 : p.Status.Value;
+            dept.Type = p.Type == null ? 0 : p.Type.Value;
 
             return Json(bll.Edit(dept));
         }
@@ -113,20 +113,13 @@ namespace ExtApp.Controller
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="ID"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Delete(int id)
+        public JsonResult Delete(int ID)
         {
-            var result = bll.Delete(id);
-            if (result)
-            {
-                return base.Success("删除成功");
-            }
-            else
-            {
-                return base.Success("删除失败");
-            }
+            var result = bll.Delete(ID);
+            return Json(result);
         }
     }
 }

@@ -28,7 +28,7 @@ Ext.define('App.view.personnel.user.ListController', {
     },
 
     onEditClick: function () { // 编辑
-        var selected = this.getView().getSelectionModel().getSelected();
+        var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
             App.notify('消息', '请选择！');
             return;
@@ -47,15 +47,27 @@ Ext.define('App.view.personnel.user.ListController', {
             return;
         }
         App.confirm('消息', '确定删除？', function () {
-            App.post('/api/User/Delete?id=' + selected.items[0].data.ID, function (data) {
+            App.post('/api/User/Delete?ID=' + selected.items[0].data.ID, function (data) {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
                     view.down('pagingtoolbar').moveFirst();
-                    App.notify('消息', '操作成功！');
+                    App.notify('消息', obj.Msg);
                 } else {
                     App.alert('错误', obj.Msg);
                 }
             })
         });
-    }
+    },
+
+    onSearchClick: function () { // 搜索
+        var view = this.getView();
+        var values = view.down('searchform').form.getValues();
+        view.down('gridpanel').getStore().load({
+            params: values
+        });
+    },
+
+    onResetClick: function () { // 重置
+        this.getView().down('searchform').form.reset();
+    },
 });

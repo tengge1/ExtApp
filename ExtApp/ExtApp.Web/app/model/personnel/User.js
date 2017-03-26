@@ -20,6 +20,7 @@ Ext.define('App.model.personnel.User', {
         'AddTime',
         'Sort',
         'Status',
-        'Comment'
+        'Comment',
+        'isAdmin'
     ]
 });

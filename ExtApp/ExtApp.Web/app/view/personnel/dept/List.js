@@ -50,9 +50,9 @@ Ext.define("App.view.personnel.dept.List", {
 
         items: [{
             xtype: 'form',
-            border: false,
             layout: 'form',
             border: true,
+            frame: true,
             title: '机构信息',
             defaults: {
                 margin: 10
@@ -68,10 +68,9 @@ Ext.define("App.view.personnel.dept.List", {
                 xtype: 'hidden',
                 name: 'PID'
             }, {
-                xtype: 'textfield',
+                xtype: 'displayfield',
                 name: 'PName',
-                fieldLabel: '上级',
-                readOnly: true
+                fieldLabel: '上级'
             }, {
                 xtype: 'textfield',
                 name: 'Name',
@@ -112,7 +111,7 @@ Ext.define("App.view.personnel.dept.List", {
                 fieldLabel: '备注'
             }],
 
-            bbar: [{
+            buttons: [{
                 xtype: 'button',
                 text: '保存',
                 iconCls: 'Pagesave',

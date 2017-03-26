@@ -157,6 +157,7 @@ namespace ExtApp.DAL
             try
             {
                 session.Update(model);
+                session.Flush();
             }
             catch (Exception e)
             {

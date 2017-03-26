@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace ExtApp.Model
 {
     /// <summary>
-    /// 编辑机构模型
+    /// 机构编辑参数
     /// </summary>
-    public class DeptEditModel
+    public class DeptEditParam
     {
         public int ID { get; set; }
         public int PID { get; set; }

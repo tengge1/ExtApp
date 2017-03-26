@@ -125,14 +125,7 @@ namespace ExtApp.Controller
         public JsonResult Delete(int ID)
         {
             var result = bll.Delete(ID);
-            if (result)
-            {
-                return base.Success("删除成功！");
-            }
-            else
-            {
-                return base.Error("删除失败！");
-            }
+            return Json(result);
         }
     }
 }

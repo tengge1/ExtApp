@@ -28,7 +28,7 @@ Ext.define('App.view.personnel.user.EditController', {
                 win.hide();
                 var view = Ext.ComponentQuery.query('userlist')[0];
                 view.down('pagingtoolbar').moveFirst();
-                App.notify('消息', '添加成功！');
+                App.notify('消息', obj.Msg);
             } else { // 添加失败
                 App.alert('错误', obj.Msg);
             }

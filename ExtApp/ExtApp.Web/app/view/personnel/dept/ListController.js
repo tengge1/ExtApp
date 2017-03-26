@@ -37,7 +37,7 @@ Ext.define('App.view.personnel.dept.ListController', {
             return;
         }
         App.confirm('消息', '要删除该机构？', function () {
-            App.post('/api/Dept/Delete?id=' + selected[0].data.ID, function (data) {
+            App.post('/api/Dept/Delete?ID=' + selected[0].data.ID, function (data) {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
                     App.notify('消息', '删除成功！');

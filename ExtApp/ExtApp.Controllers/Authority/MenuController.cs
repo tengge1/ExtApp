@@ -25,6 +25,18 @@ namespace ExtApp.Controller
         private MenuBLL bll;
 
         /// <summary>
+        /// 获取子节点
+        /// </summary>
+        /// <param name="PID"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetChildNodes(int PID)
+        {
+            var list = bll.GetChildNodes(PID);
+            return base.List<MenuNode>(list.Count(), list);
+        }
+
+        /// <summary>
         /// 树形结构
         /// </summary>
         /// <returns></returns>

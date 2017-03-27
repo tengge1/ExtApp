@@ -33,13 +33,55 @@ namespace ExtApp.BLL
                     var node = new MenuNode
                     {
                         id = i.ID,
-                        text = i.Name
+                        text = i.Name,
+                        leaf = true,
+                        expandable = false,
+                        expanded = false,
+                        iconCls = i.Icon,
+                        ID = i.ID,
+                        Name = i.Name,
+                        Url = i.Url
                     };
+
+                    // 判断是否有下级节点
+                    if (list.Where(o => o.PID == i.ID).Count() > 0)
+                    {
+                        node.leaf = false;
+                        node.expandable = true;
+                        node.expanded = true;
+                    }
+
+                    nodes.Add(node);
                 }
             }
             else // 不是根节点
             {
                 var list1 = list.Where(o => o.PID == PID).ToList();
+                foreach (var i in list1)
+                {
+                    var node = new MenuNode
+                    {
+                        id = i.ID,
+                        text = i.Name,
+                        leaf = true,
+                        expandable = false,
+                        expanded = false,
+                        iconCls = i.Icon,
+                        ID = i.ID,
+                        Name = i.Name,
+                        Url = i.Url
+                    };
+
+                    // 判断是否有下级节点
+                    if (list.Where(o => o.PID == i.ID).Count() > 0)
+                    {
+                        node.leaf = false;
+                        node.expandable = true;
+                        node.expanded = false;
+                    }
+
+                    nodes.Add(node);
+                }
             }
 
             return nodes;

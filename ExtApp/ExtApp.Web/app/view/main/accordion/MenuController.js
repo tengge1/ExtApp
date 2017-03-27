@@ -4,89 +4,21 @@ Ext.define('App.view.main.accordion.MenuController', {
     alias: 'controller.menu',
 
     init: function () {
-        // 获取数据
-        var store = Ext.create('App.store.authority.Menu');
         var view = this.getView();
-        store.load({
-            callback: function (records, operation, success) {
-                var data = store.getData();
-
-                // 创建页面元素
-                var items = new Array();
-                data.each(function (i) {
-                    if (i.data.PID == 0) { // 折叠面板中只添加pid为0的菜单
-                        // 获取折叠面板的下一级菜单并判断是否有子项
-                        var array1 = new Array();
-                        data.each(function (i1) {
-                            if (i1.data.PID == i.data.ID) {
-                                // 判断是否有子节点
-                                var leaf = true;
-                                data.each(function (i11) {
-                                    if (i11.data.PID == i1.data.ID) {
-                                        leaf = false;
-                                    }
-                                });
-                                array1.push({
-                                    nodeID: i1.data.ID,
-                                    text: i1.data.Name,
-                                    leaf: leaf,
-                                    expanded: false,
-                                    url: i1.data.Url,
-                                    iconCls: i1.data.Icon,
-                                    animate: true
-                                });
-                            }
-                        });
-                        items.push({
-                            title: i.data.Name,
-                            rootVisible: false,
-                            root: {
-                                nodeID: i.data.ID,
-                                expanded: false,
-                                children: array1
-                            },
-                            listeners: {
-                                beforeitemexpand: 'onTreeItemExpand', // 展开树的节点
-                                itemclick: 'onTreeItemClick' // 点击树的节点
-                            }
-                        });
-                    }
-                });
-                view.add(items);
+        var store = Ext.create('App.store.authority.MenuTree');
+        store.on('load', function (sender, records, successful, operation, node, eOpts) {
+            if (!successful) {
+                return;
             }
-        });
-    },
-
-    onTreeItemExpand: function (node, opts) { // 展开树的节点
-        if (node.childNodes.length > 0) {
-            return;
-        }
-        var store = Ext.create('App.store.authority.Menu');
-        store.load({
-            callback: function (records, operation, success) {
-                var data = store.getData();
-                var array = new Array();
-                data.each(function (i) {
-                    if (i.data.PID == node.data.nodeID) {
-                        // 查询有无子节点
-                        var leaf = true;
-                        data.each(function (i1) {
-                            if (i1.data.PID == i.data.ID) {
-                                leaf = false;
-                            }
-                        });
-                        array.push({
-                            nodeID: i.data.ID,
-                            text: i.data.Name,
-                            leaf: leaf,
-                            expanded: false,
-                            url: i.data.Url,
-                            iconCls: i.data.Icon,
-                            animate: true
-                        });
-                    }
-                });
-                node.appendChild(array);
+            if (node.id == '0') { // 第一级菜单，创建折叠面板
+                for (var i = 0; i < records.length; i++) {
+                    var record = records[i];
+                    var tree = Ext.create('Ext.tree.Panel', {
+                        title: record.data.text
+                    });
+                    tree.setRootNode(record);
+                    view.add(tree);
+                }
             }
         });
     },

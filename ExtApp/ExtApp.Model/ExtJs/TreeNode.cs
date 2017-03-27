@@ -37,9 +37,9 @@ namespace ExtApp.Model
         public bool expanded { get; set; }
 
         /// <summary>
-        /// 是否带checkbox
+        /// 是否带checkbox（null-不带checkbox，true-带checkbox并选中，false-带checkbox但是没选中）
         /// </summary>
-        public bool @checked { get; set; }
+        public bool? @checked { get; set; }
 
         /// <summary>
         /// 图标路径

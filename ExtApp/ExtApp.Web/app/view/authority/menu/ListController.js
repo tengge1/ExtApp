@@ -1,7 +1,7 @@
 ﻿
-Ext.define('App.view.authority.appMenu.ListController', {
+Ext.define('App.view.authority.menu.ListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.appmenulist',
+    alias: 'controller.menulist',
 
     init: function () { // 默认展开根节点
         this.getView().expandAll();
@@ -19,7 +19,7 @@ Ext.define('App.view.authority.appMenu.ListController', {
 
     onTreeItemExpand: function (node, eOpts) { // 展开树的节点
         node.removeAll();
-        var store = Ext.create('App.store.sys.AppMenu');
+        var store = Ext.create('App.store.authority.Menu');
         store.load({
             callback: function (records, operation, success) {
                 var data = store.getData();
@@ -95,7 +95,8 @@ Ext.define('App.view.authority.appMenu.ListController', {
             Ext.Msg.alert('消息', '请选择节点！');
             return;
         }
-        var win = Ext.create('App.view.sys.appMenu.Add');
+        var win = Ext.create('App.view.authority.menu.Edit');
+        win.setTitle('添加菜单');
         win.getController().setParentMenu(selected[0].data.ID, selected[0].data.Name);
         win.show();
     },
@@ -106,7 +107,8 @@ Ext.define('App.view.authority.appMenu.ListController', {
             Ext.Msg.alert('消息', '请选择节点！');
             return;
         }
-        var win = Ext.create('App.view.sys.appMenu.Edit');
+        var win = Ext.create('App.view.authority.menu.Edit');
+        win.setTitle('编辑菜单');
         win.down('form').getForm().loadRecord(selected[0]);
         win.show();
     },

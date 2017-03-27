@@ -59,7 +59,7 @@ Ext.define('App.view.authority.role.List', {
                 ], [
                     '1', '启用'
                 ], [
-                    '-1', '禁用'
+                    '0', '禁用'
                 ]],
                 value: 0,
                 editable: false

@@ -1,13 +1,13 @@
 ﻿
-Ext.define('App.view.authority.appMenu.Edit', {
+Ext.define('App.view.authority.menu.Edit', {
     extend: 'Ext.window.Window',
-    alias: 'widget.appmenuedit',
+    alias: 'widget.menuedit',
 
     requires: [
-        'App.view.sys.appMenu.EditController'
+        'App.view.authority.menu.EditController'
     ],
 
-    controller: 'appmenuedit',
+    controller: 'menuedit',
 
     title: '编辑菜单',
     width: 500,

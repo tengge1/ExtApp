@@ -22,8 +22,6 @@ Ext.define('App.view.authority.role.ListController', {
             return '启用';
         } else if (value == 0) {
             return '禁用';
-        } else if (value == -1) {
-            return '删除';
         } else {
             return value;
         }

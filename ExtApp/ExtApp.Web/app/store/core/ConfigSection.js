@@ -4,7 +4,7 @@ Ext.define('App.store.core.ConfigSection', {
     alias: 'store.configsectionlist',
     storeId: 'configsectionlist',
 
-    model: 'App.model.sys.ConfigSection',
+    model: 'App.model.core.ConfigSection',
 
     proxy: {
         type: 'ajax',

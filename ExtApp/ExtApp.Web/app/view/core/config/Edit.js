@@ -4,7 +4,7 @@ Ext.define('App.view.core.config.Edit', {
     alias: 'widget.configedit',
 
     requires: [
-        'App.view.sys.config.EditController'
+        'App.view.core.config.EditController'
     ],
 
     layout: 'fit',

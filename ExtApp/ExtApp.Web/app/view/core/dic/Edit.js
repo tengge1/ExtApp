@@ -4,7 +4,7 @@ Ext.define('App.view.core.dic.Edit', {
     alias: 'widget.dicedit',
 
     requires: [
-        'App.view.sys.dic.EditController'
+        'App.view.core.dic.EditController'
     ],
 
     layout: 'fit',

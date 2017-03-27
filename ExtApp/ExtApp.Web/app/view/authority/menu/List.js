@@ -1,13 +1,13 @@
 ﻿
-Ext.define("App.view.authority.appMenu.List", {
+Ext.define("App.view.authority.menu.List", {
     extend: 'Ext.tree.Panel',
-    alias: 'widget.appmenulist',
+    alias: 'widget.menulist',
 
     requires: [
-        'App.view.sys.appMenu.ListController'
+        'App.view.authority.menu.ListController'
     ],
 
-    controller: 'appmenulist',
+    controller: 'menulist',
 
     title: '菜单管理',
     closable: true,

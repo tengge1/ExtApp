@@ -4,10 +4,10 @@ Ext.define('App.view.core.dic.ListController', {
     alias: 'controller.diclist',
 
     requires: [
-        'App.store.sys.Dic',
-        'App.view.sys.dic.Edit',
-        'App.store.sys.DicItem',
-        'App.view.sys.dic.EditItem'
+        'App.store.core.Dic',
+        'App.view.core.dic.Edit',
+        'App.store.core.DicItem',
+        'App.view.core.dic.EditItem'
     ],
 
     init: function () { // 页面初始化

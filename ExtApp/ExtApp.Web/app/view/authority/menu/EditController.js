@@ -1,7 +1,7 @@
 ﻿
-Ext.define('App.view.authority.appMenu.EditController', {
+Ext.define('App.view.authority.menu.EditController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.appmenuedit',
+    alias: 'controller.menuedit',
 
     onSaveClick: function () { // 点击保存按钮
         var win = this.getView();

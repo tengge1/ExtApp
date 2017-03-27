@@ -4,7 +4,7 @@ Ext.define('App.view.core.dic.List', {
     alias: 'widget.diclist',
 
     requires: [
-        'App.view.sys.dic.ListController'
+        'App.view.core.dic.ListController'
     ],
 
     controller: 'diclist',

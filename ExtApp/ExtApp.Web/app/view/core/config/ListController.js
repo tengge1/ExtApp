@@ -4,10 +4,10 @@ Ext.define('App.view.core.config.ListController', {
     alias: 'controller.configlist',
 
     requires: [
-        'App.store.sys.ConfigSection',
-        'App.view.sys.config.EditSection',
-        'App.store.sys.Config',
-        'App.view.sys.config.Edit'
+        'App.store.core.ConfigSection',
+        'App.view.core.config.EditSection',
+        'App.store.core.Config',
+        'App.view.core.config.Edit'
     ],
 
     init: function () { // 页面初始化

@@ -4,7 +4,7 @@ Ext.define('App.store.core.Dic', {
     alias: 'store.diclist',
     storeId: 'diclist',
 
-    model: 'App.model.sys.Dic',
+    model: 'App.model.core.Dic',
 
     proxy: {
         type: 'ajax',

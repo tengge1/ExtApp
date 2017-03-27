@@ -4,7 +4,7 @@ Ext.define('App.store.core.Config', {
     alias: 'store.configlist',
     storeId: 'configlist',
 
-    model: 'App.model.sys.Config',
+    model: 'App.model.core.Config',
 
     proxy: {
         type: 'ajax',

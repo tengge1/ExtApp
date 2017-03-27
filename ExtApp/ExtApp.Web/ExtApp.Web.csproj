@@ -200,8 +200,8 @@
     <Content Include="app\view\core\dic\List.js" />
     <Content Include="app\view\core\dic\ListController.js" />
     <Content Include="app\view\main\accordion\MenuController.js" />
-    <Content Include="app\view\authority\appMenu\Edit.js" />
-    <Content Include="app\view\authority\appMenu\EditController.js" />
+    <Content Include="app\view\authority\menu\Edit.js" />
+    <Content Include="app\view\authority\menu\EditController.js" />
     <Content Include="app\view\main\ChangePwd.js" />
     <Content Include="app\view\main\accordion\IndexController.js" />
     <Content Include="app\view\main\desktop\BogusMenuModule.js" />
@@ -211,8 +211,8 @@
     <Content Include="app\view\main\desktop\Settings.js" />
     <Content Include="app\view\main\desktop\Wallpaper.js" />
     <Content Include="app\view\main\LoginController.js" />
-    <Content Include="app\view\authority\appMenu\List.js" />
-    <Content Include="app\view\authority\appMenu\ListController.js" />
+    <Content Include="app\view\authority\menu\List.js" />
+    <Content Include="app\view\authority\menu\ListController.js" />
     <Content Include="app\view\main\ChangePwdController.js" />
     <Content Include="app\view\core\logs\List.js" />
     <Content Include="app\view\core\logs\ListController.js" />

@@ -4,7 +4,7 @@ Ext.define('App.view.core.config.List', {
     alias: 'widget.configlist',
 
     requires: [
-        'App.view.sys.config.ListController'
+        'App.view.core.config.ListController'
     ],
 
     controller: 'configlist',

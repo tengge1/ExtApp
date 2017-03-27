@@ -4,7 +4,7 @@ Ext.define('App.view.core.config.EditSection', {
     alias: 'widget.configsectionedit',
 
     requires: [
-        'App.view.sys.config.EditSectionController'
+        'App.view.core.config.EditSectionController'
     ],
 
     layout: 'fit',

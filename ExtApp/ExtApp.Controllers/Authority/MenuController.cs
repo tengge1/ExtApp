@@ -37,16 +37,6 @@ namespace ExtApp.Controller
         }
 
         /// <summary>
-        /// 树形结构
-        /// </summary>
-        /// <returns></returns>
-        public JsonResult Tree()
-        {
-            var obj = bll.Tree(Restrictions.Eq("Status", 1));
-            return base.Tree(obj);
-        }
-
-        /// <summary>
         /// 获取列表
         /// </summary>
         /// <returns></returns>

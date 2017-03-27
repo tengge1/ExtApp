@@ -1,7 +1,7 @@
 ﻿
 Ext.define('App.view.main.accordion.Menu', {
     extend: 'Ext.container.Container',
-    alias: 'widget.menu',
+    alias: 'widget.mainmenu',
 
     requires: [
         'App.view.main.accordion.MenuController'

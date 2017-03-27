@@ -3,7 +3,7 @@
 
 Ext.define('App.plugin.TabCloseMenu', {
     extend: 'Ext.ux.TabCloseMenu',
-    alias: 'plugin.tabclosemenu',
+    alias: 'plugin.tabclosemenucn',
 
     closeAllTabsText: '关闭全部',
 

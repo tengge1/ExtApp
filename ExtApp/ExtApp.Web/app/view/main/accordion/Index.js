@@ -121,7 +121,7 @@ Ext.define('App.view.main.accordion.Index', {
         title: '系统菜单',
         layout: 'fit',
         items: [{
-            xtype: 'menu'
+            xtype: 'mainmenu'
         }]
     }, {
         region: 'south',
@@ -144,6 +144,6 @@ Ext.define('App.view.main.accordion.Index', {
             title: '主页',
             html: ''
         }],
-        plugins: 'tabclosemenu'
+        plugins: 'tabclosemenucn'
     }]
 });

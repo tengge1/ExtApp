@@ -16,23 +16,17 @@ Ext.define('App.view.authority.role.List', {
         xtype: 'button',
         text: '添加',
         iconCls: 'Add',
-        listeners: {
-            click: 'onAddClick'
-        }
+        handler: 'onAddClick'
     }, {
         xtype: 'button',
         text: '编辑',
         iconCls: 'Applicationedit',
-        listeners: {
-            click: 'onEditClick'
-        }
+        handler: 'onEditClick'
     }, {
         xtype: 'button',
         text: '删除',
         iconCls: 'Delete',
-        listeners: {
-            click: 'onDeleteClick'
-        }
+        handler: 'onDeleteClick'
     }],
 
     items: [{
@@ -86,14 +80,14 @@ Ext.define('App.view.authority.role.List', {
             dataIndex: 'Name'
         }, {
             text: '排序',
-            dataIndex: 'Layer'
+            dataIndex: 'Sort'
         }, {
             text: '状态',
             dataIndex: 'Status',
             renderer: App.renderer.status
         }, {
             text: '备注',
-            dataIndex: 'Memo',
+            dataIndex: 'Comment',
             flex: 1
         }],
 

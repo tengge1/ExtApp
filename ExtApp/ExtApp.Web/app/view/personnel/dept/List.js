@@ -68,9 +68,10 @@ Ext.define("App.view.personnel.dept.List", {
                 xtype: 'hidden',
                 name: 'PID'
             }, {
-                xtype: 'displayfield',
+                xtype: 'textfield',
                 name: 'PName',
-                fieldLabel: '上级'
+                fieldLabel: '上级',
+                readOnly: true
             }, {
                 xtype: 'textfield',
                 name: 'Name',

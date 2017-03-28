@@ -25,32 +25,6 @@ namespace ExtApp.Controller
         private DeptBLL bll;
 
         /// <summary>
-        /// 获取所有
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult List()
-        {
-            var list = bll.List().Select(o => new
-            {
-                ID = o.ID,
-                PID = o.PDept == null ? 0 : o.PDept.ID,
-                PName = o.PDept == null ? "" : o.PDept.Name,
-                Code = o.Code,
-                Name = o.Name,
-                Type = o.Type,
-                AddUserID = o.AddUser == null ? 0 : o.AddUser.ID,
-                AddUserName = o.AddUser == null ? "" : o.AddUser.Name,
-                AddTime = o.AddTime == null ? "" : o.AddTime.Value.ToString("yyyy-MM-dd HH:mm:ss"),
-                Sort = o.Sort,
-                Status = o.Status,
-                Comment = o.Comment
-            }).ToList();
-
-            return Json(list);
-        }
-
-        /// <summary>
         /// 获取所有子部门
         /// </summary>
         /// <param name="PID"></param>

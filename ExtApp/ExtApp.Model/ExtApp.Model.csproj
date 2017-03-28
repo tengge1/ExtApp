@@ -92,6 +92,7 @@
     <Compile Include="Authority\View\LoginModel.cs" />
     <Compile Include="Authority\View\RoleEditParam.cs" />
     <Compile Include="Authority\View\RoleListParam.cs" />
+    <Compile Include="Core\View\ConfigEditParam.cs" />
     <Compile Include="Core\View\LogListParam.cs" />
     <Compile Include="Core\View\MenuNode.cs" />
     <Compile Include="Enum\Sort.cs" />

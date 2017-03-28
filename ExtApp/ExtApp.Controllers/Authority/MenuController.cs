@@ -37,17 +37,6 @@ namespace ExtApp.Controller
         }
 
         /// <summary>
-        /// 获取列表
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult List()
-        {
-            var list = bll.List(null, "Sort", Sort.Asc);
-            return Json(list);
-        }
-
-        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="appMenu"></param>

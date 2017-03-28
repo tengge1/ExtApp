@@ -14,7 +14,6 @@ Ext.define('App.view.authority.role.Edit', {
     title: '编辑角色',
     layout: 'fit',
     iconCls: 'Group',
-    width: 350,
     modal: true,
 
     items: {

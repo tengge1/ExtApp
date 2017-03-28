@@ -25,63 +25,32 @@ namespace ExtApp.BLL
             var list = dal.List(query, "Sort", Sort.Asc);
             var nodes = new List<MenuNode>();
 
-            if (PID == 0) // 根节点
+            List<Menu> list1 = list.Where(o => o.PID == PID).ToList();
+
+            foreach (var i in list1)
             {
-                var list1 = list.Where(o => o.PID == 0).ToList();
-                foreach (var i in list1)
+                var node = new MenuNode
                 {
-                    var node = new MenuNode
-                    {
-                        id = i.ID,
-                        text = i.Name,
-                        leaf = true,
-                        expandable = false,
-                        expanded = false,
-                        iconCls = i.Icon,
-                        ID = i.ID,
-                        Name = i.Name,
-                        Url = i.Url
-                    };
+                    id = i.ID,
+                    text = i.Name,
+                    leaf = true,
+                    expandable = false,
+                    expanded = false,
+                    iconCls = i.Icon,
+                    ID = i.ID,
+                    Name = i.Name,
+                    Url = i.Url
+                };
 
-                    // 判断是否有下级节点
-                    if (list.Where(o => o.PID == i.ID).Count() > 0)
-                    {
-                        node.leaf = false;
-                        node.expandable = true;
-                        node.expanded = true;
-                    }
-
-                    nodes.Add(node);
-                }
-            }
-            else // 不是根节点
-            {
-                var list1 = list.Where(o => o.PID == PID).ToList();
-                foreach (var i in list1)
+                // 判断是否有下级节点
+                if (list.Where(o => o.PID == i.ID).Count() > 0)
                 {
-                    var node = new MenuNode
-                    {
-                        id = i.ID,
-                        text = i.Name,
-                        leaf = true,
-                        expandable = false,
-                        expanded = false,
-                        iconCls = i.Icon,
-                        ID = i.ID,
-                        Name = i.Name,
-                        Url = i.Url
-                    };
-
-                    // 判断是否有下级节点
-                    if (list.Where(o => o.PID == i.ID).Count() > 0)
-                    {
-                        node.leaf = false;
-                        node.expandable = true;
-                        node.expanded = false;
-                    }
-
-                    nodes.Add(node);
+                    node.leaf = false;
+                    node.expandable = true;
+                    node.expanded = i.PID == 0 ? true : false;
                 }
+
+                nodes.Add(node);
             }
 
             return nodes;

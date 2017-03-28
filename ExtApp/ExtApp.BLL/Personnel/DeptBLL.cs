@@ -47,7 +47,7 @@ namespace ExtApp.BLL
                     Code = i.Code,
                     Comment = i.Comment,
                     expandable = false,
-                    expanded = false,
+                    expanded = i.PDept == null ? true : false,
                     id = i.ID,
                     ID = i.ID,
                     leaf = true,

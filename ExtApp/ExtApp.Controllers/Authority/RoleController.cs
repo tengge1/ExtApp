@@ -25,83 +25,27 @@ namespace ExtApp.Controller
         private RoleBLL bll;
 
         /// <summary>
-        /// 获取列表
+        /// 列表
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="status"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(string name = "", int? status = null)
+        public JsonResult List([FromUri]RoleListParam p)
         {
-            ICriterion query = Restrictions.Gt("Status", -1);
-
-            // 编码、名称
-            if (!string.IsNullOrEmpty(name))
-            {
-                var query1 = Restrictions.Like("Code", name, MatchMode.Anywhere);
-                var query2 = Restrictions.Like("Name", name, MatchMode.Anywhere);
-                var query3 = Restrictions.Or(query1, query2);
-                query = Restrictions.And(query, query3);
-            }
-
-            // 状态
-            if (status != null)
-            {
-                var query1 = Restrictions.Eq("Status", status);
-                query = Restrictions.And(query, query1);
-            }
-
             var total = 0;
-            var list = bll.List(query, "ID", Sort.Asc);
-
-            return base.List<Role>(total, list);
-        }
-
-        /// <summary>
-        /// 获取列表
-        /// </summary>
-        /// <param name="firstResult"></param>
-        /// <param name="maxResults"></param>
-        /// <param name="name"></param>
-        /// <param name="status"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult List(int firstResult, int maxResults, string name = "", int? status = null)
-        {
-            ICriterion query = Restrictions.Gt("Status", -1);
-
-            // 编码、名称
-            if (!string.IsNullOrEmpty(name))
-            {
-                var query1 = Restrictions.Like("Code", name, MatchMode.Anywhere);
-                var query2 = Restrictions.Like("Name", name, MatchMode.Anywhere);
-                var query3 = Restrictions.Or(query1, query2);
-                query = Restrictions.And(query, query3);
-            }
-
-            // 状态
-            if (status != null)
-            {
-                var query1 = Restrictions.Eq("Status", status);
-                query = Restrictions.And(query, query1);
-            }
-
-            var total = 0;
-            var list = bll.List(firstResult, maxResults, out total, query);
-
+            var list = bll.List(p, out total);
             return base.List<Role>(total, list);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="role"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(Role role)
+        public JsonResult Add(RoleEditParam p)
         {
-            bll.Add(role);
-            return base.Success("添加成功");
+            return Json(bll.Add(p));
         }
 
         /// <summary>
@@ -110,10 +54,9 @@ namespace ExtApp.Controller
         /// <param name="role"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(Role role)
+        public JsonResult Edit(RoleEditParam p)
         {
-            bll.Edit(role);
-            return base.Success("修改成功");
+            return Json(bll.Edit(p));
         }
 
         /// <summary>
@@ -122,7 +65,7 @@ namespace ExtApp.Controller
         /// <param name="ID"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Delete(int ID)
+        public JsonResult Delete([FromBody]int ID)
         {
             var result = bll.Delete(ID);
             return Json(result);

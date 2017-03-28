@@ -17,16 +17,6 @@ Ext.define('App.view.authority.role.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
-    renderStatus: function (value, cellmeta, record, rowIndex, columnIndex, store) {
-        if (value == 1) {
-            return '启用';
-        } else if (value == 0) {
-            return '禁用';
-        } else {
-            return value;
-        }
-    },
-
     refresh: function () { // 刷新
         var view = this.getView();
         view.down('pagingtoolbar').moveFirst();
@@ -69,30 +59,24 @@ Ext.define('App.view.authority.role.ListController', {
     },
 
     onDeleteClick: function () { // 点击删除按钮
-        var selected = this.getView().getSelectionModel().getSelected();
+        var view = this.getView();
+        var selected = view.down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请先选择一行');
+            App.alert('消息', '请选择');
             return;
         }
-        var view = this.getView();
-        Ext.Msg.confirm('消息', '要删除该记录？', function (buttonId, value, opt) {
-            if (buttonId == 'yes') {
-                Ext.Ajax.request({
-                    url: '/api/Role/Delete?id=' + selected.items[0].data.ID,
-                    method: 'POST',
-                    success: function (response, opts) {
-                        var obj = Ext.JSON.decode(response.responseText);
-                        if (obj.Code == 200) {
-                            view.getStore().load();
-                        } else {
-                            Ext.Msg.alert('消息', obj.Msg);
-                        }
-                    },
-                    failure: function (response, opts) {
-                        Ext.alert('消息', response.responseText);
-                    }
-                });
-            }
+        App.confirm('消息', '要删除该记录？', function () {
+            App.post('/api/Role/Delete', {
+                ID: selected.items[0].data.ID
+            }, function (r) {
+                var obj = JSON.parse(r);
+                if (obj.Code == 200) {
+                    view.down('gridpanel').getStore().load();
+                    App.notify('消息', obj.Msg);
+                } else {
+                    App.alert('消息', obj.Msg);
+                }
+            });
         });
     }
 });

@@ -90,7 +90,7 @@ Ext.define('App.view.authority.role.List', {
         }, {
             text: '状态',
             dataIndex: 'Status',
-            renderer: 'renderStatus'
+            renderer: App.renderer.status
         }, {
             text: '备注',
             dataIndex: 'Memo',

@@ -30,71 +30,43 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult List()
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from ConfigSection where Status=0 order by ID");
-            var list = query.List<ConfigSection>();
-            return Json(new ListResult<ConfigSection>
-            {
-                Code = 200,
-                Msg = "获取数据成功！",
-                Total = list.Count(),
-                Items = list
-            });
+            var result = bll.List();
+            return Json(result);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
-        [HttpPost]
-        public JsonResult Add(ConfigSection model)
+        public JsonResult Add(ConfigSectionParam p)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(model);
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "添加成功！"
-            });
+            var result = bll.Add(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(ConfigSection model)
+        public JsonResult Edit(ConfigSectionParam p)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(model);
-            session.Flush();
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "修改成功！"
-            });
+            var result = bll.Edit(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="ID"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Delete(int id)
+        public JsonResult Delete(int ID)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            var model = session.Get<ConfigSection>(id);
-            model.Status = -1;
-            session.SaveOrUpdate(model);
-            session.Flush();
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "删除成功！"
-            });
+            var result = bll.Delete(ID);
+            return Json(result);
         }
     }
 }

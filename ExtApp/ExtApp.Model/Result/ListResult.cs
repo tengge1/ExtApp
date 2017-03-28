@@ -12,6 +12,29 @@ namespace ExtApp.Model
     public class ListResult<T> : Result
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public ListResult()
+        {
+
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="Code"></param>
+        /// <param name="Msg"></param>
+        /// <param name="Total"></param>
+        /// <param name="Items"></param>
+        public ListResult(int Code, string Msg, int Total = 0, IList<T> Items = null)
+        {
+            this.Code = Code;
+            this.Msg = Msg;
+            this.Total = Total;
+            this.Items = Items;
+        }
+
+        /// <summary>
         /// 记录总数
         /// </summary>
         public int Total { get; set; }
@@ -27,6 +50,29 @@ namespace ExtApp.Model
     /// </summary>
     public class ListResult : Result
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public ListResult()
+        {
+
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="Code"></param>
+        /// <param name="Msg"></param>
+        /// <param name="Total"></param>
+        /// <param name="Items"></param>
+        public ListResult(int Code, string Msg, int Total = 0, IList<object> Items = null)
+        {
+            this.Code = Code;
+            this.Msg = Msg;
+            this.Total = Total;
+            this.Items = Items;
+        }
+
         /// <summary>
         /// 记录总数
         /// </summary>

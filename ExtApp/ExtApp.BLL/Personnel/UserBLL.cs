@@ -140,24 +140,20 @@ namespace ExtApp.BLL
                 return new Result(300, "用户名重复，编辑失败！");
             }
 
-            var user = new User
-            {
-                ID = p.ID,
-                Username = p.Username,
-                Password = p.Password,
-                Name = p.Name,
-                Sex = p.Sex == null ? 0 : p.Sex,
-                Dept = p.DeptID == null ? null : new Dept { ID = p.DeptID.Value },
-                Role = p.RoleID == null ? null : new Role { ID = p.RoleID.Value },
-                Duty = p.Duty,
-                Phone = p.Phone,
-                Email = p.Email,
-                Birthday = p.Birthday,
-                Address = p.Address,
-                Sort = p.Sort == null ? 0 : p.Sort,
-                Comment = p.Comment,
-                Status = p.Status
-            };
+            var user = dal.Get(p.ID);
+            user.Address = p.Address;
+            user.Birthday = p.Birthday;
+            user.Comment = p.Comment;
+            user.Dept = p.DeptID == null ? null : new Dept { ID = p.DeptID.Value };
+            user.Duty = p.Duty;
+            user.Email = p.Email;
+            user.Name = p.Name;
+            user.Phone = p.Phone;
+            user.Role = p.RoleID == null ? null : new Role { ID = p.RoleID.Value };
+            user.Sex = p.Sex;
+            user.Sort = p.Sort;
+            user.Status = p.Status;
+            user.Username = p.Username;
             var result = dal.Edit(user);
             if (result)
             {

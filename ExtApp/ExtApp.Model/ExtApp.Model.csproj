@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Authority\View\ChangePwdModel.cs" />
     <Compile Include="Authority\View\LoginModel.cs" />
+    <Compile Include="Authority\View\MenuEditParam.cs" />
     <Compile Include="Authority\View\RoleEditParam.cs" />
     <Compile Include="Authority\View\RoleListParam.cs" />
     <Compile Include="Core\View\ConfigEditParam.cs" />

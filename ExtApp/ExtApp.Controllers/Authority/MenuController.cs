@@ -39,95 +39,37 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="appMenu"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(Menu appMenu)
+        public JsonResult Add(MenuEditParam p)
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-
-            // 查找父节点的Code
-            string PCode = "";
-            if (appMenu.PID > 0) // 不是顶级菜单
-            {
-                IQuery query1 = session.CreateQuery("from Menu where ID=:pid");
-                query1.SetParameter("pid", appMenu.PID);
-                Menu appMenu1 = query1.UniqueResult<Menu>();
-                if (appMenu1 != null)
-                {
-                    PCode = appMenu1.Code;
-                }
-            }
-
-            // 为当前结点生成Code
-            string Code = "";
-            IQuery query = session.CreateQuery("from Menu where PID=:pid");
-            query.SetParameter("pid", appMenu.PID);
-            IList<Menu> list = query.List<Menu>();
-            for (var i = 1; i <= 999; i++)
-            {
-                if (i < 10) // 1-9
-                {
-                    Code = PCode + "00" + i;
-                }
-                else if (i < 100) // 10-99
-                {
-                    Code = PCode + "0" + i;
-                }
-                else // 100-999
-                {
-                    Code = PCode + i;
-                }
-                if (list.Where(o => o.Code == Code).Count() == 0)
-                {
-                    break;
-                }
-            }
-
-            // 添加菜单
-            appMenu.Code = Code;
-            session.SaveOrUpdate(appMenu);
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "添加成功！"
-            });
+            var result = bll.Add(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="appMenu"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(Menu appMenu)
+        public JsonResult Edit(MenuEditParam p)
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(appMenu);
-            session.Flush();
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "修改成功！"
-            });
+            var result = bll.Edit(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="ID"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Delete(int id)
+        public JsonResult Delete(int ID)
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            session.Delete("from AppMenu where ID=" + id);
-            session.Flush();
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "删除成功！"
-            });
+            var result = bll.Delete(ID);
+            return Json(result);
         }
     }
 }

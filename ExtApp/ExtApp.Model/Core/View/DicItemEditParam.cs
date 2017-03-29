@@ -9,7 +9,7 @@ namespace ExtApp.Model
     /// <summary>
     /// 字典项参数
     /// </summary>
-    public class DicItemParam
+    public class DicItemEditParam
     {
         public int ID { get; set; }
         public int PID { get; set; }

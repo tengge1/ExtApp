@@ -26,77 +26,49 @@ namespace ExtApp.Controller
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="dicID"></param>
+        /// <param name="PID"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List(int dicID)
+        public JsonResult List(int PID)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            IQuery query = session.CreateQuery("from DicItem where Status=0 and Dict.ID=:dicID order by Layer");
-            query.SetParameter("dicID", dicID);
-            var list = query.List<DicItem>();
-            return Json(new ListResult<DicItem>
-            {
-                Code = 200,
-                Msg = "获取数据成功！",
-                Total = list.Count(),
-                Items = list
-            });
+            var result = bll.List(PID);
+            return Json(result);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(DicItem model)
+        public JsonResult Add(DicItemEditParam p)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(model);
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "添加成功！"
-            });
+            var result = bll.Add(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(DicItem model)
+        public JsonResult Edit(DicItemEditParam p)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            session.SaveOrUpdate(model);
-            session.Flush();
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "修改成功！"
-            });
+            var result = bll.Edit(p);
+            return Json(result);
         }
 
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="ID"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Delete(int id)
+        public JsonResult Delete(int ID)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-            var model = session.Get<DicItem>(id);
-            model.Status = -1;
-            session.SaveOrUpdate(model);
-            session.Flush();
-            return Json(new Result
-            {
-                Code = 200,
-                Msg = "删除成功！"
-            });
+            var result = bll.Delete(ID);
+            return Json(result);
         }
     }
 }

@@ -13,6 +13,12 @@ Ext.define('App.store.authority.RoleAll', {
             type: 'json',
             totalProperty: 'Total',
             rootProperty: 'Items'
+        },
+        startParam: 'firstResult',
+        limitParam: 'maxResults',
+        params: {
+            startParam: 0,
+            limitParam: 1000
         }
     }
 });

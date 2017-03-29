@@ -66,9 +66,7 @@ Ext.define('App.view.authority.role.ListController', {
             return;
         }
         App.confirm('消息', '要删除该记录？', function () {
-            App.post('/api/Role/Delete', {
-                ID: selected.items[0].data.ID
-            }, function (r) {
+            App.post('/api/Role/Delete?ID=' + selected.items[0].data.ID, function (r) {
                 var obj = JSON.parse(r);
                 if (obj.Code == 200) {
                     view.down('gridpanel').getStore().load();

@@ -39,6 +39,7 @@ namespace ExtApp.Controller
             {
                 ID = o.ID,
                 Username = o.Username,
+                Password = "***",
                 Name = o.Name,
                 Sex = o.Sex,
                 DeptID = o.Dept == null ? 0 : o.Dept.ID,

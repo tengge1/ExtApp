@@ -23,6 +23,8 @@ Ext.define('App.view.personnel.user.ListController', {
     onAddClick: function () { // 添加
         var win = Ext.create('App.view.personnel.user.Edit');
         win.setTitle('添加用户');
+        win.down('textfield[name=Password]').show();
+        win.down('combo[name=Status]').hide();
         win.controller.reset();
         win.show();
     },
@@ -34,8 +36,10 @@ Ext.define('App.view.personnel.user.ListController', {
             return;
         }
         var win = Ext.create('App.view.personnel.user.Edit');
-        win.down('form').form.loadRecord(selected.items[0]);
         win.setTitle('编辑用户');
+        win.down('textfield[name=Password]').hide();
+        win.down('combo[name=Status]').show();
+        win.down('form').form.loadRecord(selected.items[0]);
         win.show();
     },
 

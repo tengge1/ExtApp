@@ -9,14 +9,6 @@ Ext.define('App.view.authority.role.EditController', {
         this.getView().down('form').getForm().reset();
     },
 
-    getValues: function () { // 获取
-        return this.getView().down('form').getForm().getValues();
-    },
-
-    setValues: function (values) { // 赋值
-        this.getView().down('form').getForm().setValues(values);
-    },
-
     onOKClick: function () { // 点击确定按钮
         var view = this.getView();
         var form = view.down('form').getForm();
@@ -31,21 +23,14 @@ Ext.define('App.view.authority.role.EditController', {
             url = '/api/Role/Add';
         }
 
-        Ext.Ajax.request({
-            url: url,
-            method: 'POST',
-            params: values,
-            success: function (response, opts) {
-                var obj = Ext.JSON.decode(response.responseText);
-                if (obj.Code == 200) {
-                    view.hide();
-                    Ext.ComponentQuery.query('rolelist')[0].controller.refresh();
-                } else {
-                    Ext.Msg.alert('消息', response.responseText);
-                }
-            },
-            failure: function (response, opts) {
-                Ext.Msg.alert('消息', response.responseText);
+        App.post(url, values, function (r) {
+            var obj = JSON.parse(r);
+            if (obj.Code == 200) {
+                view.hide();
+                Ext.ComponentQuery.query('rolelist')[0].controller.refresh();
+                App.notify('消息', obj.Msg);
+            } else {
+                App.alert('消息', obj.Msg);
             }
         });
     },

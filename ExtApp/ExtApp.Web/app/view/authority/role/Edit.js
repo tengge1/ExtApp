@@ -45,7 +45,7 @@ Ext.define('App.view.authority.role.Edit', {
             }, {
                 xtype: 'numberfield',
                 fieldLabel: '排序',
-                name: 'Layer',
+                name: 'Sort',
                 value: 0,
                 allowBlank: false
             }, {
@@ -62,7 +62,7 @@ Ext.define('App.view.authority.role.Edit', {
             }, {
                 xtype: 'textarea',
                 fieldLabel: '备注',
-                name: 'Memo'
+                name: 'Comment'
             }]
         }]
     },

@@ -74,55 +74,45 @@ namespace ExtApp.BLL
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="dept"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
-        public new Result Add(Dept dept)
+        public Result Add(DeptEditParam p)
         {
-            var session = NHibernateHelper.GetCurrentSession();
-
-            // 判断名称是否重复
-            if (dept.PDept == null) // 顶级机构
+            // 判断机构名称是否重复
+            var query1 = Restrictions.Eq("Name", p.Name);
+            ICriterion query2 = null;
+            if (p.PID == 0) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.PDept == null).SingleOrDefault();
-                if (dept1 != null)
-                {
-                    return new Result
-                    {
-                        Code = 300,
-                        Msg = "该机构已经存在！"
-                    };
-                }
+                query2 = Restrictions.Eq("PDept", null);
             }
             else // 不是顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.Name == dept.Name && o.PDept != null).JoinQueryOver(o => o.PDept).Where(o => o.ID == dept.PDept.ID).SingleOrDefault();
-                if (dept1 != null)
-                {
-                    return new Result
-                    {
-                        Code = 300,
-                        Msg = "该机构已经存在！"
-                    };
-                }
+                query2 = Restrictions.Eq("PDept", new Dept { ID = p.PID });
+            }
+            var query = Restrictions.And(query1, query2);
+            var count = dal.Count(query);
+            if (count > 0)
+            {
+                return new Result(300, "该机构已经存在！");
             }
 
             // 查找父节点的Code
             var PCode = "";
-            if (dept.PDept != null) // 不是顶级机构
+            if (p.PID > 0) // 不是顶级机构
             {
-                var pDept = session.QueryOver<Dept>().Where(o => o.ID == dept.PDept.ID).SingleOrDefault();
-                if (pDept != null)
+                var pdept = dal.Get(p.PID);
+                if (pdept != null)
                 {
-                    PCode = pDept.Code;
+                    PCode = pdept.Code;
                 }
             }
 
             // 为当前结点生成Code
             var Code = "";
-            var list = new List<Dept>();
-            if (dept.PDept == null) // 顶级机构
+            if (p.PID == 0) // 顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept == null).OrderBy(o => o.Code).Desc.Take(1).SingleOrDefault();
+                var query3 = Restrictions.Eq("PDept", null);
+                var dept1 = dal.List(query3, "Code", Sort.Desc).FirstOrDefault();
                 if (dept1 == null) // 第一个
                 {
                     Code = "001";
@@ -134,10 +124,11 @@ namespace ExtApp.BLL
             }
             else // 不是顶级机构
             {
-                var dept1 = session.QueryOver<Dept>().Where(o => o.PDept != null).OrderBy(o => o.Code).Desc.JoinQueryOver(o => o.PDept).Where(o => o.Code == PCode).Take(1).SingleOrDefault();
+                var query3 = Restrictions.Eq("PDept", null);
+                var dept1 = dal.List(query3, "Code", Sort.Desc).FirstOrDefault();
                 if (dept1 == null) // 第一个
                 {
-                    Code = PCode + "001";
+                    Code = "001";
                 }
                 else // 不是第一个
                 {
@@ -146,37 +137,51 @@ namespace ExtApp.BLL
             }
 
             // 添加
-            dept.Code = Code;
-            session.Save(dept);
-            return new Result
+            var dept = new Dept
             {
-                Code = 200,
-                Msg = "添加成功！"
+                AddTime = DateTime.Now,
+                AddUser = AdminHelper.Admin,
+                Code = Code,
+                Comment = p.Comment,
+                ID = 0,
+                Name = p.Name,
+                PDept = p.PID == 0 ? null : new Dept { ID = p.PID },
+                Sort = p.Sort,
+                Status = p.Status,
+                Type = p.Type == null ? 0 : p.Type.Value
             };
+            var result = dal.Add(dept);
+            if (result)
+            {
+                return new Result(200, "添加成功！");
+            }
+            else
+            {
+                return new Result(300, "添加失败！");
+            }
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="dept"></param>
+        /// <param name="p"></param>
         /// <returns></returns>
-        public new Result Edit(Dept dept)
+        public Result Edit(DeptEditParam p)
         {
-            // 判断机构是否重复
-            var query1 = Restrictions.Eq("Name", dept.Name);
-            var query2 = Restrictions.Not(Restrictions.Eq("ID", dept.ID));
-            var query = Restrictions.And(query1, query2);
-
-            if (dept.PDept == null) // 顶级机构
+            // 判断机构名称是否重复
+            var query1 = Restrictions.Eq("Name", p.Name);
+            ICriterion query2 = null;
+            if (p.PID == 0) // 顶级机构
             {
-                var query3 = Restrictions.IsNull("PDept");
-                query = Restrictions.And(query, query3);
+                query2 = Restrictions.Eq("PDept", null);
             }
             else // 不是顶级机构
             {
-                var query3 = Restrictions.Eq("PDept", new Dept { ID = dept.PDept.ID });
-                query = Restrictions.And(query, query3);
+                query2 = Restrictions.Eq("PDept", new Dept { ID = p.PID });
             }
+            var query3 = Restrictions.Not(Restrictions.Eq("ID", p.ID));
+            var query = Restrictions.And(query1, query2);
+            query = Restrictions.And(query, query3);
 
             var dept1 = dal.Get(query);
             if (dept1 != null)
@@ -185,6 +190,17 @@ namespace ExtApp.BLL
             }
 
             // 保存机构
+            var dept = dal.Get(p.ID);
+            if (dept == null)
+            {
+                return new Result(300, "数据不存在！");
+            }
+            dept.Comment = p.Comment;
+            dept.Name = p.Name;
+            dept.Sort = p.Sort;
+            dept.Status = p.Status;
+            dept.Type = p.Type == null ? 0 : p.Type.Value;
+
             var result = dal.Edit(dept);
             if (result)
             {

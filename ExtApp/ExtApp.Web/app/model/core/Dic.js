@@ -7,6 +7,7 @@ Ext.define('App.model.core.Dic', {
         'Code',
         'Type',
         'Name',
+        'Sort',
         'Status',
         'Comment'
     ]

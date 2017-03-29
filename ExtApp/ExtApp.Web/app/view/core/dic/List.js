@@ -14,40 +14,42 @@ Ext.define('App.view.core.dic.List', {
     layout: 'border',
 
     items: [{
-        xtype: 'treepanel',
+        xtype: 'gridpanel',
         region: 'west',
-        width: 180,
+        width: 280,
         title: '字典列表',
+        store: Ext.create('App.store.core.Dic'),
         split: true,
         collapsible: true,
-        rootVisible: false,
-
-        root: {
-            expanded: true,
-            children: []
-        },
 
         tbar: [{
             xtype: 'button',
             text: '添加',
             iconCls: 'Add',
-            listeners: {
-                click: 'onAddClick'
-            }
+            handler: 'onAddClick',
         }, {
             xtype: 'button',
             text: '编辑',
             iconCls: 'Applicationedit',
-            listeners: {
-                click: 'onEditClick'
-            }
+            handler: 'onEditClick'
         }, {
             xtype: 'button',
             text: '删除',
             iconCls: 'Delete',
-            listeners: {
-                click: 'onDeleteClick'
-            }
+            handler: 'onDeleteClick'
+        }],
+
+        columns: [{
+            xtype: 'rownumberer'
+        }, {
+            text: '编码',
+            dataIndex: 'Code'
+        }, {
+            text: '名称',
+            dataIndex: 'Name'
+        }, {
+            text: '类型',
+            dataIndex: 'Type'
         }],
 
         listeners: {
@@ -69,16 +71,8 @@ Ext.define('App.view.core.dic.List', {
             text: '编码',
             dataIndex: 'Code'
         }, {
-            text: '排序',
-            dataIndex: 'Layer'
-        }, {
-            text: '状态',
-            dataIndex: 'Status',
-            renderer: 'renderStatus'
-        }, {
-            text: '备注',
-            dataIndex: 'Memo',
-            flex: 1
+            text: '类型',
+            dataIndex: 'Type'
         }],
         tbar: [{
             xtype: 'button',

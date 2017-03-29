@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authority\View\ChangePwdModel.cs" />
+    <Compile Include="Authority\View\DeptRoleMenuEditIn.cs" />
+    <Compile Include="Authority\View\DeptRoleMenuItem.cs" />
     <Compile Include="Authority\View\LoginModel.cs" />
     <Compile Include="Authority\View\MenuEditParam.cs" />
     <Compile Include="Authority\View\RoleEditParam.cs" />

@@ -63,7 +63,7 @@ namespace ExtApp.BLL
                 if (list.Where(o => o.PDept != null && o.PDept.ID == i.ID).Count() > 0) // 有子部门
                 {
                     node.expandable = true;
-                    node.expanded = true;
+                    node.expanded = i.PDept == null ? true : false;
                     node.leaf = false;
                 }
                 nodes.Add(node);

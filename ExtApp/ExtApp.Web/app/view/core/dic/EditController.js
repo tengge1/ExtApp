@@ -3,38 +3,35 @@ Ext.define('App.view.core.dic.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.dicedit',
 
-    onSaveClick: function () { // 点击保存按钮
-        var form = this.getView().down('form');
+    onSaveClick: function () {
+        var win = this.getView();
+        var form = win.down('form');
         if (!form.isValid()) {
+            App.notify('消息', '请填写完整！');
             return;
         }
         var values = form.getValues();
-        var view = this.getView();
-        Ext.Ajax.request({
-            url: '/api/Dic/Edit',
-            method: 'POST',
-            jsonData: values,
+        var url = '/api/Dic/Edit';
+        if (values.ID == 0) {
+            url = '/api/Dic/Add';
+        }
 
-            success: function (response, opts) {
-                var data = response.responseText;
-                var obj = Ext.JSON.decode(data);
-                if (obj.Code == 200) {
-                    view.hide();
-                    var controller = Ext.ComponentQuery.query('diclist')[0].getController();
-                    controller.refreshDic();
-
-                } else {
-                    Ext.Msg.alert('消息', obj.Msg);
+        App.post(url, values, function (r) {
+            var obj = JSON.parse(r);
+            if (obj.Code == 200) {
+                win.hide();
+                var view = App.get('diclist');
+                if (view != null) {
+                    view.down('treepanel').getStore().reload();
                 }
-            },
-
-            failure: function (response, opts) {
-                Ext.Msg.alert('消息', response.responseText);
+                App.notify('消息', obj.Msg);
+            } else {
+                App.alert('消息', obj.Msg);
             }
         });
     },
 
-    onCancelClick: function () { // 点击取消按钮
+    onCancelClick: function () {
         this.getView().hide();
     }
 });

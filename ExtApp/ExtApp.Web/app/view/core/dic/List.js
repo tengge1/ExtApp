@@ -21,6 +21,7 @@ Ext.define('App.view.core.dic.List', {
         store: Ext.create('App.store.core.DicTree'),
         split: true,
         collapsible: true,
+        rootVisible: false,
 
         tbar: [{
             xtype: 'button',
@@ -46,42 +47,46 @@ Ext.define('App.view.core.dic.List', {
         xtype: 'gridpanel',
         region: 'center',
         title: '字典项列表',
-        defaults: {
-            xtype: 'column '
-        },
-        columns: [{
-            xtype: 'rownumberer'
-        }, {
-            text: '名称',
-            dataIndex: 'Name'
-        }, {
-            text: '编码',
-            dataIndex: 'Code'
-        }, {
-            text: '类型',
-            dataIndex: 'Type'
-        }],
+        store: Ext.create('App.store.core.DicItem'),
+
         tbar: [{
             xtype: 'button',
             text: '添加',
             iconCls: 'Add',
-            listeners: {
-                click: 'onAddItemClick'
-            }
+            handler: 'onAddItemClick'
         }, {
             xtype: 'button',
             text: '编辑',
             iconCls: 'Applicationedit',
-            listeners: {
-                click: 'onEditItemClick'
-            }
+            handler: 'onEditItemClick'
         }, {
             xtype: 'button',
             text: '删除',
             iconCls: 'Delete',
-            listeners: {
-                click: 'onDeleteItemClick'
-            }
+            handler: 'onDeleteItemClick'
+        }],
+
+        columns: [{
+            xtype: 'rownumberer'
+        }, {
+            text: '所属字典',
+            dataIndex: 'DicName'
+        }, {
+            text: '编码',
+            dataIndex: 'Code'
+        }, {
+            text: '名称',
+            dataIndex: 'Name'
+        }, {
+            text: '排序',
+            dataIndex: 'Sort'
+        }, {
+            text: '状态',
+            dataIndex: 'Status',
+            renderer: App.renderer.status
+        }, {
+            text: '备注',
+            dataIndex: 'Comment'
         }]
     }]
 });

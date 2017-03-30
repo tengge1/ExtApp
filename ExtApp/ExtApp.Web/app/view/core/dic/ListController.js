@@ -4,98 +4,58 @@ Ext.define('App.view.core.dic.ListController', {
     alias: 'controller.diclist',
 
     requires: [
-        'App.store.core.Dic',
         'App.view.core.dic.Edit',
-        'App.store.core.DicItem',
         'App.view.core.dic.EditItem'
     ],
 
-    init: function () { // 页面初始化
-
+    onAddClick: function () {
+        var win = Ext.create('App.view.core.dic.Edit');
+        win.setTitle('添加字典');
+        win.down('form').getForm().reset();
+        win.show();
     },
 
-    refreshDic: function () { // 刷新字典列表
-        var store = this.getView().down('treepanel').getStore();
-        store.reload();
-    },
-
-    refreshDicItem: function () { // 刷新字典子项列表
-        var view = this.getView();
-        var grid = view.down('grid');
-        grid.getStore().reload();
-    },
-
-    renderStatus: function (value) { // 渲染状态
-        if (value == 0) {
-            return '启用';
-        } else if (value == -1) {
-            return '禁用';
-        } else {
-            return value;
-        }
-    },
-
-    onAddClick: function () { // 点击添加按钮
-        Ext.widget('dicadd').show();
-    },
-
-    onEditClick: function () { // 点击编辑按钮
-        var me = this;
-        var view = this.getView();
-        var tree = view.items.items[0];
+    onEditClick: function () {
+        var tree = this.getView().down('treepanel');
         var selected = tree.getSelection();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请先选择一行');
+            App.notify('消息', '请选择字典！');
             return;
         }
-        var win = Ext.widget('dicedit');
+        var win = Ext.create('App.view.core.dic.Edit');
+        win.setTitle('编辑字典');
         win.down('form').getForm().loadRecord(selected[0]);
         win.show();
     },
 
-    onDeleteClick: function () { // 点击删除按钮
-        var me = this;
-        var view = this.getView();
-        var tree = view.items.items[0];
+    onDeleteClick: function () {
+        var tree = this.getView().down('treepanel');
         var selected = tree.getSelection();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请先选择一行');
+            App.notify('消息', '请选择字典！');
             return;
         }
-        Ext.Msg.confirm('消息', '要删除该记录？', function (buttonId, value, opt) {
-            if (buttonId == 'yes') {
-                Ext.Ajax.request({
-                    url: '/api/Dic/Delete?id=' + selected[0].data.ID,
-                    method: 'POST',
-                    success: function (response, opts) {
-                        var obj = Ext.JSON.decode(response.responseText);
-                        if (obj.Code == 200) {
-                            me.refreshDic();
-                        } else {
-                            Ext.Msg.alert('消息', obj.Msg);
-                        }
-                    },
-                    failure: function (response, opts) {
-                        Ext.alert('消息', response.responseText);
-                    }
-                });
-            }
+        App.confirm('消息', '要删除该字典？', function () {
+            App.post('/api/Dic/Delete?ID=' + selected[0].data.ID, function (r) {
+                var obj = JSON.parse(r);
+                if (obj.Code == 200) {
+                    tree.getStore().reload();
+                    App.notify('消息', obj.Msg);
+                } else {
+                    App.alert('消息', obj.Msg);
+                }
+            });
         });
     },
 
     onTreeItemClick: function (view, record, item, index, e, eOpts) { // 点击菜单树的节点
         var id = record.data.ID;
         var text = record.data.text;
-        var view = this.getView();
-        var grid = view.down('gridpanel');
-        grid.setTitle(text + ' - 字典子项');
-        var store = Ext.create('store.dicitemlist');
-        store.load({
+        var grid = this.getView().down('gridpanel');
+        grid.setTitle(text + ' - 字典项');
+        grid.getStore().load({
             params: {
                 PID: id
-            },
-            callback: function () {
-                grid.setStore(store);
             }
         });
     },

@@ -7,10 +7,10 @@ Ext.define('App.view.core.dic.Edit', {
         'App.view.core.dic.EditController'
     ],
 
-    layout: 'fit',
     title: '编辑字典',
-    modal: true,
     controller: 'dicedit',
+    layout: 'fit',
+    modal: true,
 
     items: [{
         xtype: 'form',
@@ -25,20 +25,21 @@ Ext.define('App.view.core.dic.Edit', {
         },
         items: [{
             xtype: 'hidden',
-            name: 'ID'
-        }, {
-            xtype: 'textfield',
-            name: 'Name',
-            fieldLabel: '名称',
-            allowBlank: false
+            name: 'ID',
+            value: 0
         }, {
             xtype: 'textfield',
             name: 'Code',
             fieldLabel: '编码',
             allowBlank: false
         }, {
+            xtype: 'textfield',
+            name: 'Name',
+            fieldLabel: '名称',
+            allowBlank: false
+        }, {
             xtype: 'combo',
-            name: 'Type',
+            name: 'TypeID',
             fieldLabel: '类型',
             store: [[
                 0,
@@ -48,11 +49,27 @@ Ext.define('App.view.core.dic.Edit', {
                 '用户'
             ]],
             allowBlank: false,
-            emptyText: '请选择类型',
+            emptyText: '请选择',
+            editable: false
+        }, {
+            xtype: 'textfield',
+            name: 'Sort',
+            fieldLabel: '排序',
+            value: '0'
+        }, {
+            xtype: 'combo',
+            name: 'Status',
+            fieldLabel: '状态',
+            store: [[
+                1, '启用'
+            ], [
+                0, '禁用'
+            ]],
+            value: 1,
             editable: false
         }, {
             xtype: 'textarea',
-            name: 'Memo',
+            name: 'Comment',
             fieldLabel: '备注'
         }]
     }],
@@ -60,14 +77,10 @@ Ext.define('App.view.core.dic.Edit', {
     buttons: [{
         text: '确定',
         iconCls: 'Accept',
-        listeners: {
-            click: 'onSaveClick'
-        }
+        handler: 'onSaveClick'
     }, {
         text: '取消',
         iconCls: 'Cancel',
-        listeners: {
-            click: 'onCancelClick'
-        }
+        handler: 'onCancelClick'
     }]
 });

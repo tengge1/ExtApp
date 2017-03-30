@@ -19,5 +19,5 @@ Ext.define('App.store.core.DicItem', {
     },
 
     autoSync: true,
-    autoLoad: true
+    autoLoad: false
 });

@@ -17,6 +17,14 @@ Ext.require('App.widget.SearchForm');
 var App = App || {};
 Ext.apply(App, {
 
+    get: function (xtype) {
+        var list = Ext.ComponentQuery.query(xtype);
+        if (list.length == 0) {
+            return null;
+        }
+        return list[0];
+    },
+
     alert: function (title, msg) { // 消息
         Ext.Msg.alert(title, msg);
     },

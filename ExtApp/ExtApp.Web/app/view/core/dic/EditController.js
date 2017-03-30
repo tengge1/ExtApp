@@ -20,7 +20,7 @@ Ext.define('App.view.core.dic.EditController', {
             var obj = JSON.parse(r);
             if (obj.Code == 200) {
                 win.hide();
-                var view = App.get('diclist');
+                var view = App.query('diclist');
                 if (view != null) {
                     view.down('treepanel').getStore().reload();
                 }

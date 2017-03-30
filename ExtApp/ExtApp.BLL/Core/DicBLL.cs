@@ -26,13 +26,18 @@ namespace ExtApp.BLL
         /// <summary>
         /// 获取子节点
         /// </summary>
+        /// <param name="name"></param>
         /// <returns></returns>
-        public ListResult<DicNode> GetChildNodes()
+        public ListResult<DicNode> GetChildNodes(string name = "")
         {
             var list = dal.List();
             var nodes = new List<DicNode>();
             foreach (var i in list)
             {
+                if (!string.IsNullOrEmpty(name) && !i.Name.Contains(name))
+                {
+                    continue;
+                }
                 var node = new DicNode
                 {
                     Code = i.Code,
@@ -46,7 +51,7 @@ namespace ExtApp.BLL
                     Sort = i.Sort,
                     Status = i.Status,
                     text = i.Name + "[" + (i.Type == DicType.System ? "系统" : "应用") + "]",
-                    Type = (int)i.Type
+                    TypeID = (int)i.Type
                 };
                 nodes.Add(node);
             }

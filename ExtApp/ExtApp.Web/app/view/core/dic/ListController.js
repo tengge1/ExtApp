@@ -8,6 +8,14 @@ Ext.define('App.view.core.dic.ListController', {
         'App.view.core.dic.EditItem'
     ],
 
+    init: function () {
+        var view = this.getView();
+        var search = view.down('searchfield');
+        var store = search.store;
+        var tree = view.down('treepanel');
+        tree.setStore(store);
+    },
+
     onAddClick: function () {
         var win = Ext.create('App.view.core.dic.Edit');
         win.setTitle('添加字典');

@@ -37,10 +37,11 @@ namespace ExtApp.Controller
         /// <summary>
         /// 获取子节点
         /// </summary>
+        /// <param name="name">名称搜索</param>
         /// <returns></returns>
-        public JsonResult GetChildNodes()
+        public JsonResult GetChildNodes(string name = "")
         {
-            var result = bll.GetChildNodes();
+            var result = bll.GetChildNodes(name);
             return Json(result);
         }
 

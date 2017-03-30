@@ -4,7 +4,8 @@ Ext.define('App.view.core.dic.List', {
     alias: 'widget.diclist',
 
     requires: [
-        'App.view.core.dic.ListController'
+        'App.view.core.dic.ListController',
+        'Ext.ux.form.SearchField'
     ],
 
     controller: 'diclist',
@@ -24,6 +25,16 @@ Ext.define('App.view.core.dic.List', {
         rootVisible: false,
 
         tbar: [{
+            xtype: 'searchfield',
+            fieldLabel: '搜索',
+            labelWidth: 40,
+            labelAlign: 'right',
+            paramName: 'name',
+            emptyText: '名称',
+            store: Ext.create('App.store.core.DicTree')
+        }],
+
+        bbar: [{
             xtype: 'button',
             text: '添加',
             iconCls: 'Add',

@@ -14,11 +14,11 @@ Ext.define('App.view.core.dic.List', {
     layout: 'border',
 
     items: [{
-        xtype: 'gridpanel',
+        xtype: 'treepanel',
         region: 'west',
-        width: 280,
+        width: 200,
         title: '字典列表',
-        store: Ext.create('App.store.core.Dic'),
+        store: Ext.create('App.store.core.DicTree'),
         split: true,
         collapsible: true,
 
@@ -37,19 +37,6 @@ Ext.define('App.view.core.dic.List', {
             text: '删除',
             iconCls: 'Delete',
             handler: 'onDeleteClick'
-        }],
-
-        columns: [{
-            xtype: 'rownumberer'
-        }, {
-            text: '编码',
-            dataIndex: 'Code'
-        }, {
-            text: '名称',
-            dataIndex: 'Name'
-        }, {
-            text: '类型',
-            dataIndex: 'Type'
         }],
 
         listeners: {

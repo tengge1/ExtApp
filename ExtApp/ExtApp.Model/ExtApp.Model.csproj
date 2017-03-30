@@ -99,6 +99,7 @@
     <Compile Include="Core\View\ConfigSectionParam.cs" />
     <Compile Include="Core\View\DicEditParam.cs" />
     <Compile Include="Core\View\DicItemEditParam.cs" />
+    <Compile Include="Core\View\DicNode.cs" />
     <Compile Include="Core\View\LogListParam.cs" />
     <Compile Include="Core\View\MenuNode.cs" />
     <Compile Include="Enum\Sort.cs" />

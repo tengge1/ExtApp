@@ -16,5 +16,8 @@ Ext.define('App.store.personnel.User', {
         },
         startParam: 'firstResult',
         limitParam: 'maxResults'
-    }
+    },
+
+    autoSync: true,
+    autoLoad: true
 });

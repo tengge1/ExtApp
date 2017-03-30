@@ -26,7 +26,7 @@ namespace ExtApp.Model
         public virtual string Code { get; set; }
 
         /// <summary>
-        /// 类型
+        /// 类型（1-系统，2-应用）
         /// </summary>
         [Property(2)]
         public virtual DicType Type { get; set; }
@@ -44,7 +44,7 @@ namespace ExtApp.Model
         public virtual int? Sort { get; set; }
 
         /// <summary>
-        /// 状态（1-启用，0-禁用）
+        /// 状态
         /// </summary>
         [Property(5)]
         public virtual int? Status { get; set; }

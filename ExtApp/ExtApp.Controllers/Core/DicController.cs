@@ -35,6 +35,16 @@ namespace ExtApp.Controller
         }
 
         /// <summary>
+        /// 获取子节点
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult GetChildNodes()
+        {
+            var result = bll.GetChildNodes();
+            return Json(result);
+        }
+
+        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="p"></param>

@@ -24,6 +24,36 @@ namespace ExtApp.BLL
         }
 
         /// <summary>
+        /// 获取子节点
+        /// </summary>
+        /// <returns></returns>
+        public ListResult<DicNode> GetChildNodes()
+        {
+            var list = dal.List();
+            var nodes = new List<DicNode>();
+            foreach (var i in list)
+            {
+                var node = new DicNode
+                {
+                    Code = i.Code,
+                    Comment = i.Comment,
+                    expandable = false,
+                    expanded = false,
+                    ID = i.ID,
+                    id = i.ID,
+                    leaf = true,
+                    Name = i.Name,
+                    Sort = i.Sort,
+                    Status = i.Status,
+                    text = i.Name + "[" + (i.Type == DicType.System ? "系统" : "应用") + "]",
+                    Type = (int)i.Type
+                };
+                nodes.Add(node);
+            }
+            return new ListResult<DicNode>(200, "获取数据成功！", nodes.Count(), nodes);
+        }
+
+        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="p"></param>

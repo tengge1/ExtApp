@@ -17,13 +17,6 @@ Ext.define('App.view.core.config.ListController', {
     },
 
     onAddSectionClick: function () {
-        var view = this.getView();
-        var tree = view.down('treepanel');
-        var selected = tree.getSelection();
-        if (selected.length == 0) {
-            App.notify('消息', '请选择父节点！');
-            return;
-        }
         var win = Ext.create('App.view.core.config.EditSection');
         win.setTitle('添加配置节');
         win.down('form').getForm().reset();

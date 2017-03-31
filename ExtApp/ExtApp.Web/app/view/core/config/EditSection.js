@@ -7,10 +7,10 @@ Ext.define('App.view.core.config.EditSection', {
         'App.view.core.config.EditSectionController'
     ],
 
-    layout: 'fit',
-    title: '编辑配置节点',
-    modal: true,
+    title: '编辑配置节',
     controller: 'configsectionedit',
+    layout: 'fit',
+    modal: true,
 
     items: [{
         xtype: 'form',
@@ -25,10 +25,12 @@ Ext.define('App.view.core.config.EditSection', {
         },
         items: [{
             xtype: 'hidden',
-            name: 'ID'
+            name: 'ID',
+            value: 0
         }, {
             xtype: 'hidden',
-            name: 'PID'
+            name: 'PID',
+            value: 0
         }, {
             xtype: 'textfield',
             name: 'Name',
@@ -36,13 +38,25 @@ Ext.define('App.view.core.config.EditSection', {
             allowBlank: false
         }, {
             xtype: 'numberfield',
-            name: 'Layer',
+            name: 'Sort',
             value: 0,
             fieldLabel: '排序',
             allowBlank: false
         }, {
+            xtype: 'combo',
+            name: 'Status',
+            store: [[
+                1, '启用'
+            ], [
+                0, '禁用'
+            ]],
+            value: 1,
+            fieldLabel: '状态',
+            editable: false,
+            allowBlank: false
+        }, {
             xtype: 'textarea',
-            name: 'Memo',
+            name: 'Comment',
             fieldLabel: '备注'
         }]
     }],
@@ -50,14 +64,10 @@ Ext.define('App.view.core.config.EditSection', {
     buttons: [{
         text: '确定',
         iconCls: 'Accept',
-        listeners: {
-            click: 'onSaveClick'
-        }
+        handler: 'onSaveClick'
     }, {
         text: '取消',
         iconCls: 'Cancel',
-        listeners: {
-            click: 'onCancelClick'
-        }
+        handler: 'onCancelClick'
     }]
 });

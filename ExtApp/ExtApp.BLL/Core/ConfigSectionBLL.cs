@@ -15,14 +15,48 @@ namespace ExtApp.BLL
     public class ConfigSectionBLL : BaseBLL<ConfigSection>
     {
         /// <summary>
-        /// 列表
+        /// 获取子节点
         /// </summary>
+        /// <param name="PID"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
-        public ListResult<ConfigSection> List()
+        public ListResult<ConfigSectionNode> GetChildNodes(int PID = 0, string name = "")
         {
             var query = Restrictions.Gt("Status", -1);
             var list = dal.List(query, "ID", Sort.Asc);
-            return new ListResult<ConfigSection>(200, "获取成功！", list.Count(), list);
+            IList<ConfigSection> list1 = null;
+            if (PID == 0)
+            {
+                list1 = list.Where(o => o.PSection == null).ToList();
+            }
+            else
+            {
+                list1 = list.Where(o => o.PSection != null && o.PSection.ID == PID).ToList();
+            }
+
+            var nodes = new List<ConfigSectionNode>();
+            foreach (var i in list1)
+            {
+                if (!i.Name.Contains(name))
+                {
+                    continue;
+                }
+                var node = new ConfigSectionNode
+                {
+                    Comment = i.Comment,
+                    expandable = false,
+                    expanded = false,
+                    ID = i.ID,
+                    id = i.ID,
+                    leaf = true,
+                    Name = i.Name,
+                    PID = i.PSection == null ? 0 : i.PSection.ID,
+                    Sort = i.Sort,
+                    text = i.Name
+                };
+                nodes.Add(node);
+            }
+            return new ListResult<ConfigSectionNode>(200, "获取成功", nodes.Count(), nodes);
         }
 
         /// <summary>

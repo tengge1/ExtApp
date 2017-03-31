@@ -1,6 +1,6 @@
 ﻿
 Ext.define('App.model.core.ConfigSection', {
-    extend: 'Ext.data.Model',
+    extend: 'Ext.data.TreeModel',
 
     idProperty: "ID",
 

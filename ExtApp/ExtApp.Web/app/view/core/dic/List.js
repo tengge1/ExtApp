@@ -94,7 +94,8 @@ Ext.define('App.view.core.dic.List', {
             renderer: App.renderer.status
         }, {
             text: '备注',
-            dataIndex: 'Comment'
+            dataIndex: 'Comment',
+            flex: 1
         }]
     }]
 });

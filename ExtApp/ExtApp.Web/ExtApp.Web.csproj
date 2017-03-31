@@ -167,9 +167,9 @@
     <Content Include="app\renderer\StatusRenderer.js" />
     <Content Include="app\store\authority\MenuTree.js" />
     <Content Include="app\store\authority\RoleAll.js" />
+    <Content Include="app\store\core\ConfigSectionTree.js" />
     <Content Include="app\store\core\DicTree.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
-    <Content Include="app\store\core\ConfigSection.js" />
     <Content Include="app\store\core\Config.js" />
     <Content Include="app\view\core\logs\View.js" />
     <Content Include="app\view\main\desktop\SettingsController.js" />

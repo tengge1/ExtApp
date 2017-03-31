@@ -3,49 +3,36 @@ Ext.define('App.view.core.config.EditSectionController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.configsectionedit',
 
-    onSaveClick: function () { // 点击保存按钮
-        var me = this;
-        var view = me.getView();
-        var form = view.down('form');
+    onSaveClick: function () {
+        var win = this.getView();
+        var form = win.down('form');
         if (!form.isValid()) {
+            App.notify('消息', '请填写完整！');
             return;
         }
-        var values = form.getValues();
 
-        // PID
-        if (values.PID == '') {
-            delete values.PID;
-        } else {
-            values.PSection = {
-                ID: values.PID
-            };
+        var values = form.getValues();
+        var url = '/api/ConfigSection/Edit';
+        if (values.ID == '0') {
+            url = '/api/ConfigSection/Add';
         }
 
-        Ext.Ajax.request({
-            url: '/api/ConfigSection/Edit',
-            method: 'POST',
-            jsonData: values,
-
-            success: function (response, opts) {
-                var data = response.responseText;
-                var obj = Ext.JSON.decode(data);
-                if (obj.Code == 200) {
-                    view.hide();
-                    var controller = Ext.ComponentQuery.query('configlist')[0].getController();
-                    controller.refreshConfigSection();
-
-                } else {
-                    Ext.Msg.alert('消息', obj.Msg);
+        App.post(url, values, function (r) {
+            var obj = JSON.parse(r);
+            if (obj.Code == 200) {
+                win.hide();
+                var view = App.query('configlist');
+                if (view != null) {
+                    view.down('treepanel').getStore().reload();
                 }
-            },
-
-            failure: function (response, opts) {
-                Ext.Msg.alert('消息', response.responseText);
+                App.notify('消息', obj.Msg);
+            } else {
+                App.alert('消息', obj.Msg);
             }
         });
     },
 
-    onCancelClick: function () { // 点击取消按钮
+    onCancelClick: function () {
         this.getView().hide();
     }
 });

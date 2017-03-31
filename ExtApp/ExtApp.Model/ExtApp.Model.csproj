@@ -96,6 +96,7 @@
     <Compile Include="Authority\View\RoleEditParam.cs" />
     <Compile Include="Authority\View\RoleListParam.cs" />
     <Compile Include="Core\View\ConfigEditParam.cs" />
+    <Compile Include="Core\View\ConfigSectionNode.cs" />
     <Compile Include="Core\View\ConfigSectionParam.cs" />
     <Compile Include="Core\View\DicEditParam.cs" />
     <Compile Include="Core\View\DicItemEditParam.cs" />

@@ -3,8 +3,12 @@ Ext.define('App.model.core.Config', {
     extend: 'Ext.data.Model',
 
     fields: [
-        'ID',
-        'PID',
+        'ID', {
+            name: 'PID',
+            mapping: function (value) {
+                return value.Section.ID;
+            }
+        },
         'Name',
         'Key',
         'Value',

@@ -21,7 +21,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public IList<Config> List(int PID)
         {
-            var query = Restrictions.Eq("ConfigSection", new ConfigSection { ID = PID });
+            var query = Restrictions.Eq("Section", new ConfigSection { ID = PID });
             var list = dal.List(query, "Sort", Sort.Asc);
             return list;
         }

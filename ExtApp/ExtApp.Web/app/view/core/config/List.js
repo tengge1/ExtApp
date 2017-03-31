@@ -4,7 +4,8 @@ Ext.define('App.view.core.config.List', {
     alias: 'widget.configlist',
 
     requires: [
-        'App.view.core.config.ListController'
+        'App.view.core.config.ListController',
+        'Ext.ux.form.SearchField'
     ],
 
     controller: 'configlist',
@@ -16,41 +17,37 @@ Ext.define('App.view.core.config.List', {
     items: [{
         xtype: 'treepanel',
         region: 'west',
-        width: 180,
-        title: '系统配置节点',
+        width: 200,
+        title: '配置节点',
         split: true,
         collapsible: true,
         rootVisible: true,
 
-        root: {
-            text: '所有配置',
-            expanded: true,
-            children: [],
-            ID: 0,
-            PID: 0
-        },
-
         tbar: [{
+            xtype: 'searchfield',
+            fieldLabel: '搜索',
+            labelWidth: 40,
+            labelAlign: 'right',
+            paramName: 'name',
+            emptyText: '名称',
+            store: Ext.create('App.store.core.ConfigSectionTree')
+        }],
+
+        bbar: [{
             xtype: 'button',
             text: '添加',
             iconCls: 'Add',
-            listeners: {
-                click: 'onAddSectionClick'
-            }
+            handler: 'onAddSectionClick'
         }, {
             xtype: 'button',
             text: '编辑',
             iconCls: 'Applicationedit',
-            listeners: {
-                click: 'onEditSectionClick'
-            }
+            handler: 'onEditSectionClick'
         }, {
             xtype: 'button',
             text: '删除',
             iconCls: 'Delete',
-            listeners: {
-                click: 'onDeleteSectionClick'
-            }
+            handler: 'onDeleteSectionClick'
         }],
 
         listeners: {
@@ -60,9 +57,26 @@ Ext.define('App.view.core.config.List', {
         xtype: 'gridpanel',
         region: 'center',
         title: '系统配置',
-        defaults: {
-            xtype: 'column '
-        },
+
+        store: Ext.create('App.store.core.Config'),
+
+        tbar: [{
+            xtype: 'button',
+            text: '添加',
+            iconCls: 'Add',
+            handler: 'onAddClick'
+        }, {
+            xtype: 'button',
+            text: '编辑',
+            iconCls: 'Applicationedit',
+            handler: 'onEditClick'
+        }, {
+            xtype: 'button',
+            text: '删除',
+            iconCls: 'Delete',
+            handler: 'onDeleteClick'
+        }],
+
         columns: [{
             xtype: 'rownumberer'
         }, {
@@ -76,37 +90,15 @@ Ext.define('App.view.core.config.List', {
             dataIndex: 'Value'
         }, {
             text: '排序',
-            dataIndex: 'Layer'
+            dataIndex: 'Sort'
         }, {
             text: '状态',
             dataIndex: 'Status',
-            renderer: 'renderStatus'
+            renderer: App.renderer.status
         }, {
             text: '备注',
-            dataIndex: 'Memo',
+            dataIndex: 'Comment',
             flex: 1
-        }],
-        tbar: [{
-            xtype: 'button',
-            text: '添加',
-            iconCls: 'Add',
-            listeners: {
-                click: 'onAddClick'
-            }
-        }, {
-            xtype: 'button',
-            text: '编辑',
-            iconCls: 'Applicationedit',
-            listeners: {
-                click: 'onEditClick'
-            }
-        }, {
-            xtype: 'button',
-            text: '删除',
-            iconCls: 'Delete',
-            listeners: {
-                click: 'onDeleteClick'
-            }
         }]
     }]
 });

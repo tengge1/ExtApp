@@ -87,15 +87,15 @@ Ext.define('App.view.core.dic.ListController', {
     },
 
     onEditItemClick: function () {
-        var tree = this.getView().down('gridpanel');
-        var selected = tree.getSelection();
+        var grid = this.getView().down('gridpanel');
+        var selected = grid.getSelection();
         if (selected.length == 0) {
             App.notify('消息', '请选择字典项！');
             return;
         }
 
         var win = Ext.create('App.view.core.dic.EditItem');
-        win.setTitle('添加子项');
+        win.setTitle('编辑子项');
         var form = win.down('form').getForm();
         form.reset();
         form.loadRecord(selected[0]);

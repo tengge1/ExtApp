@@ -1,14 +1,14 @@
 ﻿
 Ext.define("App.view.authority.menu.List", {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.deptlist',
+    alias: 'widget.menulist',
 
     requires: [
         'App.widget.DeptSelect',
         'App.view.authority.menu.ListController'
     ],
 
-    controller: 'deptlist',
+    controller: 'menulist',
 
     title: '菜单管理',
     layout: 'border',
@@ -34,7 +34,7 @@ Ext.define("App.view.authority.menu.List", {
         rootVisible: true,
         collapsible: true,
         split: true,
-        store: Ext.create('App.store.personnel.DeptTree'),
+        store: Ext.create('App.store.authority.MenuTree'),
         tools: [{
             itemId: 'refresh',
             type: 'refresh',
@@ -53,7 +53,7 @@ Ext.define("App.view.authority.menu.List", {
             layout: 'form',
             border: true,
             frame: true,
-            title: '机构信息',
+            title: '菜单信息',
             defaults: {
                 margin: 10
             },
@@ -73,20 +73,14 @@ Ext.define("App.view.authority.menu.List", {
                 fieldLabel: '上级',
                 readOnly: true
             }, {
-                xtype: 'hiddenfield',
-                name: 'ID'
-            }, {
-                xtype: 'hiddenfield',
-                name: 'PID'
-            }, {
                 xtype: 'textfield',
                 name: 'Code',
-                fieldLabel: '菜单编码',
+                fieldLabel: '编码',
                 readOnly: true
             }, {
                 xtype: 'textfield',
                 name: 'Name',
-                fieldLabel: '菜单名称',
+                fieldLabel: '名称',
                 allowBlank: false
             }, {
                 xtype: 'combo',
@@ -100,7 +94,7 @@ Ext.define("App.view.authority.menu.List", {
                 name: 'UrlType',
                 value: 0,
                 editable: false,
-                fieldLabel: '菜单类型'
+                fieldLabel: '类型'
             }, {
                 xtype: 'textfield',
                 name: 'Url',
@@ -125,18 +119,18 @@ Ext.define("App.view.authority.menu.List", {
             }, {
                 xtype: 'numberfield',
                 name: 'Layer',
-                fieldLabel: '菜单排序',
+                fieldLabel: '排序',
                 allowBlank: false,
                 value: 0
             }, {
                 xtype: 'combo',
                 store: [[
-                    0, '启用'
+                    1, '启用'
                 ], [
-                    -1, '禁用'
+                    0, '禁用'
                 ]],
                 name: 'Status',
-                value: 0,
+                value: 1,
                 editable: false,
                 fieldLabel: '状态'
             }],

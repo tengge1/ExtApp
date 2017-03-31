@@ -6,7 +6,6 @@ Ext.define('App.view.authority.menu.AddController', {
     reset: function () {
         var view = this.getView();
         view.down('form').getForm().reset();
-        view.down('deptselect').reset();
     },
 
     onSaveClick: function () {

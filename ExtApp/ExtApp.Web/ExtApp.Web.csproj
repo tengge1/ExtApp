@@ -171,6 +171,10 @@
     <Content Include="app\store\core\DicTree.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\Config.js" />
+    <Content Include="app\view\authority\menu\Add.js" />
+    <Content Include="app\view\authority\menu\AddController.js" />
+    <Content Include="app\view\authority\menu\List.js" />
+    <Content Include="app\view\authority\menu\ListController.js" />
     <Content Include="app\view\core\logs\View.js" />
     <Content Include="app\view\main\desktop\SettingsController.js" />
     <Content Include="app\view\core\config\EditSection.js" />
@@ -201,8 +205,6 @@
     <Content Include="app\view\core\dic\List.js" />
     <Content Include="app\view\core\dic\ListController.js" />
     <Content Include="app\view\main\accordion\MenuController.js" />
-    <Content Include="app\view\authority\menu\Edit.js" />
-    <Content Include="app\view\authority\menu\EditController.js" />
     <Content Include="app\view\main\ChangePwd.js" />
     <Content Include="app\view\main\accordion\IndexController.js" />
     <Content Include="app\view\main\desktop\BogusMenuModule.js" />
@@ -212,8 +214,6 @@
     <Content Include="app\view\main\desktop\Settings.js" />
     <Content Include="app\view\main\desktop\Wallpaper.js" />
     <Content Include="app\view\main\LoginController.js" />
-    <Content Include="app\view\authority\menu\List.js" />
-    <Content Include="app\view\authority\menu\ListController.js" />
     <Content Include="app\view\main\ChangePwdController.js" />
     <Content Include="app\view\core\logs\List.js" />
     <Content Include="app\view\core\logs\ListController.js" />

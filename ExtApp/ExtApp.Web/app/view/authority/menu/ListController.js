@@ -1,138 +1,82 @@
 ﻿
 Ext.define('App.view.authority.menu.ListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.menulist',
+    alias: 'controller.deptlist',
 
-    init: function () { // 默认展开根节点
-        this.getView().expandAll();
+    init: function () {
+
     },
 
-    refresh() { // 刷新树节点，展开到当前位置
-        // 获取path
-        var store = this.getView().getStore();
-        var selected = this.getView().getSelection();
-        var path = selected[0].getPath();
-        store.load();
-        this.getView().getRootNode().collapse();
-        this.getView().expandPath(path);
+    refresh: function () {
+        var tree = this.getView().down('treepanel');
+        var store = tree.getStore();
+        store.reload();
     },
 
-    onTreeItemExpand: function (node, eOpts) { // 展开树的节点
-        node.removeAll();
-        var store = Ext.create('App.store.authority.Menu');
-        store.load({
-            callback: function (records, operation, success) {
-                var data = store.getData();
-                var array = new Array();
-                data.each(function (i) {
-                    if (i.data.PID == node.data.ID) {
-                        // 查询有无子节点
-                        var leaf = true;
-                        data.each(function (i1) {
-                            if (i1.data.PID == i.data.ID) {
-                                leaf = false;
-                            }
-                        });
-                        array.push({
-                            text: i.data.Name,
-                            leaf: leaf,
-                            expanded: false,
-                            iconCls: i.data.Icon,
-
-                            ID: i.data.ID,
-                            Name: i.data.Name,
-                            Code: i.data.Code,
-                            PID: i.data.PID,
-                            UrlType: i.data.UrlType,
-                            Url: i.data.Url,
-                            IconType: i.data.IconType,
-                            Icon: i.data.Icon,
-                            Layer: i.data.Layer,
-                            Status: i.data.Status
-                        });
-                    }
-                });
-                node.appendChild(array);
-            }
-        });
+    onAddClick: function () {
+        var view = Ext.create('App.view.authority.menu.Add');
+        view.controller.reset();
+        view.show();
     },
 
-    renderUrlType: function (value) { // 渲染链接类型
-        if (value == 0) {
-            return '';
-        } else if (value == 1) {
-            return 'ExtJs类';
-        } else if (value == 2) {
-            return 'Url地址';
-        } else {
-            return value;
-        }
-    },
-
-    renderIconType: function (value) { // 渲染图标类型
-        if (value == 0) {
-            return '';
-        } else if (value == 1) {
-            return 'css样式';
-        } else if (value == 2) {
-            return '图标Url';
-        } else {
-            return value;
-        }
-    },
-
-    renderStatus: function (value) { // 渲染状态
-        if (value == 0) {
-            return '启用';
-        } else {
-            return '禁用';
-        }
-    },
-
-    onAddClick: function () { // 点击添加按钮
-        var selected = this.getView().getSelection();
+    onTreeItemClick: function (view, record, item, index, e, eOpts) {
+        var view = this.getView();
+        var selected = view.down('treepanel').getSelection();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请选择节点！');
+            App.notify('消息', '请选择菜单！');
             return;
         }
-        var win = Ext.create('App.view.authority.menu.Edit');
-        win.setTitle('添加菜单');
-        win.getController().setParentMenu(selected[0].data.ID, selected[0].data.Name);
-        win.show();
-    },
-
-    onEditClick: function () { // 点击编辑按钮
-        var selected = this.getView().getSelection();
-        if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请选择节点！');
-            return;
-        }
-        var win = Ext.create('App.view.authority.menu.Edit');
-        win.setTitle('编辑菜单');
-        win.down('form').getForm().loadRecord(selected[0]);
-        win.show();
+        view.down('form').getForm().loadRecord(selected[0]);
     },
 
     onDeleteClick: function () { // 点击删除按钮
-        var selected = this.getView().getSelection();
+        var me = this;
+        var selected = this.getView().down('treepanel').getSelection();
         if (selected.length == 0) {
-            Ext.Msg.alert('消息', '请选择节点！');
+            App.notify('消息', '请选择菜单！');
             return;
         }
-        Ext.Ajax.request({
-            url: '/api/AppMenu/Delete?id=' + selected[0].data.ID,
-            method: 'POST',
-            success: function (response, opts) {
-                var obj = Ext.JSON.decode(response.responseText);
+        App.confirm('消息', '要删除该菜单？', function () {
+            App.post('/api/Dept/Delete?ID=' + selected[0].data.ID, function (data) {
+                var obj = JSON.parse(data);
                 if (obj.Code == 200) {
-                    var store = Ext.ComponentQuery.query('appmenulist')[0].getStore();
-                    store.load();
+                    App.notify('消息', '删除成功！');
+                    me.refresh();
                 } else {
-                    Ext.Msg.alert('错误', obj.Msg);
+                    App.alert('错误', obj.Msg);
                 }
-            },
-            failure: function (response, opts) {
-                Ext.Msg.alert('错误', response.responseText);
+            })
+        });
+    },
+
+    onSaveClick: function () {
+        var me = this;
+        var view = this.getView();
+        var form = view.down('form');
+        var ID = form.form.getValues()["ID"];
+        if (ID == '') {
+            App.notify('消息', '请选择菜单！');
+            return;
+        }
+
+        if (ID == '0') {
+            App.notify('消息', '无法编辑顶级菜单！');
+            return;
+        }
+
+        if (!form.isValid()) {
+            App.notify('消息', '请填写完整！');
+            return;
+        }
+        var values = form.getValues();
+
+        App.post('/api/Menu/Edit', values, function (data) {
+            var obj = JSON.parse(data);
+            if (obj.Code == 200) { // 成功
+                me.refresh();
+                App.notify('消息', '保存成功！');
+            } else { // 失败
+                App.alert('消息', obj.Msg);
             }
         });
     }

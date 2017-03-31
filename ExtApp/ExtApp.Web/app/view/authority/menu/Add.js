@@ -1,16 +1,16 @@
 ﻿
-Ext.define('App.view.authority.menu.Edit', {
+Ext.define('App.view.authority.menu.Add', {
     extend: 'Ext.window.Window',
-    alias: 'widget.menuedit',
+    alias: 'widget.menuadd',
 
     requires: [
-        'App.view.authority.menu.EditController'
+        'App.widget.DeptSelect',
+        'App.view.authority.menu.AddController'
     ],
 
-    controller: 'menuedit',
+    controller: 'menuadd',
 
-    title: '编辑菜单',
-    width: 500,
+    title: '添加菜单',
     layout: 'fit',
     modal: true,
     iconCls: 'Applicationsidetree',
@@ -18,14 +18,13 @@ Ext.define('App.view.authority.menu.Edit', {
     items: {
         xtype: 'form',
         border: false,
-        layout: 'column',
+        layout: 'form',
         defaults: {
-            margin: 10,
-            columnWidth: 0.5
+            margin: 10
         },
         fieldDefaults: {
             labelAlign: 'right',
-            labelWidth: 60
+            labelWidth: 50
         },
         items: [{
             xtype: 'hiddenfield',
@@ -99,14 +98,10 @@ Ext.define('App.view.authority.menu.Edit', {
     buttons: [{
         text: '保存',
         iconCls: 'Accept',
-        listeners: {
-            click: 'onSaveClick'
-        }
+        handler: 'onSaveClick'
     }, {
         text: '取消',
         iconCls: 'Cancel',
-        listeners: {
-            click: 'onCancelClick'
-        }
+        handler: 'onCancelClick'
     }]
 });

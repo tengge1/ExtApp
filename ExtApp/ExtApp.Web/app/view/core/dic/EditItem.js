@@ -8,7 +8,7 @@ Ext.define('App.view.core.dic.EditItem', {
     ],
 
     layout: 'fit',
-    title: '编辑字典子项',
+    title: '编辑字典项',
     modal: true,
     controller: 'dicedititem',
 
@@ -25,29 +25,43 @@ Ext.define('App.view.core.dic.EditItem', {
         },
         items: [{
             xtype: 'hidden',
-            name: 'ID'
+            name: 'ID',
+            value: 0
         }, {
             xtype: 'hidden',
-            name: 'PID'
-        }, {
-            xtype: 'textfield',
-            name: 'Name',
-            fieldLabel: '名称',
-            allowBlank: false
+            name: 'PID',
+            value: 0
         }, {
             xtype: 'textfield',
             name: 'Code',
             fieldLabel: '编码',
             allowBlank: false
         }, {
+            xtype: 'textfield',
+            name: 'Name',
+            fieldLabel: '名称',
+            allowBlank: false
+        }, {
             xtype: 'numberfield',
-            name: 'Layer',
+            name: 'Sort',
             value: '0',
             fieldLabel: '排序',
             allowBlank: false
         }, {
+            xtype: 'combo',
+            name: 'Status',
+            store: [[
+                1, '启用'
+            ], [
+                0, '禁用'
+            ]],
+            value: 1,
+            editable: false,
+            fieldLabel: '状态',
+            allowBlank: false
+        }, {
             xtype: 'textarea',
-            name: 'Memo',
+            name: 'Comment',
             fieldLabel: '备注'
         }]
     }],
@@ -55,14 +69,10 @@ Ext.define('App.view.core.dic.EditItem', {
     buttons: [{
         text: '确定',
         iconCls: 'Accept',
-        listeners: {
-            click: 'onSaveClick'
-        }
+        handler: 'onSaveClick'
     }, {
         text: '取消',
         iconCls: 'Cancel',
-        listeners: {
-            click: 'onCancelClick'
-        }
+        handler: 'onCancelClick'
     }]
 });

@@ -3,50 +3,33 @@ Ext.define('App.view.core.dic.EditItemController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.dicedititem',
 
-    setDicID: function (dicID) { // 设置字典ID
-        var view = this.getView();
-        var form = view.down('form').getForm();
-        form.setValues({
-            PID: dicID
-        });
-    },
-
-    onSaveClick: function () { // 点击保存按钮
-        var view = this.getView();
-        var form = view.down('form');
+    onSaveClick: function () {
+        var win = this.getView();
+        var form = win.down('form');
         if (!form.isValid()) {
+            App.notify('消息', '请填写完整！');
             return;
         }
         var values = form.getValues();
-        values.Dict = {
-            ID: values.PID
-        };
-        values.Status = 0;
-        Ext.Ajax.request({
-            url: '/api/DicItem/Edit',
-            method: 'POST',
-            jsonData: values,
+        var url = '/api/DicItem/Edit';
+        if (values.ID == 0) {
+            url = '/api/DicItem/Add';
+        }
+        App.post(url, values, function (r) {
+            var obj = JSON.parse(r);
+            if (obj.Code == 200) {
+                win.hide();
+                var view = App.query('diclist');
+                view.down('gridpanel').getStore().reload();
+                App.notify('消息', obj.Msg);
 
-            success: function (response, opts) {
-                var data = response.responseText;
-                var obj = Ext.JSON.decode(data);
-                if (obj.Code == 200) {
-                    view.hide();
-                    var controller = Ext.ComponentQuery.query('diclist')[0].getController();
-                    controller.refreshDicItem();
-
-                } else {
-                    Ext.Msg.alert('消息', obj.Msg);
-                }
-            },
-
-            failure: function (response, opts) {
-                Ext.Msg.alert('消息', response.responseText);
+            } else {
+                App.alert('消息', obj.Msg);
             }
         });
     },
 
-    onCancelClick: function () { // 点击取消按钮
+    onCancelClick: function () {
         this.getView().hide();
     }
 });

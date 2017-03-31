@@ -21,7 +21,7 @@ Ext.define('App.view.core.config.List', {
         title: '配置节点',
         split: true,
         collapsible: true,
-        rootVisible: true,
+        rootVisible: false,
 
         tbar: [{
             xtype: 'searchfield',

@@ -3,12 +3,16 @@ Ext.define('App.model.core.DicItem', {
     extend: 'Ext.data.Model',
 
     fields: [
-        'ID',
-        'PID',
+        'ID', {
+            name: 'PID',
+            mapping: function (value) {
+                return value.Dic.ID;
+            }
+        },
         'Code',
         'Name',
-        'Layer',
+        'Sort',
         'Status',
-        'Memo'
+        'Comment'
     ]
 });

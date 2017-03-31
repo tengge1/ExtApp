@@ -80,9 +80,6 @@ Ext.define('App.view.core.dic.List', {
         columns: [{
             xtype: 'rownumberer'
         }, {
-            text: '所属字典',
-            dataIndex: 'DicName'
-        }, {
             text: '编码',
             dataIndex: 'Code'
         }, {

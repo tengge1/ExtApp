@@ -9,6 +9,20 @@ Ext.define('App.view.authority.menu.ListController', {
         view.show();
     },
 
+    refreshTree: function () {
+        var tree = this.getView().down('treepanel');
+        var history = Ext.create('App.util.TreeHistory');
+        history.save(tree);
+        tree.getStore().load({
+            params: {
+                PID: 0
+            },
+            callback: function () {
+                history.restore(tree);
+            }
+        });
+    },
+
     onTreeItemClick: function (view, record, item, index, e, eOpts) {
         var view = this.getView();
         var selected = view.down('treepanel').getSelection();
@@ -30,8 +44,8 @@ Ext.define('App.view.authority.menu.ListController', {
             App.post('/api/Menu/Delete?ID=' + selected[0].data.ID, function (data) {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
+                    view.controller.refreshTree();
                     App.notify('消息', '删除成功！');
-                    view.down('treepanel').getStore().reload();
                 } else {
                     App.alert('错误', obj.Msg);
                 }

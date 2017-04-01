@@ -171,6 +171,7 @@
     <Content Include="app\store\core\DicTree.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\Config.js" />
+    <Content Include="app\util\TreeHistory.js" />
     <Content Include="app\view\authority\menu\Add.js" />
     <Content Include="app\view\authority\menu\AddController.js" />
     <Content Include="app\view\authority\menu\List.js" />

@@ -24,7 +24,7 @@ Ext.define('App.view.authority.menu.AddController', {
                 win.hide();
                 var view = App.query('menulist');
                 if (view != null) {
-                    view.down('treepanel').getStore().reload();
+                    view.controller.refreshTree();
                 }
                 App.notify('消息', '操作成功');
             } else {

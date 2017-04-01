@@ -22,6 +22,7 @@ Ext.define('App.view.main.accordion.MenuController', {
                             expandable: true,
                             expanded: true
                         },
+                        rootVisible: false,
                         store: Ext.create('App.store.authority.MenuTree'),
                         listeners: {
                             beforeload: function (store, operation, eOpts) {

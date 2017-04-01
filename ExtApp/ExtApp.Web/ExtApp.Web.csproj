@@ -183,6 +183,7 @@
     <Content Include="app\view\core\config\EditController.js" />
     <Content Include="app\view\core\config\List.js" />
     <Content Include="app\view\core\config\ListController.js" />
+    <Content Include="app\widget\MenuSelect.js" />
     <Content Include="app\widget\DeptSelect.js" />
     <Content Include="app\widget\Notify.js" />
     <Content Include="app\widget\SearchForm.js" />

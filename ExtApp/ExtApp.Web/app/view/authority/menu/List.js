@@ -14,18 +14,6 @@ Ext.define("App.view.authority.menu.List", {
     layout: 'border',
     closable: true,
 
-    tbar: [{
-        xtype: 'button',
-        text: '添加',
-        iconCls: 'Add',
-        handler: 'onAddClick'
-    }, {
-        xtype: 'button',
-        text: '删除',
-        iconCls: 'Delete',
-        handler: 'onDeleteClick'
-    }],
-
     items: [{
         xtype: 'treepanel',
         region: 'west',
@@ -35,11 +23,25 @@ Ext.define("App.view.authority.menu.List", {
         collapsible: true,
         split: true,
         store: Ext.create('App.store.authority.MenuTree'),
+
         tools: [{
             itemId: 'refresh',
             type: 'refresh',
             callback: 'refresh'
         }],
+
+        tbar: [{
+            xtype: 'button',
+            text: '添加',
+            iconCls: 'Add',
+            handler: 'onAddClick'
+        }, {
+            xtype: 'button',
+            text: '删除',
+            iconCls: 'Delete',
+            handler: 'onDeleteClick'
+        }],
+
         listeners: {
             itemclick: 'onTreeItemClick'
         }

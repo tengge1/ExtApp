@@ -4,7 +4,7 @@ Ext.define('App.view.authority.menu.Add', {
     alias: 'widget.menuadd',
 
     requires: [
-        'App.widget.DeptSelect',
+        'App.widget.MenuSelect',
         'App.view.authority.menu.AddController'
     ],
 
@@ -27,74 +27,76 @@ Ext.define('App.view.authority.menu.Add', {
             labelWidth: 50
         },
         items: [{
-            xtype: 'hiddenfield',
-            name: 'ID'
+            xtype: 'hidden',
+            name: 'ID',
+            value: 0
         }, {
-            xtype: 'hiddenfield',
-            name: 'PID'
-        }, {
-            xtype: 'textfield',
-            name: 'Code',
-            fieldLabel: '菜单编码',
-            readOnly: true
+            xtype: 'menuselect',
+            name: 'PID',
+            fieldLabel: '<span style="color:red;">*</span>上级',
+            allowBlank: false,
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'Name',
-            fieldLabel: '菜单名称',
+            fieldLabel: '名称',
             allowBlank: false
         }, {
             xtype: 'combo',
+            name: 'UrlType',
             store: [[
-                0, '未设置'
-            ], [
                 1, 'ExtJs类名'
             ], [
                 2, 'Url地址'
             ]],
-            name: 'UrlType',
             value: 0,
+            fieldLabel: '菜单类型',
             editable: false,
-            fieldLabel: '菜单类型'
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'Url',
             fieldLabel: '类名/Url'
         }, {
             xtype: 'combo',
+            name: 'IconType',
             store: [[
-                0, '未设置'
-            ], [
                 1, 'css样式'
             ], [
                 2, '图片url'
             ]],
-            name: 'IconType',
             value: 0,
+            fieldLabel: '图标类型',
             editable: false,
-            fieldLabel: '图标类型'
+            emptyText: '请选择'
         }, {
             xtype: 'textfield',
             name: 'Icon',
             fieldLabel: '图标'
         }, {
             xtype: 'numberfield',
-            name: 'Layer',
-            fieldLabel: '菜单排序',
+            name: 'Sort',
+            fieldLabel: '排序',
             allowBlank: false,
             value: 0
         }, {
             xtype: 'combo',
-            store: [[
-                0, '启用'
-            ], [
-                -1, '禁用'
-            ]],
             name: 'Status',
-            value: 0,
-            editable: false,
-            fieldLabel: '状态'
+            store: [[
+                1, '启用'
+            ], [
+                0, '禁用'
+            ]],
+            value: 1,
+            fieldLabel: '状态',
+            editable: false
+        }, {
+            xtype: 'textarea',
+            name: 'Comment',
+            fieldLabel: '备注'
         }]
     },
+
     buttons: [{
         text: '保存',
         iconCls: 'Accept',

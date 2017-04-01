@@ -6,11 +6,12 @@ Ext.define('App.view.authority.menu.AddController', {
     reset: function () {
         var view = this.getView();
         view.down('form').getForm().reset();
+        view.down('menuselect').reset();
     },
 
     onSaveClick: function () {
-        var view = this.getView();
-        var form = view.down('form');
+        var win = this.getView();
+        var form = win.down('form');
         if (!form.isValid()) {
             App.notify('消息', '请填写完整');
             return;
@@ -20,9 +21,11 @@ Ext.define('App.view.authority.menu.AddController', {
         App.post('/api/Menu/Add', values, function (data) {
             var obj = JSON.parse(data);
             if (obj.Code == 200) {
-                view.hide();
-                var list = Ext.ComponentQuery.query('menulist')[0];
-                list.controller.refresh();
+                win.hide();
+                var view = App.query('menulist');
+                if (view != null) {
+                    view.down('treepanel').getStore().reload();
+                }
                 App.notify('消息', '操作成功');
             } else {
                 App.alert('消息', obj.Msg);

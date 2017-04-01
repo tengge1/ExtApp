@@ -3,16 +3,6 @@ Ext.define('App.view.authority.menu.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menulist',
 
-    init: function () {
-
-    },
-
-    refresh: function () {
-        var tree = this.getView().down('treepanel');
-        var store = tree.getStore();
-        store.reload();
-    },
-
     onAddClick: function () {
         var view = Ext.create('App.view.authority.menu.Add');
         view.controller.reset();
@@ -30,8 +20,8 @@ Ext.define('App.view.authority.menu.ListController', {
     },
 
     onDeleteClick: function () { // 点击删除按钮
-        var me = this;
-        var selected = this.getView().down('treepanel').getSelection();
+        var view = this.getView();
+        var selected = view.down('treepanel').getSelection();
         if (selected.length == 0) {
             App.notify('消息', '请选择菜单！');
             return;
@@ -41,7 +31,7 @@ Ext.define('App.view.authority.menu.ListController', {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
                     App.notify('消息', '删除成功！');
-                    me.refresh();
+                    view.down('treepanel').getStore().reload();
                 } else {
                     App.alert('错误', obj.Msg);
                 }

@@ -25,7 +25,15 @@ namespace ExtApp.BLL
             var list = dal.List(query, "Sort", Sort.Asc);
             var nodes = new List<MenuNode>();
 
-            List<Menu> list1 = list.Where(o => o.PID == PID).ToList();
+            List<Menu> list1;
+            if (PID == 0)
+            {
+                list1 = list.Where(o => o.PMenu == null).ToList();
+            }
+            else
+            {
+                list1 = list.Where(o => o.PMenu != null && o.PMenu.ID == PID).ToList();
+            }
 
             foreach (var i in list1)
             {
@@ -38,16 +46,19 @@ namespace ExtApp.BLL
                     expanded = false,
                     iconCls = i.Icon,
                     ID = i.ID,
+                    PID = i.PMenu == null ? 0 : i.PMenu.ID,
+                    PName = i.PMenu == null ? "" : i.PMenu.Name,
+                    Code = i.Code,
                     Name = i.Name,
                     Url = i.Url
                 };
 
                 // 判断是否有下级节点
-                if (list.Where(o => o.PID == i.ID).Count() > 0)
+                if (list.Where(o => o.PMenu != null && o.PMenu.ID == i.ID).Count() > 0)
                 {
                     node.leaf = false;
                     node.expandable = true;
-                    node.expanded = i.PID == 0 ? true : false;
+                    node.expanded = i.PMenu == null ? true : false;
                 }
 
                 nodes.Add(node);
@@ -67,7 +78,7 @@ namespace ExtApp.BLL
             string PCode = "";
             if (p.PID > 0) // 不是顶级菜单
             {
-                var query1 = Restrictions.Eq("PID", p.PID);
+                var query1 = Restrictions.Eq("PMenu", new Menu { ID = p.PID });
                 var appMenu1 = dal.Get(query1);
                 if (appMenu1 != null)
                 {
@@ -77,7 +88,15 @@ namespace ExtApp.BLL
 
             // 为当前结点生成Code
             string Code = "";
-            var query = Restrictions.Eq("PID", p.PID);
+            ICriterion query;
+            if (p.PID == 0)
+            {
+                query = Restrictions.Eq("PMenu", null);
+            }
+            else
+            {
+                query = Restrictions.Eq("PMenu", new Menu { ID = p.PID });
+            }
             var list = dal.List(query);
             for (var i = 1; i <= 999; i++)
             {
@@ -108,7 +127,7 @@ namespace ExtApp.BLL
                 IconType = p.IconType,
                 ID = 0,
                 Name = p.Name,
-                PID = p.PID,
+                PMenu = p.PID == 0 ? null : new Menu { ID = p.PID },
                 Sort = p.Sort,
                 Status = p.Status,
                 Url = p.Url,
@@ -142,7 +161,7 @@ namespace ExtApp.BLL
             model.Icon = p.Icon;
             model.IconType = p.IconType;
             model.Name = p.Name;
-            model.PID = p.PID;
+            model.PMenu = p.PID == 0 ? null : new Menu { ID = p.PID };
             model.Sort = p.Sort;
             model.Status = p.Status;
             model.Url = p.Url;

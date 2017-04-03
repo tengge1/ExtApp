@@ -241,6 +241,7 @@
     </Content>
     <Content Include="App_Data\ExtApp.mdf" />
     <Content Include="App_Data\ExtApp.sql" />
+    <Content Include="App_Data\将Menu表PID字段根节点改为null.txt" />
     <Content Include="css\desktop.css" />
     <Content Include="ext\AbstractManager.js" />
     <Content Include="ext\Ajax.js" />

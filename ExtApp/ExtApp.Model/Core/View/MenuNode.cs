@@ -12,6 +12,9 @@ namespace ExtApp.Model
     public class MenuNode : TreeNode
     {
         public int ID { get; set; }
+        public int PID { get; set; }
+        public string PName { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
     }

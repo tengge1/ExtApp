@@ -22,8 +22,8 @@ namespace ExtApp.Model
         /// <summary>
         /// 父节点编码
         /// </summary>
-        [Property(1, NotNull = true)]
-        public virtual int PID { get; set; }
+        [ManyToOne(1, ClassType = typeof(Menu), Column = "PID", Lazy = Laziness.False)]
+        public virtual Menu PMenu { get; set; }
 
         /// <summary>
         /// 编码

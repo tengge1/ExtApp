@@ -54,7 +54,7 @@ Ext.define('App.view.authority.menu.Add', {
             editable: false,
             emptyText: '请选择'
         }, {
-            xtype: 'textfield',
+            xtype: 'textarea',
             name: 'Url',
             fieldLabel: '类名/Url'
         }, {

@@ -159,7 +159,7 @@ namespace ExtApp.DAL
         }
 
         /// <summary>
-        /// 删除
+        /// 删除（根据ID）
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
@@ -174,6 +174,37 @@ namespace ExtApp.DAL
                 try
                 {
                     session.Delete(model);
+                    session.Flush();
+                }
+                catch (Exception e)
+                {
+                    var log = FileLogHelper.GetLogger(this.GetType());
+                    log.Error(e.Message, e);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 删除（根据条件）
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public virtual bool Delete(ICriterion query = null)
+        {
+            var session = NHibernateHelper.GetCurrentSession();
+            var criteria = session.CreateCriteria<T>();
+            if (query != null)
+            {
+                criteria.Add(query);
+            }
+            var list = criteria.List();
+            foreach (var i in list)
+            {
+                try
+                {
+                    session.Delete(i);
                     session.Flush();
                 }
                 catch (Exception e)

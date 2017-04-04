@@ -40,4 +40,8 @@
   <object id="UserDAL" type="ExtApp.DAL.UserDAL, ExtApp.DAL">
   </object>
 
+  <!-- 数据库备份 -->
+  <object id="DatabaseBackupDAL" type="ExtApp.DAL.DatabaseBackupDAL, ExtApp.DAL">
+  </object>
+
 </objects>

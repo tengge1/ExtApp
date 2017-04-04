@@ -54,4 +54,9 @@
     <property name="dal" ref="UserDAL" />
   </object>
 
+  <!-- 数据库备份 -->
+  <object id="DatabaseBackupBLL" type="ExtApp.BLL.DatabaseBackupBLL, ExtApp.BLL">
+    <property name="dal" ref="DatabaseBackupDAL" />
+  </object>
+
 </objects>

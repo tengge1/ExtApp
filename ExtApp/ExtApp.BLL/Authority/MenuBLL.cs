@@ -84,7 +84,7 @@ namespace ExtApp.BLL
             string PCode = "";
             if (p.PID > 0) // 不是顶级菜单
             {
-                var query1 = Restrictions.Eq("PMenu", new Menu { ID = p.PID });
+                var query1 = Restrictions.Eq("ID", p.PID);
                 var appMenu1 = dal.Get(query1);
                 if (appMenu1 != null)
                 {

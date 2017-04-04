@@ -159,6 +159,7 @@
     <Content Include="app\model\core\Dic.js" />
     <Content Include="app\model\core\ConfigSection.js" />
     <Content Include="app\model\core\Config.js" />
+    <Content Include="app\model\core\DatabaseBackup.js" />
     <Content Include="app\model\personnel\Dept.js" />
     <Content Include="app\model\core\Log.js" />
     <Content Include="app\model\authority\Role.js" />
@@ -169,6 +170,7 @@
     <Content Include="app\store\authority\RoleAll.js" />
     <Content Include="app\store\core\ConfigSectionTree.js" />
     <Content Include="app\store\core\DicTree.js" />
+    <Content Include="app\store\core\DatabaseBackup.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\Config.js" />
     <Content Include="app\util\TreeHistory.js" />
@@ -176,6 +178,8 @@
     <Content Include="app\view\authority\menu\AddController.js" />
     <Content Include="app\view\authority\menu\List.js" />
     <Content Include="app\view\authority\menu\ListController.js" />
+    <Content Include="app\view\core\databaseBackup\List.js" />
+    <Content Include="app\view\core\databaseBackup\ListController.js" />
     <Content Include="app\view\core\logs\View.js" />
     <Content Include="app\view\main\desktop\SettingsController.js" />
     <Content Include="app\view\core\config\EditSection.js" />
@@ -4131,7 +4135,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\Backup\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
       <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>

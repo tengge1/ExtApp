@@ -107,6 +107,7 @@
     <Compile Include="Authority\MenuController.cs" />
     <Compile Include="Core\ConfigController.cs" />
     <Compile Include="Core\ConfigSectionController.cs" />
+    <Compile Include="Core\DatabaseBackupController.cs" />
     <Compile Include="Personnel\DeptController.cs" />
     <Compile Include="Core\DicController.cs" />
     <Compile Include="Core\DicItemController.cs" />

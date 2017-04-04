@@ -54,5 +54,10 @@
   <object type="ExtApp.Controller.UserController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="UserBLL" />
   </object>
+
+  <!-- 数据库备份 -->
+  <object type="ExtApp.Controller.DatabaseBackupController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="DatabaseBackupBLL" />
+  </object>
 </objects>
 

@@ -91,6 +91,7 @@
     <Compile Include="BaseDAL.cs" />
     <Compile Include="Core\ConfigSectionDAL.cs" />
     <Compile Include="Core\ConfigDAL.cs" />
+    <Compile Include="Core\DatabaseBackupDAL.cs" />
     <Compile Include="Core\DicItemDAL.cs" />
     <Compile Include="Core\DicDAL.cs" />
     <Compile Include="Core\LogDAL.cs" />

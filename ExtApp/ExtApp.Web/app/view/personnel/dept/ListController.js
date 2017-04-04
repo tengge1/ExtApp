@@ -26,6 +26,7 @@ Ext.define('App.view.personnel.dept.ListController', {
             App.notify('消息', '请选择机构！');
             return;
         }
+        view.down('form').getForm().reset();
         view.down('form').getForm().loadRecord(selected[0]);
     },
 

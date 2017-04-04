@@ -18,6 +18,7 @@ Ext.define('App.view.authority.menu.ListController', {
                 PID: 0
             },
             callback: function () {
+                tree.collapseAll();
                 history.restore(tree);
             }
         });
@@ -30,6 +31,7 @@ Ext.define('App.view.authority.menu.ListController', {
             App.notify('消息', '请选择菜单！');
             return;
         }
+        view.down('form').getForm().reset();
         view.down('form').getForm().loadRecord(selected[0]);
     },
 
@@ -45,7 +47,7 @@ Ext.define('App.view.authority.menu.ListController', {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
                     view.controller.refreshTree();
-                    App.notify('消息', '删除成功！');
+                    App.notify('消息', obj.Msg);
                 } else {
                     App.alert('错误', obj.Msg);
                 }
@@ -77,8 +79,8 @@ Ext.define('App.view.authority.menu.ListController', {
         App.post('/api/Menu/Edit', values, function (data) {
             var obj = JSON.parse(data);
             if (obj.Code == 200) { // 成功
-                me.refresh();
-                App.notify('消息', '保存成功！');
+                me.refreshTree();
+                App.notify('消息', obj.Msg);
             } else { // 失败
                 App.alert('消息', obj.Msg);
             }

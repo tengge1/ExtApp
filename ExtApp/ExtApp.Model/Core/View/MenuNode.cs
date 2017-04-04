@@ -16,6 +16,12 @@ namespace ExtApp.Model
         public string PName { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
+        public int? UrlType { get; set; }
         public string Url { get; set; }
+        public int? IconType { get; set; }
+        public string Icon { get; set; }
+        public int? Sort { get; set; }
+        public int? Status { get; set; }
+        public string Comment { get; set; }
     }
 }

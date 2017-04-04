@@ -47,10 +47,16 @@ namespace ExtApp.BLL
                     iconCls = i.Icon,
                     ID = i.ID,
                     PID = i.PMenu == null ? 0 : i.PMenu.ID,
-                    PName = i.PMenu == null ? "" : i.PMenu.Name,
+                    PName = i.PMenu == null ? "顶级菜单" : i.PMenu.Name,
                     Code = i.Code,
                     Name = i.Name,
-                    Url = i.Url
+                    UrlType = i.UrlType,
+                    Url = i.Url,
+                    IconType = i.IconType,
+                    Icon = i.Icon,
+                    Sort = i.Sort,
+                    Status = i.Status,
+                    Comment = i.Comment
                 };
 
                 // 判断是否有下级节点

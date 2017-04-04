@@ -41,7 +41,7 @@ namespace ExtApp.Model
         /// 类型（1-模块，2-url）
         /// </summary>
         [Property(4)]
-        public virtual int UrlType { get; set; }
+        public virtual int? UrlType { get; set; }
 
         /// <summary>
         /// 模块地址或url
@@ -53,7 +53,7 @@ namespace ExtApp.Model
         /// 图标类型（1-样式表类名，2-图片路径）
         /// </summary>
         [Property(6)]
-        public virtual int IconType { get; set; }
+        public virtual int? IconType { get; set; }
 
         /// <summary>
         /// 图标

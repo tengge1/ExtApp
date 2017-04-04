@@ -48,7 +48,6 @@ Ext.define('App.view.main.desktop.Index', {
 
     getStartConfig: function () { // 开始菜单
         var me = this, ret = me.callParent();
-
         return Ext.apply(ret, {
             title: '管理员',
             iconCls: 'user',
@@ -78,6 +77,7 @@ Ext.define('App.view.main.desktop.Index', {
 
         var ret = this.callParent();
         return Ext.apply(ret, {
+            startBtnText: '开始',
             quickStart: [{ // 快捷启动
                 name: '记事本',
                 iconCls: 'notepad-shortcut',

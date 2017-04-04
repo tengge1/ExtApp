@@ -13,6 +13,13 @@ Ext.define('App.view.core.logs.List', {
     closable: true,
     layout: 'fit',
 
+    tbar: [{
+        xtype: 'button',
+        text: '查看',
+        iconCls: 'Applicationviewdetail',
+        handler: 'onViewClick'
+    }],
+
     items: [{
         xtype: 'gridpanel',
         border: false,
@@ -22,13 +29,6 @@ Ext.define('App.view.core.logs.List', {
             xtype: 'searchform',
 
             items: [{
-                xtype: 'textfield',
-                fieldLabel: '查询',
-                labelWidth: 50,
-                width: 180,
-                name: 'name',
-                emptyText: '标题/内容'
-            }, {
                 xtype: 'combo',
                 fieldLabel: '类型',
                 width: 160,
@@ -108,14 +108,6 @@ Ext.define('App.view.core.logs.List', {
             xtype: 'rownumberer',
             width: 40,
             titleAlign: 'center'
-        }, {
-            xtype: 'actioncolumn',
-            iconCls: 'Applicationviewdetail',
-            tooltip: '查看',
-            width: 50,
-            titleAlign: 'center',
-            align: 'center',
-            handler: 'onViewAction'
         }, {
             text: '时间',
             dataIndex: 'AddTime',

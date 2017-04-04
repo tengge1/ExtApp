@@ -16,7 +16,7 @@ Ext.define('App.view.core.logs.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
-    onSearchClick: function () { // 搜索
+    onSearchClick: function () {
         var view = this.getView();
         var values = view.down('form').getForm().getValues();
         var store = view.down('gridpanel').getStore();
@@ -25,15 +25,19 @@ Ext.define('App.view.core.logs.ListController', {
         });
     },
 
-    onResetClick: function () { // 重置
+    onResetClick: function () {
         var view = this.getView();
         view.down('form').getForm().reset();
     },
 
-    onViewAction: function (grid, rowIndex, colIndex) { // 查看
-        var record = grid.getStore().getAt(rowIndex);
+    onViewClick: function () {
+        var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择！');
+            return;
+        }
         var win = Ext.create('App.view.core.logs.View');
-        win.down('form').getForm().loadRecord(record);
+        win.down('form').getForm().loadRecord(selected.items[0]);
         win.show();
     },
 
@@ -44,7 +48,7 @@ Ext.define('App.view.core.logs.ListController', {
         win.show();
     },
 
-    renderType: function (value) { // 渲染类型
+    renderType: function (value) {
         if (value == 0) {
             return '系统事件';
         } else if (value == 1) {
@@ -54,7 +58,7 @@ Ext.define('App.view.core.logs.ListController', {
         }
     },
 
-    renderSource: function (value) { // 渲染来源
+    renderSource: function (value) {
         if (value == 0) {
             return 'Web应用';
         } else if (value == 1) {
@@ -66,7 +70,7 @@ Ext.define('App.view.core.logs.ListController', {
         }
     },
 
-    renderLevel: function (value) { // 渲染等级
+    renderLevel: function (value) {
         if (value == 0) {
             return '崩溃';
         } else if (value == 1) {

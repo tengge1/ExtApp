@@ -11,6 +11,6 @@ Ext.define('App.widget.MenuSelect', {
     store: Ext.create('App.store.authority.MenuTree'),
 
     reset: function () {
-        this.store.reload();
+        this.getStore().reload();
     }
 });

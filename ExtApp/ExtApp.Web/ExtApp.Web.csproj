@@ -236,12 +236,12 @@
     <Content Include="app\view\personnel\user\Edit.js" />
     <Content Include="app\view\personnel\user\List.js" />
     <Content Include="app\view\Viewport.js" />
+    <Content Include="App_Data\backup.sql" />
     <Content Include="App_Data\ExtApp.ldf">
       <DependentUpon>ExtApp.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\ExtApp.mdf" />
     <Content Include="App_Data\ExtApp.sql" />
-    <Content Include="App_Data\将Menu表PID字段根节点改为null.txt" />
     <Content Include="css\desktop.css" />
     <Content Include="ext\AbstractManager.js" />
     <Content Include="ext\Ajax.js" />
@@ -762,6 +762,7 @@
     <Content Include="ext\themes\theme-triton\fonts\OpenSans-Regular.ttf" />
     <Content Include="ext\themes\theme-triton\fonts\OpenSans-Semibold.ttf" />
     <Content Include="ext\themes\theme-triton\fonts\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="App_Data\ExtApp.bak" />
     <None Include="ext\_references.js" />
     <Content Include="ext\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="ext\Util.js" />

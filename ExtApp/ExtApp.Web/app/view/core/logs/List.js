@@ -18,6 +18,11 @@ Ext.define('App.view.core.logs.List', {
         text: '查看',
         iconCls: 'Applicationviewdetail',
         handler: 'onViewClick'
+    }, {
+        xtype: 'button',
+        text: '清空',
+        iconCls: 'Delete',
+        handler: 'onClearClick'
     }],
 
     items: [{

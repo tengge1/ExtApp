@@ -48,5 +48,16 @@ namespace ExtApp.Controller
                 Comment = o.Comment
             }).ToList<object>());
         }
+
+        /// <summary>
+        /// 清空所有日志
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult ClearAll()
+        {
+            var result = bll.ClearAll();
+            return Json(result);
+        }
     }
 }

@@ -93,5 +93,22 @@ namespace ExtApp.BLL
             var list = dal.List(p.firstResult, p.maxResults, out total, query);
             return list;
         }
+
+        /// <summary>
+        /// 清空所有日志
+        /// </summary>
+        /// <returns></returns>
+        public Result ClearAll()
+        {
+            var result = dal.Delete();
+            if (result)
+            {
+                return new Result(200, "清空成功！");
+            }
+            else
+            {
+                return new Result(300, "清空失败！");
+            }
+        }
     }
 }

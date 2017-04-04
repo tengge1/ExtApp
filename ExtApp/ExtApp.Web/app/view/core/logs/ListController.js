@@ -16,6 +16,32 @@ Ext.define('App.view.core.logs.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
+    onViewClick: function () {
+        var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择！');
+            return;
+        }
+        var win = Ext.create('App.view.core.logs.View');
+        win.down('form').getForm().loadRecord(selected.items[0]);
+        win.show();
+    },
+
+    onClearClick: function () {
+        var view = this.getView();
+        App.confirm('消息', '是否清空所有日志？', function () {
+            App.post('/api/Log/ClearAll', function (r) {
+                var obj = JSON.parse(r);
+                if (obj.Code == 200) {
+                    App.notify('消息', obj.Msg);
+                    view.down('gridpanel').getStore().reload();
+                } else {
+                    App.alert('消息', obj.Msg);
+                }
+            });
+        });
+    },
+
     onSearchClick: function () {
         var view = this.getView();
         var values = view.down('form').getForm().getValues();
@@ -28,17 +54,6 @@ Ext.define('App.view.core.logs.ListController', {
     onResetClick: function () {
         var view = this.getView();
         view.down('form').getForm().reset();
-    },
-
-    onViewClick: function () {
-        var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
-        if (selected.length == 0) {
-            App.notify('消息', '请选择！');
-            return;
-        }
-        var win = Ext.create('App.view.core.logs.View');
-        win.down('form').getForm().loadRecord(selected.items[0]);
-        win.show();
     },
 
     onCellDblClick: function (grid, cell, colIndex, record, row, rowIndex) { // 双击事件

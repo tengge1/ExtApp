@@ -195,7 +195,21 @@ namespace ExtApp.DAL
         {
             var session = NHibernateHelper.GetCurrentSession();
             var criteria = session.CreateCriteria<T>();
-            if (query != null)
+            if (query == null) // 删除所有
+            {
+                var hql = string.Format("from {0}", typeof(T).Name);
+                var num = session.Delete(hql);
+                session.Flush();
+                if (num > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else // 按条件删除
             {
                 criteria.Add(query);
             }

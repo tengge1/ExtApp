@@ -83,6 +83,10 @@ namespace ExtApp.BLL
             {
                 return new Result(300, "角色不存在！");
             }
+            if (role.Code == "cjgly")
+            {
+                return new Result(300, "无法删除超级管理员！");
+            }
             role.Code = p.Code;
             role.Comment = p.Comment;
             role.Name = p.Name;

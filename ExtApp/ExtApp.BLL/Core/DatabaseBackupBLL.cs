@@ -97,5 +97,31 @@ namespace ExtApp.BLL
                 return new Result(300, "备份失败！");
             }
         }
+
+        /// <summary>
+        /// 数据库还原
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public Result Restore(int ID)
+        {
+            var model = dal.Get(ID);
+            if (model == null)
+            {
+                return new Result(300, "数据不存在！");
+            }
+            var path = HttpContext.Current.Server.MapPath("/App_Data/Backup");
+            path = path + "\\" + model.FileName;
+            if (!File.Exists(path))
+            {
+                return new Result(300, "备份文件不存在！");
+            }
+            var dbName = ConfigHelper.Get("DatabaseName");
+            dbName = dbName == null ? "ExtApp" : dbName;
+            var sql = string.Format("use master; alter database [{0}] set single_user with rollback immediate; restore database [{0}] from disk='{1}' with replace;alter database [{0}] set multi_user;", dbName, path);
+            var helper = new SqlHelper();
+            helper.ExecuteSql(sql);
+            return new Result(200, "还原数据库成功！");
+        }
     }
 }

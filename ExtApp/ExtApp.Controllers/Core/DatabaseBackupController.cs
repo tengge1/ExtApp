@@ -55,5 +55,17 @@ namespace ExtApp.Controller
             var result = bll.Backup();
             return Json(result);
         }
+
+        /// <summary>
+        /// 还原
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult Restore(int ID)
+        {
+            var result = bll.Restore(ID);
+            return Json(result);
+        }
     }
 }

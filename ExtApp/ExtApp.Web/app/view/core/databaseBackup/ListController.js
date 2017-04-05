@@ -48,14 +48,30 @@ Ext.define('App.view.core.databaseBackup.ListController', {
     },
 
     onRestoreClick: function () {
-
+        var view = this.getView();
+        var selected = view.down('gridpanel').getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择');
+            return;
+        }
+        App.confirm('消息', '是否还原数据库？', function () {
+            App.post('/api/DatabaseBackup/Restore?ID=' + selected.items[0].data.ID, function (r) {
+                var obj = JSON.parse(r);
+                if (obj.Code == 200) {
+                    view.down('pagingtoolbar').moveFirst();
+                    App.notify('消息', obj.Msg);
+                } else {
+                    App.alert('消息', obj.Msg);
+                }
+            });
+        });
     },
 
     onDeleteClick: function () {
         var view = this.getView();
         var selected = view.down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
-            App.alert('消息', '请选择');
+            App.notify('消息', '请选择');
             return;
         }
         App.confirm('消息', '要删除该记录？', function () {

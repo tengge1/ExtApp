@@ -29,9 +29,8 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult List([FromUri]DatabaseBackupListParam p)
         {
-            var total = 0;
-            var list = bll.List(p.firstResult, p.maxResults, out total);
-            return base.List(total, list);
+            var result = bll.List(p);
+            return Json(result);
         }
 
         /// <summary>

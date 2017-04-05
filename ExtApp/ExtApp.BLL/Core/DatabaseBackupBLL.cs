@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.IO;
+using NHibernate.Criterion;
 
 using ExtApp.Model;
 
@@ -15,6 +16,23 @@ namespace ExtApp.BLL
     /// </summary>
     public class DatabaseBackupBLL : BaseBLL<DatabaseBackup>
     {
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public ListResult<DatabaseBackup> List(DatabaseBackupListParam p)
+        {
+            ICriterion query = null;
+            if (!string.IsNullOrEmpty(p.Name))
+            {
+                query = Restrictions.Like("Name", p.Name, MatchMode.Anywhere);
+            }
+            var total = 0;
+            var list = dal.List(p.firstResult, p.maxResults, out total, query);
+            return new ListResult<DatabaseBackup>(200, "获取成功！", total, list);
+        }
+
         /// <summary>
         /// 删除数据库备份
         /// </summary>

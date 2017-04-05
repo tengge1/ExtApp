@@ -13,5 +13,6 @@ namespace ExtApp.Model
     {
         public int firstResult { get; set; }
         public int maxResults { get; set; }
+        public string Name { get; set; }
     }
 }

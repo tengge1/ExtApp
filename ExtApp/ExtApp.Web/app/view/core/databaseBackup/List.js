@@ -60,22 +60,29 @@ Ext.define('App.view.core.databaseBackup.List', {
             xtype: 'rownumberer'
         }, {
             text: '名称',
-            dataIndex: 'Name'
+            dataIndex: 'Name',
+            width: 150
         }, {
             text: '文件名',
-            dataIndex: 'FileName'
+            dataIndex: 'FileName',
+            width: 180
         }, {
             text: '备份人',
             dataIndex: 'AddUserName'
         }, {
             text: '备份时间',
-            dataIndex: 'AddTime'
+            dataIndex: 'AddTime',
+            width: 150
         }, {
             text: '是否当前',
             dataIndex: 'IsCurrent',
             renderer: function (value) {
                 return value == 1 ? '是' : '否';
             }
+        }, {
+            text: '备注',
+            dataIndex: 'Comment',
+            flex: 1
         }],
 
         listeners: {

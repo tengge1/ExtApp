@@ -35,6 +35,18 @@ namespace ExtApp.Controller
         }
 
         /// <summary>
+        /// 删除数据库
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult Delete(int ID)
+        {
+            var result = bll.Delete(ID);
+            return Json(result);
+        }
+
+        /// <summary>
         /// 备份
         /// </summary>
         /// <returns></returns>

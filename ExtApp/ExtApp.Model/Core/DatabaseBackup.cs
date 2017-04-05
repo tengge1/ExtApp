@@ -34,7 +34,7 @@ namespace ExtApp.Model
         /// <summary>
         /// 添加人
         /// </summary>
-        [ManyToOne(3, ClassType = typeof(DatabaseBackup), Column = "AddUserID", Lazy = Laziness.False)]
+        [ManyToOne(3, ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
         public virtual User AddUser { get; set; }
 
         /// <summary>
@@ -48,5 +48,11 @@ namespace ExtApp.Model
         /// </summary>
         [Property(5)]
         public virtual bool IsCurrent { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        [Property(6)]
+        public virtual string Comment { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.IO;
 
 using ExtApp.Model;
 
@@ -15,23 +16,55 @@ namespace ExtApp.BLL
     public class DatabaseBackupBLL : BaseBLL<DatabaseBackup>
     {
         /// <summary>
+        /// 删除数据库备份
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public override Result Delete(int ID)
+        {
+            var backup = dal.Get(ID);
+            if (backup == null)
+            {
+                return new Result(300, "数据不存在！");
+            }
+            var path = HttpContext.Current.Server.MapPath("/App_Data/Backup");
+            path = path + "\\" + backup.FileName;
+
+            // 删除文件
+            try
+            {
+                File.Delete(path);
+            }
+            catch (Exception e)
+            {
+                var logger = FileLogHelper.GetLogger(this.GetType());
+                logger.Error(e.Message, e);
+                return new Result(300, "文件删除失败！");
+            }
+
+            return base.Delete(ID);
+        }
+
+        /// <summary>
         /// 数据库备份
         /// </summary>
         /// <returns></returns>
         public Result Backup()
         {
             var now = DateTime.Now;
-            var fileName = string.Format("ExtApp{0}.bak", now.ToString("yyyyMMdd"));
+            var dbName = ConfigHelper.Get("DatabaseName");
+            dbName = dbName == null ? "ExtApp" : dbName;
+            var fileName = string.Format("ExtApp{0}.bak", now.ToString("yyyyMMddHHmmss"));
             var path = HttpContext.Current.Server.MapPath("/App_Data/Backup");
-            var sql = string.Format(@"use master;backup database ExtApp.mdf to disk='{0}\{1}'", path, fileName);
+            var sql = string.Format(@"backup database [{0}] to disk='{1}\{2}'", dbName, path, fileName);
+            var helper = new SqlHelper();
+            helper.ExecuteSql(sql);
 
-            var session = NHibernateHelper.GetCurrentSession();
-            var query = session.CreateSQLQuery(sql);
-            var count = query.ExecuteUpdate();
             var model = new DatabaseBackup
             {
                 ID = 0,
                 Name = "数据库" + now.ToString("yyyy-MM-dd") + "备份",
+                FileName = fileName,
                 AddUser = AdminHelper.Admin,
                 AddTime = now,
                 IsCurrent = false

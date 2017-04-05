@@ -33,11 +33,12 @@ Ext.define('App.view.core.databaseBackup.ListController', {
     },
 
     onSaveClick: function () {
+        var view = this.getView();
         App.confirm('消息', '是否备份当前数据库？', function () {
             App.post('/api/DatabaseBackup/Backup', function (r) {
                 var obj = JSON.parse(r);
                 if (obj.Code == 200) {
-                    view.down('gridpanel').getStore().load();
+                    view.down('pagingtoolbar').moveFirst();
                     App.notify('消息', obj.Msg);
                 } else {
                     App.alert('消息', obj.Msg);
@@ -58,7 +59,7 @@ Ext.define('App.view.core.databaseBackup.ListController', {
             return;
         }
         App.confirm('消息', '要删除该记录？', function () {
-            App.post('/api/Role/Delete?ID=' + selected.items[0].data.ID, function (r) {
+            App.post('/api/DatabaseBackup/Delete?ID=' + selected.items[0].data.ID, function (r) {
                 var obj = JSON.parse(r);
                 if (obj.Code == 200) {
                     view.down('gridpanel').getStore().load();

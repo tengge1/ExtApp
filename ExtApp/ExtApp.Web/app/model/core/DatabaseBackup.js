@@ -18,6 +18,7 @@ Ext.define('App.model.core.DatabaseBackup', {
             }
         },
         'AddTime',
-        'IsCurrent'
+        'IsCurrent',
+        'Comment'
     ]
 });

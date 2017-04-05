@@ -1,1 +1,0 @@
-﻿backup database ExtApp to disk='D:\ExtApp.bak'

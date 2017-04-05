@@ -240,7 +240,6 @@
     <Content Include="app\view\personnel\user\Edit.js" />
     <Content Include="app\view\personnel\user\List.js" />
     <Content Include="app\view\Viewport.js" />
-    <Content Include="App_Data\backup.sql" />
     <Content Include="App_Data\ExtApp.ldf">
       <DependentUpon>ExtApp.mdf</DependentUpon>
     </Content>
@@ -769,7 +768,6 @@
     <Content Include="ext\themes\theme-triton\fonts\OpenSans-Regular.ttf" />
     <Content Include="ext\themes\theme-triton\fonts\OpenSans-Semibold.ttf" />
     <Content Include="ext\themes\theme-triton\fonts\OpenSans-SemiboldItalic.ttf" />
-    <Content Include="App_Data\ExtApp.bak" />
     <None Include="ext\_references.js" />
     <Content Include="ext\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="ext\Util.js" />
@@ -4138,9 +4136,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\Backup\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
       <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>

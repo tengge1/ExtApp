@@ -49,15 +49,18 @@ namespace ExtApp.BLL
             path = path + "\\" + backup.FileName;
 
             // 删除文件
-            try
+            if (File.Exists(path))
             {
-                File.Delete(path);
-            }
-            catch (Exception e)
-            {
-                var logger = FileLogHelper.GetLogger(this.GetType());
-                logger.Error(e.Message, e);
-                return new Result(300, "文件删除失败！");
+                try
+                {
+                    File.Delete(path);
+                }
+                catch (Exception e)
+                {
+                    var logger = FileLogHelper.GetLogger(this.GetType());
+                    logger.Error(e.Message, e);
+                    return new Result(300, "文件删除失败！");
+                }
             }
 
             return base.Delete(ID);
@@ -74,6 +77,11 @@ namespace ExtApp.BLL
             dbName = dbName == null ? "ExtApp" : dbName;
             var fileName = string.Format("ExtApp{0}.bak", now.ToString("yyyyMMddHHmmss"));
             var path = HttpContext.Current.Server.MapPath("/App_Data/Backup");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
             var sql = string.Format(@"backup database [{0}] to disk='{1}\{2}'", dbName, path, fileName);
 
             var model = new DatabaseBackup

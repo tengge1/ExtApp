@@ -87,7 +87,8 @@ Ext.define('App.view.core.config.List', {
             dataIndex: 'Key'
         }, {
             text: 'Value',
-            dataIndex: 'Value'
+            dataIndex: 'Value',
+            width: 180
         }, {
             text: '排序',
             dataIndex: 'Sort'

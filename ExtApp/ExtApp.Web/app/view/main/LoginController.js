@@ -32,13 +32,13 @@ Ext.define('App.view.main.LoginController', {
         });
         mask.show();
         App.post('/api/Login/Login', values, function (r) {
+            mask.hide();
             var obj = JSON.parse(r);
             if (obj.Code == 200) {
                 var config = Ext.create('util.config');
                 config.setState('login');
                 window.location.reload();
             } else {
-                mask.hide();
                 App.alert('消息', obj.Msg);
             }
         });

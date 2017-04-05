@@ -75,8 +75,6 @@ namespace ExtApp.BLL
             var fileName = string.Format("ExtApp{0}.bak", now.ToString("yyyyMMddHHmmss"));
             var path = HttpContext.Current.Server.MapPath("/App_Data/Backup");
             var sql = string.Format(@"backup database [{0}] to disk='{1}\{2}'", dbName, path, fileName);
-            var helper = new SqlHelper();
-            helper.ExecuteSql(sql);
 
             var model = new DatabaseBackup
             {
@@ -90,6 +88,9 @@ namespace ExtApp.BLL
             var result = dal.Add(model);
             if (result)
             {
+                // 先添加数据再备份，否则还原后该记录消失
+                var helper = new SqlHelper();
+                helper.ExecuteSql(sql);
                 return new Result(200, "备份成功！");
             }
             else

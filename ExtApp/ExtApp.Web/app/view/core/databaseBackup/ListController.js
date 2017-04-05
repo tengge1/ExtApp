@@ -55,7 +55,15 @@ Ext.define('App.view.core.databaseBackup.ListController', {
             return;
         }
         App.confirm('消息', '是否还原数据库？', function () {
+            var mask = Ext.create('Ext.LoadMask', {
+                target: view,
+                msg: '正在还原...',
+                indicator: true,
+                centered: true
+            });
+            mask.show();
             App.post('/api/DatabaseBackup/Restore?ID=' + selected.items[0].data.ID, function (r) {
+                mask.hide();
                 var obj = JSON.parse(r);
                 if (obj.Code == 200) {
                     view.down('pagingtoolbar').moveFirst();

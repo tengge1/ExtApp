@@ -55,7 +55,7 @@ namespace ExtApp.Controller
         [HttpPost]
         public JsonResult Edit(DeptEditParam p)
         {
-            var result = bll.Add(p);
+            var result = bll.Edit(p);
             return Json(result);
         }
 

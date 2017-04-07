@@ -37,6 +37,11 @@ Ext.define("App.view.authority.menu.List", {
             handler: 'onAddClick'
         }, {
             xtype: 'button',
+            text: '编辑',
+            iconCls: 'Applicationedit',
+            handler: 'onEditClick'
+        }, {
+            xtype: 'button',
             text: '删除',
             iconCls: 'Delete',
             handler: 'onDeleteClick'

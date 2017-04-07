@@ -36,7 +36,7 @@ Ext.define('App.view.main.desktop.Index', {
                 data: [{
                     name: '记事本',
                     iconCls: 'notepad-shortcut',
-                    module: 'notepad'
+                    //module: 'notepad',
                 }]
             }),
 

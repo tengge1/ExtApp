@@ -4,9 +4,24 @@ Ext.define('App.view.authority.menu.ListController', {
     alias: 'controller.menulist',
 
     onAddClick: function () {
-        var view = Ext.create('App.view.authority.menu.Add');
-        view.controller.reset();
-        view.show();
+        var win = Ext.create('App.view.authority.menu.Edit');
+        win.setTitle('添加菜单');
+        win.controller.reset();
+        win.show();
+    },
+
+    onEditClick: function () {
+        var view = this.getView();
+        var selected = view.down('treepanel').getSelection();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择菜单！');
+            return;
+        }
+        var win = Ext.create('App.view.authority.menu.Edit');
+        win.setTitle('编辑菜单');
+        win.controller.reset();
+        win.down('form').getForm().loadRecord(selected[0]);
+        win.show();
     },
 
     refreshTree: function () {

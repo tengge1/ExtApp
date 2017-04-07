@@ -1,16 +1,16 @@
 ﻿
-Ext.define('App.view.authority.menu.Add', {
+Ext.define('App.view.authority.menu.Edit', {
     extend: 'Ext.window.Window',
-    alias: 'widget.menuadd',
+    alias: 'widget.menuedit',
 
     requires: [
         'App.widget.MenuSelect',
-        'App.view.authority.menu.AddController'
+        'App.view.authority.menu.EditController'
     ],
 
-    controller: 'menuadd',
+    controller: 'menuedit',
 
-    title: '添加菜单',
+    title: '编辑菜单',
     layout: 'fit',
     modal: true,
     iconCls: 'Applicationsidetree',

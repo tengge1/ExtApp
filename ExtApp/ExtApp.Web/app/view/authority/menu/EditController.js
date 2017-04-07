@@ -1,7 +1,7 @@
 ﻿
-Ext.define('App.view.authority.menu.AddController', {
+Ext.define('App.view.authority.menu.EditController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.menuadd',
+    alias: 'controller.menuedit',
 
     reset: function () {
         var view = this.getView();

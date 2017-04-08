@@ -7,6 +7,7 @@ Ext.define('App.view.authority.menu.ListController', {
         var win = Ext.create('App.view.authority.menu.Edit');
         win.setTitle('添加菜单');
         win.controller.reset();
+        win.down('menuselect').setReadOnly(false);
         win.show();
     },
 
@@ -20,6 +21,7 @@ Ext.define('App.view.authority.menu.ListController', {
         var win = Ext.create('App.view.authority.menu.Edit');
         win.setTitle('编辑菜单');
         win.controller.reset();
+        win.down('menuselect').setReadOnly(true);
         win.down('form').getForm().loadRecord(selected[0]);
         win.show();
     },
@@ -46,8 +48,6 @@ Ext.define('App.view.authority.menu.ListController', {
             App.notify('消息', '请选择菜单！');
             return;
         }
-        view.down('form').getForm().reset();
-        view.down('form').getForm().loadRecord(selected[0]);
     },
 
     onDeleteClick: function () { // 点击删除按钮
@@ -67,38 +67,6 @@ Ext.define('App.view.authority.menu.ListController', {
                     App.alert('错误', obj.Msg);
                 }
             })
-        });
-    },
-
-    onSaveClick: function () {
-        var me = this;
-        var view = this.getView();
-        var form = view.down('form');
-        var ID = form.form.getValues()["ID"];
-        if (ID == '') {
-            App.notify('消息', '请选择菜单！');
-            return;
-        }
-
-        if (ID == '0') {
-            App.notify('消息', '无法编辑顶级菜单！');
-            return;
-        }
-
-        if (!form.isValid()) {
-            App.notify('消息', '请填写完整！');
-            return;
-        }
-        var values = form.getValues();
-
-        App.post('/api/Menu/Edit', values, function (data) {
-            var obj = JSON.parse(data);
-            if (obj.Code == 200) { // 成功
-                me.refreshTree();
-                App.notify('消息', obj.Msg);
-            } else { // 失败
-                App.alert('消息', obj.Msg);
-            }
         });
     }
 });

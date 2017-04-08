@@ -6,7 +6,7 @@ Ext.define('App.view.authority.menu.EditController', {
     reset: function () {
         var view = this.getView();
         view.down('form').getForm().reset();
-        view.down('menuselect').reset();
+        view.down('menuselect[name=PID]').reset();
     },
 
     onSaveClick: function () {
@@ -17,8 +17,12 @@ Ext.define('App.view.authority.menu.EditController', {
             return;
         }
         var values = form.getValues();
+        var url = '/api/Menu/Edit';
+        if (values.ID == 0) {
+            url = '/api/Menu/Add';
+        }
 
-        App.post('/api/Menu/Add', values, function (data) {
+        App.post(url, values, function (data) {
             var obj = JSON.parse(data);
             if (obj.Code == 200) {
                 win.hide();

@@ -162,7 +162,7 @@ namespace ExtApp.BLL
             {
                 return new Result(300, "数据不存在！");
             }
-            model.Code = p.Code;
+            //model.Code = p.Code;
             model.Comment = p.Comment;
             model.Icon = p.Icon;
             model.IconType = p.IconType;

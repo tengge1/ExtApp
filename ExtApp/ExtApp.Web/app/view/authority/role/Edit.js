@@ -1,6 +1,4 @@
 ﻿
-// --------- 编辑角色 -------------
-
 Ext.define('App.view.authority.role.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.roleedit',

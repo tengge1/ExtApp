@@ -1,8 +1,8 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
-  <!-- 机构角色菜单 -->
-  <object type="ExtApp.Controller.DeptRoleMenuController, ExtApp.Controller" singleton="false">
-    <property name="bll" ref="DeptRoleMenuBLL" />
+  <!-- 角色菜单 -->
+  <object type="ExtApp.Controller.RoleMenuController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="RoleMenuBLL" />
   </object>
 
   <!-- 登录 -->

@@ -24,6 +24,11 @@ Ext.define('App.view.authority.role.List', {
         handler: 'onEditClick'
     }, {
         xtype: 'button',
+        text: '权限',
+        iconCls: 'Userkey',
+        handler: 'onAuthClick'
+    }, {
+        xtype: 'button',
         text: '删除',
         iconCls: 'Delete',
         handler: 'onDeleteClick'

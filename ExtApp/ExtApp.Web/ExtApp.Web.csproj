@@ -171,6 +171,7 @@
     <Content Include="app\store\core\ConfigSectionTree.js" />
     <Content Include="app\store\core\DicTree.js" />
     <Content Include="app\store\core\DatabaseBackup.js" />
+    <Content Include="app\store\authority\RoleMenuTree.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\Config.js" />
     <Content Include="app\util\TreeHistory.js" />
@@ -178,6 +179,8 @@
     <Content Include="app\view\authority\menu\EditController.js" />
     <Content Include="app\view\authority\menu\List.js" />
     <Content Include="app\view\authority\menu\ListController.js" />
+    <Content Include="app\view\authority\role\Auth.js" />
+    <Content Include="app\view\authority\role\AuthController.js" />
     <Content Include="app\view\core\databaseBackup\List.js" />
     <Content Include="app\view\core\databaseBackup\ListController.js" />
     <Content Include="app\view\core\logs\View.js" />

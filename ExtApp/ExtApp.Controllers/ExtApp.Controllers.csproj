@@ -103,7 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authority\DeptRoleMenuController.cs" />
+    <Compile Include="Authority\RoleMenuController.cs" />
     <Compile Include="Authority\MenuController.cs" />
     <Compile Include="Core\ConfigController.cs" />
     <Compile Include="Core\ConfigSectionController.cs" />

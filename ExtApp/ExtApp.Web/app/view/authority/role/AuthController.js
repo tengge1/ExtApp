@@ -1,10 +1,21 @@
 ﻿
-Ext.define('App.view.authority.role.EditController', {
+Ext.define('App.view.authority.role.AuthController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.roleedit',
+    alias: 'controller.roleauth',
 
-    reset: function () {
-        this.getView().down('form').getForm().reset();
+    load: function (ID) {
+        var view = this.getView();
+        view.down('hidden').setValue(ID);
+        var tree = view.down('treepanel');
+        tree.collapseAll();
+        tree.getStore().load({
+            param: {
+                RoleID: ID
+            },
+            callback: function () {
+                tree.expandAll();
+            }
+        });
     },
 
     onOKClick: function () {
@@ -15,13 +26,7 @@ Ext.define('App.view.authority.role.EditController', {
         }
         var values = form.getValues();
 
-        var url = '/api/Role/Edit';
-        if (values.ID == '') {
-            values.ID = 0;
-            url = '/api/Role/Add';
-        }
-
-        App.post(url, values, function (r) {
+        App.post('/api/Role/Auth', values, function (r) {
             var obj = JSON.parse(r);
             if (obj.Code == 200) {
                 view.hide();
@@ -33,7 +38,7 @@ Ext.define('App.view.authority.role.EditController', {
         });
     },
 
-    onCancelClick: function () {
+    onCancelClick: function () { // 点击取消按钮
         this.getView().hide();
     }
 });

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtApp.Model;
-
-namespace ExtApp.BLL
+namespace ExtApp.Model
 {
     /// <summary>
-    /// 机构角色菜单BLL
+    /// 角色菜单参数
     /// </summary>
-    public class DeptRoleMenuBLL : BaseBLL<DeptRoleMenu>
+    public class RoleMenuParam
     {
-
+        public int RoleID { get; set; }
+        public List<int> MenuIDs { get; set; }
     }
 }

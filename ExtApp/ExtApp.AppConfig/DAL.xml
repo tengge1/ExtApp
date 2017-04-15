@@ -1,7 +1,7 @@
 ﻿<objects xmlns="http://www.springframework.net">
 
-  <!-- 机构角色菜单 -->
-  <object id="DeptRoleMenuDAL" type="ExtApp.DAL.DeptRoleMenuDAL, ExtApp.DAL">
+  <!-- 角色菜单 -->
+  <object id="RoleMenuDAL" type="ExtApp.DAL.RoleMenuDAL, ExtApp.DAL">
   </object>
 
   <!-- 菜单 -->

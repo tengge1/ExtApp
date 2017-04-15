@@ -9,9 +9,9 @@ using ExtApp.Model;
 namespace ExtApp.DAL
 {
     /// <summary>
-    /// 机构角色菜单DAL
+    /// 角色菜单DAL
     /// </summary>
-    public class DeptRoleMenuDAL : BaseDAL<DeptRoleMenu>
+    public class RoleMenuDAL : BaseDAL<RoleMenu>
     {
 
     }

@@ -5,7 +5,8 @@ Ext.define('App.view.authority.role.ListController', {
 
     requires: [
         'App.store.authority.Role',
-        'App.view.authority.role.Edit'
+        'App.view.authority.role.Edit',
+        'App.view.authority.role.Auth'
     ],
 
     init: function () {
@@ -17,12 +18,12 @@ Ext.define('App.view.authority.role.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
-    refresh: function () { // 刷新
+    refresh: function () {
         var view = this.getView();
         view.down('pagingtoolbar').moveFirst();
     },
 
-    onSearchClick: function () { // 搜索
+    onSearchClick: function () {
         var view = this.getView();
         var form = view.down('form').getForm();
         var values = form.getValues();
@@ -32,20 +33,20 @@ Ext.define('App.view.authority.role.ListController', {
         });
     },
 
-    onResetClick: function () { // 重置
+    onResetClick: function () {
         var view = this.getView();
         var form = view.down('searchform').getForm();
         form.reset();
     },
 
-    onAddClick: function () { // 点击添加按钮
+    onAddClick: function () {
         var win = Ext.widget('roleedit');
         win.setTitle('添加角色');
         win.controller.reset();
         win.show();
     },
 
-    onEditClick: function () { // 点击编辑按钮
+    onEditClick: function () {
         var view = this.getView();
         var grid = view.down('gridpanel');
         var selected = grid.getSelectionModel().getSelected();
@@ -58,7 +59,21 @@ Ext.define('App.view.authority.role.ListController', {
         win.show();
     },
 
-    onDeleteClick: function () { // 点击删除按钮
+    onAuthClick: function () {
+        var view = this.getView();
+        var grid = view.down('gridpanel');
+        var selected = grid.getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            Ext.Msg.alert('消息', '请先选择一行');
+            return;
+        }
+        var win = Ext.widget('roleauth');
+        win.setTitle('编辑权限 - ' + selected.items[0].data.Name);
+        win.controller.load(selected.items[0].data.ID);
+        win.show();
+    },
+
+    onDeleteClick: function () {
         var view = this.getView();
         var selected = view.down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {

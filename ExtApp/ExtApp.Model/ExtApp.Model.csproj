@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authority\View\RoleMenuParam.cs" />
     <Compile Include="Authority\View\ChangePwdModel.cs" />
     <Compile Include="Authority\View\DeptRoleMenuEditIn.cs" />
     <Compile Include="Authority\View\DeptRoleMenuItem.cs" />
@@ -119,7 +120,7 @@
     <Compile Include="Authority\Menu.cs" />
     <Compile Include="Core\ConfigSection.cs" />
     <Compile Include="Core\Config.cs" />
-    <Compile Include="Authority\DeptRoleMenu.cs" />
+    <Compile Include="Authority\RoleMenu.cs" />
     <Compile Include="Personnel\Dept.cs" />
     <Compile Include="Core\DicItem.cs" />
     <Compile Include="Enum\DicType.cs" />

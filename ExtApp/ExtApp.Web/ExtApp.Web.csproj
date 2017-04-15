@@ -240,14 +240,7 @@
     <Content Include="app\view\personnel\user\Edit.js" />
     <Content Include="app\view\personnel\user\List.js" />
     <Content Include="app\view\Viewport.js" />
-    <Content Include="App_Data\ExtApp.ldf">
-      <DependentUpon>ExtApp.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\ExtApp.mdf" />
     <Content Include="App_Data\ExtApp.sql" />
-    <Content Include="App_Data\ExtApp_log.ldf">
-      <DependentUpon>ExtApp.mdf</DependentUpon>
-    </Content>
     <Content Include="css\desktop.css" />
     <Content Include="ext\AbstractManager.js" />
     <Content Include="ext\Ajax.js" />
@@ -4119,7 +4112,9 @@
     <Content Include="ext\themes\theme-triton\theme-triton-all_2.css" />
     <Content Include="Global.asax" />
     <Content Include="test\formValues.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

@@ -10,7 +10,7 @@ Ext.define("App.view.personnel.dept.List", {
 
     controller: 'deptlist',
 
-    title: '组织机构管理',
+    title: '组织机构',
     layout: 'border',
     closable: true,
 
@@ -42,7 +42,7 @@ Ext.define("App.view.personnel.dept.List", {
         }],
 
         listeners: {
-            itemclick: 'onTreeItemClick' // 点击树的节点
+            itemclick: 'onTreeItemClick'
         }
     }, {
         xtype: 'panel',

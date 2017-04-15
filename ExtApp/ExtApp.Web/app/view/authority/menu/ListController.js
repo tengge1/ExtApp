@@ -23,6 +23,7 @@ Ext.define('App.view.authority.menu.ListController', {
         win.controller.reset();
         win.down('menuselect').setReadOnly(true);
         win.down('form').getForm().loadRecord(selected[0]);
+        win.down('menuselect').setRawValue(selected[0].data.PName);
         win.show();
     },
 

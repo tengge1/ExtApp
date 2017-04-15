@@ -5,7 +5,7 @@ Ext.define('App.widget.MenuSelect', {
     extend: 'Ext.ux.TreePicker',
     alias: 'widget.menuselect',
 
-    idField: 'id',
+    idField: 'ID',
     displayField: 'text',
     fieldLabel: '菜单',
     store: Ext.create('App.store.authority.MenuTree'),

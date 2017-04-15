@@ -3,17 +3,13 @@ Ext.define('App.view.personnel.dept.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptlist',
 
-    init: function () { // 初始化
-
-    },
-
-    refresh: function () { // 刷新树节点，展开到当前位置
+    refresh: function () {
         var tree = this.getView().down('treepanel');
         var store = tree.getStore();
         store.reload();
     },
 
-    onAddClick: function () { // 点击添加按钮
+    onAddClick: function () {
         var view = Ext.create('App.view.personnel.dept.Add');
         view.controller.reset();
         view.show();
@@ -22,19 +18,19 @@ Ext.define('App.view.personnel.dept.ListController', {
     onTreeItemClick: function (view, record, item, index, e, eOpts) {
         var view = this.getView();
         var selected = view.down('treepanel').getSelection();
-        if (selected.length == 0) {
-            App.notify('消息', '请选择机构！');
-            return;
-        }
         view.down('form').getForm().reset();
         view.down('form').getForm().loadRecord(selected[0]);
     },
 
-    onDeleteClick: function () { // 点击删除按钮
+    onDeleteClick: function () {
         var me = this;
         var selected = this.getView().down('treepanel').getSelection();
         if (selected.length == 0) {
             App.notify('消息', '请选择机构！');
+            return;
+        }
+        if (selected[0].data.ID == 0) {
+            App.notify('消息', '无法删除顶级部门！');
             return;
         }
         App.confirm('消息', '要删除该机构？', function () {
@@ -50,10 +46,9 @@ Ext.define('App.view.personnel.dept.ListController', {
         });
     },
 
-    onSaveClick: function () { // 点击保存按钮
+    onSaveClick: function () {
         var me = this;
-        var view = this.getView();
-        var form = view.down('form');
+        var form = this.getView().down('form');
         var ID = form.form.getValues()["ID"];
         if (ID == '') {
             App.notify('消息', '请选择机构！');

@@ -88,6 +88,7 @@ Ext.define('App.view.personnel.user.Edit', {
             xtype: 'datefield',
             name: 'Birthday',
             fieldLabel: '出生日期',
+            format: 'Y-m-d',
             editable: false,
             emptyText: '请选择'
         }, {

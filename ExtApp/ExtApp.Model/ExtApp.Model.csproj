@@ -130,10 +130,6 @@
     <Compile Include="Enum\LogType.cs" />
     <Compile Include="Authority\Role.cs" />
     <Compile Include="Personnel\User.cs" />
-    <Compile Include="Workflow\Flow.cs" />
-    <Compile Include="Workflow\FlowInstance.cs" />
-    <Compile Include="Workflow\FlowNode.cs" />
-    <Compile Include="Workflow\FlowType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

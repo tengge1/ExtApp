@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-15 23:19:57
+Date: 2017-04-16 09:36:18
 */
 
 
@@ -333,7 +333,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 3)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 9)
 GO
 
 -- ----------------------------
@@ -348,6 +348,24 @@ INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime]
 GO
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'3', N'1', N'0', N'3', N'1', N'2017-04-15 20:39:39.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'4', N'1', N'0', N'3', N'1', N'2017-04-16 08:16:53.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'5', N'1', N'0', N'3', null, N'2017-04-16 09:34:00.000', N'::1', N'用户User登录失败！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'6', N'1', N'0', N'3', N'2', N'2017-04-16 09:34:07.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'7', N'1', N'0', N'3', N'1', N'2017-04-16 09:34:22.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'8', N'1', N'0', N'3', N'2', N'2017-04-16 09:34:39.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'9', N'1', N'0', N'3', N'1', N'2017-04-16 09:34:54.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -434,7 +452,7 @@ CREATE TABLE [dbo].[AppRole] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppRole]', RESEED, 2005)
+DBCC CHECKIDENT(N'[dbo].[AppRole]', RESEED, 2006)
 GO
 
 -- ----------------------------
@@ -442,7 +460,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppRole] ON
 GO
-INSERT INTO [dbo].[AppRole] ([ID], [Name], [Status], [Code], [Sort], [Comment]) VALUES (N'5', N'超级管理员', N'1', N'cjgly', N'1', null)
+INSERT INTO [dbo].[AppRole] ([ID], [Name], [Status], [Code], [Sort], [Comment]) VALUES (N'5', N'超级管理员', N'1', N'SuperAdmin', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppRole] ([ID], [Name], [Status], [Code], [Sort], [Comment]) VALUES (N'2006', N'普通用户', N'1', N'User', N'2', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppRole] OFF
@@ -461,11 +482,49 @@ CREATE TABLE [dbo].[AppRoleMenu] (
 
 
 GO
+DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 23)
+GO
 
 -- ----------------------------
 -- Records of AppRoleMenu
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] ON
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'4', N'5', N'1')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'5', N'5', N'5')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'6', N'5', N'6')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'10', N'5', N'8')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'11', N'5', N'9')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'12', N'5', N'10')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'13', N'5', N'4006')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'19', N'5', N'2')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'20', N'5', N'7')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'21', N'5', N'3')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'22', N'5', N'4')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'23', N'2006', N'4')
+GO
 GO
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] OFF
 GO
@@ -498,6 +557,8 @@ CREATE TABLE [dbo].[AppUser] (
 
 
 GO
+DBCC CHECKIDENT(N'[dbo].[AppUser]', RESEED, 2)
+GO
 
 -- ----------------------------
 -- Records of AppUser
@@ -505,6 +566,9 @@ GO
 SET IDENTITY_INSERT [dbo].[AppUser] ON
 GO
 INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'1', N'admin', N'OhpHH5gn55nuplWK0h2esw==', N'管理员', N'1', N'5', N'3014', N'1', null, null, null, null, null, N'1', null, N'1990-01-01 00:00:00.000', null, N'1')
+GO
+GO
+INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'2', N'2006', N'3014', N'1', null, null, null, null, N'2017-04-16 09:33:28.000', N'2', null, null, null, N'0')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppUser] OFF

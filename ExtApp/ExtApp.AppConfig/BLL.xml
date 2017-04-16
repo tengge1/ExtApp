@@ -14,6 +14,7 @@
   <!-- 菜单 -->
   <object id="MenuBLL" type="ExtApp.BLL.MenuBLL, ExtApp.BLL">
     <property name="dal" ref="MenuDAL" />
+    <property name="roleMenuDAL" ref="RoleMenuDAL" />
   </object>
 
   <!-- 角色 -->

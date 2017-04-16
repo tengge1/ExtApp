@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NHibernate.Criterion;
 
 using ExtApp.Model;
+using ExtApp.DAL;
 
 namespace ExtApp.BLL
 {
@@ -15,15 +16,31 @@ namespace ExtApp.BLL
     public class MenuBLL : BaseBLL<Menu>
     {
         /// <summary>
+        /// 角色菜单DAL
+        /// </summary>
+        private RoleMenuDAL roleMenuDAL;
+
+        /// <summary>
         /// 获取子节点
         /// </summary>
         /// <param name="PID"></param>
         /// <returns></returns>
         public IList<MenuNode> GetChildNodes(int PID)
         {
-            var query = Restrictions.Gt("Status", -1);
-            var list = dal.List(query, "Sort", Sort.Asc);
+            // 节点
             var nodes = new List<MenuNode>();
+
+            // 权限
+            if (AdminHelper.Admin == null || AdminHelper.Admin.Role == null) // 尚未登录或者未设置角色
+            {
+                return nodes;
+            }
+            var roleID = AdminHelper.Admin.Role.ID;
+            var query = Restrictions.Eq("Role", new Role { ID = roleID });
+            var auth = roleMenuDAL.List(query).Select(o => o.Menu).ToList();
+
+            // 菜单
+            var list = auth.Where(o => o.Status > -1).OrderBy(o => o.Sort).ToList();
 
             List<Menu> list1;
             if (PID == 0)

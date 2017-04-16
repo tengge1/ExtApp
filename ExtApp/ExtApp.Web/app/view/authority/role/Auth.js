@@ -26,7 +26,10 @@ Ext.define('App.view.authority.role.Auth', {
             xtype: 'treepanel',
             title: '访问权限',
             rootVisible: true,
-            store: Ext.create('App.store.authority.RoleMenuTree')
+            store: Ext.create('App.store.authority.RoleMenuTree'),
+            listeners: {
+                checkchange: 'onCheckChange'
+            }
         }]
     }],
 

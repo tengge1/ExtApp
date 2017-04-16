@@ -80,7 +80,7 @@ namespace ExtApp.BLL
                 {
                     node.leaf = false;
                     node.expandable = true;
-                    node.expanded = i.PMenu == null ? true : false;
+                    node.expanded = true;
                 }
 
                 nodes.Add(node);
@@ -100,10 +100,29 @@ namespace ExtApp.BLL
             var query = Restrictions.Eq("Role.ID", p.RoleID);
             var list = dal.List(query);
 
-            // 如果原来没有该权限，但是现在有了，就添加上
+            // 原来没有、现在有，则添加该权限
+            foreach (var i in p.MenuIDs)
+            {
+                if (list.Where(o => o.Menu != null && o.Menu.ID == i).Count() == 0)
+                {
+                    var model = new RoleMenu
+                    {
+                        ID = 0,
+                        Role = new Role { ID = p.RoleID },
+                        Menu = new Menu { ID = i }
+                    };
+                    dal.Add(model);
+                };
+            }
 
-
-            // 如果原来有改权限，但是现在没有该权限，就删除
+            // 原来有，现在没有，则删除该权限
+            foreach (var i in list)
+            {
+                if (p.MenuIDs.Where(o => o == i.Menu.ID).Count() == 0)
+                {
+                    dal.Delete(i.ID);
+                }
+            }
 
             return new Result(200, "保存成功！");
         }

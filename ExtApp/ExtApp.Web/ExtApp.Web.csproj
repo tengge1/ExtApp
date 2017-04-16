@@ -184,6 +184,7 @@
     <Content Include="app\view\core\databaseBackup\List.js" />
     <Content Include="app\view\core\databaseBackup\ListController.js" />
     <Content Include="app\view\core\logs\View.js" />
+    <Content Include="app\view\main\accordion\Home.js" />
     <Content Include="app\view\main\desktop\SettingsController.js" />
     <Content Include="app\view\core\config\EditSection.js" />
     <Content Include="app\view\core\config\EditSectionController.js" />

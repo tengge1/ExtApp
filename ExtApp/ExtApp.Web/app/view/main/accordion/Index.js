@@ -6,7 +6,8 @@ Ext.define('App.view.main.accordion.Index', {
     requires: [
         'App.view.main.accordion.IndexController',
         'App.view.main.accordion.Menu',
-        'App.plugin.TabCloseMenu'
+        'App.plugin.TabCloseMenu',
+        'App.view.main.accordion.Home'
     ],
 
     controller: 'index',
@@ -66,6 +67,7 @@ Ext.define('App.view.main.accordion.Index', {
                 width: 120,
                 editable: false,
                 value: 'accordion',
+                hidden: true, // 后续版本提供其他模式，现在暂时隐藏-_-
                 listeners: {
                     select: 'onStyleSelect'
                 }
@@ -142,7 +144,10 @@ Ext.define('App.view.main.accordion.Index', {
         xtype: 'tabpanel',
         items: [{
             title: '主页',
-            html: ''
+            layout: 'fit',
+            items: {
+                xtype: 'home'
+            }
         }],
         plugins: 'tabclosemenucn'
     }]

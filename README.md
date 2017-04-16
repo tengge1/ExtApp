@@ -7,6 +7,7 @@ ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创
   - PC和手机端共享同样的API Controller接口
   - ExtJs动态加载js文件
   - 旧版本Demo（任意用户名和密码）：https://tengge1.github.io/ExtApp
+  - 用户：管理员（admin,123）、测试（test,123）
 
 ### 主要功能
 

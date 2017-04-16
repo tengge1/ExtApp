@@ -1,14 +1,14 @@
-﻿using NHibernate;
-using NHibernate.Cfg;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-
-using NHibernate.Mapping.Attributes;
 using System.IO;
+
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Mapping.Attributes;
 
 namespace ExtApp
 {
@@ -34,6 +34,13 @@ namespace ExtApp
         {
             Configuration cfg = new Configuration();
             cfg.Configure();
+
+            // 连接字符串
+            var dic = new Dictionary<string, string>();
+            var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ExtApp"].ConnectionString;
+            dic.Add("connection.connection_string", connectionString);
+            cfg.AddProperties(dic);
+
             HbmSerializer.Default.Validate = true;
             cfg.AddInputStream(HbmSerializer.Default.Serialize(typeof(Model.User).Assembly));
             sessionFactory = cfg.BuildSessionFactory();

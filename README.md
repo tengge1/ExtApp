@@ -20,6 +20,12 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 
 我们所做的一切都是为了您能更好更快地进行Web应用的开发！！！
 
+### 使用说明
+
+* 使用Visual Studio 2015打开ExtApp/ExtApp.sln。
+* 创建ExtApp数据库，执行ExtApp/ExtApp.Web/App_Data/ExtApp.sql生成数据库。
+* 修改ExtApp/ExtApp.Web/Web.config中的连接字符串，生成并运行。
+
 ### 目录说明
 
 以下是该项目部分目录和文件的说明：

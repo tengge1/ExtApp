@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-16 09:36:18
+Date: 2017-04-16 11:06:10
 */
 
 
@@ -333,7 +333,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 9)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 10)
 GO
 
 -- ----------------------------
@@ -366,6 +366,9 @@ INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime]
 GO
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'9', N'1', N'0', N'3', N'1', N'2017-04-16 09:34:54.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'10', N'1', N'0', N'3', N'1', N'2017-04-16 09:46:06.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF

@@ -67,7 +67,6 @@ Ext.define('App.view.main.accordion.Index', {
                 width: 120,
                 editable: false,
                 value: 'accordion',
-                hidden: true, // 后续版本提供其他模式，现在暂时隐藏-_-
                 listeners: {
                     select: 'onStyleSelect'
                 }

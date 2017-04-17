@@ -21,48 +21,81 @@ Ext.define('App.view.main.desktop.Index', {
         ];
     },
 
-    getDesktopConfig: function () { // 获取桌面设置
-        var me = this, ret = me.callParent();
+    //getDesktopConfig: function () { // 获取桌面设置
+    //    var me = this, ret = me.callParent();
 
-        return Ext.apply(ret, {
+    //    return Ext.apply(ret, {
 
-            contextMenuItems: [{
-                text: '个性化设置',
-                handler: me.onSettings, scope: me
-            }],
+    //        contextMenuItems: [{
+    //            text: '个性化设置',
+    //            handler: me.onSettings, scope: me
+    //        }],
 
-            shortcuts: Ext.create('Ext.data.Store', { // 桌面快捷方式
-                model: 'Ext.ux.desktop.ShortcutModel',
-                data: [{
-                    name: '记事本',
-                    iconCls: 'notepad-shortcut',
-                    //module: 'notepad',
-                }]
-            }),
+    //        shortcuts: Ext.create('Ext.data.Store', { // 桌面快捷方式
+    //            model: 'Ext.ux.desktop.ShortcutModel',
+    //            data: [{
+    //                name: '记事本',
+    //                iconCls: 'notepad-shortcut',
+    //                //module: 'notepad',
+    //            }]
+    //        }),
 
-            wallpaper: '/images/wallpapers/Blue-Sencha.jpg', // 桌面背景
+    //        wallpaper: '/images/wallpapers/Blue-Sencha.jpg', // 桌面背景
 
-            wallpaperStretch: false // 背景拉伸
-        });
-    },
+    //        wallpaperStretch: false // 背景拉伸
+    //    });
+    //},
 
     getStartConfig: function () { // 开始菜单
         var me = this, ret = me.callParent();
+        ret = Ext.apply(ret, {
+            menu: [{
+                text: '菜单一',
+                iconCls: 'settings',
+                handler: function () {
+
+                }
+            }, {
+                text: '菜单二',
+                iconCls: 'settings',
+                menu: [{
+                    text: '子菜单一',
+                    iconCls: 'settings',
+                    handler: function () {
+
+                    }
+                }, {
+                    text: '子菜单二',
+                    iconCls: 'settings',
+                    menu: []
+                }, {
+                    text: '子菜单三',
+                    iconCls: 'settings',
+                    handler: function () {
+
+                    }
+                }]
+            }, {
+                text: '菜单三',
+                iconCls: 'settings',
+                handler: function () {
+
+                }
+            }]
+        });
+        
         return Ext.apply(ret, {
             title: '管理员',
             iconCls: 'user',
             height: 300,
             toolConfig: {
                 width: 100,
-                items: [
-                    {
+                items: [{
                         text: '设置',
                         iconCls: 'settings',
                         handler: me.onSettings,
                         scope: me
-                    },
-                    '-',
-                    {
+                    }, '-', {
                         text: '注销',
                         iconCls: 'logout',
                         handler: me.onLogout,
@@ -78,11 +111,11 @@ Ext.define('App.view.main.desktop.Index', {
         var ret = this.callParent();
         return Ext.apply(ret, {
             startBtnText: '开始',
-            quickStart: [{ // 快捷启动
-                name: '记事本',
-                iconCls: 'notepad-shortcut',
-                module: 'notepad'
-            }],
+            //quickStart: [{ // 快捷启动
+            //    name: '记事本',
+            //    iconCls: 'notepad-shortcut',
+            //    module: 'notepad'
+            //}],
             trayItems: [{ // 托盘区
                 xtype: 'trayclock',
                 flex: 1

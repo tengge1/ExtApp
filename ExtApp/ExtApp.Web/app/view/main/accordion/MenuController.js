@@ -56,7 +56,7 @@ Ext.define('App.view.main.accordion.MenuController', {
         var text = record.data.text;
         var url = record.data.Url;
         if (url == undefined || url == null || url == '') {
-            Ext.Msg.alert('消息', '该功能开发中...');
+            App.notify('消息', '该功能开发中...');
             return;
         }
 

@@ -21,6 +21,26 @@ namespace ExtApp.BLL
         private RoleMenuDAL roleMenuDAL;
 
         /// <summary>
+        /// 获取所有菜单
+        /// </summary>
+        /// <returns></returns>
+        public IList<Menu> List()
+        {
+            // 权限
+            if (AdminHelper.Admin == null || AdminHelper.Admin.Role == null) // 尚未登录或者未设置角色
+            {
+                return new List<Menu>();
+            }
+            var roleID = AdminHelper.Admin.Role.ID;
+            var query = Restrictions.Eq("Role", new Role { ID = roleID });
+            var auth = roleMenuDAL.List(query).Select(o => o.Menu).ToList();
+
+            // 菜单
+            var list = auth.Where(o => o.Status > -1).OrderBy(o => o.Sort).ToList();
+            return list;
+        }
+
+        /// <summary>
         /// 获取子节点
         /// </summary>
         /// <param name="PID"></param>

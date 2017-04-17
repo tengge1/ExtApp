@@ -4,86 +4,125 @@
 
 Ext.define('App.view.main.desktop.Index', {
     extend: 'Ext.ux.desktop.App',
+    alias: 'widget.extappdesktop',
 
     requires: [ // 引入js文件
         'Ext.ux.desktop.ShortcutModel',
         'App.view.main.desktop.Notepad',
-        'App.view.main.desktop.BogusMenuModule',
-        'App.view.main.desktop.BogusModule',
         'App.view.main.desktop.Settings'
     ],
+
+    init: function () { // 初始化
+        var me = this;
+        me.callParent();
+
+        // 动态填充菜单
+        var desktop = me.desktop;
+        var taskbar = desktop.taskbar;
+        var startMenu = taskbar.startMenu;
+
+        App.get('/api/Menu/List', function (data) {
+            var list = JSON.parse(data);
+            var tree = {
+                text: '根节点',
+                menu: []
+            };
+            me.createMenuTree(tree, 0, list);
+            for (var i = 0; i < tree.menu.length; i++) {
+                var item = tree.menu[i];
+                startMenu.add(item);
+            }
+        });
+    },
+
+    createMenuTree: function (node, pid, list) { // 创建开始菜单树
+        var list1;
+        if (pid == 0) { // 根节点
+            list1 = list.filter(function (o) { return o.PMenu == null; });
+        } else { // 下级节点
+            list1 = list.filter(function (o) { return o.PMenu != null && o.PMenu.ID == pid });
+        }
+        for (var i = 0; i < list1.length; i++) {
+            var item = list1[i];
+            var node1 = {
+                text: item.Name,
+                iconCls: item.Icon,
+                app: this,
+                data: item,
+                handler: function () {
+                    this.config.app.onStartMenuClick(this.config.data);
+                }
+            };
+            if (list.filter(function (o) { return o.PMenu != null && o.PMenu.ID == item.ID; }).length > 0) { // 有下级节点
+                node1.menu = [];
+                this.createMenuTree(node1, item.ID, list);
+            }
+            node.menu.push(node1);
+        }
+    },
+
+    onStartMenuClick: function (data) { // 点击开始菜单中的菜单
+        var desktop = this.desktop;
+
+        // 获取菜单数据
+        var name = data.Name;
+        var url = data.Url;
+        var icon = data.Icon;
+        if (url == undefined || url == null || url == '') {
+            App.notify('消息', '该功能开发中...');
+            return;
+        }
+
+        // 创建相应类
+        var p = Ext.create(url, {
+            header: false,
+            border: false
+        });
+        var win = desktop.createWindow({
+            title: name,
+            iconCls: icon,
+            width: 800,
+            height: 450,
+            layout: 'fit',
+            items: [p]
+        });
+        win.show();
+    },
 
     getModules: function () { // 获取模块
         return [
             new App.view.main.desktop.Notepad(),
-            new App.view.main.desktop.BogusMenuModule(),
-            new App.view.main.desktop.BogusModule()
         ];
     },
 
-    //getDesktopConfig: function () { // 获取桌面设置
-    //    var me = this, ret = me.callParent();
+    getDesktopConfig: function () { // 获取桌面设置
+        var me = this, ret = me.callParent();
 
-    //    return Ext.apply(ret, {
+        return Ext.apply(ret, {
 
-    //        contextMenuItems: [{
-    //            text: '个性化设置',
-    //            handler: me.onSettings, scope: me
-    //        }],
+            contextMenuItems: [{
+                text: '个性化设置',
+                handler: me.onSettings, scope: me
+            }],
 
-    //        shortcuts: Ext.create('Ext.data.Store', { // 桌面快捷方式
-    //            model: 'Ext.ux.desktop.ShortcutModel',
-    //            data: [{
-    //                name: '记事本',
-    //                iconCls: 'notepad-shortcut',
-    //                //module: 'notepad',
-    //            }]
-    //        }),
+            shortcuts: Ext.create('Ext.data.Store', { // 桌面快捷方式
+                model: 'Ext.ux.desktop.ShortcutModel',
+                data: [{
+                    name: '记事本',
+                    iconCls: 'notepad-shortcut',
+                    module: 'notepad'
+                }]
+            }),
 
-    //        wallpaper: '/images/wallpapers/Blue-Sencha.jpg', // 桌面背景
+            wallpaper: '/images/wallpapers/Blue-Sencha.jpg', // 桌面背景
 
-    //        wallpaperStretch: false // 背景拉伸
-    //    });
-    //},
+            wallpaperStretch: false // 背景拉伸
+        });
+    },
 
     getStartConfig: function () { // 开始菜单
         var me = this, ret = me.callParent();
-        ret = Ext.apply(ret, {
-            menu: [{
-                text: '菜单一',
-                iconCls: 'settings',
-                handler: function () {
 
-                }
-            }, {
-                text: '菜单二',
-                iconCls: 'settings',
-                menu: [{
-                    text: '子菜单一',
-                    iconCls: 'settings',
-                    handler: function () {
-
-                    }
-                }, {
-                    text: '子菜单二',
-                    iconCls: 'settings',
-                    menu: []
-                }, {
-                    text: '子菜单三',
-                    iconCls: 'settings',
-                    handler: function () {
-
-                    }
-                }]
-            }, {
-                text: '菜单三',
-                iconCls: 'settings',
-                handler: function () {
-
-                }
-            }]
-        });
-        
         return Ext.apply(ret, {
             title: '管理员',
             iconCls: 'user',
@@ -91,17 +130,16 @@ Ext.define('App.view.main.desktop.Index', {
             toolConfig: {
                 width: 100,
                 items: [{
-                        text: '设置',
-                        iconCls: 'settings',
-                        handler: me.onSettings,
-                        scope: me
-                    }, '-', {
-                        text: '注销',
-                        iconCls: 'logout',
-                        handler: me.onLogout,
-                        scope: me
-                    }
-                ]
+                    text: '设置',
+                    iconCls: 'settings',
+                    handler: me.onSettings,
+                    scope: me
+                }, '-', {
+                    text: '注销',
+                    iconCls: 'logout',
+                    handler: me.onLogout,
+                    scope: me
+                }]
             }
         });
     },

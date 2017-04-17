@@ -22,6 +22,16 @@ namespace ExtApp.Controller
         private MenuBLL bll;
 
         /// <summary>
+        /// 列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult List()
+        {
+            return Json(bll.List());
+        }
+
+        /// <summary>
         /// 获取子节点
         /// </summary>
         /// <param name="PID"></param>

@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-18 21:43:31
+Date: 2017-04-18 22:08:28
 */
 
 
@@ -100,7 +100,7 @@ CREATE TABLE [dbo].[AppDatabaseBackup] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDatabaseBackup]', RESEED, 2)
+DBCC CHECKIDENT(N'[dbo].[AppDatabaseBackup]', RESEED, 3)
 GO
 
 -- ----------------------------
@@ -109,6 +109,9 @@ GO
 SET IDENTITY_INSERT [dbo].[AppDatabaseBackup] ON
 GO
 INSERT INTO [dbo].[AppDatabaseBackup] ([ID], [Name], [FileName], [AddTime], [IsCurrent], [AddUserID], [Comment]) VALUES (N'2', N'数据库2017-04-15备份', N'ExtApp20170415154144.bak', N'2017-04-15 15:41:44.000', N'0', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppDatabaseBackup] ([ID], [Name], [FileName], [AddTime], [IsCurrent], [AddUserID], [Comment]) VALUES (N'3', N'数据库2017-04-18备份', N'ExtApp20170418220616.bak', N'2017-04-18 22:06:16.000', N'0', N'1', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppDatabaseBackup] OFF
@@ -587,10 +590,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppUser] ON
 GO
-INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'1', N'admin', N'OhpHH5gn55nuplWK0h2esw==', N'管理员', N'1', N'5', N'3014', N'1', null, null, null, null, null, N'1', null, N'1990-01-01 00:00:00.000', null, N'1')
+INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'1', N'admin', N'OhpHH5gn55nuplWK0h2esw==', N'管理员', N'11', N'5', N'3014', N'1', null, null, null, null, null, N'1', null, N'1990-01-01 00:00:00.000', null, N'1')
 GO
 GO
-INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'2', N'2006', N'3014', N'1', null, null, null, null, N'2017-04-16 09:33:28.000', N'2', null, null, null, N'0')
+INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'12', N'2006', N'3014', N'1', null, null, null, null, N'2017-04-16 09:33:28.000', N'2', null, null, null, N'0')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppUser] OFF
@@ -804,4 +807,6 @@ GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([Sex]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO

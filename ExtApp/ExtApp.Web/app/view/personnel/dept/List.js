@@ -83,12 +83,10 @@ Ext.define("App.view.personnel.dept.List", {
                     allowBlank: false
                 }, {
                     xtype: 'combo',
-                    store: [[
-                        1, '机构'
-                    ], [
-                        2, '区域'
-                    ]],
-                    name: 'Type',
+                    store: Ext.create('App.store.dic.DeptType'),
+                    name: 'TypeID',
+                    valueField: 'ID',
+                    displayField: 'Name',
                     fieldLabel: '<span style="color:red;">*</span>类型',
                     editable: false,
                     allowBlank: false,

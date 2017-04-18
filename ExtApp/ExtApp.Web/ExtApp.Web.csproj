@@ -173,6 +173,7 @@
     <Content Include="app\store\core\DatabaseBackup.js" />
     <Content Include="app\store\authority\RoleMenuTree.js" />
     <Content Include="app\store\dic\Style.js" />
+    <Content Include="app\store\dic\DeptType.js" />
     <Content Include="app\store\dic\Theme.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\Config.js" />
@@ -4135,9 +4136,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\model\desktop\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
       <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>

@@ -9,7 +9,24 @@ Ext.define('App.model.personnel.Dept', {
         'PName',
         'Code',
         'Name',
-        'Type', // 类型（1-机构、2-区域）
+        {
+            name: 'TypeID',
+            mapping: function (value) {
+                if (value.Type != null) {
+                    return value.Type.ID;
+                }
+                return 0;
+            }
+        },
+        {
+            name: 'TypeName',
+            mapping: function (value) {
+                if (value.Type != null) {
+                    return value.Type.Name;
+                }
+                return '';
+            }
+        },
         'AddUserID',
         'AddUserName',
         'AddTime',

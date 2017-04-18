@@ -147,9 +147,12 @@ namespace ExtApp.BLL
                 Name = p.Name,
                 PDept = p.PID == 0 ? null : new Dept { ID = p.PID },
                 Sort = p.Sort,
-                Status = p.Status,
-                Type = p.Type == null ? 0 : p.Type.Value
+                Status = p.Status
             };
+            if (p.TypeID != null)
+            {
+                dept.Type = new DicItem { ID = p.TypeID.Value };
+            }
             var result = dal.Add(dept);
             if (result)
             {
@@ -199,7 +202,10 @@ namespace ExtApp.BLL
             dept.Name = p.Name;
             dept.Sort = p.Sort;
             dept.Status = p.Status;
-            dept.Type = p.Type == null ? 0 : p.Type.Value;
+            if (p.TypeID != null)
+            {
+                dept.Type = new DicItem { ID = p.TypeID.Value };
+            }
 
             var result = dal.Edit(dept);
             if (result)

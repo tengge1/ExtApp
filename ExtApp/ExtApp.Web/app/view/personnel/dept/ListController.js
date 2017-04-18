@@ -19,7 +19,11 @@ Ext.define('App.view.personnel.dept.ListController', {
         var view = this.getView();
         var selected = view.down('treepanel').getSelection();
         view.down('form').getForm().reset();
-        view.down('form').getForm().loadRecord(selected[0]);
+        view.down('combo[name=TypeID]').getStore().load({
+            callback: function () {
+                view.down('form').getForm().loadRecord(selected[0]);
+            }
+        });
     },
 
     onDeleteClick: function () {

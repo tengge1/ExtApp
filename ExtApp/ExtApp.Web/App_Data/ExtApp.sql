@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-16 09:36:18
+Date: 2017-04-18 21:43:31
 */
 
 
@@ -129,7 +129,8 @@ CREATE TABLE [dbo].[AppDept] (
 [Sort] int NULL ,
 [Comment] nvarchar(255) NULL ,
 [AddUserID] int NULL ,
-[Type] int NULL 
+[Type] int NULL ,
+[TypeID] int NULL 
 )
 
 
@@ -142,34 +143,34 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppDept] ON
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3014', null, N'001', N'董事会', N'1', N'2017-03-17 07:34:24.000', N'1', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3014', null, N'001', N'董事会', N'1', N'2017-03-17 07:34:24.000', N'1', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3015', N'3014', N'001001', N'总经理办', N'1', N'2017-03-17 07:40:10.000', N'1', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3015', N'3014', N'001001', N'总经理办', N'1', N'2017-03-17 07:40:10.000', N'1', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3017', N'3014', N'001002', N'研发部', N'1', N'2017-03-18 07:41:25.000', N'2', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3017', N'3014', N'001002', N'研发部', N'1', N'2017-03-18 07:41:25.000', N'2', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3018', N'3017', N'001002001', N'项目部', N'1', N'2017-03-18 07:43:18.000', N'1', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3018', N'3017', N'001002001', N'项目部', N'1', N'2017-03-18 07:43:18.000', N'1', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3019', N'3017', N'001002002', N'产品部', N'1', N'2017-03-18 07:43:28.000', N'2', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3019', N'3017', N'001002002', N'产品部', N'1', N'2017-03-18 07:43:28.000', N'2', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3020', N'3014', N'001003', N'财务部', N'1', N'2017-03-18 07:43:45.000', N'3', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3020', N'3014', N'001003', N'财务部', N'1', N'2017-03-18 07:43:45.000', N'3', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3021', N'3014', N'001004', N'综合部', N'1', N'2017-03-18 07:43:56.000', N'4', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3021', N'3014', N'001004', N'综合部', N'1', N'2017-03-18 07:43:56.000', N'4', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3024', N'3020', N'001003001', N'会计', N'1', N'2017-03-20 07:54:33.000', N'1', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3024', N'3020', N'001003001', N'会计', N'1', N'2017-03-20 07:54:33.000', N'1', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3025', N'3020', N'001003002', N'出纳', N'1', N'2017-03-20 07:54:49.000', N'2', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3025', N'3020', N'001003002', N'出纳', N'1', N'2017-03-20 07:54:49.000', N'2', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type]) VALUES (N'3026', N'3017', N'001002003', N'测试部', N'1', N'2017-03-25 07:30:07.000', N'3', null, N'1', N'1')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3026', N'3017', N'001002003', N'测试部', N'1', N'2017-03-25 07:30:07.000', N'3', null, N'1', N'1', N'22')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppDept] OFF
@@ -192,7 +193,7 @@ CREATE TABLE [dbo].[AppDic] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 6)
+DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 7)
 GO
 
 -- ----------------------------
@@ -218,6 +219,9 @@ GO
 INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'6', N'ExtJsTheme', N'0', N'ExtJs主题', N'1', N'6', null)
 GO
 GO
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'7', N'DeptType', N'0', N'组织机构类型', N'1', N'0', null)
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDic] OFF
 GO
 
@@ -238,7 +242,7 @@ CREATE TABLE [dbo].[AppDicItem] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 21)
+DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 23)
 GO
 
 -- ----------------------------
@@ -282,31 +286,34 @@ GO
 INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'12', N'4', N'Woman', N'女', N'1', N'2', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'13', N'5', N'Accordion', N'折叠面板', N'1', N'1', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'13', N'5', N'accordion', N'折叠面板', N'1', N'1', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'14', N'5', N'Desktop', N'桌面样式', N'1', N'2', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'14', N'5', N'desktop', N'桌面样式', N'1', N'2', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'15', N'5', N'Navigation', N'导航样式', N'1', N'3', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'16', N'6', N'classic', N'Classic主题', N'1', N'1', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'16', N'6', N'Classic', N'Classic主题', N'1', N'1', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'17', N'6', N'aria', N'Aria主题', N'1', N'2', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'17', N'6', N'Aria', N'Aria主题', N'1', N'2', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'18', N'6', N'crisp', N'Crisp主题', N'1', N'3', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'18', N'6', N'Crisp', N'Crisp主题', N'1', N'3', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'19', N'6', N'gray', N'Gray主题', N'1', N'4', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'19', N'6', N'Gray', N'Gray主题', N'1', N'4', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'20', N'6', N'neptune', N'Neptune主题', N'1', N'5', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'20', N'6', N'Neptune', N'Neptune主题', N'1', N'5', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'21', N'6', N'triton', N'Triton主题', N'1', N'6', null)
 GO
 GO
-INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'21', N'6', N'Triton', N'Triton主题', N'1', N'6', null)
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'22', N'7', N'Organization', N'机构', N'1', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'23', N'7', N'Region', N'地域', N'1', N'2', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppDicItem] OFF
@@ -333,7 +340,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 9)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 14)
 GO
 
 -- ----------------------------
@@ -366,6 +373,21 @@ INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime]
 GO
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'9', N'1', N'0', N'3', N'1', N'2017-04-16 09:34:54.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'10', N'1', N'0', N'3', N'1', N'2017-04-16 09:46:06.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'11', N'1', N'0', N'3', N'1', N'2017-04-17 19:40:33.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'12', N'1', N'0', N'3', N'1', N'2017-04-18 20:01:24.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'13', N'1', N'0', N'3', null, N'2017-04-18 21:40:26.000', N'::1', N'用户admin登录失败！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'14', N'1', N'0', N'3', N'1', N'2017-04-18 21:40:32.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -722,6 +744,8 @@ GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO

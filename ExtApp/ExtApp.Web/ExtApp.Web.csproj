@@ -217,8 +217,6 @@
     <Content Include="app\view\main\accordion\MenuController.js" />
     <Content Include="app\view\main\ChangePwd.js" />
     <Content Include="app\view\main\accordion\IndexController.js" />
-    <Content Include="app\view\main\desktop\BogusMenuModule.js" />
-    <Content Include="app\view\main\desktop\BogusModule.js" />
     <Content Include="app\view\main\desktop\Index.js" />
     <Content Include="app\view\main\desktop\Notepad.js" />
     <Content Include="app\view\main\desktop\Settings.js" />

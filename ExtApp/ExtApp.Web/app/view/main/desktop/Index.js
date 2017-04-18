@@ -1,18 +1,15 @@
-﻿/**
-* 桌面样式
-*/
-
+﻿
 Ext.define('App.view.main.desktop.Index', {
     extend: 'Ext.ux.desktop.App',
     alias: 'widget.extappdesktop',
 
-    requires: [ // 引入js文件
+    requires: [
         'Ext.ux.desktop.ShortcutModel',
         'App.view.main.desktop.Notepad',
         'App.view.main.desktop.Settings'
     ],
 
-    init: function () { // 初始化
+    init: function () {
         var me = this;
         me.callParent();
 

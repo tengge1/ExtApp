@@ -52,15 +52,9 @@ Ext.define('App.view.main.accordion.Index', {
             items: [{
                 xtype: 'combo',
                 name: 'style',
-                store: [[
-                    'accordion',
-                    '折叠面板'
-                ], [
-                    'desktop',
-                    '桌面样式'
-                ]],
-                valueField: 'value',
-                displayField: 'text',
+                store: Ext.create('App.store.dic.Style'),
+                valueField: 'Code',
+                displayField: 'Name',
                 width: 120,
                 editable: false,
                 value: 'accordion',

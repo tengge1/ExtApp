@@ -12,38 +12,46 @@ Ext.define('App.view.main.accordion.IndexController', {
         var view = this.getView();
 
         // 选择样式
-        var combo = view.down('combo[name=style]');
+        var combo1 = view.down('combo[name=style]');
         var tool = Ext.create('util.config');
         var style = tool.getStyle();
-        combo.select(style);
+        combo1.getStore().load({
+            callback: function () {
+                combo1.select(style);
+            }
+        });
 
         // 选择主题
-        combo = view.down('combo[name=theme]');
+        var combo2 = view.down('combo[name=theme]');
         var tool = Ext.create('App.util.Theme');
         var theme = tool.getCurrentTheme();
-        combo.getStore().load({
+        combo2.getStore().load({
             callback: function () {
-                combo.setValue(theme);
+                combo2.setValue(theme);
             }
         });
     },
 
     onStyleSelect: function () {
+        var view = this.getView();
         var tool = Ext.create('util.config');
-        var combo = Ext.ComponentQuery.query('index combo[name=style]')[0];
+        var combo = view.down('combo[name=style]');
         var value = combo.getValue();
         tool.setStyle(value);
-        window.location.reload();
+        App.query('询问', '刷新页面后生效，是否刷新？', function () {
+            window.location.reload();
+        });
     },
 
     onThemeSelect: function () {
+        var view = this.getView();
         var tool = Ext.create('App.util.Theme');
-        var combo = Ext.ComponentQuery.query('index combo[name=theme]')[0];
+        var combo = view.down('combo[name=theme]');
         var value = combo.getValue();
         tool.setTheme(value);
     },
 
-    onLogoutClick: function () { // 点击注销按钮
+    onLogoutClick: function () {
         App.confirm('消息', '是否注销？', function () {
             var config = Ext.create('util.config');
             App.post('/api/Login/Logout', function (r) {
@@ -56,7 +64,7 @@ Ext.define('App.view.main.accordion.IndexController', {
         });
     },
 
-    onChangePwdClick: function () { // 点击修改密码按钮
+    onChangePwdClick: function () {
         Ext.widget('changepwd').show();
     }
 });

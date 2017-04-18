@@ -7,7 +7,7 @@ Ext.define('App.view.personnel.user.ListController', {
         'App.store.personnel.User'
     ],
 
-    init: function () { // 页面初始化
+    init: function () {
         var view = this.getView();
         var store = Ext.create('store.userlist');
         view.down('gridpanel').setStore(store);
@@ -16,11 +16,11 @@ Ext.define('App.view.personnel.user.ListController', {
         view.down('pagingtoolbar').moveFirst();
     },
 
-    refresh: function () { // 刷新
+    refresh: function () {
         this.getView().down('pagingtoolbar').moveFirst();
     },
 
-    onAddClick: function () { // 添加
+    onAddClick: function () {
         var win = Ext.create('App.view.personnel.user.Edit');
         win.setTitle('添加用户');
         win.down('textfield[name=Password]').show();
@@ -29,7 +29,7 @@ Ext.define('App.view.personnel.user.ListController', {
         win.show();
     },
 
-    onEditClick: function () { // 编辑
+    onEditClick: function () {
         var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
             App.notify('消息', '请选择！');
@@ -39,11 +39,15 @@ Ext.define('App.view.personnel.user.ListController', {
         win.setTitle('编辑用户');
         win.down('textfield[name=Password]').hide();
         win.down('combo[name=Status]').show();
-        win.down('form').form.loadRecord(selected.items[0]);
+        win.down('combo[name=SexID]').getStore().load({
+            callback: function () {
+                win.down('form').form.loadRecord(selected.items[0]);
+            }
+        });
         win.show();
     },
 
-    onDeleteClick: function () { // 删除
+    onDeleteClick: function () {
         var view = this.getView();
         var selected = view.down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
@@ -63,7 +67,7 @@ Ext.define('App.view.personnel.user.ListController', {
         });
     },
 
-    onSearchClick: function () { // 搜索
+    onSearchClick: function () {
         var view = this.getView();
         var values = view.down('searchform').form.getValues();
         view.down('gridpanel').getStore().load({
@@ -71,7 +75,7 @@ Ext.define('App.view.personnel.user.ListController', {
         });
     },
 
-    onResetClick: function () { // 重置
+    onResetClick: function () {
         this.getView().down('searchform').form.reset();
-    },
+    }
 });

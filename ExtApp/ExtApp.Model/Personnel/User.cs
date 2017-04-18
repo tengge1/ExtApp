@@ -38,10 +38,10 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 性别（1-男，2-女）
+        /// 性别
         /// </summary>
-        [Property(4)]
-        public virtual int? Sex { get; set; }
+        [ManyToOne(4, ClassType = typeof(DicItem), Column = "Sex", Lazy = Laziness.False)]
+        public virtual DicItem Sex { get; set; }
 
         /// <summary>
         /// 机构

@@ -6,7 +6,24 @@ Ext.define('App.model.personnel.User', {
         'ID',
         'Username',
         'Name',
-        'Sex',
+        {
+            name: 'SexID',
+            mapping: function (value) {
+                if (value.Sex != null) {
+                    return value.Sex.ID;
+                }
+                return 0;
+            }
+        },
+        {
+            name: 'SexName',
+            mapping: function (value) {
+                if (value.Sex != null) {
+                    return value.Sex.Name;
+                }
+                return '';
+            }
+        },
         'DeptID',
         'DeptName',
         'RoleID',

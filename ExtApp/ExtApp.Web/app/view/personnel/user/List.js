@@ -102,8 +102,7 @@ Ext.define("App.view.personnel.user.List", {
             dataIndex: 'Name'
         }, {
             text: '性别',
-            dataIndex: 'Sex',
-            renderer: App.renderer.sex
+            dataIndex: 'SexName'
         }, {
             text: '所属机构',
             dataIndex: 'DeptName'

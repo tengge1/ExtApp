@@ -15,7 +15,7 @@ namespace ExtApp.Model
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
-        public int? Sex { get; set; }
+        public int? SexID { get; set; }
         public int? DeptID { get; set; }
         public int? RoleID { get; set; }
         public string Duty { get; set; }

@@ -50,9 +50,11 @@ Ext.define('App.view.personnel.user.Edit', {
             allowBlank: false
         }, {
             xtype: 'combo',
-            name: 'Sex',
+            name: 'SexID',
+            valueField: 'ID',
+            displayField: 'Name',
             fieldLabel: '<span style="color:red;">*</span>性别',
-            store: [[1, '男'], [2, '女']],
+            store: Ext.create('App.store.dic.Sex'),
             editable: false,
             allowBlank: false,
             emptyText: '请选择'

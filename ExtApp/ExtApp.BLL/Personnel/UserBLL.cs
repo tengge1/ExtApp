@@ -91,7 +91,6 @@ namespace ExtApp.BLL
                 Username = p.Username,
                 Password = PasswordHelper.Crypt(p.Password),
                 Name = p.Name,
-                Sex = p.Sex == null ? 0 : p.Sex,
                 Dept = p.DeptID == null ? null : new Dept { ID = p.DeptID.Value },
                 Role = p.RoleID == null ? null : new Role { ID = p.RoleID.Value },
                 Duty = p.Duty,
@@ -105,6 +104,10 @@ namespace ExtApp.BLL
                 isAdmin = false,
                 Status = 1
             };
+            if (p.SexID != null)
+            {
+                user.Sex = new DicItem { ID = p.SexID.Value };
+            }
             var result = dal.Add(user);
             if (result)
             {
@@ -150,7 +153,10 @@ namespace ExtApp.BLL
             user.Name = p.Name;
             user.Phone = p.Phone;
             user.Role = p.RoleID == null ? null : new Role { ID = p.RoleID.Value };
-            user.Sex = p.Sex;
+            if (p.SexID != null)
+            {
+                user.Sex = new DicItem { ID = p.SexID.Value };
+            }
             user.Sort = p.Sort;
             user.Status = p.Status;
             user.Username = p.Username;

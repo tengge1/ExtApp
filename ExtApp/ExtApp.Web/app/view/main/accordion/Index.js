@@ -58,9 +58,6 @@ Ext.define('App.view.main.accordion.Index', {
                 ], [
                     'desktop',
                     '桌面样式'
-                ], [
-                    'navigation',
-                    '顶部导航'
                 ]],
                 valueField: 'value',
                 displayField: 'text',
@@ -73,27 +70,9 @@ Ext.define('App.view.main.accordion.Index', {
             }, {
                 xtype: 'combo',
                 name: 'theme',
-                store: [[
-                    'aria',
-                    'Aria主题'
-                ], [
-                    'classic',
-                    'Classic主题'
-                ], [
-                    'crisp',
-                    'Crisp主题'
-                ], [
-                    'gray',
-                    'Gray主题'
-                ], [
-                    'neptune',
-                    'Neptune主题'
-                ], [
-                    'triton',
-                    'Triton主题'
-                ]],
-                valueField: 'value',
-                displayField: 'text',
+                store: Ext.create('App.store.dic.Theme'),
+                valueField: 'Code',
+                displayField: 'Name',
                 width: 120,
                 editable: false,
                 listeners: {

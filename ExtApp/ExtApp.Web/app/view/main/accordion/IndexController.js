@@ -8,21 +8,27 @@ Ext.define('App.view.main.accordion.IndexController', {
         'App.view.main.ChangePwd'
     ],
 
-    init: function () { // 页面加载后运行
+    init: function () {
+        var view = this.getView();
+
         // 选择样式
-        var combo = Ext.ComponentQuery.query('index combo[name=style]')[0];
+        var combo = view.down('combo[name=style]');
         var tool = Ext.create('util.config');
         var style = tool.getStyle();
         combo.select(style);
 
         // 选择主题
-        var combo = Ext.ComponentQuery.query('index combo[name=theme]')[0];
+        combo = view.down('combo[name=theme]');
         var tool = Ext.create('App.util.Theme');
         var theme = tool.getCurrentTheme();
-        combo.select(theme);
+        combo.getStore().load({
+            callback: function () {
+                combo.setValue(theme);
+            }
+        });
     },
 
-    onStyleSelect: function () { // 组合框选择框架样式
+    onStyleSelect: function () {
         var tool = Ext.create('util.config');
         var combo = Ext.ComponentQuery.query('index combo[name=style]')[0];
         var value = combo.getValue();
@@ -30,7 +36,7 @@ Ext.define('App.view.main.accordion.IndexController', {
         window.location.reload();
     },
 
-    onThemeSelect: function () { // 组合框选择主题
+    onThemeSelect: function () {
         var tool = Ext.create('App.util.Theme');
         var combo = Ext.ComponentQuery.query('index combo[name=theme]')[0];
         var value = combo.getValue();

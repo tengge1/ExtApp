@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ExtApp.Model;
+using ExtApp.DAL;
+using NHibernate.Criterion;
 
 namespace ExtApp.BLL
 {
@@ -14,6 +16,11 @@ namespace ExtApp.BLL
     public class DicBLL : BaseBLL<Dic>
     {
         /// <summary>
+        /// 字典项DAL
+        /// </summary>
+        private DicItemDAL dicItemDAL;
+
+        /// <summary>
         /// 列表
         /// </summary>
         /// <returns></returns>
@@ -21,6 +28,27 @@ namespace ExtApp.BLL
         {
             var list = dal.List(null, "ID", Sort.Desc);
             return new ListResult<Dic>(200, "获取数据成功！", list.Count(), list);
+        }
+
+        /// <summary>
+        /// 获取字典子项
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public ListResult<DicItem> GetItems(string code)
+        {
+            // 获取字典
+            var query = Restrictions.Eq("Code", code);
+            var dic = dal.Get(query);
+            if (dic == null)
+            {
+                return new ListResult<DicItem>(300, "该字典不存在！");
+            }
+
+            // 获取字典项
+            query = Restrictions.Eq("Dic", dic);
+            var list = dicItemDAL.List(query, "Sort", Sort.Asc);
+            return new ListResult<DicItem>(200, "获取成功！", list.Count(), list);
         }
 
         /// <summary>

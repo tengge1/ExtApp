@@ -172,6 +172,7 @@
     <Content Include="app\store\core\DicTree.js" />
     <Content Include="app\store\core\DatabaseBackup.js" />
     <Content Include="app\store\authority\RoleMenuTree.js" />
+    <Content Include="app\store\dic\Theme.js" />
     <Content Include="app\store\personnel\DeptTree.js" />
     <Content Include="app\store\core\Config.js" />
     <Content Include="app\util\TreeHistory.js" />
@@ -4135,7 +4136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\model\desktop\" />
-    <Folder Include="app\store\desktop\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">

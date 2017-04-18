@@ -35,10 +35,22 @@ namespace ExtApp.Controller
         }
 
         /// <summary>
+        /// 根据数据字典code获取字典项
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetItems(string code)
+        {
+            return Json(bll.GetItems(code));
+        }
+
+        /// <summary>
         /// 获取子节点
         /// </summary>
         /// <param name="name">名称搜索</param>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult GetChildNodes(string name = "")
         {
             var result = bll.GetChildNodes(name);

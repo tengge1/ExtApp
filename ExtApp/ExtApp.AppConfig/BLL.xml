@@ -35,6 +35,7 @@
   <!-- 字典 -->
   <object id="DicBLL" type="ExtApp.BLL.DicBLL, ExtApp.BLL">
     <property name="dal" ref="DicDAL" />
+    <property name="dicItemDAL" ref="DicItemDAL" />
   </object>
 
   <!-- 字典项 -->

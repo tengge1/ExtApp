@@ -17,7 +17,7 @@ Ext.require('App.widget.SearchForm');
 var App = App || {};
 Ext.apply(App, {
 
-    query: function (xtype) {
+    query: function (xtype) { // 根据xtype查询
         var list = Ext.ComponentQuery.query(xtype);
         if (list.length == 0) {
             return null;

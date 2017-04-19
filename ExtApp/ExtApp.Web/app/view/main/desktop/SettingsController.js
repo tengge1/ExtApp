@@ -9,47 +9,48 @@ Ext.define('App.view.main.desktop.SettingsController', {
     ],
 
     init: function () {
-        var me = this;
-        var view = me.getView();
+        //var me = this;
+        //var view = me.getView();
 
-        me.selected = view.desktop.getWallpaper();
-        me.stretch = view.desktop.wallpaper.stretch;
+        //me.selected = view.desktop.getWallpaper();
+        //me.stretch = view.desktop.wallpaper.stretch;
 
-        me.preview = Ext.create('widget.wallpaper');
-        me.preview.setWallpaper(me.selected);
-        me.tree = me.createTree();
+        //me.preview = Ext.create('widget.wallpaper');
+        //me.preview.setWallpaper(me.selected);
+        //me.tree = me.createTree();
 
-        view.items = [{
-            anchor: '0 -30',
-            border: false,
-            layout: 'border',
-            items: [
-                me.tree,
-                {
-                    xtype: 'panel',
-                    title: '预览',
-                    region: 'center',
-                    layout: 'fit',
-                    items: [
-                        me.preview
-                    ]
-                }
-            ]
-        }, {
-            xtype: 'checkbox',
-            boxLabel: '拉伸适应屏幕',
-            checked: me.stretch,
-            listeners: {
-                change: function (comp) {
-                    me.stretch = comp.checked;
-                }
-            }
-        }
-        ];
+        //view.items = [{
+        //    anchor: '0 -30',
+        //    border: false,
+        //    layout: 'border',
+        //    items: [
+        //        me.tree,
+        //        {
+        //            xtype: 'panel',
+        //            title: '预览',
+        //            region: 'center',
+        //            layout: 'fit',
+        //            items: [
+        //                me.preview
+        //            ]
+        //        }
+        //    ]
+        //}, {
+        //    xtype: 'checkbox',
+        //    boxLabel: '拉伸适应屏幕',
+        //    checked: me.stretch,
+        //    listeners: {
+        //        change: function (comp) {
+        //            me.stretch = comp.checked;
+        //        }
+        //    }
+        //}
+        //];
     },
 
     createTree: function () {
         var me = this;
+        var view = this.getView();
 
         function child(img) {
             return {

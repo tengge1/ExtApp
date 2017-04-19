@@ -5,42 +5,85 @@ Ext.define('App.view.main.desktop.Settings', {
     requires: [
         'Ext.ux.desktop.Wallpaper',
         'App.view.main.desktop.Wallpaper',
-        // 'App.view.main.desktop.SettingsController'
+         'App.view.main.desktop.SettingsController'
     ],
 
-    layout: 'anchor',
-    title: '设置',
+    layout: 'fit',
+    title: '系统设置',
+    iconCls: 'settings',
     modal: true,
     width: 640,
     height: 480,
     border: false,
-    // controller: 'settings',
+    controller: 'settings',
 
     items: [{
-        anchor: '0 -30',
-        border: false,
-        layout: 'border',
+        xtype: 'tabpanel',
         items: [{
-            title: '桌面背景',
-            rootVisible: false,
-            lines: false,
-            scrollable: true,
-            width: 150,
-            region: 'west',
-            split: true,
-            minWidth: 100,
-        }, {
             xtype: 'panel',
-            title: '预览',
-            region: 'center',
-            layout: 'fit',
+            title: '基本设置',
+            layout: 'vbox',
+            defaults: {
+                margin: 5
+            },
             items: [{
-                xtype: 'wallpaper'
+                xtype: 'combo',
+                name: 'style',
+                store: Ext.create('App.store.dic.Style'),
+                valueField: 'Code',
+                displayField: 'Name',
+                fieldLabel: '样式',
+                labelWidth: 60,
+                labelAlign: 'right',
+                editable: false,
+                value: 'desktop',
+                listeners: {
+                    //select: 'onStyleSelect'
+                }
+            }, {
+                xtype: 'combo',
+                name: 'theme',
+                store: Ext.create('App.store.dic.Theme'),
+                valueField: 'Code',
+                displayField: 'Name',
+                fieldLabel: '主题',
+                labelWidth: 60,
+                labelAlign: 'right',
+                editable: false,
+                listeners: {
+                    //select: 'onThemeSelect'
+                }
+            }]
+        }, {
+            title: '壁纸设置',
+            layout: 'anchor',
+            items: [{
+                anchor: '0 -30',
+                border: false,
+                layout: 'border',
+                items: [{
+                    title: '桌面背景',
+                    rootVisible: false,
+                    lines: false,
+                    scrollable: true,
+                    width: 150,
+                    region: 'west',
+                    split: true,
+                    minWidth: 100,
+                }, {
+                    xtype: 'panel',
+                    title: '预览',
+                    region: 'center',
+                    layout: 'fit',
+                    items: [{
+                        xtype: 'wallpaper'
+                    }]
+                }]
+            }, {
+                xtype: 'checkbox',
+                boxLabel: '拉伸适应屏幕'
             }]
         }]
-    }, {
-        xtype: 'checkbox',
-        boxLabel: '拉伸适应屏幕'
     }],
 
     buttons: [{

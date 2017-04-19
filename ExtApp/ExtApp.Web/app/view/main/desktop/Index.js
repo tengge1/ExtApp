@@ -159,14 +159,15 @@ Ext.define('App.view.main.desktop.Index', {
     },
 
     onLogout: function () { // 注销
-        Ext.Msg.confirm('消息', '是否注销？', function (btn) {
-            if (btn == 'yes') {
-                // 先清空cookies
-                Ext.util.Cookies.clear('username');
-
-                // 刷新页面
-                window.location.reload();
-            }
+        App.confirm('消息', '是否注销？', function () {
+            var config = Ext.create('util.config');
+            App.post('/api/Login/Logout', function (r) {
+                var obj = JSON.parse(r);
+                if (obj.Code == 200) {
+                    config.setState('nologin');
+                    window.location.reload();
+                }
+            });
         });
     },
 

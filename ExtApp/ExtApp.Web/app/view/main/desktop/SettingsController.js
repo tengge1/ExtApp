@@ -3,6 +3,49 @@ Ext.define('App.view.main.desktop.SettingsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.settings',
 
+    afterBasicRenderer: function () {
+        var view = this.getView();
+
+        // 样式
+        var combo1 = view.down('combo[name=style]');
+        var tool = Ext.create('util.config');
+        var style = tool.getStyle();
+        combo1.getStore().load({
+            callback: function () {
+                combo1.select(style);
+            }
+        });
+
+        // 主题
+        var combo2 = view.down('combo[name=theme]');
+        var tool = Ext.create('App.util.Theme');
+        var theme = tool.getCurrentTheme();
+        combo2.getStore().load({
+            callback: function () {
+                combo2.setValue(theme);
+            }
+        });
+    },
+
+    onStyleSelect: function () {
+        var view = this.getView();
+        var tool = Ext.create('util.config');
+        var combo = view.down('combo[name=style]');
+        var value = combo.getValue();
+        tool.setStyle(value);
+        App.confirm('询问', '刷新页面后生效，是否刷新？', function () {
+            window.location.reload();
+        });
+    },
+
+    onThemeSelect: function () {
+        var view = this.getView();
+        var tool = Ext.create('App.util.Theme');
+        var combo = view.down('combo[name=theme]');
+        var value = combo.getValue();
+        tool.setTheme(value);
+    },
+
     afterTreeRender: function () {
         var view = this.getView();
         var wallpaper = view.desktop.getWallpaper();
@@ -34,6 +77,7 @@ Ext.define('App.view.main.desktop.SettingsController', {
 
     onOKClick: function () {
         var view = this.getView();
+
         var tree = view.down('treepanel');
         var selection = tree.getSelection();
         if (selection.length > 0) {

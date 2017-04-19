@@ -4,7 +4,6 @@ Ext.define('App.view.main.desktop.Settings', {
 
     requires: [
         'Ext.ux.desktop.Wallpaper',
-        'App.view.main.desktop.Wallpaper',
          'App.view.main.desktop.SettingsController'
     ],
 
@@ -38,7 +37,7 @@ Ext.define('App.view.main.desktop.Settings', {
                 editable: false,
                 value: 'desktop',
                 listeners: {
-                    //select: 'onStyleSelect'
+                    select: 'onStyleSelect'
                 }
             }, {
                 xtype: 'combo',
@@ -51,9 +50,15 @@ Ext.define('App.view.main.desktop.Settings', {
                 labelAlign: 'right',
                 editable: false,
                 listeners: {
-                    //select: 'onThemeSelect'
+                    select: 'onThemeSelect'
                 }
-            }]
+            }],
+            listeners: {
+                afterrender: {
+                    fn: 'afterBasicRenderer',
+                    delay: 100
+                }
+            }
         }, {
             title: '壁纸设置',
             layout: 'anchor',

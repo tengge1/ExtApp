@@ -62,6 +62,8 @@ Ext.define('App.view.main.desktop.Settings', {
                 border: false,
                 layout: 'border',
                 items: [{
+                    xtype: 'treepanel',
+                    store: Ext.create('App.view.main.desktop.Wallpaper'),
                     title: '桌面背景',
                     rootVisible: false,
                     lines: false,
@@ -70,6 +72,13 @@ Ext.define('App.view.main.desktop.Settings', {
                     region: 'west',
                     split: true,
                     minWidth: 100,
+                    listeners: {
+                        afterrender: {
+                            fn: 'afterTreeRender',
+                            delay: 100
+                        },
+                        select: 'onTreeSelect'
+                    }
                 }, {
                     xtype: 'panel',
                     title: '预览',
@@ -81,6 +90,7 @@ Ext.define('App.view.main.desktop.Settings', {
                 }]
             }, {
                 xtype: 'checkbox',
+                name: 'stretch',
                 boxLabel: '拉伸适应屏幕'
             }]
         }]

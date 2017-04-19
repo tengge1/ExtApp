@@ -38,7 +38,7 @@ Ext.define('App.view.main.accordion.IndexController', {
         var combo = view.down('combo[name=style]');
         var value = combo.getValue();
         tool.setStyle(value);
-        App.query('询问', '刷新页面后生效，是否刷新？', function () {
+        App.confirm('询问', '刷新页面后生效，是否刷新？', function () {
             window.location.reload();
         });
     },

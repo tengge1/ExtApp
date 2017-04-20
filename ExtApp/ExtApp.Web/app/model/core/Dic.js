@@ -5,7 +5,8 @@ Ext.define('App.model.core.Dic', {
     fields: [
         'ID',
         'Code',
-        'Type',
+        'TypeID',
+        'TypeName',
         'Name',
         'Sort',
         'Status',

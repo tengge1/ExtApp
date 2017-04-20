@@ -123,7 +123,6 @@
     <Compile Include="Authority\RoleMenu.cs" />
     <Compile Include="Personnel\Dept.cs" />
     <Compile Include="Core\DicItem.cs" />
-    <Compile Include="Enum\DicType.cs" />
     <Compile Include="Core\Dic.cs" />
     <Compile Include="Core\Log.cs" />
     <Compile Include="Enum\LogLevel.cs" />

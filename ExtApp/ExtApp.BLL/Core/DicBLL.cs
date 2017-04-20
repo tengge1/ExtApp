@@ -78,8 +78,9 @@ namespace ExtApp.BLL
                     Name = i.Name,
                     Sort = i.Sort,
                     Status = i.Status,
-                    text = i.Name + "[" + (i.Type == DicType.System ? "系统" : "应用") + "]",
-                    TypeID = (int)i.Type
+                    text = i.Name + "[" + i.Code + "]",
+                    TypeID = i.Type == null ? 0 : i.Type.ID,
+                    TypeName = i.Type == null ? "" : i.Type.Name
                 };
                 nodes.Add(node);
             }
@@ -100,9 +101,12 @@ namespace ExtApp.BLL
                 ID = 0,
                 Name = p.Name,
                 Sort = p.Sort,
-                Status = p.Status,
-                Type = (DicType)p.TypeID
+                Status = p.Status
             };
+            if (p.TypeID != null)
+            {
+                model.Type = new DicItem { ID = p.TypeID.Value };
+            }
             var result = dal.Add(model);
             if (result)
             {
@@ -131,7 +135,10 @@ namespace ExtApp.BLL
             model.Name = p.Name;
             model.Sort = p.Sort;
             model.Status = p.Status;
-            model.Type = (DicType)p.TypeID;
+            if (p.TypeID != null)
+            {
+                model.Type = new DicItem { ID = p.TypeID.Value };
+            }
             var result = dal.Edit(model);
             if (result)
             {

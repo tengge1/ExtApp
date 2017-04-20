@@ -33,6 +33,11 @@ Ext.define('App.view.core.dic.ListController', {
         var win = Ext.create('App.view.core.dic.Edit');
         win.setTitle('编辑字典');
         win.down('form').getForm().loadRecord(selected[0]);
+        win.down('combo[name=TypeID]').getStore().load({
+            callback: function () {
+                win.down('combo[name=TypeID]').setValue(selected[0].data.TypeID);
+            }
+        });
         win.show();
     },
 

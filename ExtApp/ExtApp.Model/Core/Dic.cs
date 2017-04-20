@@ -28,8 +28,8 @@ namespace ExtApp.Model
         /// <summary>
         /// 类型（1-系统，2-应用）
         /// </summary>
-        [Property(2)]
-        public virtual DicType Type { get; set; }
+        [ManyToOne(2, ClassType = typeof(DicItem), Column = "Type", Lazy = Laziness.False)]
+        public virtual DicItem Type { get; set; }
 
         /// <summary>
         /// 名称

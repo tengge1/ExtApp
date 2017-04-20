@@ -40,14 +40,10 @@ Ext.define('App.view.core.dic.Edit', {
         }, {
             xtype: 'combo',
             name: 'TypeID',
+            valueField: 'ID',
+            displayField: 'Name',
             fieldLabel: '类型',
-            store: [[
-                0,
-                '系统'
-            ], [
-                1,
-                '用户'
-            ]],
+            store: Ext.create('App.store.dic.DicType'),
             allowBlank: false,
             emptyText: '请选择',
             editable: false

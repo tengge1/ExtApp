@@ -14,6 +14,7 @@ namespace ExtApp.Model
         public int ID { get; set; }
         public string Code { get; set; }
         public int? TypeID { get; set; }
+        public string TypeName { get; set; }
         public string Name { get; set; }
         public int? Sort { get; set; }
         public int? Status { get; set; }

@@ -6,7 +6,6 @@ Ext.define('App.model.core.ConfigSection', {
 
     fields: [
         'ID',
-        'PID',
         'Name',
         'Sort',
         'Status',

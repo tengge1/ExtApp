@@ -8,7 +8,6 @@ Ext.define('App.store.core.ConfigSectionTree', {
     defaultRootId: '0',
     defaultRootText: '顶级配置',
     rootVisible: true,
-    nodeParam: 'PID',
 
     proxy: {
         type: 'ajax',

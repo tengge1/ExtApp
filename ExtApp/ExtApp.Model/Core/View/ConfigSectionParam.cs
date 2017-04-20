@@ -12,7 +12,6 @@ namespace ExtApp.Model
     public class ConfigSectionParam
     {
         public int ID { get; set; }
-        public int PID { get; set; }
         public string Name { get; set; }
         public int? Sort { get; set; }
         public int? Status { get; set; }

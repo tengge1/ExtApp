@@ -20,12 +20,6 @@ namespace ExtApp.Model
         public virtual int ID { get; set; }
 
         /// <summary>
-        /// 父配置节点
-        /// </summary>
-        [ManyToOne(1, ClassType = typeof(ConfigSection), Column = "SectionID")]
-        public virtual ConfigSection PSection { get; set; }
-
-        /// <summary>
         /// 名称
         /// </summary>
         [Property(2)]

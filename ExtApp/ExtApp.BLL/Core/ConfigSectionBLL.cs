@@ -17,25 +17,15 @@ namespace ExtApp.BLL
         /// <summary>
         /// 获取子节点
         /// </summary>
-        /// <param name="PID"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public ListResult<ConfigSectionNode> GetChildNodes(int PID = 0, string name = "")
+        public ListResult<ConfigSectionNode> GetChildNodes(string name = "")
         {
             var query = Restrictions.Gt("Status", -1);
             var list = dal.List(query, "ID", Sort.Asc);
-            IList<ConfigSection> list1 = null;
-            if (PID == 0)
-            {
-                list1 = list.Where(o => o.PSection == null).ToList();
-            }
-            else
-            {
-                list1 = list.Where(o => o.PSection != null && o.PSection.ID == PID).ToList();
-            }
 
             var nodes = new List<ConfigSectionNode>();
-            foreach (var i in list1)
+            foreach (var i in list)
             {
                 if (!i.Name.Contains(name))
                 {
@@ -50,7 +40,6 @@ namespace ExtApp.BLL
                     id = i.ID,
                     leaf = true,
                     Name = i.Name,
-                    PID = i.PSection == null ? 0 : i.PSection.ID,
                     Sort = i.Sort,
                     text = i.Name
                 };
@@ -71,7 +60,6 @@ namespace ExtApp.BLL
                 Comment = p.Comment,
                 ID = 0,
                 Name = p.Name,
-                PSection = p.PID == 0 ? null : new ConfigSection { ID = p.PID },
                 Sort = p.Sort,
                 Status = p.Status
             };
@@ -100,7 +88,6 @@ namespace ExtApp.BLL
             }
             model.Comment = p.Comment;
             model.Name = p.Name;
-            model.PSection = p.PID == 0 ? null : new ConfigSection { ID = p.PID };
             model.Sort = p.Sort;
             model.Status = p.Status;
             var result = dal.Edit(model);

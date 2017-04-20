@@ -26,13 +26,12 @@ namespace ExtApp.Controller
         /// <summary>
         /// 获取子节点
         /// </summary>
-        /// <param name="PID"></param>
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet]
         public JsonResult GetChildNodes(int PID = 0, string name = "")
         {
-            var result = bll.GetChildNodes(PID, name);
+            var result = bll.GetChildNodes(name);
             return Json(result);
         }
 

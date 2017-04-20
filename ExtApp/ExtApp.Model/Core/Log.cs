@@ -22,20 +22,20 @@ namespace ExtApp.Model
         /// <summary>
         /// 类型
         /// </summary>
-        [Property(1)]
-        public virtual LogType Type { get; set; }
+        [ManyToOne(1, ClassType = typeof(DicItem), Column = "Type", Lazy = Laziness.False)]
+        public virtual DicItem Type { get; set; }
 
         /// <summary>
         /// 来源
         /// </summary>
-        [Property(2)]
-        public virtual LogSource Source { get; set; }
+        [ManyToOne(2, ClassType = typeof(DicItem), Column = "Source", Lazy = Laziness.False)]
+        public virtual DicItem Source { get; set; }
 
         /// <summary>
         /// 严重程度
         /// </summary>
-        [Property(3)]
-        public virtual LogLevel Level { get; set; }
+        [ManyToOne(3, ClassType = typeof(DicItem), Column = "Level", Lazy = Laziness.False)]
+        public virtual DicItem Level { get; set; }
 
         /// <summary>
         /// 责任人（类型为用户时有效）

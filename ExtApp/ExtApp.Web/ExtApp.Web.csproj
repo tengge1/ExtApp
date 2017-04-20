@@ -172,6 +172,9 @@
     <Content Include="app\store\core\DicTree.js" />
     <Content Include="app\store\core\DatabaseBackup.js" />
     <Content Include="app\store\authority\RoleMenuTree.js" />
+    <Content Include="app\store\dic\LogLevel.js" />
+    <Content Include="app\store\dic\LogSource.js" />
+    <Content Include="app\store\dic\LogType.js" />
     <Content Include="app\store\dic\Sex.js" />
     <Content Include="app\store\dic\Style.js" />
     <Content Include="app\store\dic\DeptType.js" />

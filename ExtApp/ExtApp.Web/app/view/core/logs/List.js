@@ -34,68 +34,41 @@ Ext.define('App.view.core.logs.List', {
             xtype: 'searchform',
 
             items: [{
+                xtype: 'textfield',
+                fieldLabel: '名称',
+                width: 160,
+                name: 'Name',
+                emptyText: '标题'
+            }, {
                 xtype: 'combo',
                 fieldLabel: '类型',
                 width: 160,
                 editable: false,
-                name: 'type',
-                value: '',
-                store: [[
-                    '',
-                    '全部'
-                ], [
-                    '0',
-                    '系统事件'
-                ], [
-                    '1',
-                    '用户事件'
-                ]]
+                name: 'TypeID',
+                valueField: 'ID',
+                displayField: 'Name',
+                store: Ext.create('App.store.dic.LogType'),
+                emptyText: '全部'
             }, {
                 xtype: 'combo',
                 fieldLabel: '来源',
                 width: 160,
                 editable: false,
-                name: 'source',
-                value: '',
-                store: [[
-                    '',
-                    '全部'
-                ], [
-                    '0',
-                    'Web系统'
-                ], [
-                    '1',
-                    '移动应用'
-                ], [
-                    '2',
-                    '桌面客户端'
-                ]]
+                name: 'SourceID',
+                valueField: 'ID',
+                displayField: 'Name',
+                store: Ext.create('App.store.dic.LogSource'),
+                emptyText: '全部'
             }, {
                 xtype: 'combo',
                 fieldLabel: '等级',
                 width: 160,
                 editable: false,
-                name: 'level',
-                value: '',
-                store: [[
-                    '',
-                    '全部'
-                ], [
-                    '0',
-                    '崩溃'
-                ], [
-                    '1',
-                    '错误'
-                ], [
-                    '2',
-                    '警告'
-                ], [
-                    '3',
-                    '消息'
-                ], [
-                    '4',
-                    '调试'
-                ]]
+                name: 'LevelID',
+                valueField: 'ID',
+                displayField: 'Name',
+                store: Ext.create('App.store.dic.LogLevel'),
+                emptyText: '全部'
             }, {
                 xtype: 'button',
                 text: '搜索',
@@ -125,26 +98,26 @@ Ext.define('App.view.core.logs.List', {
             width: 220
         }, {
             text: '类型',
-            dataIndex: 'Type',
-            titleAlign: 'center',
-            renderer: 'renderType'
+            dataIndex: 'TypeName',
+            titleAlign: 'center'
         }, {
             text: '来源',
-            dataIndex: 'Source',
-            titleAlign: 'center',
-            renderer: 'renderSource'
+            dataIndex: 'SourceName',
+            titleAlign: 'center'
         }, {
             text: '等级',
-            dataIndex: 'Level',
-            renderer: 'renderLevel'
+            dataIndex: 'LevelName',
+            titleAlign: 'center'
         }, {
             text: '用户',
             titleAlign: 'center',
-            dataIndex: 'UserName'
+            dataIndex: 'UserName',
+            titleAlign: 'center'
         }, {
             text: 'IP',
             titleAlign: 'center',
-            dataIndex: 'IP'
+            dataIndex: 'IP',
+            titleAlign: 'center'
         }, {
             text: '备注',
             titleAlign: 'center',

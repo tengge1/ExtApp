@@ -1,11 +1,12 @@
-﻿using NHibernate;
-using NHibernate.Cfg;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Criterion;
 
 using ExtApp.Model;
 
@@ -27,25 +28,33 @@ namespace ExtApp
         /// <param name="comment">备注</param>
         public static void SaveLog(string title, string content = "", LogType type = LogType.System, LogSource source = LogSource.WebApp, LogLevel level = LogLevel.Info, string comment = "")
         {
+            // 获取所有日志类型、来源、级别
+            var query = Restrictions.In("Code", new string[] { "LogType", "LogSource", "LogLevel" });
+            var session = NHibernateHelper.GetCurrentSession();
+            var criteria = session.CreateCriteria<DicItem>().CreateCriteria("Dic").Add(query);
+            var list = criteria.List<DicItem>();
+            var typeID = list.Where(o => o.Dic != null && o.Dic.Code == "LogType" && o.Code == type.ToString()).Select(o => o.ID).FirstOrDefault();
+            var sourceID = list.Where(o => o.Dic != null && o.Dic.Code == "LogSource" && o.Code == source.ToString()).Select(o => o.ID).FirstOrDefault();
+            var levelID = list.Where(o => o.Dic != null && o.Dic.Code == "LogLevel" && o.Code == level.ToString()).Select(o => o.ID).FirstOrDefault();
+
             var log = new Log
             {
                 AddTime = DateTime.Now,
                 AddUser = null,
                 Content = content,
                 IP = "127.0.0.1",
-                Level = level,
+                Level = new DicItem { ID = levelID },
                 Comment = comment,
-                Source = source,
+                Source = new DicItem { ID = sourceID },
                 Status = 0,
                 Title = title,
-                Type = type
+                Type = new DicItem { ID = typeID }
             };
             if (type == LogType.User) // 用户事件写入IP和用户信息
             {
                 log.AddUser = AdminHelper.Admin;
                 log.IP = HttpContext.Current.Request.UserHostAddress;
             }
-            var session = NHibernateHelper.GetCurrentSession();
             session.SaveOrUpdate(log);
             session.Flush();
         }

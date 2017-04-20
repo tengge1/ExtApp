@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-20 20:48:15
+Date: 2017-04-20 21:31:46
 */
 
 
@@ -193,7 +193,7 @@ CREATE TABLE [dbo].[AppDic] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 7)
+DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 8)
 GO
 
 -- ----------------------------
@@ -201,25 +201,28 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppDic] ON
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'1', N'LogType', N'0', N'日志类型', N'1', N'1', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'1', N'LogType', N'24', N'日志类型', N'1', N'1', null)
 GO
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'2', N'LogSource', N'0', N'日志来源', N'1', N'2', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'2', N'LogSource', N'24', N'日志来源', N'1', N'2', null)
 GO
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'3', N'LogLevel', N'0', N'日志等级', N'1', N'3', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'3', N'LogLevel', N'24', N'日志等级', N'1', N'3', null)
 GO
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'4', N'Sex', N'0', N'性别', N'1', N'4', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'4', N'Sex', N'24', N'性别', N'1', N'4', null)
 GO
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'5', N'FrameStyle', N'0', N'框架样式', N'1', N'5', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'5', N'FrameStyle', N'24', N'框架样式', N'1', N'5', null)
 GO
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'6', N'ExtJsTheme', N'0', N'ExtJs主题', N'1', N'6', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'6', N'ExtJsTheme', N'24', N'ExtJs主题', N'1', N'6', null)
 GO
 GO
-INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'7', N'DeptType', N'0', N'组织机构类型', N'1', N'0', null)
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'7', N'DeptType', N'24', N'组织机构类型', N'1', N'0', null)
+GO
+GO
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'8', N'DicType', N'24', N'字典类型', N'1', N'0', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppDic] OFF
@@ -242,7 +245,7 @@ CREATE TABLE [dbo].[AppDicItem] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 23)
+DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 25)
 GO
 
 -- ----------------------------
@@ -314,6 +317,12 @@ INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort],
 GO
 GO
 INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'23', N'7', N'Region', N'地域', N'1', N'2', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'24', N'8', N'System', N'系统', N'1', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'25', N'8', N'User', N'用户', N'1', N'2', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppDicItem] OFF
@@ -711,6 +720,12 @@ GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+
+-- ----------------------------
+-- Foreign Key structure for table [dbo].[AppDic]
+-- ----------------------------
+ALTER TABLE [dbo].[AppDic] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 
 -- ----------------------------

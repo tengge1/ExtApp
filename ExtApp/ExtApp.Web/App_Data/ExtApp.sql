@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-18 22:08:28
+Date: 2017-04-20 20:37:53
 */
 
 
@@ -109,9 +109,6 @@ GO
 SET IDENTITY_INSERT [dbo].[AppDatabaseBackup] ON
 GO
 INSERT INTO [dbo].[AppDatabaseBackup] ([ID], [Name], [FileName], [AddTime], [IsCurrent], [AddUserID], [Comment]) VALUES (N'2', N'数据库2017-04-15备份', N'ExtApp20170415154144.bak', N'2017-04-15 15:41:44.000', N'0', N'1', null)
-GO
-GO
-INSERT INTO [dbo].[AppDatabaseBackup] ([ID], [Name], [FileName], [AddTime], [IsCurrent], [AddUserID], [Comment]) VALUES (N'3', N'数据库2017-04-18备份', N'ExtApp20170418220616.bak', N'2017-04-18 22:06:16.000', N'0', N'1', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppDatabaseBackup] OFF
@@ -343,7 +340,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 14)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 23)
 GO
 
 -- ----------------------------
@@ -351,46 +348,7 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppLog] ON
 GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'1', N'1', N'0', N'3', N'1', N'2017-04-15 15:15:18.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'2', N'1', N'0', N'3', N'1', N'2017-04-15 20:07:22.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'3', N'1', N'0', N'3', N'1', N'2017-04-15 20:39:39.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'4', N'1', N'0', N'3', N'1', N'2017-04-16 08:16:53.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'5', N'1', N'0', N'3', null, N'2017-04-16 09:34:00.000', N'::1', N'用户User登录失败！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'6', N'1', N'0', N'3', N'2', N'2017-04-16 09:34:07.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'7', N'1', N'0', N'3', N'1', N'2017-04-16 09:34:22.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'8', N'1', N'0', N'3', N'2', N'2017-04-16 09:34:39.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'9', N'1', N'0', N'3', N'1', N'2017-04-16 09:34:54.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'10', N'1', N'0', N'3', N'1', N'2017-04-16 09:46:06.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'11', N'1', N'0', N'3', N'1', N'2017-04-17 19:40:33.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'12', N'1', N'0', N'3', N'1', N'2017-04-18 20:01:24.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'13', N'1', N'0', N'3', null, N'2017-04-18 21:40:26.000', N'::1', N'用户admin登录失败！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'14', N'1', N'0', N'3', N'1', N'2017-04-18 21:40:32.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'23', N'7', N'8', N'4', N'1', N'2017-04-20 20:36:15.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -772,7 +730,13 @@ ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser]
 GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Level]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Source]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 
 -- ----------------------------

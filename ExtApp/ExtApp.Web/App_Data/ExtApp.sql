@@ -1,7 +1,7 @@
 /*
 Navicat SQL Server Data Transfer
 
-Source Server         : SQL Server
+Source Server         : SQLEXPRESS
 Source Server Version : 130000
 Source Host           : .\SQLEXPRESS:1433
 Source Database       : ExtApp
@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-20 21:31:46
+Date: 2017-04-21 07:57:13
 */
 
 
@@ -193,7 +193,7 @@ CREATE TABLE [dbo].[AppDic] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 8)
+DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 10)
 GO
 
 -- ----------------------------
@@ -225,6 +225,12 @@ GO
 INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'8', N'DicType', N'24', N'字典类型', N'1', N'0', null)
 GO
 GO
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'9', N'UrlType', N'24', N'Url类型', N'1', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'10', N'IconType', N'24', N'图标类型', N'1', N'0', null)
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDic] OFF
 GO
 
@@ -245,7 +251,7 @@ CREATE TABLE [dbo].[AppDicItem] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 25)
+DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 29)
 GO
 
 -- ----------------------------
@@ -325,6 +331,18 @@ GO
 INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'25', N'8', N'User', N'用户', N'1', N'2', null)
 GO
 GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'26', N'9', N'ExtJsClass', N'ExtJs类', N'1', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'27', N'9', N'UrlAddress', N'Url地址', N'1', N'2', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'28', N'10', N'CSS', N'CSS样式', N'1', N'1', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'29', N'10', N'IconUrl', N'图标Url', N'1', N'2', null)
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDicItem] OFF
 GO
 
@@ -349,7 +367,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 23)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 24)
 GO
 
 -- ----------------------------
@@ -358,6 +376,9 @@ GO
 SET IDENTITY_INSERT [dbo].[AppLog] ON
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'23', N'7', N'8', N'4', N'1', N'2017-04-20 20:36:15.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'24', N'7', N'8', N'4', N'1', N'2017-04-21 07:37:30.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -379,7 +400,8 @@ CREATE TABLE [dbo].[AppMenu] (
 [Icon] nvarchar(255) NULL ,
 [Status] int NULL ,
 [Sort] int NULL ,
-[Comment] nvarchar(255) NULL 
+[Comment] nvarchar(255) NULL ,
+[DicItem] int NULL 
 )
 
 
@@ -392,37 +414,37 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppMenu] ON
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'1', N'系统管理', N'001', null, N'0', null, N'1', N'Computer', N'1', N'10', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'1', N'系统管理', N'001', null, null, null, N'28', N'Computer', N'1', N'10', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'2', N'权限管理', N'001001', N'1', N'0', null, N'1', N'Userkey', N'1', N'30', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'2', N'权限管理', N'001001', N'1', null, null, N'28', N'Userkey', N'1', N'30', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'3', N'菜单管理', N'001001001', N'2', N'1', N'App.view.authority.menu.List', N'1', N'Applicationsidetree', N'1', N'20', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'3', N'菜单管理', N'001001001', N'2', N'26', N'App.view.authority.menu.List', N'28', N'Applicationsidetree', N'1', N'20', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'4', N'在线办公', N'002', null, N'0', null, N'0', null, N'1', N'20', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'4', N'在线办公', N'002', null, null, null, null, null, N'1', N'20', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'5', N'组织机构', N'001002', N'1', N'1', N'App.view.personnel.dept.List', N'1', N'Building', N'1', N'10', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'5', N'组织机构', N'001002', N'1', N'26', N'App.view.personnel.dept.List', N'28', N'Building', N'1', N'10', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'6', N'用户管理', N'001003', N'1', N'1', N'App.view.personnel.user.List', N'1', N'User', N'1', N'20', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'6', N'用户管理', N'001003', N'1', N'26', N'App.view.personnel.user.List', N'28', N'User', N'1', N'20', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'7', N'角色管理', N'001001002', N'2', N'1', N'App.view.authority.role.List', N'1', N'Group', N'1', N'10', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'7', N'角色管理', N'001001002', N'2', N'26', N'App.view.authority.role.List', N'28', N'Group', N'1', N'10', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'8', N'数据字典', N'001004', N'1', N'0', N'App.view.core.dic.List', N'1', N'Book', N'1', N'40', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'8', N'数据字典', N'001004', N'1', N'26', N'App.view.core.dic.List', N'28', N'Book', N'1', N'40', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'9', N'系统配置', N'001005', N'1', N'1', N'App.view.core.config.List', N'1', N'Wrench', N'1', N'50', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'9', N'系统配置', N'001005', N'1', N'26', N'App.view.core.config.List', N'28', N'Wrench', N'1', N'50', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'10', N'系统日志', N'001006', N'1', N'1', N'App.view.core.logs.List', N'1', N'Page', N'1', N'60', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'10', N'系统日志', N'001006', N'1', N'26', N'App.view.core.logs.List', N'28', N'Page', N'1', N'60', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'4006', N'数据库备份', N'001007', N'1', N'1', N'App.view.core.databaseBackup.List', N'1', N'Database', N'1', N'70', null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [DicItem]) VALUES (N'4006', N'数据库备份', N'001007', N'1', N'26', N'App.view.core.databaseBackup.List', N'28', N'Database', N'1', N'70', null, null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppMenu] OFF
@@ -685,6 +707,8 @@ ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[Ap
 GO
 ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppConfigSection]
@@ -703,6 +727,8 @@ ALTER TABLE [dbo].[AppDatabaseBackup] ADD FOREIGN KEY ([AddUserID]) REFERENCES [
 GO
 ALTER TABLE [dbo].[AppDatabaseBackup] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppDatabaseBackup] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppDept]
@@ -711,9 +737,15 @@ ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppU
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -727,6 +759,8 @@ GO
 -- ----------------------------
 ALTER TABLE [dbo].[AppDic] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppDic] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppDicItem]
@@ -737,10 +771,20 @@ ALTER TABLE [dbo].[AppDicItem] ADD FOREIGN KEY ([DicID]) REFERENCES [dbo].[AppDi
 GO
 ALTER TABLE [dbo].[AppDicItem] ADD FOREIGN KEY ([DicID]) REFERENCES [dbo].[AppDic] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppDicItem] ADD FOREIGN KEY ([DicID]) REFERENCES [dbo].[AppDic] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppLog]
 -- ----------------------------
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Level]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Source]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -763,10 +807,20 @@ ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] (
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([IconType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([DicItem]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppRoleMenu]
 -- ----------------------------
+ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([MenuID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([MenuID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -779,9 +833,15 @@ ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([Sex]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO

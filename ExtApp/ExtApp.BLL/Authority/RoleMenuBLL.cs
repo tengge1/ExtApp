@@ -60,14 +60,15 @@ namespace ExtApp.BLL
                     PName = i.PMenu == null ? "顶级菜单" : i.PMenu.Name,
                     Code = i.Code,
                     Name = i.Name,
-                    UrlType = i.UrlType,
+                    UrlType = i.UrlType == null ? 0 : i.UrlType.ID,
                     Url = i.Url,
-                    IconType = i.IconType,
+                    IconType = i.IconType == null ? 0 : i.IconType.ID,
                     Icon = i.Icon,
                     Sort = i.Sort,
                     Status = i.Status,
                     Comment = i.Comment
                 };
+
 
                 if (auth.Where(o => o.Role != null && o.Role.ID == roleID
                 && o.Menu != null && o.Menu.ID == i.ID).Count() > 0) // 该角色具有该权限

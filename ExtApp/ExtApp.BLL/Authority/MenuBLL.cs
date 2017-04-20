@@ -87,9 +87,9 @@ namespace ExtApp.BLL
                     PName = i.PMenu == null ? "顶级菜单" : i.PMenu.Name,
                     Code = i.Code,
                     Name = i.Name,
-                    UrlType = i.UrlType,
+                    UrlType = i.UrlType == null ? 0 : i.UrlType.ID,
                     Url = i.Url,
-                    IconType = i.IconType,
+                    IconType = i.IconType == null ? 0 : i.IconType.ID,
                     Icon = i.Icon,
                     Sort = i.Sort,
                     Status = i.Status,
@@ -167,15 +167,21 @@ namespace ExtApp.BLL
                 Code = Code,
                 Comment = p.Comment,
                 Icon = p.Icon,
-                IconType = p.IconType,
                 ID = 0,
                 Name = p.Name,
                 PMenu = p.PID == 0 ? null : new Menu { ID = p.PID },
                 Sort = p.Sort,
                 Status = p.Status,
-                Url = p.Url,
-                UrlType = p.UrlType
+                Url = p.Url
             };
+            if (p.IconType != 0)
+            {
+                menu.IconType = new DicItem { ID = p.IconType };
+            }
+            if (p.UrlType != 0)
+            {
+                menu.IconType = new DicItem { ID = p.UrlType };
+            }
             var result = dal.Add(menu);
             if (result)
             {
@@ -199,16 +205,21 @@ namespace ExtApp.BLL
             {
                 return new Result(300, "数据不存在！");
             }
-            //model.Code = p.Code;
             model.Comment = p.Comment;
             model.Icon = p.Icon;
-            model.IconType = p.IconType;
             model.Name = p.Name;
             model.PMenu = p.PID == 0 ? null : new Menu { ID = p.PID };
             model.Sort = p.Sort;
             model.Status = p.Status;
             model.Url = p.Url;
-            model.UrlType = p.UrlType;
+            if (p.IconType != 0)
+            {
+                model.IconType = new DicItem { ID = p.IconType };
+            }
+            if (p.UrlType != 0)
+            {
+                model.UrlType = new DicItem { ID = p.UrlType };
+            }
 
             var result = dal.Edit(model);
             if (result)

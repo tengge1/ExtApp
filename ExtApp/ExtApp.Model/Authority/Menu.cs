@@ -38,10 +38,10 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 类型（1-模块，2-url）
+        /// Url类型
         /// </summary>
-        [Property(4)]
-        public virtual int? UrlType { get; set; }
+        [ManyToOne(4, ClassType = typeof(DicItem), Column = "DicItem", Lazy = Laziness.False)]
+        public virtual DicItem UrlType { get; set; }
 
         /// <summary>
         /// 模块地址或url
@@ -50,10 +50,10 @@ namespace ExtApp.Model
         public virtual string Url { get; set; }
 
         /// <summary>
-        /// 图标类型（1-样式表类名，2-图片路径）
+        /// 图标类型
         /// </summary>
-        [Property(6)]
-        public virtual int? IconType { get; set; }
+        [ManyToOne(6, ClassType = typeof(DicItem), Column = "IconType", Lazy = Laziness.False)]
+        public virtual DicItem IconType { get; set; }
 
         /// <summary>
         /// 图标

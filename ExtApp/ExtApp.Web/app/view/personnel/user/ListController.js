@@ -67,6 +67,26 @@ Ext.define('App.view.personnel.user.ListController', {
         });
     },
 
+    onResetPasswordClick: function () {
+        var view = this.getView();
+        var selected = view.down('gridpanel').getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择！');
+            return;
+        }
+        App.confirm('消息', '是否重置所选用户密码？', function () {
+            App.post('/api/User/Delete?ID=' + selected.items[0].data.ID, function (data) {
+                var obj = JSON.parse(data);
+                if (obj.Code == 200) {
+                    view.down('pagingtoolbar').moveFirst();
+                    App.notify('消息', obj.Msg);
+                } else {
+                    App.alert('错误', obj.Msg);
+                }
+            })
+        });
+    },
+
     onSearchClick: function () {
         var view = this.getView();
         var values = view.down('searchform').form.getValues();

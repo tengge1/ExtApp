@@ -166,6 +166,7 @@
     <Content Include="app\plugin\ProgressBarPager.js" />
     <Content Include="app\renderer\SexRenderer.js" />
     <Content Include="app\renderer\StatusRenderer.js" />
+    <Content Include="app\store\authority\MenuTreeAuth.js" />
     <Content Include="app\store\authority\MenuTree.js" />
     <Content Include="app\store\authority\RoleAll.js" />
     <Content Include="app\store\core\ConfigSectionTree.js" />

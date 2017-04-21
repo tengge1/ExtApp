@@ -35,11 +35,12 @@ namespace ExtApp.Controller
         /// 获取子节点
         /// </summary>
         /// <param name="PID"></param>
+        /// <param name="authorize"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult GetChildNodes(int PID)
+        public JsonResult GetChildNodes(int PID, bool? authorize = false)
         {
-            var list = bll.GetChildNodes(PID);
+            var list = bll.GetChildNodes(PID, authorize);
             return base.List<MenuNode>(list.Count(), list);
         }
 

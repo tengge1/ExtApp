@@ -44,20 +44,30 @@ namespace ExtApp.BLL
         /// 获取子节点
         /// </summary>
         /// <param name="PID"></param>
+        /// <param name="authorize"></param>
         /// <returns></returns>
-        public IList<MenuNode> GetChildNodes(int PID)
+        public IList<MenuNode> GetChildNodes(int PID, bool? authorize = false)
         {
             // 节点
             var nodes = new List<MenuNode>();
 
-            // 权限
-            if (AdminHelper.Admin == null || AdminHelper.Admin.Role == null) // 尚未登录或者未设置角色
+            IList<Menu> auth;
+            if (authorize == true)
             {
-                return nodes;
+                // 权限
+                if (AdminHelper.Admin == null || AdminHelper.Admin.Role == null) // 尚未登录或者未设置角色
+                {
+                    return nodes;
+                }
+                var roleID = AdminHelper.Admin.Role.ID;
+                var query = Restrictions.Eq("Role", new Role { ID = roleID });
+                auth = roleMenuDAL.List(query).Select(o => o.Menu).ToList();
             }
-            var roleID = AdminHelper.Admin.Role.ID;
-            var query = Restrictions.Eq("Role", new Role { ID = roleID });
-            var auth = roleMenuDAL.List(query).Select(o => o.Menu).ToList();
+            else
+            {
+                var query = Restrictions.Gt("Status", -1);
+                auth = dal.List(query, "Sort", Sort.Asc);
+            }
 
             // 菜单
             var list = auth.Where(o => o.Status > -1).OrderBy(o => o.Sort).ToList();

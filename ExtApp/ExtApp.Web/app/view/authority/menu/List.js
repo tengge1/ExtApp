@@ -22,7 +22,9 @@ Ext.define("App.view.authority.menu.List", {
         rootVisible: true,
         collapsible: true,
         split: true,
-        store: Ext.create('App.store.authority.MenuTree'),
+        store: Ext.create('App.store.authority.MenuTree', {
+            authorize: false
+        }),
 
         tools: [{
             itemId: 'refresh',

@@ -5,7 +5,7 @@ Ext.define('App.view.main.accordion.MenuController', {
 
     init: function () {
         var view = this.getView();
-        var store = Ext.create('App.store.authority.MenuTree');
+        var store = Ext.create('App.store.authority.MenuTreeAuth');
         store.on('load', function (sender, records, successful, operation, node, eOpts) {
             if (!successful) {
                 return;
@@ -23,7 +23,9 @@ Ext.define('App.view.main.accordion.MenuController', {
                             expanded: true
                         },
                         rootVisible: false,
-                        store: Ext.create('App.store.authority.MenuTree'),
+                        store: Ext.create('App.store.authority.MenuTreeAuth', {
+                            authorize: true
+                        }),
                         listeners: {
                             beforeload: function (store, operation, eOpts) {
                                 this.mask('加载中...');

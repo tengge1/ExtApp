@@ -40,7 +40,7 @@ namespace ExtApp.Model
         /// <summary>
         /// Url类型
         /// </summary>
-        [ManyToOne(4, ClassType = typeof(DicItem), Column = "DicItem", Lazy = Laziness.False)]
+        [ManyToOne(4, ClassType = typeof(DicItem), Column = "UrlType", Lazy = Laziness.False)]
         public virtual DicItem UrlType { get; set; }
 
         /// <summary>

@@ -44,13 +44,10 @@ Ext.define('App.view.authority.menu.Edit', {
         }, {
             xtype: 'combo',
             name: 'UrlType',
-            store: [[
-                1, 'ExtJs类名'
-            ], [
-                2, 'Url地址'
-            ]],
-            value: 0,
-            fieldLabel: '菜单类型',
+            store: Ext.create('App.store.dic.UrlType'),
+            valueField: 'ID',
+            displayField: 'Name',
+            fieldLabel: '链接类型',
             editable: false,
             emptyText: '请选择'
         }, {
@@ -60,12 +57,9 @@ Ext.define('App.view.authority.menu.Edit', {
         }, {
             xtype: 'combo',
             name: 'IconType',
-            store: [[
-                1, 'css样式'
-            ], [
-                2, '图片url'
-            ]],
-            value: 0,
+            store: Ext.create('App.store.dic.IconType'),
+            valueField: 'ID',
+            displayField: 'Name',
             fieldLabel: '图标类型',
             editable: false,
             emptyText: '请选择'

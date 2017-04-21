@@ -180,7 +180,7 @@ namespace ExtApp.BLL
             }
             if (p.UrlType != 0)
             {
-                menu.IconType = new DicItem { ID = p.UrlType };
+                menu.UrlType = new DicItem { ID = p.UrlType };
             }
             var result = dal.Add(menu);
             if (result)

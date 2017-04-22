@@ -75,7 +75,7 @@ Ext.define('App.view.personnel.user.ListController', {
             return;
         }
         App.confirm('消息', '是否重置所选用户密码？', function () {
-            App.post('/api/User/Delete?ID=' + selected.items[0].data.ID, function (data) {
+            App.post('/api/User/ResetPassword?ID=' + selected.items[0].data.ID, function (data) {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
                     view.down('pagingtoolbar').moveFirst();

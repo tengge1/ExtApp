@@ -23,17 +23,17 @@ Ext.define("App.view.personnel.user.List", {
         xtype: 'button',
         text: '编辑',
         iconCls: 'Applicationedit',
-        listeners: 'onEditClick'
+        handler: 'onEditClick'
     }, {
         xtype: 'button',
         text: '删除',
         iconCls: 'Delete',
-        listeners: 'onDeleteClick'
+        handler: 'onDeleteClick'
     }, {
         xtype: 'button',
         text: '重置密码',
         iconCls: 'Lock',
-        listeners: 'onResetPasswordClick'
+        handler: 'onResetPasswordClick'
     }],
 
     items: [{

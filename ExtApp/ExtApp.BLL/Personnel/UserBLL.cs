@@ -189,5 +189,27 @@ namespace ExtApp.BLL
             }
             return base.Delete(ID);
         }
+
+        /// <summary>
+        /// 重置用户密码
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public Result ResetPassword(int ID)
+        {
+            var initPassword = ConfigHelper.Get("UserInitPwd");
+            if (initPassword == null)
+            {
+                initPassword = "123";
+            }
+            var model = dal.Get(ID);
+            if (model == null)
+            {
+                return new Result(300, "该用户不存在！");
+            }
+            model.Password = PasswordHelper.Crypt(initPassword);
+            dal.Edit(model);
+            return new Result(200, "密码重置成功！");
+        }
     }
 }

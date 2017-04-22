@@ -94,5 +94,16 @@ namespace ExtApp.Controller
             var result = bll.Delete(ID);
             return Json(result);
         }
+
+        /// <summary>
+        /// 重置密码
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult ResetPassword(int ID)
+        {
+            return Json(bll.ResetPassword(ID));
+        }
     }
 }

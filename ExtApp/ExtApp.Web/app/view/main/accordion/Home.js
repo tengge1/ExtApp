@@ -7,7 +7,6 @@ Ext.define('App.view.main.accordion.Home', {
     border: false,
     bodyBorder: false,
     autoScroll: true,
-    padding: 10,
 
     items: [{
         xtype: 'displayfield',
@@ -18,7 +17,7 @@ Ext.define('App.view.main.accordion.Home', {
     }, {
         xtype: 'displayfield',
         fieldLabel: '版本',
-        value: 'v1.1',
+        value: 'v1.0.1',
         labelAlign: 'right',
         labelWidth: 60
     }, {
@@ -33,19 +32,27 @@ Ext.define('App.view.main.accordion.Home', {
         items: [{
             xtype: 'displayfield',
             hideLabel: true,
-            value: '1、使用NHibernate Code First自动创建数据表'
+            value: '1、使用NHibernate自动创建数据表。'
         }, {
             xtype: 'displayfield',
             hideLabel: true,
-            value: '2、使用NHibernate Attribute通过属性配置映射，不需要手工编写xml文件'
+            value: '2、使用NHibernate Attribute通过属性配置映射，不需要手工编写xml文件。'
         }, {
             xtype: 'displayfield',
             hideLabel: true,
-            value: '3、PC和手机端共享同样的API Controller接口'
+            value: '3、PC和手机端共享同样的API Controller接口。'
         }, {
             xtype: 'displayfield',
             hideLabel: true,
-            value: '4、ExtJs动态加载js文件'
+            value: '4、ExtJs动态加载js文件。'
+        }, {
+            xtype: 'displayfield',
+            hideLabel: true,
+            value: '5、支持折叠面板和桌面模式。'
+        }, {
+            xtype: 'displayfield',
+            hideLabel: true,
+            value: '6、支持皮肤动态切换。'
         }],
         labelAlign: 'right',
         labelWidth: 60

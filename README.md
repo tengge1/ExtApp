@@ -1,4 +1,4 @@
-# ExtApp v1.0
+# ExtApp v1.0.0
 
 ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创建的，用于简化政府和企业应用开发的单页Web应用框架。
 

@@ -253,3 +253,6 @@ paket-files/
 
 # 添加Web下面的packages目录
 !ExtApp/ExtApp.Web/packages/*
+
+# 排除程序日志
+ExtApp/Logs/*

@@ -258,3 +258,76 @@
 2017-04-22 20:35:02,197 [13]INFO  NHibernate.Loader.Loader - SELECT menu0_.ID as ID1_1_0_, menu0_.Code as Code2_1_0_, menu0_.Name as Name3_1_0_, menu0_.UrlType as UrlTyp4_1_0_, menu0_.Url as Url5_1_0_, menu0_.IconType as IconTy6_1_0_, menu0_.Icon as Icon7_1_0_, menu0_.Sort as Sort8_1_0_, menu0_.Status as Status9_1_0_, menu0_.Comment as Comme10_1_0_, menu0_.PID as PID11_1_0_ FROM AppMenu menu0_ WHERE menu0_.ID=@p0
 2017-04-22 20:35:02,205 [13]INFO  NHibernate.Loader.Loader - SELECT menu0_.ID as ID1_1_0_, menu0_.Code as Code2_1_0_, menu0_.Name as Name3_1_0_, menu0_.UrlType as UrlTyp4_1_0_, menu0_.Url as Url5_1_0_, menu0_.IconType as IconTy6_1_0_, menu0_.Icon as Icon7_1_0_, menu0_.Sort as Sort8_1_0_, menu0_.Status as Status9_1_0_, menu0_.Comment as Comme10_1_0_, menu0_.PID as PID11_1_0_ FROM AppMenu menu0_ WHERE menu0_.ID=@p0
 2017-04-22 20:36:12,787 [14]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-04-24 07:35:44,304 [9]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-04-24 07:36:12,797 [9]WARN  NHibernate.Util.ADOExceptionReporter - System.Data.SqlClient.SqlException (0x80131904): DELETE 语句与 REFERENCE 约束"FK36839F5318F805C3"冲突。该冲突发生于数据库"ExtApp"，表"dbo.AppRoleMenu", column 'MenuID'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 lambda_method(Closure , Object )
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+ClientConnectionId:25c38e2b-3331-480a-9db2-c32af8327b5e
+Error Number:547,State:0,Class:16
+2017-04-24 07:36:12,802 [9]ERROR NHibernate.Util.ADOExceptionReporter - DELETE 语句与 REFERENCE 约束"FK36839F5318F805C3"冲突。该冲突发生于数据库"ExtApp"，表"dbo.AppRoleMenu", column 'MenuID'。
+语句已终止。
+2017-04-24 07:36:12,803 [9]ERROR NHibernate.Event.Default.AbstractFlushingEventListener - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK36839F5318F805C3"冲突。该冲突发生于数据库"ExtApp"，表"dbo.AppRoleMenu", column 'MenuID'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 lambda_method(Closure , Object )
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   在 NHibernate.Engine.ActionQueue.ExecuteActions()
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+2017-04-24 07:36:12,805 [9]ERROR ExtApp.DAL.MenuDAL - could not execute batch command.[SQL: SQL not available]
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK36839F5318F805C3"冲突。该冲突发生于数据库"ExtApp"，表"dbo.AppRoleMenu", column 'MenuID'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   在 System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   在 lambda_method(Closure , Object )
+   在 NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   在 NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   在 NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   在 NHibernate.Engine.ActionQueue.ExecuteActions()
+   在 NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+   在 NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   在 NHibernate.Impl.SessionImpl.Flush()
+   在 ExtApp.DAL.BaseDAL`1.Delete(Int32 ID) 位置 E:\GitHub\ExtApp\ExtApp\ExtApp.DAL\BaseDAL.cs:行号 177
+2017-04-24 07:50:01,145 [30]WARN  NHibernate.Cfg.Configuration - No mapped documents found in assembly: ExtApp.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

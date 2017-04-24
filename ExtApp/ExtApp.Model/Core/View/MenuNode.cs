@@ -17,6 +17,7 @@ namespace ExtApp.Model
         public string Code { get; set; }
         public string Name { get; set; }
         public int? UrlType { get; set; }
+        public int? OpenType { get; set; }
         public string Url { get; set; }
         public int? IconType { get; set; }
         public string Icon { get; set; }

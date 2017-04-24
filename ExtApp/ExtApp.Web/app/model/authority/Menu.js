@@ -11,6 +11,7 @@ Ext.define('App.model.authority.Menu', {
         'Name',
         'UrlType',
         'Url',
+        'OpenType',
         'IconType',
         'Icon',
         'Sort',

@@ -50,33 +50,39 @@ namespace ExtApp.Model
         public virtual string Url { get; set; }
 
         /// <summary>
+        /// 打开方式
+        /// </summary>
+        [ManyToOne(6, ClassType = typeof(DicItem), Column = "OpenType", Lazy = Laziness.False)]
+        public virtual DicItem OpenType { get; set; }
+
+        /// <summary>
         /// 图标类型
         /// </summary>
-        [ManyToOne(6, ClassType = typeof(DicItem), Column = "IconType", Lazy = Laziness.False)]
+        [ManyToOne(7, ClassType = typeof(DicItem), Column = "IconType", Lazy = Laziness.False)]
         public virtual DicItem IconType { get; set; }
 
         /// <summary>
         /// 图标
         /// </summary>
-        [Property(6)]
+        [Property(8)]
         public virtual string Icon { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(7)]
+        [Property(9)]
         public virtual int? Sort { get; set; }
 
         /// <summary>
         /// 状态（1-启用，0-禁用）
         /// </summary>
-        [Property(8)]
+        [Property(10)]
         public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(9)]
+        [Property(11)]
         public virtual string Comment { get; set; }
     }
 }

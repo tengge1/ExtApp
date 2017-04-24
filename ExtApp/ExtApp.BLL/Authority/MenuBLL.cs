@@ -99,6 +99,7 @@ namespace ExtApp.BLL
                     Name = i.Name,
                     UrlType = i.UrlType == null ? 0 : i.UrlType.ID,
                     Url = i.Url,
+                    OpenType = i.OpenType == null ? 0 : i.OpenType.ID,
                     IconType = i.IconType == null ? 0 : i.IconType.ID,
                     Icon = i.Icon,
                     Sort = i.Sort,
@@ -182,7 +183,8 @@ namespace ExtApp.BLL
                 PMenu = p.PID == 0 ? null : new Menu { ID = p.PID },
                 Sort = p.Sort,
                 Status = p.Status,
-                Url = p.Url
+                Url = p.Url,
+                OpenType = p.OpenType == null ? null : new DicItem { ID = p.OpenType.Value }
             };
             if (p.IconType != 0)
             {
@@ -222,6 +224,7 @@ namespace ExtApp.BLL
             model.Sort = p.Sort;
             model.Status = p.Status;
             model.Url = p.Url;
+            model.OpenType = p.OpenType == null ? null : new DicItem { ID = p.OpenType.Value };
             if (p.IconType != 0)
             {
                 model.IconType = new DicItem { ID = p.IconType };

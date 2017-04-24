@@ -51,17 +51,19 @@ Ext.define('App.view.authority.menu.Edit', {
             editable: false,
             emptyText: '请选择'
         }, {
-            xtype: 'combo',
-            name: 'Iframe',
-            value: 1,
-            store: [[1, '是'], [0, '否']],
-            fieldLabel: 'iframe打开',
-            editable: false,
-            emptyText: '请选择'
+            xtype: 'textfield',
+            name: 'Url',
+            fieldLabel: '类名/Url'
         }, {
             xtype: 'combo',
-            name: 'i',
-            fieldLabel: '类名/Url'
+            name: 'OpenType',
+            value: 1,
+            store: Ext.create('App.store.dic.OpenType'),
+            valueField: 'ID',
+            displayField: 'Name',
+            fieldLabel: '打开方式',
+            editable: false,
+            emptyText: '请选择'
         }, {
             xtype: 'combo',
             name: 'IconType',

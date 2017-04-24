@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-21 20:52:38
+Date: 2017-04-24 22:03:30
 */
 
 
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[AppConfig] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppConfig]', RESEED, 2)
+DBCC CHECKIDENT(N'[dbo].[AppConfig]', RESEED, 4)
 GO
 
 -- ----------------------------
@@ -45,6 +45,12 @@ INSERT INTO [dbo].[AppConfig] ([ID], [Name], [ConfigKey], [ConfigValue], [Status
 GO
 GO
 INSERT INTO [dbo].[AppConfig] ([ID], [Name], [ConfigKey], [ConfigValue], [Status], [SectionID], [Sort], [Comment]) VALUES (N'2', N'数据库名称', N'DatabaseName', N'ExtApp', N'1', N'1003', N'1', N'连接数据库的名称，数据库备份还原使用。')
+GO
+GO
+INSERT INTO [dbo].[AppConfig] ([ID], [Name], [ConfigKey], [ConfigValue], [Status], [SectionID], [Sort], [Comment]) VALUES (N'3', N'框架样式', N'FrameStyle', N'accordion', N'1', N'1004', N'0', N'框架样式字典中的一种。')
+GO
+GO
+INSERT INTO [dbo].[AppConfig] ([ID], [Name], [ConfigKey], [ConfigValue], [Status], [SectionID], [Sort], [Comment]) VALUES (N'4', N'ExtJs主题', N'ExtJsTheme', N'classic', N'1', N'1004', N'0', N'ExtJs主题字典中的其中一种。')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppConfig] OFF
@@ -66,7 +72,7 @@ CREATE TABLE [dbo].[AppConfigSection] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppConfigSection]', RESEED, 1003)
+DBCC CHECKIDENT(N'[dbo].[AppConfigSection]', RESEED, 1004)
 GO
 
 -- ----------------------------
@@ -74,10 +80,13 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppConfigSection] ON
 GO
-INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'2', N'用户配置', N'1', null, N'1', null)
+INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'2', N'用户管理配置', N'1', null, N'1', null)
 GO
 GO
 INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'1003', N'数据库配置', N'1', null, N'2', null)
+GO
+GO
+INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'1004', N'用户界面配置', N'1', null, N'0', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppConfigSection] OFF
@@ -193,7 +202,7 @@ CREATE TABLE [dbo].[AppDic] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 10)
+DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 11)
 GO
 
 -- ----------------------------
@@ -231,6 +240,9 @@ GO
 INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'10', N'IconType', N'24', N'图标类型', N'1', N'0', null)
 GO
 GO
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'11', N'OpenType', N'24', N'菜单打开方式', N'1', N'0', null)
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDic] OFF
 GO
 
@@ -251,7 +263,7 @@ CREATE TABLE [dbo].[AppDicItem] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 29)
+DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 34)
 GO
 
 -- ----------------------------
@@ -343,6 +355,21 @@ GO
 INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'29', N'10', N'IconUrl', N'图标Url', N'1', N'2', null)
 GO
 GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'30', N'11', N'NoIframe', N'非iframe方式', N'1', N'1', N'选项卡中打开，不使用iframe。')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'31', N'11', N'Iframe', N'iframe方式', N'1', N'2', N'选项卡中打开，使用Iframe。')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'32', N'11', N'Dialog', N'对话框中打开', N'1', N'3', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'33', N'11', N'Top', N'顶层窗口打开', N'1', N'4', null)
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'34', N'11', N'Blank', N'新选项卡', N'1', N'5', null)
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDicItem] OFF
 GO
 
@@ -367,28 +394,13 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 27)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 37)
 GO
 
 -- ----------------------------
 -- Records of AppLog
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppLog] ON
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'23', N'7', N'8', N'4', N'1', N'2017-04-20 20:36:15.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'24', N'7', N'8', N'4', N'1', N'2017-04-21 07:37:30.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'25', N'7', N'8', N'4', N'1', N'2017-04-21 20:36:25.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'26', N'7', N'8', N'4', null, N'2017-04-21 20:49:14.000', N'::1', N'用户admin登录失败！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'27', N'7', N'8', N'4', N'1', N'2017-04-21 20:49:18.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
 GO
@@ -414,7 +426,7 @@ CREATE TABLE [dbo].[AppMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4008)
+DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4009)
 GO
 
 -- ----------------------------
@@ -453,9 +465,6 @@ INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [Ico
 GO
 GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'4006', N'数据库备份', N'001007', N'1', N'26', N'App.view.core.databaseBackup.List', N'28', N'Database', N'1', N'70', null)
-GO
-GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment]) VALUES (N'4008', N'测试1', N'003', null, N'26', N'111', N'29', N'222', N'1', N'1111', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppMenu] OFF
@@ -551,9 +560,6 @@ GO
 INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'23', N'2006', N'4')
 GO
 GO
-INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'24', N'5', N'4008')
-GO
-GO
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] OFF
 GO
 
@@ -600,6 +606,112 @@ INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleI
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppUser] OFF
+GO
+
+-- ----------------------------
+-- Table structure for Workflow
+-- ----------------------------
+DROP TABLE [dbo].[Workflow]
+GO
+CREATE TABLE [dbo].[Workflow] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(255) NULL ,
+[Version] int NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of Workflow
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[Workflow] ON
+GO
+SET IDENTITY_INSERT [dbo].[Workflow] OFF
+GO
+
+-- ----------------------------
+-- Table structure for WorkflowEvent
+-- ----------------------------
+DROP TABLE [dbo].[WorkflowEvent]
+GO
+CREATE TABLE [dbo].[WorkflowEvent] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(255) NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of WorkflowEvent
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[WorkflowEvent] ON
+GO
+SET IDENTITY_INSERT [dbo].[WorkflowEvent] OFF
+GO
+
+-- ----------------------------
+-- Table structure for WorkflowInstance
+-- ----------------------------
+DROP TABLE [dbo].[WorkflowInstance]
+GO
+CREATE TABLE [dbo].[WorkflowInstance] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(255) NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of WorkflowInstance
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[WorkflowInstance] ON
+GO
+SET IDENTITY_INSERT [dbo].[WorkflowInstance] OFF
+GO
+
+-- ----------------------------
+-- Table structure for WorkflowLine
+-- ----------------------------
+DROP TABLE [dbo].[WorkflowLine]
+GO
+CREATE TABLE [dbo].[WorkflowLine] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(255) NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of WorkflowLine
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[WorkflowLine] ON
+GO
+SET IDENTITY_INSERT [dbo].[WorkflowLine] OFF
+GO
+
+-- ----------------------------
+-- Table structure for WorkflowNode
+-- ----------------------------
+DROP TABLE [dbo].[WorkflowNode]
+GO
+CREATE TABLE [dbo].[WorkflowNode] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Name] nvarchar(255) NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of WorkflowNode
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[WorkflowNode] ON
+GO
+SET IDENTITY_INSERT [dbo].[WorkflowNode] OFF
 GO
 
 -- ----------------------------
@@ -713,6 +825,56 @@ ALTER TABLE [dbo].[AppUser] ADD PRIMARY KEY ([ID])
 GO
 
 -- ----------------------------
+-- Indexes structure for table Workflow
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table Workflow
+-- ----------------------------
+ALTER TABLE [dbo].[Workflow] ADD PRIMARY KEY ([ID])
+GO
+
+-- ----------------------------
+-- Indexes structure for table WorkflowEvent
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table WorkflowEvent
+-- ----------------------------
+ALTER TABLE [dbo].[WorkflowEvent] ADD PRIMARY KEY ([ID])
+GO
+
+-- ----------------------------
+-- Indexes structure for table WorkflowInstance
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table WorkflowInstance
+-- ----------------------------
+ALTER TABLE [dbo].[WorkflowInstance] ADD PRIMARY KEY ([ID])
+GO
+
+-- ----------------------------
+-- Indexes structure for table WorkflowLine
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table WorkflowLine
+-- ----------------------------
+ALTER TABLE [dbo].[WorkflowLine] ADD PRIMARY KEY ([ID])
+GO
+
+-- ----------------------------
+-- Indexes structure for table WorkflowNode
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table WorkflowNode
+-- ----------------------------
+ALTER TABLE [dbo].[WorkflowNode] ADD PRIMARY KEY ([ID])
+GO
+
+-- ----------------------------
 -- Foreign Key structure for table [dbo].[AppConfig]
 -- ----------------------------
 ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -729,6 +891,8 @@ GO
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppConfigSection]
 -- ----------------------------
+ALTER TABLE [dbo].[AppConfigSection] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppConfigSection] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppConfigSection] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION

@@ -9,8 +9,9 @@ Ext.define('App.widget.MenuSelect', {
     displayField: 'text',
     fieldLabel: '菜单',
     store: Ext.create('App.store.authority.MenuTree'),
+    autoScroll: true,
 
     reset: function () {
-        this.getStore().reload();
+        //this.getStore().reload();
     }
 });

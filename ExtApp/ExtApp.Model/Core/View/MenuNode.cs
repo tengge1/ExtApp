@@ -16,10 +16,16 @@ namespace ExtApp.Model
         public string PName { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
-        public int? UrlType { get; set; }
-        public int? OpenType { get; set; }
+        public int? UrlTypeID { get; set; }
+        public string UrlTypeCode { get; set; }
+        public string UrlTypeName { get; set; }
+        public int? OpenTypeID { get; set; }
+        public string OpenTypeCode { get; set; }
+        public string OpenTypeName { get; set; }
         public string Url { get; set; }
-        public int? IconType { get; set; }
+        public int? IconTypeID { get; set; }
+        public string IconTypeCode { get; set; }
+        public string IconTypeName { get; set; }
         public string Icon { get; set; }
         public int? Sort { get; set; }
         public int? Status { get; set; }

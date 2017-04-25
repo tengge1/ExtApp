@@ -3,6 +3,10 @@ Ext.define('App.view.main.accordion.MenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menu',
 
+    requires: [
+        'Ext.ux.IFrame'
+    ],
+
     init: function () {
         var view = this.getView();
         var store = Ext.create('App.store.authority.MenuTreeAuth');
@@ -62,29 +66,40 @@ Ext.define('App.view.main.accordion.MenuController', {
             return;
         }
 
-        // 创建相应类
-        var p = Ext.create(url);
-        var tp = Ext.getCmp('tpMain');
-
-        // 显示蒙版
-        var mask = Ext.create('Ext.LoadMask', {
-            target: tp,
-            msg: '加载中...',
-            indicator: true,
-            centered: true
-        });
-        mask.show();
-
         // 标签页存在就切换标签页，不存在就添加标签页
-        var p1 = tp.items.findBy(function (item) {
+        var tp = Ext.getCmp('tpMain');
+        var p = tp.items.findBy(function (item) {
             return item.title == text;
         });
-        if (p1 == null) {
-            tp.add(p);
+
+        if (p != null) {
             tp.setActiveTab(p);
-        } else {
-            tp.setActiveTab(p1);
+            return;
         }
-        mask.hide();
+        App.query('viewport').mask('请稍后...');
+        switch (record.data.OpenTypeCode) { // 打开方式
+            case 'NoIframe': // 非iframe方式
+                // 创建相应类
+                p = Ext.create(url);
+                tp.add(p);
+                tp.setActiveTab(p);
+                App.query('viewport').unmask();
+                break;
+            case 'Iframe': // iframe方式
+                p = Ext.create('Ext.Container', {
+                    title: record.data.Name,
+                    closable: true,
+                    html: '<iframe src="iframe.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>',
+                });
+                tp.add(p);
+                tp.setActiveTab(p);
+                break;
+            case 'Dialog': // 对话框方式
+                break;
+            case 'Top': // 顶层窗口打开
+                break;
+            case 'Blank': // 新选项卡
+                break;
+        }
     }
 });

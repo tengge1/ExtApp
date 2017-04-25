@@ -43,7 +43,7 @@ Ext.define('App.view.authority.menu.Edit', {
             allowBlank: false
         }, {
             xtype: 'combo',
-            name: 'UrlType',
+            name: 'UrlTypeID',
             store: Ext.create('App.store.dic.UrlType'),
             valueField: 'ID',
             displayField: 'Name',
@@ -56,7 +56,7 @@ Ext.define('App.view.authority.menu.Edit', {
             fieldLabel: '类名/Url'
         }, {
             xtype: 'combo',
-            name: 'OpenType',
+            name: 'OpenTypeID',
             value: 1,
             store: Ext.create('App.store.dic.OpenType'),
             valueField: 'ID',
@@ -66,7 +66,7 @@ Ext.define('App.view.authority.menu.Edit', {
             emptyText: '请选择'
         }, {
             xtype: 'combo',
-            name: 'IconType',
+            name: 'IconTypeID',
             store: Ext.create('App.store.dic.IconType'),
             valueField: 'ID',
             displayField: 'Name',

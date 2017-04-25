@@ -97,10 +97,16 @@ namespace ExtApp.BLL
                     PName = i.PMenu == null ? "顶级菜单" : i.PMenu.Name,
                     Code = i.Code,
                     Name = i.Name,
-                    UrlType = i.UrlType == null ? 0 : i.UrlType.ID,
+                    UrlTypeID = i.UrlType == null ? 0 : i.UrlType.ID,
+                    UrlTypeCode = i.UrlType == null ? "" : i.UrlType.Code,
+                    UrlTypeName = i.UrlType == null ? "" : i.UrlType.Name,
                     Url = i.Url,
-                    OpenType = i.OpenType == null ? 0 : i.OpenType.ID,
-                    IconType = i.IconType == null ? 0 : i.IconType.ID,
+                    OpenTypeID = i.OpenType == null ? 0 : i.OpenType.ID,
+                    OpenTypeCode = i.OpenType == null ? "" : i.OpenType.Code,
+                    OpenTypeName = i.OpenType == null ? "" : i.OpenType.Name,
+                    IconTypeID = i.IconType == null ? 0 : i.IconType.ID,
+                    IconTypeCode = i.IconType == null ? "" : i.IconType.Code,
+                    IconTypeName = i.IconType == null ? "" : i.IconType.Name,
                     Icon = i.Icon,
                     Sort = i.Sort,
                     Status = i.Status,
@@ -184,16 +190,10 @@ namespace ExtApp.BLL
                 Sort = p.Sort,
                 Status = p.Status,
                 Url = p.Url,
-                OpenType = p.OpenType == null ? null : new DicItem { ID = p.OpenType.Value }
+                UrlType = p.UrlTypeID == null ? null : new DicItem { ID = p.UrlTypeID.Value },
+                OpenType = p.OpenTypeID == null ? null : new DicItem { ID = p.OpenTypeID.Value },
+                IconType = p.IconTypeID == null ? null : new DicItem { ID = p.IconTypeID.Value }
             };
-            if (p.IconType != 0)
-            {
-                menu.IconType = new DicItem { ID = p.IconType };
-            }
-            if (p.UrlType != 0)
-            {
-                menu.UrlType = new DicItem { ID = p.UrlType };
-            }
             var result = dal.Add(menu);
             if (result)
             {
@@ -224,15 +224,9 @@ namespace ExtApp.BLL
             model.Sort = p.Sort;
             model.Status = p.Status;
             model.Url = p.Url;
-            model.OpenType = p.OpenType == null ? null : new DicItem { ID = p.OpenType.Value };
-            if (p.IconType != 0)
-            {
-                model.IconType = new DicItem { ID = p.IconType };
-            }
-            if (p.UrlType != 0)
-            {
-                model.UrlType = new DicItem { ID = p.UrlType };
-            }
+            model.OpenType = p.OpenTypeID == null ? null : new DicItem { ID = p.OpenTypeID.Value };
+            model.UrlType = p.UrlTypeID == null ? null : new DicItem { ID = p.UrlTypeID.Value };
+            model.IconType = p.IconTypeID == null ? null : new DicItem { ID = p.IconTypeID.Value };
 
             var result = dal.Edit(model);
             if (result)

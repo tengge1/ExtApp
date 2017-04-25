@@ -15,10 +15,10 @@ namespace ExtApp.Model
         public int PID { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
-        public int UrlType { get; set; }
+        public int? UrlTypeID { get; set; }
         public string Url { get; set; }
-        public int? OpenType { get; set; }
-        public int IconType { get; set; }
+        public int? OpenTypeID { get; set; }
+        public int? IconTypeID { get; set; }
         public string Icon { get; set; }
         public int? Sort { get; set; }
         public int? Status { get; set; }

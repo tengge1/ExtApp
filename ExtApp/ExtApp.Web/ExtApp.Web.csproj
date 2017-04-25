@@ -3940,7 +3940,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">
       <Project>{116f412d-4bf1-41b8-918b-8aebd5bcd194}</Project>

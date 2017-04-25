@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="AdminHelper.cs" />
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="DownloadHelper.cs" />
     <Compile Include="FileLogHelper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="LogHelper.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="SqlHelper.cs" />
     <Compile Include="SQLWatcher.cs" />
     <Compile Include="StringHelper.cs" />
+    <Compile Include="UploadHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.Model\ExtApp.Model.csproj">

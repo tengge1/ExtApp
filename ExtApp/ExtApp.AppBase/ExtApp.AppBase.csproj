@@ -104,9 +104,6 @@
   <ItemGroup>
     <Compile Include="ApiAuthAttribute.cs" />
     <Compile Include="BaseController.cs" />
-    <Compile Include="CustomBinding\HttpPostJsonAttribute.cs" />
-    <Compile Include="CustomBinding\HttpJsonBodyBinding.cs" />
-    <Compile Include="CustomBinding\EmptyTask.cs" />
     <Compile Include="JsonResult.cs" />
     <Compile Include="WebApiConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

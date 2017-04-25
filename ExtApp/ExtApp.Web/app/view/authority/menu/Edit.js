@@ -57,7 +57,6 @@ Ext.define('App.view.authority.menu.Edit', {
         }, {
             xtype: 'combo',
             name: 'OpenTypeID',
-            value: 1,
             store: Ext.create('App.store.dic.OpenType'),
             valueField: 'ID',
             displayField: 'Name',

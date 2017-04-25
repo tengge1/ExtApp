@@ -77,10 +77,19 @@ Ext.define('App.view.main.accordion.MenuController', {
             return;
         }
         App.query('viewport').mask('请稍后...');
-        switch (record.data.OpenTypeCode) { // 打开方式
+        var openType = record.data.OpenTypeCode;
+        if (openType == 'NoIframe' && record.data.UrlTypeCode != 'ExtJsClass') { // 除ExtJs类外，其他url不允许以NoIframe方式打开
+            openType = 'Iframe';
+        }
+        switch (openType) { // 打开方式
             case 'NoIframe': // 非iframe方式
-                // 创建相应类
-                p = Ext.create(url);
+                try {
+                    p = Ext.create(url);
+                } catch (e) {
+                    App.query('viewport').unmask();
+                    App.notify('消息', '该URL不存在！');
+                    return;
+                }
                 tp.add(p);
                 tp.setActiveTab(p);
                 App.query('viewport').unmask();
@@ -89,16 +98,30 @@ Ext.define('App.view.main.accordion.MenuController', {
                 p = Ext.create('Ext.Container', {
                     title: record.data.Name,
                     closable: true,
-                    html: '<iframe src="iframe.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>',
+                    html: '<iframe src="iframe.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>'
                 });
                 tp.add(p);
                 tp.setActiveTab(p);
                 break;
             case 'Dialog': // 对话框方式
+                p = Ext.create('Ext.window.Window', {
+                    title: record.data.Name,
+                    width: '90%',
+                    height: '90%',
+                    closable: true,
+                    modal: true,
+                    html: '<iframe src="iframe.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>'
+                });
+                p.show();
+                App.query('viewport').unmask();
                 break;
             case 'Top': // 顶层窗口打开
+                App.query('viewport').unmask();
+                top.window.location = 'iframe.html?cls=' + url;
                 break;
             case 'Blank': // 新选项卡
+                App.query('viewport').unmask();
+                window.open('iframe.html?cls=' + url, '_blank');
                 break;
         }
     }

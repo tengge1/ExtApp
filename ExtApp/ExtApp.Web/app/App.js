@@ -90,6 +90,15 @@ Ext.apply(App, {
         console.log(JSON.stringify(arr));
     },
 
+    getQueryString: function (name) { // 获取url中的参数
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    },
+
     renderer: { // 渲染器
         status: Ext.create('App.renderer.StatusRenderer').render, // 渲染状态
         sex: Ext.create('App.renderer.SexRenderer').render // 渲染性别
@@ -100,10 +109,3 @@ Ext.apply(App, {
 var tool = Ext.create('App.util.Theme');
 var theme = tool.getCurrentTheme();
 tool.setTheme(theme);
-
-// 启动应用程序
-Ext.application({
-    name: 'ExtApp',
-    appFolder: '../app',
-    autoCreateViewport: 'App.view.Viewport'
-});

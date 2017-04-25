@@ -155,7 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\App.js" />
-    <Content Include="app\index.html" />
+    <Content Include="iframe.html" />
     <Content Include="app\model\core\DicItem.js" />
     <Content Include="app\model\core\Dic.js" />
     <Content Include="app\model\core\ConfigSection.js" />

@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-26 07:52:52
+Date: 2017-04-26 12:14:44
 */
 
 
@@ -394,7 +394,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 41)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 42)
 GO
 
 -- ----------------------------
@@ -415,6 +415,9 @@ INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime]
 GO
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'41', N'7', N'8', N'4', N'1', N'2017-04-26 07:19:02.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'42', N'7', N'8', N'4', N'1', N'2017-04-26 11:51:11.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -442,7 +445,7 @@ CREATE TABLE [dbo].[AppMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4016)
+DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4018)
 GO
 
 -- ----------------------------
@@ -507,6 +510,12 @@ GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4016', N'新窗口打开(Blank)', N'003001005', N'4011', N'26', N'App.view.personnel.user.List', N'28', N'User', N'1', N'5', null, N'34')
 GO
 GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4017', N'工作流', N'001008', N'1', null, null, N'28', N'Chartorganisation', N'1', N'35', null, null)
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4018', N'工作流设计', N'001008001', N'4017', N'27', N'App/view/workflow/design/index.html', N'28', N'Chartorganisationadd', N'1', N'10', null, N'31')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppMenu] OFF
 GO
 
@@ -556,7 +565,7 @@ CREATE TABLE [dbo].[AppRoleMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 31)
+DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 33)
 GO
 
 -- ----------------------------
@@ -622,6 +631,12 @@ INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'30', N'5', 
 GO
 GO
 INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'31', N'5', N'4016')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'32', N'5', N'4017')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'33', N'5', N'4018')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] OFF

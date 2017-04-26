@@ -28,13 +28,14 @@ namespace ExtApp.BLL
         /// <param name="ID"></param>
         /// <param name="idProperty"></param>
         /// <returns></returns>
-        public virtual DataResult Get(int ID, string idProperty = "ID")
+        public virtual DataResult<T> Get(int ID, string idProperty = "ID")
         {
             var data = dal.Get(ID, idProperty);
             if (data == null)
             {
-                return new DataResult()
+                return new DataResult<T>(null, 300, "数据获取失败！");
             }
+            return new DataResult<T>(data, 200, "数据获取成功！");
         }
 
         /// <summary>

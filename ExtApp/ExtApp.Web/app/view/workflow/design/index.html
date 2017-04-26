@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>工作流设计</title>
+    <script>
+        mxBasePath = '../../../../packages/mxGraph';
+    </script>
+    <script src="../../../../packages/mxGraph/js/mxClient.js"></script>
+    <script>
+        function main(container) {
+            if (!mxClient.isBrowserSupported()) {
+                mxUtils.error('浏览器不支持！', 200, false);
+                return;
+            }
+            var graph = new mxGraph(container);
+            new mxRubberband(graph);
+            var parent = graph.getDefaultParent();
+            graph.getModel().beginUpdate();
+            try {
+                var v1 = graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30);
+                var v2 = graph.insertVertex(parent, null, 'World!', 200, 150, 80, 30);
+                var e1 = graph.insertEdge(parent, null, '', v1, v2);
+            }
+            finally {
+                graph.getModel().endUpdate();
+            }
+        }
+    </script>
+</head>
+<body onload="main(document.getElementById('graphContainer'))">
+    <div id="graphContainer" style="overflow:hidden; width:321px; height: 241px; background:url(../../../../images/workflow/grid.gif);">
+    </div>
+</body>
+</html>

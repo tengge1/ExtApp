@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\App.js" />
+    <Content Include="app\view\workflow\design\index.html" />
     <Content Include="iframe.html" />
     <Content Include="app\model\core\DicItem.js" />
     <Content Include="app\model\core\Dic.js" />
@@ -257,6 +258,7 @@
     <Content Include="app\view\Viewport.js" />
     <Content Include="App_Data\ExtApp.sql" />
     <Content Include="css\desktop.css" />
+    <Content Include="images\workflow\grid.gif" />
     <Content Include="packages\extjs\chart\AbstractChart.js" />
     <Content Include="packages\extjs\chart\axis\Axis.js" />
     <Content Include="packages\extjs\chart\axis\Axis3D.js" />

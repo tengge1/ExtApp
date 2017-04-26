@@ -132,8 +132,6 @@
     <Compile Include="Personnel\User.cs" />
     <Compile Include="Workflow\WorkflowEvent.cs" />
     <Compile Include="Workflow\WorkflowInstance.cs" />
-    <Compile Include="Workflow\WorkflowLine.cs" />
-    <Compile Include="Workflow\WorkflowNode.cs" />
     <Compile Include="Workflow\Workflow.cs" />
   </ItemGroup>
   <ItemGroup>

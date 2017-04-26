@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ExtApp.DAL;
 using ExtApp.Model;
+using ExtApp.DAL;
 using NHibernate.Criterion;
 using Newtonsoft.Json.Linq;
 
 namespace ExtApp.BLL
 {
     /// <summary>
-    /// 业务层基类
+    /// BLL基类
     /// </summary>
     public class BaseBLL<T>
         where T : class
@@ -28,9 +28,13 @@ namespace ExtApp.BLL
         /// <param name="ID"></param>
         /// <param name="idProperty"></param>
         /// <returns></returns>
-        public virtual T Get(int ID, string idProperty = "ID")
+        public virtual DataResult Get(int ID, string idProperty = "ID")
         {
-            return dal.Get(ID, idProperty);
+            var data = dal.Get(ID, idProperty);
+            if (data == null)
+            {
+                return new DataResult()
+            }
         }
 
         /// <summary>

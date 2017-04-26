@@ -44,4 +44,8 @@
   <object id="DatabaseBackupDAL" type="ExtApp.DAL.DatabaseBackupDAL, ExtApp.DAL">
   </object>
 
+  <!-- 工作流 -->
+  <object id="WorkflowDAL" type="ExtApp.DAL.WorkflowDAL, ExtApp.DAL">
+  </object>
+
 </objects>

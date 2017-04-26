@@ -30,5 +30,29 @@ namespace ExtApp.Model
         /// </summary>
         [Property(2)]
         public virtual int Version { get; set; }
+
+        /// <summary>
+        /// 工作流数据
+        /// </summary>
+        [Property(3, Length = 10000)]
+        public virtual string Data { get; set; }
+
+        /// <summary>
+        /// 添加人
+        /// </summary>
+        [ManyToOne(4, ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
+        public virtual User AddUser { get; set; }
+
+        /// <summary>
+        /// 添加时间
+        /// </summary>
+        [Property(5)]
+        public virtual DateTime AddTime { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        [Property(6)]
+        public virtual string Comment { get; set; }
     }
 }

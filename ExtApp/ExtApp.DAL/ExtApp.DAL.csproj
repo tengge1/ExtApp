@@ -98,6 +98,7 @@
     <Compile Include="Personnel\UserDAL.cs" />
     <Compile Include="Personnel\DeptDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workflow\WorkflowDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">

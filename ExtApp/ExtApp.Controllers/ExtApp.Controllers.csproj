@@ -116,6 +116,7 @@
     <Compile Include="Authority\RoleController.cs" />
     <Compile Include="Personnel\UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workflow\WorkflowController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

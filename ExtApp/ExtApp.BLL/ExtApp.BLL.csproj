@@ -136,6 +136,7 @@
     <Compile Include="Personnel\DeptBLL.cs" />
     <Compile Include="Personnel\UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workflow\WorkflowBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">

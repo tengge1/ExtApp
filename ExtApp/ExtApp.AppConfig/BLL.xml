@@ -63,4 +63,9 @@
     <property name="dal" ref="DatabaseBackupDAL" />
   </object>
 
+  <!-- 工作流 -->
+  <object id="WorkflowBLL" type="ExtApp.BLL.WorkflowBLL, ExtApp.BLL">
+    <property name="dal" ref="WorkflowDAL" />
+  </object>
+
 </objects>

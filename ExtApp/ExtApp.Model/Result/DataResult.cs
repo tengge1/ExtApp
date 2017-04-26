@@ -9,6 +9,18 @@ namespace ExtApp.Model
     /// <summary>
     /// 数据结果模型
     /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class DataResult<T> : Result
+    {
+        /// <summary>
+        /// 数据
+        /// </summary>
+        public T Data { get; set; }
+    }
+
+    /// <summary>
+    /// 数据结果模型
+    /// </summary>
     public class DataResult : Result
     {
         /// <summary>

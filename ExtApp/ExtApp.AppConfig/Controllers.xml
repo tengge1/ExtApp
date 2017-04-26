@@ -59,5 +59,10 @@
   <object type="ExtApp.Controller.DatabaseBackupController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="DatabaseBackupBLL" />
   </object>
+
+  <!-- 工作流 -->
+  <object type="ExtApp.Controller.WorkflowController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="WorkflowBLL" />
+  </object>
 </objects>
 

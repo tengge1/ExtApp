@@ -8,6 +8,7 @@ using System.Web.Http.Results;
 
 using ExtApp.Model;
 using ExtApp.BLL;
+using System.Web;
 
 namespace ExtApp.Controller
 {
@@ -69,6 +70,30 @@ namespace ExtApp.Controller
         {
             var result = bll.Delete(ID);
             return Json(result);
+        }
+
+        /// <summary>
+        /// 保存工作流xml数据
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult SaveXml(int ID)
+        {
+            var context = (HttpContextBase)Request.Properties["MS_HttpContext"];
+            var request = context.Request;
+            var xml = request.Form["xml"];
+            var result = bll.SaveXml(ID, xml);
+            return Json(result);
+        }
+
+        /// <summary>
+        /// 保存工作流图片数据
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult SaveChart()
+        {
+            throw new Exception();
         }
     }
 }

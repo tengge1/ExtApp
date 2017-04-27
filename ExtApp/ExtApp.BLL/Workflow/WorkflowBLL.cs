@@ -64,5 +64,23 @@ namespace ExtApp.BLL
             model1.Version++;
             return base.Edit(model1);
         }
+
+        /// <summary>
+        /// 保存工作流数据
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="xml"></param>
+        /// <returns></returns>
+        public Result SaveXml(int ID, string xml)
+        {
+            var model = dal.Get(ID);
+            if (model == null)
+            {
+                return new Result(300, "工作流不存在！");
+            }
+            model.Data = xml;
+
+            return new Result(200, "保存成功！");
+        }
     }
 }

@@ -17,11 +17,9 @@ Ext.define('App.view.workflow.design.ListController', {
     },
 
     onAddClick: function () {
-        var win = Ext.create('App.view.personnel.user.Edit');
+        var win = Ext.create('App.view.workflow.design.Edit');
         win.setTitle('添加工作流');
-        win.down('textfield[name=Password]').show();
-        win.down('combo[name=Status]').hide();
-        win.controller.reset();
+        win.down('form').getForm().reset();
         win.show();
     },
 
@@ -31,15 +29,9 @@ Ext.define('App.view.workflow.design.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.personnel.user.Edit');
+        var win = Ext.create('App.view.workflow.design.Edit');
         win.setTitle('编辑工作流');
-        win.down('textfield[name=Password]').hide();
-        win.down('combo[name=Status]').show();
-        win.down('combo[name=SexID]').getStore().load({
-            callback: function () {
-                win.down('form').form.loadRecord(selected.items[0]);
-            }
-        });
+        win.down('form').loadRecord(selected.items[0]);
         win.show();
     },
 

@@ -62,7 +62,8 @@ Ext.define("App.view.workflow.design.List", {
             width: 40
         }, {
             text: '名称',
-            dataIndex: 'Name'
+            dataIndex: 'Name',
+            width: 180
         }, {
             text: '版本',
             dataIndex: 'Version'
@@ -71,7 +72,8 @@ Ext.define("App.view.workflow.design.List", {
             dataIndex: 'AddUserName'
         }, {
             text: '添加时间',
-            dataIndex: 'AddTime'
+            dataIndex: 'AddTime',
+            width: 150
         }, {
             text: '备注',
             dataIndex: 'Comment',

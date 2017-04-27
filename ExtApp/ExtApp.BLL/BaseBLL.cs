@@ -104,7 +104,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public virtual Result Edit(T model)
         {
-            var result = dal.Add(model);
+            var result = dal.Edit(model);
             if (result)
             {
                 return new Result(200, "编辑成功！");

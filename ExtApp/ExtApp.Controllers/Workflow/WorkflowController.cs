@@ -64,6 +64,7 @@ namespace ExtApp.Controller
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
+        [HttpPost]
         public JsonResult Delete(int ID)
         {
             var result = bll.Delete(ID);

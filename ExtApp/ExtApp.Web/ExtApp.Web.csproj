@@ -168,6 +168,8 @@
     <Content Include="app\view\workflow\design\diagrams\swimlanes.xml" />
     <Content Include="app\view\workflow\design\diagrams\travel-booking.xml" />
     <Content Include="app\view\workflow\design\diagrams\withdrawal.xml" />
+    <Content Include="app\view\workflow\design\Edit.js" />
+    <Content Include="app\view\workflow\design\EditController.js" />
     <Content Include="app\view\workflow\design\images\actor.gif" />
     <Content Include="app\view\workflow\design\images\alignbottom.gif" />
     <Content Include="app\view\workflow\design\images\aligncenter.gif" />

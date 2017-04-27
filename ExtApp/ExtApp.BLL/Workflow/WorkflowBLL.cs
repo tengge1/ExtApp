@@ -24,7 +24,11 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public ListResult<Workflow> List(int firstResult, int maxResults, string name = "")
         {
-            var query = Restrictions.Like("Name", name);
+            ICriterion query = null;
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = Restrictions.Like("Name", name, MatchMode.Anywhere);
+            }
             int total = 0;
             return base.List(firstResult, maxResults, out total, query);
         }
@@ -58,7 +62,7 @@ namespace ExtApp.BLL
             model1.Comment = model.Comment;
             model1.Name = model.Name;
             model1.Version++;
-            return base.Edit(model);
+            return base.Edit(model1);
         }
     }
 }

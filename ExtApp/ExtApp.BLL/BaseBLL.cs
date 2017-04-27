@@ -33,9 +33,24 @@ namespace ExtApp.BLL
             var data = dal.Get(ID, idProperty);
             if (data == null)
             {
-                return new DataResult<T>(null, 300, "数据获取失败！");
+                return new DataResult<T>(300, "数据获取失败！", null);
             }
-            return new DataResult<T>(data, 200, "数据获取成功！");
+            return new DataResult<T>(200, "数据获取成功！", data);
+        }
+
+        /// <summary>
+        /// 获取数据
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public virtual DataResult<T> Get(ICriterion query = null)
+        {
+            var data = dal.Get(query);
+            if (data == null)
+            {
+                return new DataResult<T>(300, "数据获取失败！", null);
+            }
+            return new DataResult<T>(200, "数据获取成功！", data);
         }
 
         /// <summary>
@@ -45,9 +60,10 @@ namespace ExtApp.BLL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual ListResult<T> List(ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
-            return dal.List(query, sortProperty, sort);
+            var list = dal.List(query, sortProperty, sort);
+            return new ListResult<T>(200, "数据获取成功！", list.Count(), list);
         }
 
         /// <summary>
@@ -60,9 +76,10 @@ namespace ExtApp.BLL
         /// <param name="sortProperty">排序字段</param>
         /// <param name="sort">排序类型</param>
         /// <returns></returns>
-        public virtual IList<T> List(int firstResult, int maxResults, out int total, ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
+        public virtual ListResult<T> List(int firstResult, int maxResults, out int total, ICriterion query = null, string sortProperty = "ID", Sort sort = Sort.Desc)
         {
-            return dal.List(firstResult, maxResults, out total, query, sortProperty, sort);
+            var list = dal.List(firstResult, maxResults, out total, query, sortProperty, sort);
+            return new ListResult<T>(200, "数据获取成功！", total, list);
         }
 
         /// <summary>
@@ -70,9 +87,14 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public virtual bool Add(T model)
+        public virtual Result Add(T model)
         {
-            return dal.Add(model);
+            var result = dal.Add(model);
+            if (result)
+            {
+                return new Result(200, "添加成功！");
+            }
+            return new Result(300, "添加失败！");
         }
 
         /// <summary>
@@ -80,9 +102,14 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public virtual bool Edit(T model)
+        public virtual Result Edit(T model)
         {
-            return dal.Add(model);
+            var result = dal.Add(model);
+            if (result)
+            {
+                return new Result(200, "编辑成功！");
+            }
+            return new Result(300, "编辑失败！");
         }
 
         /// <summary>
@@ -93,22 +120,21 @@ namespace ExtApp.BLL
         public virtual Result Delete(int ID)
         {
             var result = dal.Delete(ID);
-            if (result == true)
+            if (result)
             {
-                return new Result
-                {
-                    Code = 200,
-                    Msg = "删除成功！"
-                };
+                return new Result(200, "删除成功！");
             }
-            else
+            return new Result(300, "删除失败！");
+        }
+
+        public virtual Result Delete(ICriterion query = null)
+        {
+            var result = dal.Delete(query);
+            if (result)
             {
-                return new Result
-                {
-                    Code = 300,
-                    Msg = "删除失败！"
-                };
+                return new Result(200, "删除成功！");
             }
+            return new Result(300, "删除失败！");
         }
 
         /// <summary>
@@ -116,9 +142,10 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public virtual int Count(ICriterion query = null)
+        public virtual DataResult<int> Count(ICriterion query = null)
         {
-            return dal.Count(query);
+            var data = dal.Count(query);
+            return new DataResult<int>(200, "数据获取成功！", data);
         }
     }
 }

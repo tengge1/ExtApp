@@ -28,14 +28,14 @@ namespace ExtApp.Model
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="Data"></param>
         /// <param name="Code"></param>
         /// <param name="Msg"></param>
-        public DataResult(T Data, int Code = 200, string Msg = "数据获取成功！")
+        /// <param name="Data"></param>
+        public DataResult(int Code, string Msg, T Data)
         {
-            this.Data = Data;
             this.Code = Code;
             this.Msg = Msg;
+            this.Data = Data;
         }
     }
 
@@ -60,14 +60,14 @@ namespace ExtApp.Model
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="Data"></param>
         /// <param name="Code"></param>
         /// <param name="Msg"></param>
-        public DataResult(object Data, int Code = 200, string Msg = "数据获取成功！")
+        /// /// <param name="Data"></param>
+        public DataResult(int Code, string Msg, object Data)
         {
-            this.Data = Data;
             this.Code = Code;
             this.Msg = Msg;
+            this.Data = Data;
         }
     }
 }

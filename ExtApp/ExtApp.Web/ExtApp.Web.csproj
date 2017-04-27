@@ -157,7 +157,7 @@
     <Content Include="app\App.js" />
     <Content Include="app\model\workflow\Workflow.js" />
     <Content Include="app\store\workflow\Workflow.js" />
-    <Content Include="app\view\workflow\design\app.js" />
+    <Content Include="app\view\workflow\design\designer.js" />
     <Content Include="app\view\workflow\design\config\editor-commons.xml" />
     <Content Include="app\view\workflow\design\config\keyhandler-commons.xml" />
     <Content Include="app\view\workflow\design\config\keyhandler-minimal.xml" />
@@ -331,7 +331,7 @@
     <Content Include="app\view\workflow\design\images\zoomactual.gif" />
     <Content Include="app\view\workflow\design\images\zoomin.gif" />
     <Content Include="app\view\workflow\design\images\zoomout.gif" />
-    <Content Include="app\view\workflow\design\index.html" />
+    <Content Include="app\view\workflow\design\designer.html" />
     <Content Include="app\view\workflow\design\config\workfloweditor.xml" />
     <Content Include="app\view\workflow\design\List.js" />
     <Content Include="app\view\workflow\design\ListController.js" />

@@ -55,6 +55,15 @@ Ext.define('App.view.workflow.design.ListController', {
         });
     },
 
+    onDesignClick: function () {
+        var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择！');
+            return;
+        }
+        App.openInNewTab(selected.items[0].data.Name + '-设计', 'app/view/workflow/design/designer.html?ID=' + selected.items[0].data.ID);
+    },
+
     onSearchClick: function () {
         var view = this.getView();
         var values = view.down('searchform').form.getValues();

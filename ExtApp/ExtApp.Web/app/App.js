@@ -99,9 +99,20 @@ Ext.apply(App, {
         return null;
     },
 
+    openInNewTab: function (title, url) { // 打开新标签页
+        top.App.query('viewport').mask('请稍后...');
+        var p = top.Ext.create('Ext.Container', {
+            title: title,
+            closable: true,
+            html: '<iframe src="' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="top.App.query(\'viewport\').unmask();"></iframe>'
+        });
+        var tp = top.Ext.getCmp('tpMain');
+        tp.add(p);
+        tp.setActiveTab(p);
+    },
+
     renderer: { // 渲染器
-        status: Ext.create('App.renderer.StatusRenderer').render, // 渲染状态
-        sex: Ext.create('App.renderer.SexRenderer').render // 渲染性别
+        status: Ext.create('App.renderer.StatusRenderer').render // 渲染状态
     }
 });
 

@@ -28,6 +28,11 @@ Ext.define("App.view.workflow.design.List", {
         text: '删除',
         iconCls: 'Delete',
         handler: 'onDeleteClick'
+    }, {
+        xtype: 'button',
+        text: '设计',
+        iconCls: 'Chartorganisation',
+        handler: 'onDesignClick'
     }],
 
     items: [{

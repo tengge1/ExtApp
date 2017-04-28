@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NHibernate.Criterion;
 
 using ExtApp.Model;
 
-namespace ExtApp.BLL
+namespace ExtApp.DAL
 {
     /// <summary>
-    /// 文件BLL
+    /// 文件DAL
     /// </summary>
-    public class FileBLL : BaseBLL<File>
+    public class FilesDAL : BaseDAL<Files>
     {
 
     }

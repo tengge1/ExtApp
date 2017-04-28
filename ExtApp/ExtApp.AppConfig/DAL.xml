@@ -49,7 +49,15 @@
   </object>
 
   <!-- 文件 -->
-  <object id="FileDAL" type="ExtApp.DAL.FileDAL, ExtApp.DAL">
+  <object id="FilesDAL" type="ExtApp.DAL.FilesDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 消息 -->
+  <object id="MessageDAL" type="ExtApp.DAL.MessageDAL, ExtApp.DAL">
+  </object>
+
+  <!-- 消息接收 -->
+  <object id="MessageReceiveDAL" type="ExtApp.DAL.MessageReceiveDAL, ExtApp.DAL">
   </object>
 
 </objects>

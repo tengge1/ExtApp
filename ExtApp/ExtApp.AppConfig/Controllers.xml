@@ -67,7 +67,17 @@
 
   <!-- 文件 -->
   <object type="ExtApp.Controller.FileController, ExtApp.Controller" singleton="false">
-    <property name="bll" ref="FileBLL" />
+    <property name="bll" ref="FilesBLL" />
+  </object>
+
+  <!-- 消息 -->
+  <object type="ExtApp.Controller.MessageController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="MessageBLL" />
+  </object>
+
+  <!-- 消息接收 -->
+  <object type="ExtApp.Controller.MessageReceiveController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="MessageReceiveBLL" />
   </object>
 </objects>
 

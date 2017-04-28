@@ -14,7 +14,7 @@ namespace ExtApp.Controller
     /// <summary>
     /// 文件控制器
     /// </summary>
-    public class FileController : ApiBase
+    public class FilesController : ApiBase
     {
 
     }

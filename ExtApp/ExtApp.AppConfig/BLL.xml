@@ -69,8 +69,18 @@
   </object>
 
   <!-- 文件 -->
-  <object id="FileBLL" type="ExtApp.BLL.FileBLL, ExtApp.BLL">
-    <property name="dal" ref="FileDAL" />
+  <object id="FilesBLL" type="ExtApp.BLL.FilesBLL, ExtApp.BLL">
+    <property name="dal" ref="FilesDAL" />
+  </object>
+
+  <!-- 消息 -->
+  <object id="MessageBLL" type="ExtApp.BLL.MessageBLL, ExtApp.BLL">
+    <property name="dal" ref="MessageDAL" />
+  </object>
+
+  <!-- 消息接收 -->
+  <object id="MessageReceiveBLL" type="ExtApp.BLL.MessageReceiveBLL, ExtApp.BLL">
+    <property name="dal" ref="MessageReceiveDAL" />
   </object>
 
 </objects>

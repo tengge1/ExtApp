@@ -96,7 +96,7 @@
     <Compile Include="Authority\View\MenuEditParam.cs" />
     <Compile Include="Authority\View\RoleEditParam.cs" />
     <Compile Include="Authority\View\RoleListParam.cs" />
-    <Compile Include="Core\File.cs" />
+    <Compile Include="Core\Files.cs" />
     <Compile Include="Core\DatabaseBackup.cs" />
     <Compile Include="Core\View\ConfigEditParam.cs" />
     <Compile Include="Core\View\ConfigSectionNode.cs" />

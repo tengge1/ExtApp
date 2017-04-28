@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Criterion;
 
 using ExtApp.Model;
 
-namespace ExtApp.DAL
+namespace ExtApp.BLL
 {
     /// <summary>
-    /// 文件DAL
+    /// 消息接收BLL
     /// </summary>
-    public class FileDAL : BaseDAL<File>
+    public class MessageReceiveBLL : BaseBLL<MessageReceive>
     {
 
     }

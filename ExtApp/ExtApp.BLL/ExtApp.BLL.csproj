@@ -126,7 +126,7 @@
     <Compile Include="Authority\MenuBLL.cs" />
     <Compile Include="Authority\RoleBLL.cs" />
     <Compile Include="BaseBLL.cs" />
-    <Compile Include="Core\FileBLL.cs" />
+    <Compile Include="Core\FilesBLL.cs" />
     <Compile Include="Core\ConfigBLL.cs" />
     <Compile Include="Core\ConfigSectionBLL.cs" />
     <Compile Include="Core\DatabaseBackupBLL.cs" />
@@ -138,6 +138,8 @@
     <Compile Include="Personnel\UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workflow\WorkflowBLL.cs" />
+    <Compile Include="Work\MessageReceiveBLL.cs" />
+    <Compile Include="Work\MessageBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtApp.AppBase\ExtApp.AppBase.csproj">

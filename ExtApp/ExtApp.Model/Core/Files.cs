@@ -10,8 +10,8 @@ namespace ExtApp.Model
     /// <summary>
     /// 文件表
     /// </summary>
-    [Class(Table = "AppFile")]
-    public class File
+    [Class(Table = "AppFiles")]
+    public class Files
     {
         /// <summary>
         /// ID

@@ -23,7 +23,7 @@ namespace ExtApp.Model
         /// 类型
         /// </summary>
         [ManyToOne(1, ClassType = typeof(DicItem), Column = "TypeID", Lazy = Laziness.False)]
-        public DicItem Type { get; set; }
+        public virtual DicItem Type { get; set; }
 
         /// <summary>
         /// 标题

@@ -66,7 +66,7 @@
   </object>
 
   <!-- 文件 -->
-  <object type="ExtApp.Controller.FileController, ExtApp.Controller" singleton="false">
+  <object type="ExtApp.Controller.FilesController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="FilesBLL" />
   </object>
 

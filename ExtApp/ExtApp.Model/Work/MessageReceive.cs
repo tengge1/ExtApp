@@ -20,7 +20,7 @@ namespace ExtApp.Model
         public virtual int ID { get; set; }
 
         [ManyToOne(1, ClassType = typeof(Message), Column = "MessageID", Lazy = Laziness.False)]
-        public Message Message { get; set; }
+        public virtual Message Message { get; set; }
 
         /// <summary>
         /// 接收人

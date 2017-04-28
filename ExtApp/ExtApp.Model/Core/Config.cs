@@ -14,7 +14,7 @@ namespace ExtApp.Model
     public class Config
     {
         /// <summary>
-        /// 配置ID
+        /// ID
         /// </summary>
         [Id(0, Name = "ID"), Generator(0, Class = "identity")]
         public virtual int ID { get; set; }

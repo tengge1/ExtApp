@@ -14,7 +14,7 @@ namespace ExtApp.Model
     public class ConfigSection
     {
         /// <summary>
-        /// 配置节点ID
+        /// ID
         /// </summary>
         [Id(0, Name = "ID"), Generator(Class = "identity")]
         public virtual int ID { get; set; }

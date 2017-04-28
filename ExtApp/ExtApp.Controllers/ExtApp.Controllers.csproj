@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="Authority\RoleMenuController.cs" />
     <Compile Include="Authority\MenuController.cs" />
+    <Compile Include="Core\FileController.cs" />
     <Compile Include="Core\ConfigController.cs" />
     <Compile Include="Core\ConfigSectionController.cs" />
     <Compile Include="Core\DatabaseBackupController.cs" />

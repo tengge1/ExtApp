@@ -96,6 +96,7 @@
     <Compile Include="Authority\View\MenuEditParam.cs" />
     <Compile Include="Authority\View\RoleEditParam.cs" />
     <Compile Include="Authority\View\RoleListParam.cs" />
+    <Compile Include="Core\File.cs" />
     <Compile Include="Core\DatabaseBackup.cs" />
     <Compile Include="Core\View\ConfigEditParam.cs" />
     <Compile Include="Core\View\ConfigSectionNode.cs" />
@@ -133,14 +134,14 @@
     <Compile Include="Workflow\WorkflowEvent.cs" />
     <Compile Include="Workflow\WorkflowInstance.cs" />
     <Compile Include="Workflow\Workflow.cs" />
+    <Compile Include="Work\MessageReceive.cs" />
+    <Compile Include="Work\Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Workflow\View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

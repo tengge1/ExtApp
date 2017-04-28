@@ -126,6 +126,7 @@
     <Compile Include="Authority\MenuBLL.cs" />
     <Compile Include="Authority\RoleBLL.cs" />
     <Compile Include="BaseBLL.cs" />
+    <Compile Include="Core\FileBLL.cs" />
     <Compile Include="Core\ConfigBLL.cs" />
     <Compile Include="Core\ConfigSectionBLL.cs" />
     <Compile Include="Core\DatabaseBackupBLL.cs" />

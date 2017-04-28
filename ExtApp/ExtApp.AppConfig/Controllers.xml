@@ -64,5 +64,10 @@
   <object type="ExtApp.Controller.WorkflowController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="WorkflowBLL" />
   </object>
+
+  <!-- 文件 -->
+  <object type="ExtApp.Controller.FileController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="FileBLL" />
+  </object>
 </objects>
 

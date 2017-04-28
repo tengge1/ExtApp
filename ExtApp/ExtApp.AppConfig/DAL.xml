@@ -48,4 +48,8 @@
   <object id="WorkflowDAL" type="ExtApp.DAL.WorkflowDAL, ExtApp.DAL">
   </object>
 
+  <!-- 文件 -->
+  <object id="FileDAL" type="ExtApp.DAL.FileDAL, ExtApp.DAL">
+  </object>
+
 </objects>

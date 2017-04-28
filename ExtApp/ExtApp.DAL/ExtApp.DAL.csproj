@@ -89,6 +89,7 @@
     <Compile Include="Authority\MenuDAL.cs" />
     <Compile Include="Authority\RoleMenuDAL.cs" />
     <Compile Include="BaseDAL.cs" />
+    <Compile Include="Core\FileDAL.cs" />
     <Compile Include="Core\ConfigSectionDAL.cs" />
     <Compile Include="Core\ConfigDAL.cs" />
     <Compile Include="Core\DatabaseBackupDAL.cs" />

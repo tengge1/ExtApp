@@ -68,4 +68,9 @@
     <property name="dal" ref="WorkflowDAL" />
   </object>
 
+  <!-- 文件 -->
+  <object id="FileBLL" type="ExtApp.BLL.FileBLL, ExtApp.BLL">
+    <property name="dal" ref="FileDAL" />
+  </object>
+
 </objects>

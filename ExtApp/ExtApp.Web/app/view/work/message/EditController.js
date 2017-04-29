@@ -6,7 +6,23 @@ Ext.define('App.view.work.message.EditController', {
     onSelectUser: function () {
         var view = this.getView();
         var values = view.down('form').getForm().getValues();
-        var win = Ext.create('App.widget.UserSelect');
+        var win = Ext.create('App.widget.UserSelect', {
+            callback: function (records) {
+                var userIDs = '';
+                var userNames = '';
+                for (var i = 0; i < records.length; i++) {
+                    var record = records[i];
+                    userIDs += record.data.ID + ',';
+                    userNames += record.data.Name + ',';
+                }
+                if (userIDs.endsWith(',')) {
+                    userIDs = userIDs.substr(0, userIDs.length - 1);
+                    userNames = userNames.substr(0, userNames.length - 1);
+                }
+                view.down('hidden[name=UserIDs]').setValue(userIDs);
+                view.down('textfield[name=UserNames]').setValue(userNames);
+            }
+        });
         if (values.UserIDs != '') {
             win.setValue(values.UserIDs);
         }

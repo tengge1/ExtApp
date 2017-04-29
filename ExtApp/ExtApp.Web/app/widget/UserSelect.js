@@ -11,7 +11,7 @@ Ext.define('App.widget.UserSelect', {
     layout: 'border',
 
     callback: null, // 回调函数
-    setValues: function (userIDs) { // 为控件赋值
+    setValue: function (userIDs) { // 为控件赋值
 
     },
 
@@ -36,7 +36,9 @@ Ext.define('App.widget.UserSelect', {
         title: '全部',
         region: 'center',
         width: 275,
-        store: Ext.create('App.store.personnel.User'),
+        store: Ext.create('App.store.personnel.User', {
+            autoLoad: false
+        }),
         columns: [{
             text: '用户名',
             dataIndex: 'Username'
@@ -86,9 +88,15 @@ Ext.define('App.widget.UserSelect', {
                 tooltip: '移除用户',
                 handler: function (sender, rowIndex, colIndex, item, e, record, row) {
                     sender.up('gridpanel').getStore().remove(record);
-
+                    var grid = sender.up('window').down('gridpanel[title=全部]');
+                    var store = grid.getStore();
+                    var index = store.findBy(function (o) { return o.data.ID == record.data.ID });
+                    if (index > -1) {
+                        grid.getSelectionModel().deselect(record);
+                    }
                 }
-            }]
+            }],
+            flex: 1
         }]
     }],
 
@@ -96,8 +104,13 @@ Ext.define('App.widget.UserSelect', {
         text: '确定',
         handler: function (sender) {
             var win = sender.up('window');
+            var selected = win.down('gridpanel[title=已选]').getStore().data.items;
+            if (selected.length == 0) {
+                top.App.notify('消息', '请选择用户！');
+                return;
+            }
+
             if (typeof (win.callback) == 'function') {
-                var selected = win.down('gridpanel[title=已选]').getSelectionModel().getSelection();
                 win.callback(selected);
             }
             win.hide();

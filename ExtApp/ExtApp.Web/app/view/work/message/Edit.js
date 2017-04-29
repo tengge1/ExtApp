@@ -13,7 +13,7 @@ Ext.define('App.view.work.message.Edit', {
     modal: true,
     maximizable: true,
     layout: 'fit',
-    iconCls: 'Mail',
+    iconCls: 'Email',
 
     items: {
         xtype: 'form',
@@ -36,12 +36,19 @@ Ext.define('App.view.work.message.Edit', {
             xtype: 'textfield',
             name: 'UserNames',
             fieldLabel: '<span style="color:red;">*</span>接收人',
+            readOnly: true,
             allowBlank: false,
+            emptyText: '请选择',
             triggers: {
                 select: {
                     cls: 'User trigger-no-shift',
+                    floated: true,
+                    hideOnReadOnly: false,
                     handler: 'onSelectUser'
                 }
+            },
+            listeners: {
+                focus: 'onSelectUser'
             }
         }, {
             xtype: 'textfield',

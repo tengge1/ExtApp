@@ -66,10 +66,19 @@ Ext.define("App.view.work.message.List", {
             dataIndex: 'TypeName'
         }, {
             text: '标题',
-            dataIndex: 'Title'
+            dataIndex: 'Title',
+            width: 220
+        }, {
+            text: '添加人',
+            dataIndex: 'AddUserName'
         }, {
             text: '添加时间',
-            dataIndex: 'AddName'
+            dataIndex: 'AddTime',
+            width: 150
+        }, {
+            text: '发送时间',
+            dataIndex: 'SendTime',
+            width: 150
         }, {
             text: '状态',
             dataIndex: 'StatusName'

@@ -10,8 +10,6 @@ Ext.define('App.view.work.message.Edit', {
     controller: 'messageedit',
 
     title: '编辑消息',
-    width: 600,
-    height: 340,
     modal: true,
     maximizable: true,
     layout: 'fit',
@@ -21,26 +19,35 @@ Ext.define('App.view.work.message.Edit', {
         xtype: 'form',
         margin: 5,
         border: false,
-        layout: 'column',
+        layout: 'form',
 
         fieldDefaults: {
             labelAlign: 'right',
             labelWidth: 60,
-            margin: 5,
-            columnWidth: 0.5
+            margin: 5
         },
         items: [{
-            xtype: 'hiddenfield',
+            xtype: 'hidden',
             name: 'ID'
         }, {
+            xtype: 'hidden',
+            name: 'UserIDs'
+        }, {
             xtype: 'textfield',
-            name: 'Receiver',
+            name: 'UserNames',
             fieldLabel: '<span style="color:red;">*</span>接收人',
-            allowBlank: false
+            allowBlank: false,
+            triggers: {
+                select: {
+                    cls: 'User trigger-no-shift',
+                    handler: 'onSelectUser'
+                }
+            }
         }, {
             xtype: 'textfield',
             name: 'Title',
-            fieldLabel: '标题'
+            fieldLabel: '<span style="color:red;">*</span>标题',
+            allowBlank: false
         }, {
             xtype: 'textarea',
             name: 'Content',
@@ -48,10 +55,10 @@ Ext.define('App.view.work.message.Edit', {
         }, {
             xtype: 'textarea',
             name: 'Comment',
-            fieldLabel: '备注',
-            columnWidth: 1
+            fieldLabel: '备注'
         }]
     },
+
     buttons: [{
         text: '保存',
         iconCls: 'Accept',

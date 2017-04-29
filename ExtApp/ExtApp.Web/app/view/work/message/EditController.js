@@ -3,8 +3,14 @@ Ext.define('App.view.work.message.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.messageedit',
 
-    reset: function () {
-        this.getView().down('form').reset();
+    onSelectUser: function () {
+        var view = this.getView();
+        var values = view.down('form').getForm().getValues();
+        var win = Ext.create('App.widget.UserSelect');
+        if (values.UserIDs != '') {
+            win.setValue(values.UserIDs);
+        }
+        win.show();
     },
 
     onSaveClick: function () {

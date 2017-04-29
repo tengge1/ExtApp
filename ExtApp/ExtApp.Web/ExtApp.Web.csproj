@@ -156,7 +156,9 @@
   <ItemGroup>
     <Content Include="app\App.js" />
     <Content Include="app\model\workflow\Workflow.js" />
+    <Content Include="app\model\work\Message.js" />
     <Content Include="app\store\workflow\Workflow.js" />
+    <Content Include="app\store\work\Message.js" />
     <Content Include="app\view\workflow\design\designer.js" />
     <Content Include="app\view\workflow\design\config\editor-commons.xml" />
     <Content Include="app\view\workflow\design\config\keyhandler-commons.xml" />
@@ -341,6 +343,8 @@
     <Content Include="app\view\work\message\EditController.js" />
     <Content Include="app\view\work\message\List.js" />
     <Content Include="app\view\work\message\ListController.js" />
+    <Content Include="app\widget\UserSelect.js" />
+    <Content Include="css\common.css" />
     <Content Include="iframe.html" />
     <Content Include="app\model\core\DicItem.js" />
     <Content Include="app\model\core\Dic.js" />

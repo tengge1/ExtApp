@@ -3,10 +3,6 @@ Ext.define('App.view.main.accordion.MenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menu',
 
-    requires: [
-        'Ext.ux.IFrame'
-    ],
-
     init: function () {
         var view = this.getView();
         var store = Ext.create('App.store.authority.MenuTreeAuth');
@@ -19,6 +15,7 @@ Ext.define('App.view.main.accordion.MenuController', {
                     var record = records[i];
                     var tree = Ext.create('Ext.tree.Panel', {
                         title: record.data.text,
+                        iconCls: record.data.iconCls,
                         root: {
                             id: record.data.id,
                             text: record.data.text,

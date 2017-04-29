@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate.Mapping.Attributes;
+using Newtonsoft.Json;
 
 namespace ExtApp.Model
 {
@@ -50,9 +51,25 @@ namespace ExtApp.Model
         public virtual DateTime AddTime { get; set; }
 
         /// <summary>
-        /// 备注
+        /// 发送时间
         /// </summary>
         [Property(6)]
+        public virtual DateTime? SendTime { get; set; }
+
+        /// <summary>
+        /// 消息发送状态
+        /// </summary>
+        [ManyToOne(7, ClassType = typeof(DicItem), Column = "Status", Lazy = Laziness.False)]
+        public virtual DicItem Status { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        [Property(8)]
         public virtual string Comment { get; set; }
+
+        [JsonIgnore]
+        [OneToMany(9, ClassType = typeof(MessageReceive))]
+        public virtual IList<MessageReceive> MessageReceives { get; set; }
     }
 }

@@ -337,6 +337,10 @@
     <Content Include="app\view\workflow\design\ListController.js" />
     <Content Include="app\view\workflow\design\resources\app.txt" />
     <Content Include="app\view\workflow\design\resources\app_zh.txt" />
+    <Content Include="app\view\work\message\Edit.js" />
+    <Content Include="app\view\work\message\EditController.js" />
+    <Content Include="app\view\work\message\List.js" />
+    <Content Include="app\view\work\message\ListController.js" />
     <Content Include="iframe.html" />
     <Content Include="app\model\core\DicItem.js" />
     <Content Include="app\model\core\Dic.js" />
@@ -4124,6 +4128,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\view\work\messageReceive\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

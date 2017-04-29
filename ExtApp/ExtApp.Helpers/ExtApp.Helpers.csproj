@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminHelper.cs" />
+    <Compile Include="DicHelper.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="DownloadHelper.cs" />
     <Compile Include="FileLogHelper.cs" />

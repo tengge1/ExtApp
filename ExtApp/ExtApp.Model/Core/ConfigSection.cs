@@ -16,31 +16,32 @@ namespace ExtApp.Model
         /// <summary>
         /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
-        [Property(2)]
+        [Property]
         public virtual string Name { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(3)]
+        [Property]
         public virtual int? Sort { get; set; }
 
         /// <summary>
         /// 状态（1-启用，0-禁用）
         /// </summary>
-        [Property(4)]
+        [Property]
         public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(5)]
+        [Property]
         public virtual string Comment { get; set; }
     }
 }

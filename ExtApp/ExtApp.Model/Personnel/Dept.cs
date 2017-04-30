@@ -16,61 +16,62 @@ namespace ExtApp.Model
         /// <summary>
         /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(0, Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 父机构
         /// </summary>
-        [ManyToOne(1, ClassType = typeof(Dept), Column = "PID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(Dept), Column = "PID", Lazy = Laziness.False)]
         public virtual Dept PDept { get; set; }
 
         /// <summary>
         /// 编码
         /// </summary>
-        [Property(2)]
+        [Property]
         public virtual string Code { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
-        [Property(3)]
+        [Property]
         public virtual string Name { get; set; }
 
         /// <summary>
         /// 类型
         /// </summary>
-        [ManyToOne(4, ClassType = typeof(DicItem), Column = "TypeID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(DicItem), Column = "TypeID", Lazy = Laziness.False)]
         public virtual DicItem Type { get; set; }
 
         /// <summary>
         /// 添加人
         /// </summary>
-        [ManyToOne(6, ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
         public virtual User AddUser { get; set; }
 
         /// <summary>
         /// 添加时间
         /// </summary>
-        [Property(7)]
+        [Property]
         public virtual DateTime? AddTime { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(8)]
+        [Property]
         public virtual int? Sort { get; set; }
 
         /// <summary>
         /// 状态（1-启用，0-禁用）
         /// </summary>
-        [Property(9)]
+        [Property]
         public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(10)]
+        [Property]
         public virtual string Comment { get; set; }
     }
 }

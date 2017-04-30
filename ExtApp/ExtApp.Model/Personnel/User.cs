@@ -16,109 +16,110 @@ namespace ExtApp.Model
         /// <summary>
         /// 用户ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(0, Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 用户名（登录名）
         /// </summary>
-        [Property(1)]
+        [Property]
         public virtual string Username { get; set; }
 
         /// <summary>
         /// 密码（登录密码）
         /// </summary>
-        [Property(2)]
+        [Property]
         public virtual string Password { get; set; }
 
         /// <summary>
         /// 姓名
         /// </summary>
-        [Property(3)]
+        [Property]
         public virtual string Name { get; set; }
 
         /// <summary>
         /// 性别
         /// </summary>
-        [ManyToOne(4, ClassType = typeof(DicItem), Column = "Sex", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(DicItem), Column = "Sex", Lazy = Laziness.False)]
         public virtual DicItem Sex { get; set; }
 
         /// <summary>
         /// 机构
         /// </summary>
-        [ManyToOne(5, ClassType = typeof(Dept), Column = "DeptID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(Dept), Column = "DeptID", Lazy = Laziness.False)]
         public virtual Dept Dept { get; set; }
 
         /// <summary>
         /// 角色
         /// </summary>
-        [ManyToOne(6, ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
         public virtual Role Role { get; set; }
 
         /// <summary>
         /// 职务
         /// </summary>
-        [Property(7)]
+        [Property]
         public virtual string Duty { get; set; }
 
         /// <summary>
         /// 电话号码
         /// </summary>
-        [Property(8)]
+        [Property]
         public virtual string Phone { get; set; }
 
         /// <summary>
         /// 电子邮箱
         /// </summary>
-        [Property(9)]
+        [Property]
         public virtual string Email { get; set; }
 
         /// <summary>
         /// 出生日期
         /// </summary>
-        [Property(10)]
+        [Property]
         public virtual DateTime? Birthday { get; set; }
 
         /// <summary>
         /// 地址
         /// </summary>
-        [Property(11)]
+        [Property]
         public virtual string Address { get; set; }
 
         /// <summary>
         /// 头像
         /// </summary>
-        [Property(12)]
+        [Property]
         public virtual string FaceUrl { get; set; }
 
         /// <summary>
         /// 添加时间
         /// </summary>
-        [Property(13)]
+        [Property]
         public virtual DateTime? AddTime { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(14)]
+        [Property]
         public virtual int? Sort { get; set; }
 
         /// <summary>
         /// 状态（1-启用，0-禁用）
         /// </summary>
-        [Property(15)]
+        [Property]
         public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(16)]
+        [Property]
         public virtual string Comment { get; set; }
 
         /// <summary>
         /// 是否是超级管理员
         /// </summary>
-        [Property(17)]
+        [Property]
         public virtual bool isAdmin { get; set; }
     }
 }

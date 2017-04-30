@@ -16,43 +16,44 @@ namespace ExtApp.Model
         /// <summary>
         /// 字典ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 编号
         /// </summary>
-        [Property(1)]
+        [Property]
         public virtual string Code { get; set; }
 
         /// <summary>
-        /// 类型（1-系统，2-应用）
+        /// 类型
         /// </summary>
-        [ManyToOne(2, ClassType = typeof(DicItem), Column = "Type", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(DicItem), Column = "Type", Lazy = Laziness.False)]
         public virtual DicItem Type { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
-        [Property(3)]
+        [Property]
         public virtual string Name { get; set; }
 
         /// <summary>
         /// 排序
         /// </summary>
-        [Property(4)]
+        [Property]
         public virtual int? Sort { get; set; }
 
         /// <summary>
         /// 状态
         /// </summary>
-        [Property(5)]
+        [Property]
         public virtual int? Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(6)]
+        [Property]
         public virtual string Comment { get; set; }
     }
 }

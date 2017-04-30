@@ -16,19 +16,20 @@ namespace ExtApp.Model
         /// <summary>
         /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 角色
         /// </summary>
-        [ManyToOne(1, ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(Role), Column = "RoleID", Lazy = Laziness.False)]
         public virtual Role Role { get; set; }
 
         /// <summary>
         /// 菜单
         /// </summary>
-        [ManyToOne(2, ClassType = typeof(Menu), Column = "MenuID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(Menu), Column = "MenuID", Lazy = Laziness.False)]
         public virtual Menu Menu { get; set; }
     }
 }

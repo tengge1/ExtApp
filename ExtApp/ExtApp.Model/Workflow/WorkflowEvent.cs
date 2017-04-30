@@ -16,13 +16,14 @@ namespace ExtApp.Model
         /// <summary>
         /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(0, Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
-        [Property(1)]
+        [Property]
         public virtual string Name { get; set; }
     }
 }

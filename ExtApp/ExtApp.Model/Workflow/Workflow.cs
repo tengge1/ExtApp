@@ -16,43 +16,44 @@ namespace ExtApp.Model
         /// <summary>
         /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(0, Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
-        [Property(1)]
+        [Property]
         public virtual string Name { get; set; }
 
         /// <summary>
         /// 版本
         /// </summary>
-        [Property(2)]
+        [Property]
         public virtual int Version { get; set; }
 
         /// <summary>
         /// 工作流数据
         /// </summary>
-        [Property(3, Length = 10000)]
+        [Property(Length = 10000)]
         public virtual string Data { get; set; }
 
         /// <summary>
         /// 添加人
         /// </summary>
-        [ManyToOne(4, ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
         public virtual User AddUser { get; set; }
 
         /// <summary>
         /// 添加时间
         /// </summary>
-        [Property(5)]
+        [Property]
         public virtual DateTime AddTime { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(6)]
+        [Property]
         public virtual string Comment { get; set; }
     }
 }

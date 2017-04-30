@@ -16,6 +16,46 @@ namespace ExtApp.Controller
     /// </summary>
     public class MessageReceiveController : ApiBase
     {
+        /// <summary>
+        /// bll
+        /// </summary>
+        private MessageReceiveBLL bll;
 
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult List(int firstResult, int maxResults, string name = "")
+        {
+            var result = bll.List(firstResult, maxResults, name);
+            return Json(result);
+        }
+
+        /// <summary>
+        /// 阅读
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult Read(int ID)
+        {
+            var result = bll.Get(ID);
+            return Json(result);
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult Delete(int ID)
+        {
+            var result = bll.Delete(ID);
+            return Json(result);
+        }
     }
 }

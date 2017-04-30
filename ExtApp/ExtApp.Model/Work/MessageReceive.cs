@@ -30,10 +30,16 @@ namespace ExtApp.Model
         public virtual User User { get; set; }
 
         /// <summary>
-        /// 阅读时间（null表示未读）
+        /// 阅读时间
         /// </summary>
         [Property]
         public virtual DateTime? ReadTime { get; set; }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        [ManyToOne(ClassType = typeof(DicItem), Column = "Status", Lazy = Laziness.False)]
+        public virtual DicItem Status { get; set; }
 
         /// <summary>
         /// 备注

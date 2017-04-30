@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate;
 using NHibernate.Criterion;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -94,7 +95,7 @@ namespace ExtApp.DAL
             {
                 criteria.Add(query);
             }
-            total = criteria.List<T>().Count();
+            total = criteria.SetProjection(Projections.RowCount()).UniqueResult<int>();
 
             // 分页
             criteria = session.CreateCriteria<T>();
@@ -110,9 +111,7 @@ namespace ExtApp.DAL
             {
                 criteria.AddOrder(Order.Desc(sortProperty));
             }
-            criteria.SetFirstResult(firstResult);
-            criteria.SetMaxResults(maxResults);
-            return criteria.List<T>();
+            return criteria.SetFirstResult(firstResult).SetMaxResults(maxResults).List<T>();
         }
 
         /// <summary>
@@ -244,7 +243,17 @@ namespace ExtApp.DAL
             {
                 criteria.Add(query);
             }
-            return criteria.List<T>().Count();
+            return criteria.SetProjection(Projections.RowCount()).UniqueResult<int>();
+        }
+
+        /// <summary>
+        /// 创建ICriteria（应对复杂查询）
+        /// </summary>
+        /// <returns></returns>
+        public virtual ICriteria CreateCriterion()
+        {
+            var session = NHibernateHelper.GetCurrentSession();
+            return session.CreateCriteria<T>();
         }
     }
 }

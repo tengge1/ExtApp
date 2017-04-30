@@ -156,8 +156,10 @@
   <ItemGroup>
     <Content Include="app\App.js" />
     <Content Include="app\model\workflow\Workflow.js" />
+    <Content Include="app\model\work\MessageReceive.js" />
     <Content Include="app\model\work\Message.js" />
     <Content Include="app\store\workflow\Workflow.js" />
+    <Content Include="app\store\work\MessageReceive.js" />
     <Content Include="app\store\work\Message.js" />
     <Content Include="app\view\workflow\design\designer.js" />
     <Content Include="app\view\workflow\design\config\editor-commons.xml" />
@@ -339,6 +341,10 @@
     <Content Include="app\view\workflow\design\ListController.js" />
     <Content Include="app\view\workflow\design\resources\app.txt" />
     <Content Include="app\view\workflow\design\resources\app_zh.txt" />
+    <Content Include="app\view\work\messageReceive\Edit.js" />
+    <Content Include="app\view\work\messageReceive\EditController.js" />
+    <Content Include="app\view\work\messageReceive\List.js" />
+    <Content Include="app\view\work\messageReceive\ListController.js" />
     <Content Include="app\view\work\message\Edit.js" />
     <Content Include="app\view\work\message\EditController.js" />
     <Content Include="app\view\work\message\List.js" />
@@ -4132,7 +4138,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\view\work\messageReceive\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

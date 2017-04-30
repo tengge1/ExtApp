@@ -1,36 +1,29 @@
 ﻿
-Ext.define('App.view.work.message.ListController', {
+Ext.define('App.view.work.messageReceive.ListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.messagelist',
+    alias: 'controller.messagereceivelist',
 
     requires: [
-        'App.store.work.Message'
+        'App.store.work.MessageReceive'
     ],
 
     init: function () {
         var view = this.getView();
-        var store = Ext.create('store.messagelist');
+        var store = Ext.create('store.messagereceivelist');
         view.down('gridpanel').setStore(store);
         view.down('pagingtoolbar').setStore(store);
         store.reload();
         view.down('pagingtoolbar').moveFirst();
     },
 
-    onAddClick: function () {
-        var win = Ext.create('App.view.work.message.Edit');
-        win.setTitle('添加消息');
-        win.down('form').reset();
-        win.show();
-    },
-
-    onEditClick: function () {
+    onViewClick: function () {
         var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.work.message.Edit');
-        win.setTitle('编辑消息');
+        var win = Ext.create('App.view.work.messageReceive.Edit');
+        win.setTitle('查看消息');
         win.down('form').getForm().loadRecord(selected.items[0]);
         win.show();
     },
@@ -43,7 +36,7 @@ Ext.define('App.view.work.message.ListController', {
             return;
         }
         App.confirm('消息', '确定删除？', function () {
-            App.post('/api/Message/Delete?ID=' + selected.items[0].data.ID, function (data) {
+            App.post('/api/MessageReceive/Delete?ID=' + selected.items[0].data.ID, function (data) {
                 var obj = JSON.parse(data);
                 if (obj.Code == 200) {
                     view.down('pagingtoolbar').moveFirst();

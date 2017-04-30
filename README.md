@@ -1,6 +1,6 @@
-# ExtApp v 1.0.1
+# ExtApp v 1.0.2
 
-ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创建的，用于简化政府和企业应用开发的单页Web应用框架。
+ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创建的，用于简化政府和企业应用开发的Web应用程序框架。
 
   - 使用NHibernate自动创建数据表。
   - 使用NHibernate Attribute通过属性配置映射。
@@ -8,6 +8,7 @@ ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创
   - ExtJs动态加载js文件。
   - 支持折叠面板和桌面模式。
   - 多种皮肤动态切换。
+  - 工作流设计。（开发中）
   - 旧版本Demo：https://tengge1.github.io/ExtApp
   - 用户：管理员（admin、123）、一般用户（test、123）
   - 最新版下载：https://github.com/tengge1/ExtApp/releases
@@ -20,42 +21,62 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 * 角色管理、角色权限、菜单管理
 * 数据字典、字典项管理
 * 系统配置节点、系统配置管理
-* 系统日志
+* 系统日志、数据库在线备份还原
+* 工作流设计
+* 发送消息、接收消息
+* 框架功能演示
 
 我们所做的一切都是为了您能更好更快地进行Web应用的开发！！！
 
 ### 开发日志
 
+2017年4月30日 v1.0.2
+
+* 新增发送消息功能。
+* 新增接收消息功能。
+* 新增用户选择控件。
+* 新增五种菜单打开方式及演示。
+* 新增工作流设计并保存xml到数据库（开发中）。
+* Model层去除NHibernate属性配置中的序号，优化配置。
+* extjs包调整到/ExtApp/ExtApp.Web/packages文件夹。
+* 修复获取记录总数时从数据库读取所有记录的bug。
+
+====================================
+
 2017年4月22日 v1.0.1
  
 * 新增桌面模式。
-* 用户重置密码功能。
+* 新增重置密码功能。
 * 部分下拉列表选项改为字典项配置。
 
 ====================================
 
 2017年4月16日 v1.0.0
 
-* 组织机构管理、用户管理。
-* 角色管理、角色权限、菜单管理。
-* 数据字典、字典项管理。
-* 系统配置节点、系统配置管理。
+* 组织机构管理。
+* 用户管理。
+* 角色管理。
+* 角色授权。
+* 菜单管理。
+* 数据字典。
+* 系统配置。
 * 系统日志。
+* 数据库在线备份还原。
+* 登录界面。
+* 主体框架。
 
 ### 目录说明
 
 以下是该项目部分目录和文件的说明：
 
-```
-Demo - 老版本项目演示
-Doc - 项目文档
-ExtApp - 项目源代码
-Licenses - 授权相关文件
-.gitattributes - Git上传属性
-.gitignore - Git上传文件类型设置
-LICENSE - 授权文件
-README.md - 说明文件
-```
+* Demo - 老版本项目演示
+* ExtApp - 项目源代码
+* Licenses - 授权相关文件
+* .gitattributes - Git上传属性
+* .gitignore - Git上传文件类型设置
+* LICENSE - 授权文件
+* README.md - 说明文件
+
 
 ### 开发环境
 
@@ -73,8 +94,11 @@ README.md - 说明文件
 | ------ | ------ |
 | ExtJs | http://extjs.org.cn/ |
 | NHibernate | http://nhibernate.info/ |
+| NHibernate.Mapping.Attributes | https://github.com/nhibernate/NHibernate.Mapping.Attributes |
 | Spring.NET | http://springframework.net/ |
 | ASP.NET MVC | https://www.asp.net/mvc |
 | log4net | http://springframework.net/ |
 | Common Logging | http://netcommon.sourceforge.net/ |
 | Newtonsoft.JSON | http://www.newtonsoft.com/json |
+| mxgraph | https://github.com/jgraph/mxgraph |
+| Quartz | http://www.quartz-scheduler.org/ |

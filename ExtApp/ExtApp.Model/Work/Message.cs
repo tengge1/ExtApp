@@ -17,59 +17,61 @@ namespace ExtApp.Model
         /// <summary>
         /// ID
         /// </summary>
-        [Id(0, Name = "ID"), Generator(0, Class = "identity")]
+        [Id(Name = "ID")]
+        [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
         /// <summary>
         /// 类型
         /// </summary>
-        [ManyToOne(1, ClassType = typeof(DicItem), Column = "TypeID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(DicItem), Column = "TypeID", Lazy = Laziness.False)]
         public virtual DicItem Type { get; set; }
 
         /// <summary>
         /// 标题
         /// </summary>
-        [Property(2)]
+        [Property]
         public virtual string Title { get; set; }
 
         /// <summary>
         /// 内容
         /// </summary>
-        [Property(3, Length = 10000)]
+        [Property(Length = 10000)]
         public virtual string Content { get; set; }
 
         /// <summary>
         /// 添加人（null表示系统）
         /// </summary>
-        [ManyToOne(4, ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(User), Column = "AddUserID", Lazy = Laziness.False)]
         public virtual User AddUser { get; set; }
 
         /// <summary>
         /// 添加时间
         /// </summary>
-        [Property(5)]
+        [Property]
         public virtual DateTime AddTime { get; set; }
 
         /// <summary>
         /// 发送时间
         /// </summary>
-        [Property(6)]
+        [Property]
         public virtual DateTime? SendTime { get; set; }
 
         /// <summary>
         /// 消息发送状态
         /// </summary>
-        [ManyToOne(7, ClassType = typeof(DicItem), Column = "Status", Lazy = Laziness.False)]
+        [ManyToOne(ClassType = typeof(DicItem), Column = "Status", Lazy = Laziness.False)]
         public virtual DicItem Status { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [Property(8)]
+        [Property]
         public virtual string Comment { get; set; }
 
-        [JsonIgnore]
-        [OneToMany(9, ClassType = typeof(MessageReceive))]
-        public virtual IList<MessageReceive> MessageReceives { get; set; }
+        [Bag(Table = "MessageReceive", Lazy = CollectionLazy.True, Cascade = "ALL")]
+        [Key(Column = "MessageID")]
+        [OneToMany(ClassType = typeof(MessageReceive))]
+        public virtual IList<MessageReceive> Receives { get; set; }
     }
 }

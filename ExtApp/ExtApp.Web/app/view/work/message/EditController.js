@@ -31,11 +31,23 @@ Ext.define('App.view.work.message.EditController', {
 
     onSaveClick: function () {
         var win = this.getView();
-        var form = win.down('form').form;
+        var form = win.down('form').getForm();
         if (!form.isValid()) {
             return;
         }
         var values = form.getValues();
+
+        var userIDs = values.UserIDs.split(',');
+        values.Receives = [];
+        for (var i in userIDs) {
+            var userID = userIDs[i];
+            values.Receives.push({
+                ID: 0,
+                User: {
+                    ID: parseInt(userID)
+                }
+            });
+        }
 
         var url = '';
         if (values.ID == '' || values.ID == 0) {

@@ -28,7 +28,8 @@ Ext.define('App.view.work.message.Edit', {
         },
         items: [{
             xtype: 'hidden',
-            name: 'ID'
+            name: 'ID',
+            value: '0'
         }, {
             xtype: 'hidden',
             name: 'UserIDs'

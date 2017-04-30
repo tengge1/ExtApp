@@ -63,5 +63,16 @@ namespace ExtApp
         {
             return JsonConvert.DeserializeObject(json, setting);
         }
+
+        /// <summary>
+        /// 转换为对象
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static object ToObject(string json, Type type)
+        {
+            return JsonConvert.DeserializeObject(json, type, setting);
+        }
     }
 }

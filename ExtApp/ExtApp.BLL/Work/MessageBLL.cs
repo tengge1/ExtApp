@@ -27,7 +27,8 @@ namespace ExtApp.BLL
             var query2 = Restrictions.Like("Content", name, MatchMode.Anywhere);
             var query = Restrictions.Or(query1, query2);
             var total = 0;
-            return base.List(firstResult, maxResults, out total, query);
+            var list = dal.List(firstResult, maxResults, out total, query);
+            return new ListResult<Message>(200, "获取成功！", total, list);
         }
 
         /// <summary>
@@ -42,6 +43,10 @@ namespace ExtApp.BLL
             model.ID = 0;
             model.Status = DicHelper.Get("MessageSendType", "Draft");
             model.Type = DicHelper.Get("MessageType", "UserMessage");
+            foreach (var i in model.Receives)
+            {
+                i.Message = model;
+            }
             return base.Add(model);
         }
 
@@ -64,7 +69,16 @@ namespace ExtApp.BLL
             }
             model1.Comment = model.Comment;
             model1.Content = model.Content;
-            model1.MessageReceives = model.MessageReceives;
+            model1.Receives.Clear();
+            foreach (var i in model.Receives)
+            {
+                model1.Receives.Add(new MessageReceive
+                {
+                    ID = 0,
+                    Message = model1,
+                    User = i.User
+                });
+            }
             model1.Title = model.Title;
             return base.Edit(model1);
         }

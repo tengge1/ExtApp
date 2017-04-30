@@ -67,7 +67,8 @@ Ext.apply(App, {
         Ext.Ajax.request({
             url: url,
             method: 'POST',
-            params: typeof (params) == 'function' ? null : params, // 验证第二个参数是post参数还是回调函数
+            defaultPostHeader: 'application/json; charset=UTF-8',
+            params: typeof (params) == 'function' ? null : JSON.stringify(params), // 验证第二个参数是post参数还是回调函数
             success: function (response, opts) {
                 var data = response.responseText;
                 if (typeof (params) == 'function') { // 第二个参数是回调函数

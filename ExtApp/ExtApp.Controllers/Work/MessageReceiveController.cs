@@ -42,7 +42,7 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult Read(int ID)
         {
-            var result = bll.Get(ID);
+            var result = bll.Read(ID);
             return Json(result);
         }
 

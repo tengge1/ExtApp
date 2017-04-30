@@ -341,8 +341,7 @@
     <Content Include="app\view\workflow\design\ListController.js" />
     <Content Include="app\view\workflow\design\resources\app.txt" />
     <Content Include="app\view\workflow\design\resources\app_zh.txt" />
-    <Content Include="app\view\work\messageReceive\Edit.js" />
-    <Content Include="app\view\work\messageReceive\EditController.js" />
+    <Content Include="app\view\work\messageReceive\View.js" />
     <Content Include="app\view\work\messageReceive\List.js" />
     <Content Include="app\view\work\messageReceive\ListController.js" />
     <Content Include="app\view\work\message\Edit.js" />

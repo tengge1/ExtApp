@@ -17,15 +17,18 @@ Ext.define('App.view.work.messageReceive.ListController', {
     },
 
     onViewClick: function () {
-        var selected = this.getView().down('gridpanel').getSelectionModel().getSelected();
+        var view = this.getView();
+        var selected = view.down('gridpanel').getSelectionModel().getSelected();
         if (selected.length == 0) {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.work.messageReceive.Edit');
-        win.setTitle('查看消息');
+        var win = Ext.create('App.view.work.messageReceive.View');
         win.down('form').getForm().loadRecord(selected.items[0]);
         win.show();
+        App.get('/api/MessageReceive/Read?ID=' + selected.items[0].data.ID, function (result) {
+            view.down('gridpanel').getStore().reload();
+        });
     },
 
     onDeleteClick: function () {

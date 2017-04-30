@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-29 19:32:37
+Date: 2017-04-30 11:38:25
 */
 
 
@@ -442,7 +442,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 46)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 48)
 GO
 
 -- ----------------------------
@@ -478,6 +478,12 @@ INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime]
 GO
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'46', N'7', N'8', N'4', N'1', N'2017-04-29 17:41:53.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'47', N'7', N'8', N'4', N'1', N'2017-04-29 21:07:26.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'48', N'7', N'8', N'4', N'1', N'2017-04-30 08:11:25.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -546,7 +552,7 @@ GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4006', N'数据库备份', N'001007', N'1', N'26', N'App.view.core.databaseBackup.List', N'28', N'Database', N'1', N'70', null, N'31')
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4010', N'实验室', N'003', null, null, null, N'28', N'Pill', N'1', N'200', null, null)
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4010', N'实验中心', N'003', null, null, null, N'28', N'Pill', N'1', N'200', null, null)
 GO
 GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4011', N'打开方式', N'003001', N'4010', null, null, N'28', N'Worldlink', N'1', N'0', null, null)
@@ -576,10 +582,10 @@ GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4019', N'消息中心', N'002001', N'4', null, null, N'28', N'Email', N'1', N'10', null, null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4020', N'发送消息', N'002001001', N'4019', N'26', N'App.view.work.message.send.List', N'28', N'Emailadd', N'1', N'10', null, N'31')
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4020', N'发送消息', N'002001001', N'4019', N'26', N'App.view.work.message.List', N'28', N'Emailadd', N'1', N'10', null, N'31')
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4021', N'接收消息', N'002001002', N'4019', N'26', N'App.view.work.message.receive.List', N'28', N'Emailtransfer', N'1', N'20', null, N'31')
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4021', N'接收消息', N'002001002', N'4019', N'26', N'App.view.work.messageReceive.List', N'28', N'Emailtransfer', N'1', N'20', null, N'31')
 GO
 GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4022', N'打开百度', N'003001006', N'4011', N'27', N'http://www.baidu.com', N'28', N'User', N'1', N'60', null, N'31')
@@ -775,14 +781,16 @@ CREATE TABLE [dbo].[Message] (
 [Title] nvarchar(255) NULL ,
 [Content] nvarchar(MAX) NULL ,
 [AddTime] datetime NULL ,
+[SendTime] datetime NULL ,
 [Comment] nvarchar(255) NULL ,
 [TypeID] int NULL ,
 [AddUserID] int NULL ,
-[Status] int NULL ,
-[SendTime] datetime NULL 
+[Status] int NULL 
 )
 
 
+GO
+DBCC CHECKIDENT(N'[dbo].[Message]', RESEED, 2)
 GO
 
 -- ----------------------------
@@ -790,7 +798,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Message] ON
 GO
-INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [Comment], [TypeID], [AddUserID], [Status], [SendTime]) VALUES (N'1', N'第一封电子邮件', N'这是本系统发送的第一封电子邮件！', N'2017-04-29 18:35:50.000', N'测试', N'36', N'1', N'38', null)
+INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [SendTime], [Comment], [TypeID], [AddUserID], [Status]) VALUES (N'1', N'增加接收人', N'增加接收人', N'2017-04-30 11:35:00.000', null, N'增加接收人', N'36', N'1', N'37')
+GO
+GO
+INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [SendTime], [Comment], [TypeID], [AddUserID], [Status]) VALUES (N'2', N'这是标题', N'这是内容。', N'2017-04-30 11:35:54.000', null, N'备注', N'36', N'1', N'37')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Message] OFF
@@ -806,10 +817,12 @@ CREATE TABLE [dbo].[MessageReceive] (
 [ReadTime] datetime NULL ,
 [Comment] nvarchar(255) NULL ,
 [MessageID] int NULL ,
-[AddUserID] int NULL 
+[UserID] int NULL 
 )
 
 
+GO
+DBCC CHECKIDENT(N'[dbo].[MessageReceive]', RESEED, 4)
 GO
 
 -- ----------------------------
@@ -817,7 +830,16 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[MessageReceive] ON
 GO
-INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [AddUserID]) VALUES (N'1', N'2017-04-30 18:37:27.000', N'', N'1', N'2')
+INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID]) VALUES (N'1', null, null, null, N'2')
+GO
+GO
+INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID]) VALUES (N'2', null, null, N'2', N'2')
+GO
+GO
+INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID]) VALUES (N'3', null, null, N'1', N'2')
+GO
+GO
+INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID]) VALUES (N'4', null, null, N'1', N'1')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[MessageReceive] OFF
@@ -1504,7 +1526,7 @@ GO
 -- ----------------------------
 ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([MessageID]) REFERENCES [dbo].[Message] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
-ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 
 -- ----------------------------

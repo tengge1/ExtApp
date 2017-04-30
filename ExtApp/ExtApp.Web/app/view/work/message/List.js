@@ -29,6 +29,11 @@ Ext.define("App.view.work.message.List", {
         text: '删除',
         iconCls: 'Delete',
         handler: 'onDeleteClick'
+    }, {
+        xtype: 'button',
+        text: '发送',
+        iconCls: 'Emailgo',
+        handler: 'onSendClick'
     }],
 
     items: [{

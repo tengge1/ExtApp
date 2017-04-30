@@ -97,7 +97,15 @@ namespace ExtApp.BLL
             }
             model.Status = DicHelper.Get("MessageSendType", "Send");
             model.SendTime = DateTime.Now;
-            return base.Edit(model);
+            var result = dal.Edit(model);
+            if (result)
+            {
+                return new Result(200, "发送成功！");
+            }
+            else
+            {
+                return new Result(300, "发送失败！");
+            }
         }
     }
 }

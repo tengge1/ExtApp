@@ -59,6 +59,24 @@ Ext.define('App.view.work.message.ListController', {
         });
     },
 
+    onSendClick: function () {
+        var view = this.getView();
+        var selected = view.down('gridpanel').getSelectionModel().getSelected();
+        if (selected.length == 0) {
+            App.notify('消息', '请选择！');
+            return;
+        }
+        App.post('/api/Message/Send?ID=' + selected.items[0].data.ID, function (data) {
+            var obj = JSON.parse(data);
+            if (obj.Code == 200) {
+                view.down('pagingtoolbar').moveFirst();
+                App.notify('消息', obj.Msg);
+            } else {
+                App.alert('错误', obj.Msg);
+            }
+        });
+    },
+
     onSearchClick: function () {
         var view = this.getView();
         var values = view.down('searchform').form.getValues();

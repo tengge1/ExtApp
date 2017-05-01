@@ -163,6 +163,7 @@
     <Content Include="app\store\work\Message.js" />
     <Content Include="app\test\MenuSelectTest.js" />
     <Content Include="app\test\DeptSelectTest.js" />
+    <Content Include="app\test\SearchFormTest.js" />
     <Content Include="app\test\NotifyTest.js" />
     <Content Include="app\util\RequireCss.js" />
     <Content Include="app\util\RequireJs.js" />

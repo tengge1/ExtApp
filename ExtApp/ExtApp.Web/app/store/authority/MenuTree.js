@@ -6,9 +6,15 @@ Ext.define('App.store.authority.MenuTree', {
 
     model: 'App.model.authority.Menu',
     defaultRootId: '0',
-    defaultRootText: '顶级菜单',
     rootVisible: true,
     nodeParam: 'PID',
+
+    root: {
+        id: 0,
+        text: '顶级菜单',
+        Name: '顶级菜单',
+        expanded: true
+    },
 
     proxy: {
         type: 'ajax',

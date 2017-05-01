@@ -161,6 +161,7 @@
     <Content Include="app\store\workflow\Workflow.js" />
     <Content Include="app\store\work\MessageReceive.js" />
     <Content Include="app\store\work\Message.js" />
+    <Content Include="app\test\MenuSelectTest.js" />
     <Content Include="app\test\DeptSelectTest.js" />
     <Content Include="app\test\NotifyTest.js" />
     <Content Include="app\util\RequireCss.js" />

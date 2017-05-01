@@ -6,9 +6,15 @@ Ext.define('App.store.personnel.DeptTree', {
 
     model: 'App.model.personnel.Dept',
     defaultRootId: '0',
-    defaultRootText: '顶级机构',
     rootVisible: true,
     nodeParam: 'PID',
+
+    root: {
+        text: '顶级机构',
+        id: 0,
+        expanded: true,
+        Name: '顶级机构'
+    },
 
     proxy: {
         type: 'ajax',

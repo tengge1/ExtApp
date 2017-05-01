@@ -11,6 +11,6 @@ Ext.define('App.widget.DeptSelect', {
     store: Ext.create('App.store.personnel.DeptTree'),
 
     reset: function () {
-        this.getStore().reload();
+        this.setValue('');
     }
 });

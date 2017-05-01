@@ -25,16 +25,16 @@ Ext.define('App.test.NotifyTest', {
     items: [{
         xtype: 'textarea',
         name: 'code1',
-        fieldLabel: '弹窗一',
+        fieldLabel: '弹窗1',
         value: `App.notify("消息", "这是一个冒泡弹窗！");`
     }, {
         xtype: 'textarea',
         name: 'code2',
-        fieldLabel: '弹窗二',
+        fieldLabel: '弹窗2',
         value: `Ext.create('App.widget.Notify', {
-    title: '消息',
-    html: '这是第二种写法！'
-}).show();`
+            title: '消息',
+            html: '这是第二种写法！'
+        }).show(); `
     }],
 
     initComponent: function () {

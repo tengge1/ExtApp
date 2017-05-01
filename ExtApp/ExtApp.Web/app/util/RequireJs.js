@@ -4,7 +4,7 @@
 Ext.define('App.util.RequireJs', {
     extend: 'Ext.Base',
 
-    require: function (paths) {
+    require: function (paths, callback) {
         if (!(paths instanceof Array)) {
             throw 'paths必须是数组';
         }

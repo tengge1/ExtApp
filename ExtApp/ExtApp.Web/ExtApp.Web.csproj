@@ -161,6 +161,9 @@
     <Content Include="app\store\workflow\Workflow.js" />
     <Content Include="app\store\work\MessageReceive.js" />
     <Content Include="app\store\work\Message.js" />
+    <Content Include="app\test\NotifyTest.js" />
+    <Content Include="app\util\RequireCss.js" />
+    <Content Include="app\util\RequireJs.js" />
     <Content Include="app\view\workflow\design\designer.js" />
     <Content Include="app\view\workflow\design\config\editor-commons.xml" />
     <Content Include="app\view\workflow\design\config\keyhandler-commons.xml" />
@@ -453,6 +456,36 @@
     <Content Include="App_Data\ExtApp.sql" />
     <Content Include="css\desktop.css" />
     <Content Include="images\workflow\grid.gif" />
+    <Content Include="packages\CodeMirror\lib\codemirror.css" />
+    <Content Include="packages\CodeMirror\lib\codemirror.js" />
+    <Content Include="packages\CodeMirror\mode\clike\clike.js" />
+    <Content Include="packages\CodeMirror\mode\clike\index.html" />
+    <Content Include="packages\CodeMirror\mode\clike\scala.html" />
+    <Content Include="packages\CodeMirror\mode\clike\test.js" />
+    <Content Include="packages\CodeMirror\mode\css\css.js" />
+    <Content Include="packages\CodeMirror\mode\css\gss.html" />
+    <Content Include="packages\CodeMirror\mode\css\gss_test.js" />
+    <Content Include="packages\CodeMirror\mode\css\index.html" />
+    <Content Include="packages\CodeMirror\mode\css\less.html" />
+    <Content Include="packages\CodeMirror\mode\css\less_test.js" />
+    <Content Include="packages\CodeMirror\mode\css\scss.html" />
+    <Content Include="packages\CodeMirror\mode\css\scss_test.js" />
+    <Content Include="packages\CodeMirror\mode\css\test.js" />
+    <Content Include="packages\CodeMirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="packages\CodeMirror\mode\htmlmixed\index.html" />
+    <Content Include="packages\CodeMirror\mode\javascript\index.html" />
+    <Content Include="packages\CodeMirror\mode\javascript\javascript.js" />
+    <Content Include="packages\CodeMirror\mode\javascript\json-ld.html" />
+    <Content Include="packages\CodeMirror\mode\javascript\test.js" />
+    <Content Include="packages\CodeMirror\mode\javascript\typescript.html" />
+    <Content Include="packages\CodeMirror\mode\markdown\index.html" />
+    <Content Include="packages\CodeMirror\mode\markdown\markdown.js" />
+    <Content Include="packages\CodeMirror\mode\markdown\test.js" />
+    <Content Include="packages\CodeMirror\mode\sql\index.html" />
+    <Content Include="packages\CodeMirror\mode\sql\sql.js" />
+    <Content Include="packages\CodeMirror\mode\xml\index.html" />
+    <Content Include="packages\CodeMirror\mode\xml\test.js" />
+    <Content Include="packages\CodeMirror\mode\xml\xml.js" />
     <Content Include="packages\extjs\chart\AbstractChart.js" />
     <Content Include="packages\extjs\chart\axis\Axis.js" />
     <Content Include="packages\extjs\chart\axis\Axis3D.js" />
@@ -4117,6 +4150,8 @@
     <Content Include="packages\mxGraph\resources\graph.txt" />
     <Content Include="packages\mxGraph\resources\graph_de.txt" />
     <Content Include="packages\mxGraph\resources\graph_zh.txt" />
+    <Content Include="packages\RequireJs\require.js" />
+    <Content Include="packages\RequireJs\require.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

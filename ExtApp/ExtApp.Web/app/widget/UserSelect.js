@@ -11,6 +11,19 @@ Ext.define('App.widget.UserSelect', {
     layout: 'border',
 
     callback: null, // 回调函数
+
+    getValue: function () { // 获取用户ids
+        var data = this.down('gridpanel[title=已读]').getStore().getData();
+    },
+
+    getRawValue: function () { // 获取用户names
+
+    },
+
+    getSelection: function () { // 获取选择的用户记录
+
+    },
+
     setValue: function (userIDs) { // 为控件赋值
 
     },

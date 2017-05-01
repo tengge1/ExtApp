@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-04-30 16:37:31
+Date: 2017-05-01 16:16:29
 */
 
 
@@ -454,7 +454,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 54)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 59)
 GO
 
 -- ----------------------------
@@ -516,6 +516,21 @@ GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'54', N'7', N'8', N'4', N'1', N'2017-04-30 16:21:23.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'55', N'7', N'8', N'4', N'2', N'2017-04-30 17:14:52.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'56', N'7', N'8', N'4', N'1', N'2017-04-30 17:15:10.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'57', N'7', N'8', N'4', N'1', N'2017-04-30 17:15:26.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'58', N'7', N'8', N'4', N'1', N'2017-05-01 10:48:21.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'59', N'7', N'8', N'4', N'1', N'2017-05-01 11:59:30.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
 GO
 
@@ -541,7 +556,7 @@ CREATE TABLE [dbo].[AppMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4022)
+DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4032)
 GO
 
 -- ----------------------------
@@ -621,6 +636,36 @@ GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4022', N'打开百度', N'003001006', N'4011', N'27', N'http://www.baidu.com', N'28', N'User', N'1', N'60', null, N'31')
 GO
 GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4023', N'自定义控件', N'003002', N'4010', null, N'', N'28', N'Star', N'1', N'20', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4024', N'冒泡弹窗', N'003002001', N'4023', N'26', N'App.test.NotifyTest', N'28', N'Applicationcascade', N'1', N'10', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4025', N'机构下拉选择', N'003002002', N'4023', N'26', N'App.test.DeptSelectTest', N'28', N'Awardstargold1', N'1', N'20', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4026', N'菜单下拉选择', N'003002003', N'4023', N'26', N'App.test.MenuSelectTest', N'28', N'Awardstargold2', N'1', N'30', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4027', N'搜索表单', N'003002004', N'4023', N'26', N'App.test.SearchFormTest', N'28', N'Awardstargold3', N'1', N'40', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4028', N'用户选择', N'003002005', N'4023', N'26', N'App.test.UserSelectTest', N'28', N'Awardstarsilver1', N'1', N'50', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4029', N'地图绘制', N'003002006', N'4023', N'26', N'App.test.MapDrawTest', N'29', N'Mapedit', N'1', N'60', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4030', N'地图展示', N'003002007', N'4023', N'26', N'App.test.MapShowTest', N'28', N'Mapstart', N'1', N'70', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4031', N'附件上传', N'003002008', N'4023', N'26', N'App.test.FileUploadTest', N'28', N'Film', N'1', N'80', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4032', N'附件展示', N'003002009', N'4023', N'26', N'App.test.FileShowTest', N'28', N'Filmstart', N'1', N'90', N'', N'31')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppMenu] OFF
 GO
 
@@ -670,7 +715,7 @@ CREATE TABLE [dbo].[AppRoleMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 48)
+DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 58)
 GO
 
 -- ----------------------------
@@ -784,6 +829,36 @@ INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'47', N'2006
 GO
 GO
 INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'48', N'2006', N'4022')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'49', N'5', N'4023')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'50', N'5', N'4024')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'51', N'5', N'4025')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'52', N'5', N'4026')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'53', N'5', N'4027')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'54', N'5', N'4028')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'55', N'5', N'4029')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'56', N'5', N'4030')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'57', N'5', N'4031')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'58', N'5', N'4032')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] OFF

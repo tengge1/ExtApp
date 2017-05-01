@@ -33,14 +33,25 @@ Ext.define('App.test.SearchFormTest', {
                 var values = sender.up('searchform').getValues();
                 App.notify('消息', JSON.stringify(values));
             }
+        }, {
+            xtype: 'button',
+            text: '重置',
+            handler: function (sender) {
+                sender.up('searchform').reset();
+            }
         }]
     }],
 
     items: [{
         xtype: 'textarea',
         name: 'code1',
-        fieldLabel: '弹窗1',
+        fieldLabel: '获取值',
         value: `var values = searchform.getValues();`
+    }, {
+        xtype: 'textarea',
+        name: 'code2',
+        fieldLabel: '重置',
+        value: `searchform.reset();`
     }],
 
     initComponent: function () {
@@ -51,6 +62,12 @@ Ext.define('App.test.SearchFormTest', {
             "packages/CodeMirror/lib/codemirror", "packages/CodeMirror/mode/htmlmixed/htmlmixed"
         ], function (CodeMirror) {
             var editor = CodeMirror.fromTextArea(view.down('textarea[name=code1]').inputEl.dom, {
+                lineNumbers: true,
+                mode: "javascript",
+                readOnly: true
+            });
+            editor.setSize('auto', '100px');
+            editor = CodeMirror.fromTextArea(view.down('textarea[name=code2]').inputEl.dom, {
                 lineNumbers: true,
                 mode: "javascript",
                 readOnly: true

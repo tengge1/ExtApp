@@ -5,44 +5,45 @@ Ext.define('App.test.UserSelectTest', {
     layout: 'form',
     autoScroll: true,
 
+    select: null,
+
     tbar: [{
         xtype: 'textfield',
         fieldLabel: '用户',
         labelWidth: 40,
         labelAlign: 'right',
         emptyText: '请选择',
+        editable: false,
         triggers: {
             select: {
                 cls: 'User trigger-no-shift',
-                floated: true,
-                hideOnReadOnly: false,
-                handler: function () {
-                    this.fireEvent('focus', this);
-                }
-            }
-        },
-        listeners: {
-            focus: function () {
-                var select = Ext.create('App.widget.UserSelect', {
-                    callback: function (records) {
-                        var ids = '';
-                        var names = '';
-                        for (var i = 0; i < records.length; i++) {
-                            var record = records[i];
-                            ids += record.data.ID + ',';
-                            names += record.data.Name + ',';
+                handler: function (sender) {
+                    var userSelect = Ext.create('App.widget.UserSelect', {
+                        callback: function (records) {
+                            var ids = '';
+                            var names = '';
+                            for (var i = 0; i < records.length; i++) {
+                                var record = records[i];
+                                ids += record.data.ID + ',';
+                                names += record.data.Name + ',';
+                            }
+                            App.notify('消息', '您选择了<br />ID:' + ids + '<br />Name:' + names);
                         }
-                        App.notify('消息', '您选择了<br />ID:' + ids + '<br />Name:' + names);
-                    }
-                });
-                select.show();
+                    });
+                    sender.up('panel').select = userSelect;
+                    userSelect.show();
+                }
             }
         }
     }, {
         xtype: 'button',
         text: '获取值',
         handler: function (sender) {
-            var select = sender.up('panel').down('deptselect');
+            var select = sender.up('panel').select;
+            if (select == null) {
+                App.notify('消息', '请选择用户！');
+                return;
+            }
             var value = select.getValue();
             var text = select.getRawValue();
             App.notify('消息', '您选择了<br />ID:' + value + '<br />Name:' + text);
@@ -51,7 +52,11 @@ Ext.define('App.test.UserSelectTest', {
         xtype: 'button',
         text: '重置',
         handler: function (sender) {
-            var select = sender.up('panel').down('deptselect');
+            var select = sender.up('panel').select;
+            if (select == null) {
+                App.notify('消息', '请选择用户！');
+                return;
+            }
             select.reset();
         }
     }],

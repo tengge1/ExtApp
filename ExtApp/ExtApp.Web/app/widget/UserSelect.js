@@ -12,16 +12,44 @@ Ext.define('App.widget.UserSelect', {
 
     callback: null, // 回调函数
 
-    getValue: function () { // 获取用户ids
-        var data = this.down('gridpanel[title=已读]').getStore().getData();
+    reset: function () { // 重置
+        var tree = this.down('treepanel');
+        tree.getSelectionModel().deselectAll();
+        var grid = this.down('gridpanel[title=全部]');
+        grid.getStore().removeAll();
+        grid = this.down('gridpanel[title=已选]');
+        grid.getStore().removeAll();
     },
 
-    getRawValue: function () { // 获取用户names
+    getValue: function () { // 获取用户ID（多个用逗号隔开）
+        var list = this.down('gridpanel[title=已选]').getStore().getData();
+        var ids = '';
+        for (var i = 0; i < list.length; i++) {
+            var item = list.getAt(i);
+            ids += item.data.ID + ',';
+        }
+        if (ids.endsWith(',')) {
+            ids = ids.substr(0, ids.length - 1);
+        }
+        return ids;
+    },
 
+    getRawValue: function () { // 获取用户姓名（多个用逗号隔开）
+        var list = this.down('gridpanel[title=已选]').getStore().getData();
+        var names = '';
+        for (var i = 0; i < list.length; i++) {
+            var item = list.getAt(i);
+            names += item.data.Name + ',';
+        }
+        if (names.endsWith(',')) {
+            names = names.substr(0, names.length - 1);
+        }
+        return names;
     },
 
     getSelection: function () { // 获取选择的用户记录
-
+        var list = this.down('gridpanel[title=已选]').getStore().getData();
+        return list;
     },
 
     setValue: function (userIDs) { // 为控件赋值
@@ -131,7 +159,7 @@ Ext.define('App.widget.UserSelect', {
     }, {
         text: '取消',
         handler: function (sender) {
-            sender.up('window').close();
+            sender.up('window').hide();
         }
     }]
 });

@@ -17,9 +17,33 @@
         var zoom = 12;
         function onLoad() {
             map = new T.Map(document.body, {
-                projection: 'EPSG:4326'
+                //projection: 'EPSG:4326'
             });
-            map.centerAndZoom(new T.LngLat(116.40769, 39.89945), zoom);
+
+            //允许鼠标滚轮缩放地图
+            map.enableScrollWheelZoom();
+            //设置显示地图的中心点和级别
+            map.centerAndZoom(new T.LngLat(116.40969, 39.89945), zoom);
+            //创建缩放平移控件对象
+            control = new T.Control.Zoom();
+            //添加缩放平移控件
+            map.addControl(control);
+            //创建比例尺控件对象
+            var scale = new T.Control.Scale();
+            //添加比例尺控件
+            map.addControl(scale);
+            var miniMap = new T.Control.OverviewMap({
+                isOpen: true,
+                size: new T.Point(150, 150)
+            });
+            map.addControl(miniMap);
+
+
+            var imageURL = "http://t0.tianditu.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}";
+            //创建自定义图层对象
+            var lay = new T.TileLayer(imageURL, { minZoom: 1, maxZoom: 18 });
+            //将图层增加到地图上
+            map.addLayer(lay);
         }
     </script>
 </head>

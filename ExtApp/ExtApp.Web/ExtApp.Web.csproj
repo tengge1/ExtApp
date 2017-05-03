@@ -155,6 +155,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\App.js" />
+    <Content Include="app\test\MapDrawTest.js" />
+    <Content Include="app\widget\MapDraw.js" />
     <Content Include="packages\map\css\map.css" />
     <Content Include="packages\map\js\mapDraw.js" />
     <Content Include="packages\map\mapDraw.html" />

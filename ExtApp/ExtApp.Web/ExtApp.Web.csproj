@@ -155,7 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\App.js" />
-    <Content Include="app\map\mapDraw.html" />
+    <Content Include="packages\map\css\map.css" />
+    <Content Include="packages\map\js\mapDraw.js" />
+    <Content Include="packages\map\mapDraw.html" />
     <Content Include="app\model\workflow\Workflow.js" />
     <Content Include="app\model\work\MessageReceive.js" />
     <Content Include="app\model\work\Message.js" />

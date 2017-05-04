@@ -155,10 +155,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\App.js" />
+    <Content Include="app\test\MapShowTest.js" />
     <Content Include="app\test\MapDrawTest.js" />
+    <Content Include="app\widget\MapShow.js" />
     <Content Include="app\widget\MapDraw.js" />
     <Content Include="packages\map\css\map.css" />
+    <Content Include="packages\map\js\mapShow.js" />
     <Content Include="packages\map\js\mapDraw.js" />
+    <Content Include="packages\map\mapShow.html" />
     <Content Include="packages\map\mapDraw.html" />
     <Content Include="app\model\workflow\Workflow.js" />
     <Content Include="app\model\work\MessageReceive.js" />

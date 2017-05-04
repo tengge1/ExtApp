@@ -11,9 +11,12 @@ Ext.define('App.test.MapDrawTest', {
         xtype: 'button',
         text: '画点',
         iconCls: 'Map',
-        handler: function () {
+        handler: function (sender) {
             var win = Ext.create('App.widget.MapDraw', {
-                type: 'point'
+                type: 'point',
+                callback: function (value) {
+                    sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
+                }
             });
             win.show();
         }
@@ -21,9 +24,12 @@ Ext.define('App.test.MapDrawTest', {
         xtype: 'button',
         text: '画线',
         iconCls: 'Map',
-        handler: function () {
+        handler: function (sender) {
             var win = Ext.create('App.widget.MapDraw', {
-                type: 'polyline'
+                type: 'polyline',
+                callback: function (value) {
+                    sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
+                }
             });
             win.show();
         }
@@ -31,9 +37,12 @@ Ext.define('App.test.MapDrawTest', {
         xtype: 'button',
         text: '画面',
         iconCls: 'Map',
-        handler: function () {
+        handler: function (sender) {
             var win = Ext.create('App.widget.MapDraw', {
-                type: 'polygon'
+                type: 'polygon',
+                callback: function (value) {
+                    sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
+                }
             });
             win.show();
         }
@@ -62,6 +71,11 @@ Ext.define('App.test.MapDrawTest', {
     }],
 
     items: [{
+        xtype: 'textarea',
+        name: 'data',
+        fieldLabel: '数据',
+        value: ''
+    }, {
         xtype: 'textarea',
         name: 'code1',
         fieldLabel: '控件',

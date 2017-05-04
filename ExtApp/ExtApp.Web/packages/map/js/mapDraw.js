@@ -4,6 +4,24 @@ var markerTool = null;
 var polylineTool = null;
 var polygonTool = null;
 
+function getValue() {
+    if (type == 'polyline') {
+        var polylines = polylineTool.getPolylines();
+        if (polylines != null && polylines.length > 0) {
+            return polylines[0].St;
+        }
+        return null;
+    } else if (type == 'polygon') {
+        var polygons = polygonTool.getPolygons();
+        if (polygons != null && polygons.length > 0) {
+            return polygons[0].St;
+        }
+        return null;
+    } else {
+        return markerTool.getMarkControlPoint();
+    }
+}
+
 function start() {
     map = new T.Map(document.body);
 

@@ -13,7 +13,7 @@ Ext.define('App.widget.MapDraw', {
     callback: null, // 回调函数
 
     getValue: function () { // 获取值
-        return value;
+        return this.value;
     },
 
     title: '地图绘制',

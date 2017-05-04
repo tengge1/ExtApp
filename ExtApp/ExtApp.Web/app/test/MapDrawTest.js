@@ -5,7 +5,7 @@ Ext.define('App.test.MapDrawTest', {
     layout: 'form',
     autoScroll: true,
 
-    select: null,
+    mapDraw: null,
 
     tbar: [{
         xtype: 'button',
@@ -18,6 +18,7 @@ Ext.define('App.test.MapDrawTest', {
                     sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
                 }
             });
+            sender.up('panel').mapDraw = win;
             win.show();
         }
     }, {
@@ -31,6 +32,7 @@ Ext.define('App.test.MapDrawTest', {
                     sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
                 }
             });
+            sender.up('panel').mapDraw = win;
             win.show();
         }
     }, {
@@ -44,29 +46,20 @@ Ext.define('App.test.MapDrawTest', {
                     sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
                 }
             });
+            sender.up('panel').mapDraw = win;
             win.show();
         }
     }, {
         xtype: 'button',
         text: '获取值',
         handler: function (sender) {
-            var select = sender.up('panel').select;
-            if (select == null) {
-                App.notify('消息', '请选择用户！');
+            var mapDraw = sender.up('panel').mapDraw;
+            if (mapDraw == null) {
+                App.notify('消息', '请绘制！');
                 return;
             }
-            var value = select.getValue();
-            var text = select.getRawValue();
-            App.notify('消息', '您选择了<br />ID:' + value + '<br />Name:' + text);
-        }
-    }, {
-        xtype: 'button',
-        text: '重置',
-        handler: function (sender) {
-            var select = sender.up('panel').select;
-            select.reset();
-            sender.up('panel').down('hidden[name=userIDs]').reset();
-            sender.up('panel').down('textfield[name=userNames]').reset();
+            var value = mapDraw.getValue();
+            App.notify('数据', JSON.stringify(value));
         }
     }],
 
@@ -79,38 +72,18 @@ Ext.define('App.test.MapDrawTest', {
         xtype: 'textarea',
         name: 'code1',
         fieldLabel: '控件',
-        value: `var userSelect = Ext.create('App.widget.UserSelect', {
-            callback: function (records) {
-                    var ids = '';
-                    var names = '';
-                    for (var i = 0; i < records.length; i++) {
-                        var record = records[i];
-                        ids += record.data.ID + ',';
-                        names += record.data.Name + ',';
-                    }
-                    if (ids.endsWith(',')) {
-                        ids = ids.substr(0, ids.length -1);
-                    }
-                    if (names.endsWith(',')) {
-                        names = names.substr(0, names.length -1);
-                    }
-                    App.notify('消息', '您选择了<br />ID:' + ids + '<br />Name:' + names);
-                }
-            });
-            userSelect.reset();
-            userSelect.show();`
+        value: `var win = Ext.create('App.widget.MapDraw', {
+            type: 'point', // point-点，polyline-线，polygon-面
+            callback: function (value) {
+                sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
+            }
+        });
+        win.show();`
     }, {
         xtype: 'textarea',
         name: 'code2',
         fieldLabel: '获取值',
-        value: `var value = userSelect.getValue();
-            var text = userSelect.getRawValue();
-            App.notify('消息', '您选择了<br />ID:' + value + '<br />Name:' + text);`
-    }, {
-        xtype: 'textarea',
-        name: 'code3',
-        fieldLabel: '重置',
-        value: `userSelect.reset();`
+        value: `var value = mapDraw.getValue();`
     }],
 
     initComponent: function () {
@@ -125,14 +98,8 @@ Ext.define('App.test.MapDrawTest', {
                 mode: "javascript",
                 readOnly: true
             });
-            editor.setSize('auto', '320px');
+            editor.setSize('auto', '250px');
             editor = CodeMirror.fromTextArea(view.down('textarea[name=code2]').inputEl.dom, {
-                lineNumbers: true,
-                mode: "javascript",
-                readOnly: true
-            });
-            editor.setSize('auto', '100px');
-            editor = CodeMirror.fromTextArea(view.down('textarea[name=code3]').inputEl.dom, {
                 lineNumbers: true,
                 mode: "javascript",
                 readOnly: true

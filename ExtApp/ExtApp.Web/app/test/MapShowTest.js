@@ -2,72 +2,15 @@
 Ext.define('App.test.MapShowTest', {
     extend: 'Ext.panel.Panel',
 
+    requires: [
+        'App.widget.MapShow'
+    ],
+
     layout: 'form',
     autoScroll: true,
 
-    mapDraw: null,
-
-    tbar: [{
-        xtype: 'button',
-        text: '画点',
-        iconCls: 'Map',
-        handler: function (sender) {
-            var win = Ext.create('App.widget.MapDraw', {
-                type: 'point',
-                callback: function (value) {
-                    sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
-                }
-            });
-            sender.up('panel').mapDraw = win;
-            win.show();
-        }
-    }, {
-        xtype: 'button',
-        text: '画线',
-        iconCls: 'Map',
-        handler: function (sender) {
-            var win = Ext.create('App.widget.MapDraw', {
-                type: 'polyline',
-                callback: function (value) {
-                    sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
-                }
-            });
-            sender.up('panel').mapDraw = win;
-            win.show();
-        }
-    }, {
-        xtype: 'button',
-        text: '画面',
-        iconCls: 'Map',
-        handler: function (sender) {
-            var win = Ext.create('App.widget.MapDraw', {
-                type: 'polygon',
-                callback: function (value) {
-                    sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
-                }
-            });
-            sender.up('panel').mapDraw = win;
-            win.show();
-        }
-    }, {
-        xtype: 'button',
-        text: '获取值',
-        handler: function (sender) {
-            var mapDraw = sender.up('panel').mapDraw;
-            if (mapDraw == null) {
-                App.notify('消息', '请绘制！');
-                return;
-            }
-            var value = mapDraw.getValue();
-            App.notify('数据', JSON.stringify(value));
-        }
-    }],
-
     items: [{
-        xtype: 'textarea',
-        name: 'data',
-        fieldLabel: '数据',
-        value: ''
+        xtype: 'mapshow'
     }, {
         xtype: 'textarea',
         name: 'code1',

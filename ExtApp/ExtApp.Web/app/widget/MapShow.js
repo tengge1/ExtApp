@@ -1,8 +1,9 @@
 ﻿
 // ---------- 地图展示控件 -----------
 
-Ext.define('App.widget.MapDraw', {
+Ext.define('App.widget.MapShow', {
     extend: 'Ext.panel.Panel',
+    xtype: 'widget.mapshow',
 
     requires: [
         'Ext.ux.IFrame'

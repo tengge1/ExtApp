@@ -161,6 +161,8 @@
     <Content Include="app\widget\FileUpload.js" />
     <Content Include="app\widget\MapShow.js" />
     <Content Include="app\widget\MapDraw.js" />
+    <Content Include="packages\jquery\jquery.js" />
+    <Content Include="packages\jquery\jquery.min.js" />
     <Content Include="packages\map\css\map.css" />
     <Content Include="packages\map\js\mapShow.js" />
     <Content Include="packages\map\js\mapDraw.js" />

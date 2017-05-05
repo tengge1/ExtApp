@@ -10,9 +10,18 @@ Ext.define('App.widget.FileUpload', {
     layout: 'fit',
 
     tbar: [{
-        xtype: 'button',
-        text: '上传',
-        iconCls: 'Add'
+        xtype: 'filefield',
+        width: 60,
+        buttonOnly: true,
+        buttonText: '上传',
+        buttonConfig: {
+            iconCls: 'Add'
+        },
+        listeners: {
+            change: function (sender, value, opts) {
+                debugger;
+            }
+        }
     }, {
         xtype: 'button',
         text: '删除',
@@ -36,12 +45,8 @@ Ext.define('App.widget.FileUpload', {
     }],
 
     listeners: {
-        afterrenderer: function (sender) {
-            require([
-                'packages/webuploader/webuploader.html5only.js'
-            ], function () {
-                sender.up('window').down('button[]');
-            });
+        afterrender: function (sender) {
+
         }
     }
 });

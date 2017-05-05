@@ -10,23 +10,27 @@ Ext.define('App.test.MapShowTest', {
     autoScroll: true,
 
     items: [{
-        xtype: 'mapshow'
+        xtype: 'fieldcontainer',
+        items: [{
+            xtype: 'mapshow',
+            onMapInit: function (sender) {
+                sender.drawPoint({ "lat": 39.89235, "lng": 116.43414 });
+                sender.drawPolyline([{ "lat": 39.91606, "lng": 116.33904 }, { "lat": 39.92738, "lng": 116.38985 }, { "lat": 39.92106, "lng": 116.43242 }, { "lat": 39.90579, "lng": 116.45988 }, { "lat": 39.89762, "lng": 116.45199 }]);
+                sender.drawPolygon([[{ "lat": 39.89551, "lng": 116.315 }, { "lat": 39.88919, "lng": 116.37852 }, { "lat": 39.86917, "lng": 116.38298 }, { "lat": 39.86232, "lng": 116.36135 }, { "lat": 39.86126, "lng": 116.33354 }]]);
+            }
+        }]
     }, {
         xtype: 'textarea',
         name: 'code1',
         fieldLabel: '控件',
-        value: `var win = Ext.create('App.widget.MapDraw', {
-            type: 'point', // point-点，polyline-线，polygon-面
-            callback: function (value) {
-                sender.up('panel').down('textarea[name=data]').setValue(JSON.stringify(value));
+        value: `{
+            xtype: 'mapshow',
+            onMapInit: function (sender) {
+                sender.drawPoint({ "lat": 39.89235, "lng": 116.43414 });
+                sender.drawPolyline([{ "lat": 39.91606, "lng": 116.33904 }, { "lat": 39.92738, "lng": 116.38985 }, { "lat": 39.92106, "lng": 116.43242 }, { "lat": 39.90579, "lng": 116.45988 }, { "lat": 39.89762, "lng": 116.45199 }]);
+                sender.drawPolygon([[{ "lat": 39.89551, "lng": 116.315 }, { "lat": 39.88919, "lng": 116.37852 }, { "lat": 39.86917, "lng": 116.38298 }, { "lat": 39.86232, "lng": 116.36135 }, { "lat": 39.86126, "lng": 116.33354 }]]);
             }
-        });
-        win.show();`
-    }, {
-        xtype: 'textarea',
-        name: 'code2',
-        fieldLabel: '获取值',
-        value: `var value = mapDraw.getValue();`
+        }`
     }],
 
     initComponent: function () {
@@ -42,12 +46,6 @@ Ext.define('App.test.MapShowTest', {
                 readOnly: true
             });
             editor.setSize('auto', '250px');
-            editor = CodeMirror.fromTextArea(view.down('textarea[name=code2]').inputEl.dom, {
-                lineNumbers: true,
-                mode: "javascript",
-                readOnly: true
-            });
-            editor.setSize('auto', '100px');
         });
     }
 });

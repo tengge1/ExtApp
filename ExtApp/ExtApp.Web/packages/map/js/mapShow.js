@@ -1,26 +1,4 @@
 ﻿var map = null;
-var type = 'point';
-var markerTool = null;
-var polylineTool = null;
-var polygonTool = null;
-
-function getValue() {
-    if (type == 'polyline') {
-        var polylines = polylineTool.getPolylines();
-        if (polylines != null && polylines.length > 0) {
-            return polylines[0].St;
-        }
-        return null;
-    } else if (type == 'polygon') {
-        var polygons = polygonTool.getPolygons();
-        if (polygons != null && polygons.length > 0) {
-            return polygons[0].St;
-        }
-        return null;
-    } else {
-        return markerTool.getMarkControlPoint();
-    }
-}
 
 function start() {
     map = new T.Map(document.body);
@@ -36,37 +14,26 @@ function start() {
     var scale = new T.Control.Scale();
     map.addControl(scale);
 
-    // 根据type启用不同绘制工具
-    type = getQueryString('type');
-    if (type == 'polyline') { // 画线
-        polylineTool = new T.PolylineTool(map);
-        polylineTool.open();
-        polylineTool.on('draw', function (e) {
-            polylineTool.close();
-            e.currentPolyline.enableEdit();
-        });
-    } else if (type == 'polygon') { // 画面
-        polygonTool = new T.PolygonTool(map);
-        polygonTool.open();
-        polygonTool.on('draw', function (e) {
-            polygonTool.close();
-            e.currentPolygon.enableEdit();
-        });
-    } else { // 画点
-        markerTool = new T.MarkTool(map, { follow: true });
-        markerTool.open();
-        markerTool.on('mouseup', function (e) {
-            markerTool.close();
-            e.currentMarker.enableDragging();
-        });
+    // 调用初始化函数
+    var mapShow = parent.App.query('mapshow');
+    if (mapShow != null) {
+        if (typeof (mapShow.onMapInit) == 'function') {
+            mapShow.onMapInit(mapShow);
+        }
     }
 }
 
-var getQueryString = function (name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) {
-        return unescape(r[2]);
-    }
-    return null;
+function drawPoint(point, options) {
+    var marker = new T.Marker(point);
+    map.addOverLay(marker);
+}
+
+function drawPolyline(polyline, options) {
+    var line = new T.Polyline(polyline);
+    map.addOverLay(line);
+}
+
+function drawPolygon(polygon, options) {
+    var area = new T.Polygon(polygon);
+    map.addOverLay(area);
 }

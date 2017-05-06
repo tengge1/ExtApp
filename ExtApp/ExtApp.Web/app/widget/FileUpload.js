@@ -23,7 +23,7 @@ Ext.define('App.widget.FileUpload', {
             change: function (sender, value, opts) {
                 var input = sender.fileInputEl.dom;
                 var form = new FormData();
-                form.append("mf", input);
+                form.append("file", input.files[0]);
 
                 var xhr = new XMLHttpRequest();
                 xhr.open("post", 'api/Files/Upload', true);

@@ -5,6 +5,8 @@ Ext.define('App.widget.FileUpload', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.fileupload',
 
+    mixins: ['Ext.util.Observable'],
+
     width: 800,
     height: 400,
     layout: 'fit',
@@ -19,7 +21,25 @@ Ext.define('App.widget.FileUpload', {
         },
         listeners: {
             change: function (sender, value, opts) {
-                debugger;
+                var input = sender.fileInputEl.dom;
+                var form = new FormData();
+                form.append("mf", input);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", 'api/Files/Upload', true);
+                xhr.onload = function () {
+                    sender.fireEvent('onload');
+                };
+                xhr.onerror = function () {
+                    sender.fireEvent('onerror');
+                };
+                xhr.upload.onprogress = function () {
+                    sender.fireEvent('onprogress');
+                };
+                xhr.upload.onloadstart = function () {
+                    sender.fireEvent('onloadstart');
+                };
+                xhr.send(form);
             }
         }
     }, {
@@ -42,11 +62,5 @@ Ext.define('App.widget.FileUpload', {
         text: '文件名'
     }, {
         text: '大小'
-    }],
-
-    listeners: {
-        afterrender: function (sender) {
-
-        }
-    }
+    }]
 });

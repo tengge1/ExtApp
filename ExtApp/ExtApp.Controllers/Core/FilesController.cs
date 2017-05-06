@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
 
@@ -16,6 +17,17 @@ namespace ExtApp.Controller
     /// </summary>
     public class FilesController : ApiBase
     {
+        private FilesBLL bll;
 
+        /// <summary>
+        /// 上传
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult Upload()
+        {
+            var file = HttpContext.Current.Request.Files[0];
+            var result = bll.Upload(file);
+            return Json(result);
+        }
     }
 }

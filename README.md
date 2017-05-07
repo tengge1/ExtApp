@@ -1,4 +1,4 @@
-# ExtApp v 1.0.2
+# ExtApp v 1.0.3
 
 ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创建的，用于简化政府和企业应用开发的Web应用程序框架。
 
@@ -8,7 +8,8 @@ ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创
   - ExtJs动态加载js文件。
   - 支持折叠面板和桌面模式。
   - 多种皮肤动态切换。
-  - 工作流设计。（开发中）
+  - 8种常用控件封装。
+  - 地图绘制展示。
   - 旧版本Demo：https://tengge1.github.io/ExtApp
   - 用户：管理员（admin、123）、一般用户（test、123）
   - 最新版下载：https://github.com/tengge1/ExtApp/releases
@@ -24,11 +25,24 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 * 系统日志、数据库在线备份还原
 * 工作流设计
 * 发送消息、接收消息
-* 框架功能演示
+* 地图绘制展示
 
 我们所做的一切都是为了您能更好更快地进行Web应用的开发！！！
 
 ### 开发日志
+
+2017年5月7日 v1.0.3
+
+* 冒泡弹窗控件。
+* 机构下拉选择控件。
+* 菜单下拉选择控件。
+* 搜索表单控件。
+* 用户选择控件。
+* 地图绘制控件。
+* 地图展示控件。
+* 附件上传控件。
+
+===================================
 
 2017年4月30日 v1.0.2
 
@@ -69,14 +83,12 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 
 以下是该项目部分目录和文件的说明：
 
-* Demo - 老版本项目演示
 * ExtApp - 项目源代码
 * Licenses - 授权相关文件
 * .gitattributes - Git上传属性
 * .gitignore - Git上传文件类型设置
 * LICENSE - 授权文件
 * README.md - 说明文件
-
 
 ### 开发环境
 
@@ -102,3 +114,7 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 | Newtonsoft.JSON | http://www.newtonsoft.com/json |
 | mxgraph | https://github.com/jgraph/mxgraph |
 | Quartz | http://www.quartz-scheduler.org/ |
+| jQuery | http://jquery.com/ |
+| CodeMirror | http://codemirror.net/ |
+| RequireJs | http://requirejs.org/ |
+| 天地图 | http://www.tianditu.cn/ |

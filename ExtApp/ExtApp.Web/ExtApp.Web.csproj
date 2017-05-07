@@ -4169,23 +4169,6 @@
     <Content Include="packages\mxGraph\resources\graph_zh.txt" />
     <Content Include="packages\RequireJs\require.js" />
     <Content Include="packages\RequireJs\require.min.js" />
-    <Content Include="packages\webuploader\Uploader.swf" />
-    <Content Include="packages\webuploader\webuploader.css" />
-    <Content Include="packages\webuploader\webuploader.custom.js" />
-    <Content Include="packages\webuploader\webuploader.custom.min.js" />
-    <Content Include="packages\webuploader\webuploader.fis.js" />
-    <Content Include="packages\webuploader\webuploader.flashonly.js" />
-    <Content Include="packages\webuploader\webuploader.flashonly.min.js" />
-    <Content Include="packages\webuploader\webuploader.html5only.js" />
-    <Content Include="packages\webuploader\webuploader.html5only.min.js" />
-    <Content Include="packages\webuploader\webuploader.js" />
-    <Content Include="packages\webuploader\webuploader.min.js" />
-    <Content Include="packages\webuploader\webuploader.noimage.js" />
-    <Content Include="packages\webuploader\webuploader.noimage.min.js" />
-    <Content Include="packages\webuploader\webuploader.nolog.js" />
-    <Content Include="packages\webuploader\webuploader.nolog.min.js" />
-    <Content Include="packages\webuploader\webuploader.withoutimage.js" />
-    <Content Include="packages\webuploader\webuploader.withoutimage.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -4198,7 +4181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="packages\webuploader\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

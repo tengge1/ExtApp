@@ -17,7 +17,8 @@ namespace ExtApp
         /// </summary>
         /// <param name="path">文件路径</param>
         /// <param name="name">文件名称</param>
-        public static void Download(string path, string name)
+        /// <param name="type">文件类型</param>
+        public static void Download(string path, string name, string type = "")
         {
             System.IO.FileInfo file = new System.IO.FileInfo(path);
             HttpContext.Current.Response.Clear();
@@ -32,7 +33,7 @@ namespace ExtApp
             // 添加头信息，指定文件大小，让浏览器能够显示下载进度 
             HttpContext.Current.Response.AddHeader("Content-Length", file.Length.ToString());
             // 指定返回的是一个不能被客户端读取的流，必须被下载 
-            //HttpContext.Current.Response.ContentType = FileType.GetFileType(file.Extension);
+            HttpContext.Current.Response.ContentType = type;
             // 把文件流发送到客户端 
             HttpContext.Current.Response.WriteFile(file.FullName);
             HttpContext.Current.Response.End();

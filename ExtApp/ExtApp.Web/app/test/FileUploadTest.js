@@ -13,13 +13,44 @@ Ext.define('App.test.FileUploadTest', {
         xtype: 'fieldcontainer',
         fieldLabel: '附件',
         items: [{
-            xtype: 'fileupload'
+            xtype: 'fileupload',
+            listeners: {
+                onload: function (sender, event, xhr) {
+                    App.notify('消息', '上传完成！');
+                }
+            }
+        }]
+    }, {
+        xtype: 'fieldcontainer',
+        fieldLabel: '获取值',
+        items: [{
+            xtype: 'button',
+            text: '获取值',
+            handler: function (sender) {
+                var files = sender.up('panel').down('fileupload').getValue();
+                var names = '';
+                files.each(function (obj) {
+                    names += obj.data.Name + ',';
+                });
+                App.notify('消息', names);
+            }
         }]
     }, {
         xtype: 'textarea',
         name: 'code1',
         fieldLabel: '控件',
-        value: ``
+        value: `{
+        xtype: 'fieldcontainer',
+        fieldLabel: '附件',
+        items: [{
+            xtype: 'fileupload',
+            listeners: {
+                onload: function (sender, event, xhr) {
+                    App.notify('消息', '上传完成！');
+                }
+            }
+        }]
+    }`
     }],
 
     initComponent: function () {

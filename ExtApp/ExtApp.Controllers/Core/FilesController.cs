@@ -29,5 +29,17 @@ namespace ExtApp.Controller
             var result = bll.Upload(file);
             return Json(result);
         }
+
+        /// <summary>
+        /// 下载
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="name"></param>
+        /// <param name="type"></param>
+        [HttpGet]
+        public void Download(string url, string name, string type)
+        {
+            bll.Download(url, name, type);
+        }
     }
 }

@@ -61,7 +61,7 @@ Ext.define('App.view.workflow.design.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        App.openInNewTab(selected.items[0].data.Name + '-设计', 'app/view/workflow/design/designer.html?ID=' + selected.items[0].data.ID);
+        App.openInNewTab(selected.items[0].data.Name + '-设计', 'packages/workflow/designer.html?ID=' + selected.items[0].data.ID);
     },
 
     onSearchClick: function () {

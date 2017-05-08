@@ -256,3 +256,6 @@ paket-files/
 
 # 排除程序日志
 ExtApp/Logs/*
+
+# 不允许上传uploads
+ExtApp/ExtApp.Web/uploads/*

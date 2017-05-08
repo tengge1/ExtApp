@@ -47,9 +47,16 @@
 
         var ID = getQueryString('ID');
         mxEditor.prototype.urlPost = '/api/Workflow/SaveXml?ID=' + (ID == null ? 0 : ID);
+
+        var start = function () {
+            // 创建画布并加载工作流
+            var editor = createEditor('config/workfloweditor.xml');
+            var node = mxUtils.load('/api/Workflow/GetXml?ID=' + (ID == null ? 0 : ID)).getDocumentElement();
+            editor.configure(node);
+        }
     </script>
 </head>
-<body onload="createEditor('config/workfloweditor.xml');">
+<body onload="start()">
     <table id="splash" style="width: 100%; height: 100%;">
         <tr>
             <td align="center" valign="middle">

@@ -95,5 +95,17 @@ namespace ExtApp.Controller
         {
             throw new Exception();
         }
+
+        /// <summary>
+        /// 获取工作流xml
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public string GetXml(int ID)
+        {
+            var xml = bll.GetXml(ID);
+            return xml;
+        }
     }
 }

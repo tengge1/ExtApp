@@ -82,5 +82,20 @@ namespace ExtApp.BLL
 
             return base.Edit(model);
         }
+
+        /// <summary>
+        /// 获取xml
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public string GetXml(int ID)
+        {
+            var model = dal.Get(ID);
+            if (model == null)
+            {
+                return "";
+            }
+            return model.Data;
+        }
     }
 }

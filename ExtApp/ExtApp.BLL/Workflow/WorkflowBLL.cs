@@ -80,7 +80,7 @@ namespace ExtApp.BLL
             }
             model.Data = xml;
 
-            return new Result(200, "保存成功！");
+            return base.Edit(model);
         }
     }
 }

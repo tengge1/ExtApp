@@ -50,19 +50,19 @@ namespace ExtApp.Model
         /// 开始时间
         /// </summary>
         [Property]
-        public DateTime StartTime { get; set; }
+        public virtual DateTime StartTime { get; set; }
 
         /// <summary>
         /// 结束时间
         /// </summary>
         [Property]
-        public DateTime EndTime { get; set; }
+        public virtual DateTime EndTime { get; set; }
 
         /// <summary>
         /// 请假天数
         /// </summary>
         [Property]
-        public int Days { get; set; }
+        public virtual int Days { get; set; }
 
         /// <summary>
         /// 申请人（自己不一定请假）

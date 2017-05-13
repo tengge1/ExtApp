@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-05-07 10:58:29
+Date: 2017-05-13 23:56:28
 */
 
 
@@ -202,7 +202,7 @@ CREATE TABLE [dbo].[AppDic] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 14)
+DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 15)
 GO
 
 -- ----------------------------
@@ -252,6 +252,9 @@ GO
 INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'14', N'MessageReceiveType', N'24', N'消息接收状态', N'1', N'0', N'')
 GO
 GO
+INSERT INTO [dbo].[AppDic] ([ID], [Code], [Type], [Name], [Status], [Sort], [Comment]) VALUES (N'15', N'LeaveType', N'25', N'请假类型', N'1', N'0', N'')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDic] OFF
 GO
 
@@ -272,7 +275,7 @@ CREATE TABLE [dbo].[AppDicItem] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 41)
+DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 49)
 GO
 
 -- ----------------------------
@@ -400,6 +403,30 @@ GO
 INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'41', N'14', N'Delete', N'已删', N'1', N'30', N'')
 GO
 GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'42', N'15', N'PaidLeave', N'带薪休假', N'1', N'1', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'43', N'15', N'VisitLeave', N'探亲假', N'1', N'2', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'44', N'15', N'FuneralLeave', N'婚丧假', N'1', N'3', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'45', N'15', N'MaternityLeave', N'产假', N'1', N'4', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'46', N'15', N'PaternityLeave', N'陪护假', N'1', N'5', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'47', N'15', N'BusinessLeave', N'因公外出', N'1', N'6', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'48', N'15', N'SickLeave', N'病假', N'1', N'7', N'')
+GO
+GO
+INSERT INTO [dbo].[AppDicItem] ([ID], [DicID], [Code], [Name], [Status], [Sort], [Comment]) VALUES (N'49', N'15', N'CompassionateLeave', N'事假', N'1', N'8', N'')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppDicItem] OFF
 GO
 
@@ -454,7 +481,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 65)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 67)
 GO
 
 -- ----------------------------
@@ -549,6 +576,12 @@ GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'65', N'7', N'8', N'4', N'1', N'2017-05-07 09:23:54.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'66', N'7', N'8', N'4', N'1', N'2017-05-08 20:47:52.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'67', N'7', N'8', N'4', N'1', N'2017-05-13 23:41:35.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
 GO
 
@@ -574,7 +607,7 @@ CREATE TABLE [dbo].[AppMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4032)
+DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4036)
 GO
 
 -- ----------------------------
@@ -681,6 +714,18 @@ GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4031', N'附件上传', N'003002008', N'4023', N'26', N'App.test.FileUploadTest', N'28', N'Film', N'1', N'80', N'', N'31')
 GO
 GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4033', N'请假管理', N'002002', N'4', null, N'', N'28', N'Applicationedit', N'1', N'20', N'', null)
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4034', N'在线请假', N'002002001', N'4033', N'26', N'App.leave.apply.List', N'28', N'User', N'1', N'10', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4035', N'请假审批', N'002002002', N'4033', N'26', N'App.leave.assign.List', N'28', N'User', N'1', N'20', N'', N'31')
+GO
+GO
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4036', N'请假查询', N'002002003', N'4033', N'26', N'App.leave.query.List', N'28', N'User', N'1', N'30', N'', N'31')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppMenu] OFF
 GO
 
@@ -730,7 +775,7 @@ CREATE TABLE [dbo].[AppRoleMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 58)
+DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 62)
 GO
 
 -- ----------------------------
@@ -873,6 +918,18 @@ GO
 INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'57', N'5', N'4031')
 GO
 GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'59', N'5', N'4033')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'60', N'5', N'4034')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'61', N'5', N'4035')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'62', N'5', N'4036')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] OFF
 GO
 
@@ -899,7 +956,8 @@ CREATE TABLE [dbo].[AppUser] (
 [Comment] nvarchar(255) NULL ,
 [Birthday] datetime NULL ,
 [Address] nvarchar(255) NULL ,
-[isAdmin] bit NULL 
+[isAdmin] bit NULL ,
+[UserID] int NULL 
 )
 
 
@@ -912,13 +970,44 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppUser] ON
 GO
-INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'1', N'admin', N'OhpHH5gn55nuplWK0h2esw==', N'管理员', N'11', N'5', N'3014', N'1', null, null, null, null, null, N'1', null, N'1990-01-01 00:00:00.000', null, N'1')
+INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin], [UserID]) VALUES (N'1', N'admin', N'OhpHH5gn55nuplWK0h2esw==', N'管理员', N'11', N'5', N'3014', N'1', null, null, null, null, null, N'1', null, N'1990-01-01 00:00:00.000', null, N'1', null)
 GO
 GO
-INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'12', N'2006', N'3014', N'1', null, null, null, null, N'2017-04-16 09:33:28.000', N'2', null, null, null, N'0')
+INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin], [UserID]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'12', N'2006', N'3014', N'1', null, null, null, null, N'2017-04-16 09:33:28.000', N'2', null, null, null, N'0', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppUser] OFF
+GO
+
+-- ----------------------------
+-- Table structure for Leave
+-- ----------------------------
+DROP TABLE [dbo].[Leave]
+GO
+CREATE TABLE [dbo].[Leave] (
+[ID] int NOT NULL IDENTITY(1,1) ,
+[Title] nvarchar(255) NULL ,
+[Content] nvarchar(1000) NULL ,
+[StartTime] datetime NULL ,
+[EndTime] datetime NULL ,
+[Days] int NULL ,
+[AddTime] datetime NULL ,
+[Comment] nvarchar(255) NULL ,
+[WorkInstanceID] int NULL ,
+[Type] int NULL ,
+[AddUser] int NULL ,
+[Status] int NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of Leave
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[Leave] ON
+GO
+SET IDENTITY_INSERT [dbo].[Leave] OFF
 GO
 
 -- ----------------------------
@@ -1013,7 +1102,7 @@ CREATE TABLE [dbo].[Workflow] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[Workflow]', RESEED, 3)
+DBCC CHECKIDENT(N'[dbo].[Workflow]', RESEED, 4)
 GO
 
 -- ----------------------------
@@ -1021,10 +1110,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Workflow] ON
 GO
-INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'1', N'请销假流程', N'1', null, N'2017-04-27 21:56:27.000', N'测试', N'1')
+INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'1', N'请销假流程', N'1', N'<mxGraphModel><root><Workflow label="MyWorkflow" description="" href="" id="0"><mxCell/></Workflow><Layer label="Default Layer" id="1"><mxCell parent="0"/></Layer><Symbol label="Symbol" description="" href="" id="2"><mxCell style="symbol;image=images/symbols/event.png" vertex="1" parent="1"><mxGeometry x="350" y="30" width="32" height="32" as="geometry"/></mxCell></Symbol><Task label="Task" description="" href="" id="3"><mxCell vertex="1" parent="1"><mxGeometry x="330" y="130" width="72" height="32" as="geometry"/></mxCell></Task><Symbol label="Symbol" description="" href="" id="4"><mxCell style="symbol;image=images/symbols/event_end.png" vertex="1" parent="1"><mxGeometry x="350" y="222" width="32" height="32" as="geometry"/></mxCell></Symbol><Edge label="" description="" id="5"><mxCell edge="1" parent="1" source="2" target="3"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Edge label="" description="" id="6"><mxCell edge="1" parent="1" source="3" target="4"><mxGeometry relative="1" as="geometry"/></mxCell></Edge></root></mxGraphModel>', N'2017-04-27 21:56:27.000', N'测试', N'1')
 GO
 GO
-INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'2', N'科技管理流程2', N'2', null, N'2017-04-27 21:59:20.000', N'222', N'1')
+INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'4', N'工资发放流程', N'1', null, N'2017-05-08 21:00:51.000', N'', N'1')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Workflow] OFF
@@ -1232,6 +1321,16 @@ GO
 -- Primary Key structure for table AppUser
 -- ----------------------------
 ALTER TABLE [dbo].[AppUser] ADD PRIMARY KEY ([ID])
+GO
+
+-- ----------------------------
+-- Indexes structure for table Leave
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table Leave
+-- ----------------------------
+ALTER TABLE [dbo].[Leave] ADD PRIMARY KEY ([ID])
 GO
 
 -- ----------------------------
@@ -1660,6 +1759,18 @@ GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([Sex]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[Leave] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+
+-- ----------------------------
+-- Foreign Key structure for table [dbo].[Leave]
+-- ----------------------------
+ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([AddUser]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 
 -- ----------------------------

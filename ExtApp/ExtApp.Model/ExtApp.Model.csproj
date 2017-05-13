@@ -113,6 +113,7 @@
     <Compile Include="Core\View\MenuNode.cs" />
     <Compile Include="Enum\Sort.cs" />
     <Compile Include="ExtJs\TreeNode.cs" />
+    <Compile Include="Leave\Leave.cs" />
     <Compile Include="Personnel\View\DeptTreeNode.cs" />
     <Compile Include="Personnel\View\UserListParam.cs" />
     <Compile Include="Personnel\View\UserEditParam.cs" />

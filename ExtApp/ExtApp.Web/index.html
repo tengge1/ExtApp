@@ -13,10 +13,24 @@
     <script src="packages/jquery/jquery.min.js"></script>
     <script src="app/App.js"></script>
     <script>
-        Ext.application({
-            name: 'ExtApp',
-            appFolder: 'app',
-            autoCreateViewport: 'App.view.Viewport'
+        Ext.onReady(function () {
+            var cls = App.getQueryString('cls');
+            if (cls == null) { // 打开首页
+                Ext.create('App.view.Viewport');
+            } else { // 打开cls对应的页面
+                var p = Ext.create(cls, {
+                    header: false,
+                    border: false
+                });
+                Ext.create('Ext.container.Viewport', {
+                    layout: 'fit',
+                    listeners: {
+                        beforerender: function (sender) {
+                            sender.add(p);
+                        }
+                    }
+                });
+            }
         });
     </script>
 </head>

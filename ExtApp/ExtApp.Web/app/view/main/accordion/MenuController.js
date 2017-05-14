@@ -93,7 +93,7 @@ Ext.define('App.view.main.accordion.MenuController', {
                     p = Ext.create('Ext.Container', {
                         title: record.data.Name,
                         closable: true,
-                        html: '<iframe src="iframe.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>'
+                        html: '<iframe src="index.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>'
                     });
                     tp.add(p);
                     tp.setActiveTab(p);
@@ -105,18 +105,18 @@ Ext.define('App.view.main.accordion.MenuController', {
                         height: '90%',
                         closable: true,
                         modal: true,
-                        html: '<iframe src="iframe.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>'
+                        html: '<iframe src="index.html?cls=' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="App.query(\'viewport\').unmask();"></iframe>'
                     });
                     p.show();
                     App.query('viewport').unmask();
                     break;
                 case 'Top': // 顶层窗口打开
                     App.query('viewport').unmask();
-                    top.window.location = 'iframe.html?cls=' + url;
+                    top.window.location = 'index.html?cls=' + url;
                     break;
                 case 'Blank': // 新选项卡
                     App.query('viewport').unmask();
-                    window.open('iframe.html?cls=' + url, '_blank');
+                    window.open('index.html?cls=' + url, '_blank');
                     break;
             }
         } else { // 普通url

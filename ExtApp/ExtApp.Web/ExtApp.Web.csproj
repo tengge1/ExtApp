@@ -370,7 +370,7 @@
     <Content Include="app\view\work\message\ListController.js" />
     <Content Include="app\widget\UserSelect.js" />
     <Content Include="css\common.css" />
-    <Content Include="iframe.html" />
+    <Content Include="index.html" />
     <Content Include="app\model\core\DicItem.js" />
     <Content Include="app\model\core\Dic.js" />
     <Content Include="app\model\core\ConfigSection.js" />
@@ -2609,7 +2609,6 @@
     <Content Include="images\winbar-bg.gif" />
     <Content Include="images\winbar-btn.gif" />
     <Content Include="images\windows-bg.gif" />
-    <Content Include="index.html" />
     <Content Include="packages\extjs\icon.css" />
     <Content Include="packages\extjs\themes\theme-aria\images\breadcrumb\default-arrow-open-rtl.png" />
     <Content Include="packages\extjs\themes\theme-aria\images\breadcrumb\default-arrow-open.png" />
@@ -4189,7 +4188,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="js\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

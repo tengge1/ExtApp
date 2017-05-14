@@ -15,6 +15,27 @@ Ext.define('App.view.personnel.user.EditController', {
         }
         var values = form.getValues();
 
+        // 性别
+        if (values.SexID != null) {
+            values.Sex = {
+                ID: values.SexID
+            };
+        }
+
+        // 机构
+        if (values.DeptID != null) {
+            values.Dept = {
+                ID: values.DeptID
+            };
+        }
+
+        // 角色
+        if (values.RoleID != null) {
+            values.Role = {
+                ID: values.RoleID
+            };
+        }
+
         var url = '';
         if (values.ID == '' || values.ID == 0) {
             url = '/api/User/Add';

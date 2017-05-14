@@ -70,77 +70,58 @@ namespace ExtApp.BLL
         }
 
         /// <summary>
-        /// 添加用户
+        /// 添加
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public Result Add(UserEditParam p)
+        public override Result Add(User user)
         {
             // 不允许选择顶级机构
-            if (p.DeptID == 0)
+            if (user.Dept != null && user.Dept.ID == 0)
             {
                 return new Result(300, "无法选择顶级机构！");
             }
 
             // 判断用户名是否重复
-            var query = Restrictions.Eq("Username", p.Username);
+            var query = Restrictions.Eq("Username", user.Username);
             var count = dal.Count(query);
             if (count > 0)
             {
                 return new Result(300, "用户名重复，添加失败！");
             }
 
-            var user = new User
+            // 密码
+            if (string.IsNullOrEmpty(user.Password))
             {
-                ID = 0,
-                Username = p.Username,
-                Password = PasswordHelper.Crypt(p.Password),
-                Name = p.Name,
-                Dept = p.DeptID == null ? null : new Dept { ID = p.DeptID.Value },
-                Role = p.RoleID == null ? null : new Role { ID = p.RoleID.Value },
-                Duty = p.Duty,
-                Phone = p.Phone,
-                Email = p.Email,
-                Birthday = p.Birthday,
-                Address = p.Address,
-                Sort = p.Sort == null ? 0 : p.Sort,
-                Comment = p.Comment,
-                AddTime = DateTime.Now,
-                isAdmin = false,
-                Status = 1
-            };
-            if (p.SexID != null)
-            {
-                user.Sex = new DicItem { ID = p.SexID.Value };
+                return new Result(300, "密码不允许为空");
             }
-            var result = dal.Add(user);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+
+            user.ID = 0;
+            user.Password = PasswordHelper.Crypt(user.Password);
+            user.Sort = user.Sort == null ? 0 : user.Sort.Value;
+            user.AddTime = DateTime.Now;
+            user.isAdmin = false;
+            user.Status = 1;
+            return base.Add(user);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
-        public Result Edit(UserEditParam p)
+        public override Result Edit(User user)
         {
             // 不允许选择顶级机构
-            if (p.DeptID == 0)
+            if (user.Dept != null && user.Dept.ID == 0)
             {
                 return new Result(300, "无法选择顶级机构！");
             }
 
             // 验证用户名是否重复
-            var query1 = Restrictions.Eq("ID", p.ID);
+            var query1 = Restrictions.Eq("ID", user.ID);
             var query2 = Restrictions.Not(query1);
-            var query3 = Restrictions.Eq("Username", p.Username);
+            var query3 = Restrictions.Eq("Username", user.Username);
             var query = Restrictions.And(query2, query3);
             var count = dal.Count(query);
             if (count > 0)
@@ -148,32 +129,20 @@ namespace ExtApp.BLL
                 return new Result(300, "用户名重复，编辑失败！");
             }
 
-            var user = dal.Get(p.ID);
-            user.Address = p.Address;
-            user.Birthday = p.Birthday;
-            user.Comment = p.Comment;
-            user.Dept = p.DeptID == null ? null : new Dept { ID = p.DeptID.Value };
-            user.Duty = p.Duty;
-            user.Email = p.Email;
-            user.Name = p.Name;
-            user.Phone = p.Phone;
-            user.Role = p.RoleID == null ? null : new Role { ID = p.RoleID.Value };
-            if (p.SexID != null)
-            {
-                user.Sex = new DicItem { ID = p.SexID.Value };
-            }
-            user.Sort = p.Sort;
-            user.Status = p.Status;
-            user.Username = p.Username;
-            var result = dal.Edit(user);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            else
-            {
-                return new Result(300, "编辑失败！");
-            }
+            var oldUser = dal.Get(user.ID);
+            oldUser.Address = user.Address;
+            oldUser.Birthday = user.Birthday;
+            oldUser.Comment = user.Comment;
+            oldUser.Dept = user.Dept;
+            oldUser.Duty = user.Duty;
+            oldUser.Email = user.Email;
+            oldUser.Name = user.Name;
+            oldUser.Phone = user.Phone;
+            oldUser.Role = user.Role;
+            oldUser.Sort = user.Sort;
+            oldUser.Status = user.Status;
+            oldUser.Username = user.Username;
+            return base.Edit(oldUser);
         }
 
         /// <summary>

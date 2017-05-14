@@ -39,12 +39,32 @@ Ext.define('App.view.personnel.user.ListController', {
         win.setTitle('编辑用户');
         win.down('textfield[name=Password]').hide();
         win.down('combo[name=Status]').show();
-        win.down('combo[name=SexID]').getStore().load({
-            callback: function () {
-                win.down('form').form.loadRecord(selected.items[0]);
-            }
+
+        var promise1 = new Promise(function (resolve, reject) {
+            win.down('combo[name=SexID]').getStore().load({
+                callback: function () {
+                    resolve();
+                }
+            });
         });
-        win.show();
+        var promise2 = new Promise(function (resolve, reject) {
+            win.down('deptselect').getStore().load({
+                callback: function () {
+                    resolve();
+                }
+            });
+        });
+        var promise3 = new Promise(function (resolve, reject) {
+            win.down('combo[name=RoleID]').getStore().load({
+                callback: function () {
+                    resolve();
+                }
+            });
+        });
+        Promise.all([promise1, promise2, promise3]).then(function () {
+            win.down('form').form.loadRecord(selected.items[0]);
+            win.show();
+        });
     },
 
     onDeleteClick: function () {

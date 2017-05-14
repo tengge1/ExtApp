@@ -138,6 +138,7 @@
     <Compile Include="App\UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\WorkflowBLL.cs" />
+    <Compile Include="Work\LeaveBLL.cs" />
     <Compile Include="Work\MessageReceiveBLL.cs" />
     <Compile Include="Work\MessageBLL.cs" />
   </ItemGroup>

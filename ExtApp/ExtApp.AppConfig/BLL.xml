@@ -83,4 +83,9 @@
     <property name="dal" ref="MessageReceiveDAL" />
   </object>
 
+  <!-- 请假 -->
+  <object id="LeaveBLL" type="ExtApp.BLL.LeaveBLL, ExtApp.BLL">
+    <property name="dal" ref="LeaveDAL" />
+  </object>
+
 </objects>

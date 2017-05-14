@@ -100,6 +100,7 @@
     <Compile Include="App\DeptDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\WorkflowDAL.cs" />
+    <Compile Include="Work\LeaveDAL.cs" />
     <Compile Include="Work\MessageReceiveDAL.cs" />
     <Compile Include="Work\MessageDAL.cs" />
   </ItemGroup>

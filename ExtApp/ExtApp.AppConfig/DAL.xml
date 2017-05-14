@@ -60,4 +60,8 @@
   <object id="MessageReceiveDAL" type="ExtApp.DAL.MessageReceiveDAL, ExtApp.DAL">
   </object>
 
+  <!-- 请假 -->
+  <object id="LeaveDAL" type="ExtApp.DAL.LeaveDAL, ExtApp.DAL">
+  </object>
+
 </objects>

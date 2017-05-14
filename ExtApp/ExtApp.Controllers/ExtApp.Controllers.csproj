@@ -118,6 +118,7 @@
     <Compile Include="App\UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\WorkflowController.cs" />
+    <Compile Include="Work\LeaveController.cs" />
     <Compile Include="Work\MessageReceiveController.cs" />
     <Compile Include="Work\MessageController.cs" />
   </ItemGroup>

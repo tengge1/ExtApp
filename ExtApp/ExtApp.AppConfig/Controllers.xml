@@ -79,5 +79,10 @@
   <object type="ExtApp.Controller.MessageReceiveController, ExtApp.Controller" singleton="false">
     <property name="bll" ref="MessageReceiveBLL" />
   </object>
+
+  <!-- 请假 -->
+  <object type="ExtApp.Controller.LeaveController, ExtApp.Controller" singleton="false">
+    <property name="bll" ref="LeaveBLL" />
+  </object>
 </objects>
 

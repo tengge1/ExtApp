@@ -103,21 +103,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authority\RoleMenuController.cs" />
-    <Compile Include="Authority\MenuController.cs" />
-    <Compile Include="Core\FilesController.cs" />
-    <Compile Include="Core\ConfigController.cs" />
-    <Compile Include="Core\ConfigSectionController.cs" />
-    <Compile Include="Core\DatabaseBackupController.cs" />
-    <Compile Include="Personnel\DeptController.cs" />
-    <Compile Include="Core\DicController.cs" />
-    <Compile Include="Core\DicItemController.cs" />
-    <Compile Include="Core\LogController.cs" />
-    <Compile Include="Authority\LoginController.cs" />
-    <Compile Include="Authority\RoleController.cs" />
-    <Compile Include="Personnel\UserController.cs" />
+    <Compile Include="App\RoleMenuController.cs" />
+    <Compile Include="App\MenuController.cs" />
+    <Compile Include="App\FilesController.cs" />
+    <Compile Include="App\ConfigController.cs" />
+    <Compile Include="App\ConfigSectionController.cs" />
+    <Compile Include="App\DatabaseBackupController.cs" />
+    <Compile Include="App\DeptController.cs" />
+    <Compile Include="App\DicController.cs" />
+    <Compile Include="App\DicItemController.cs" />
+    <Compile Include="App\LogController.cs" />
+    <Compile Include="App\LoginController.cs" />
+    <Compile Include="App\RoleController.cs" />
+    <Compile Include="App\UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Workflow\WorkflowController.cs" />
+    <Compile Include="App\WorkflowController.cs" />
     <Compile Include="Work\MessageReceiveController.cs" />
     <Compile Include="Work\MessageController.cs" />
   </ItemGroup>

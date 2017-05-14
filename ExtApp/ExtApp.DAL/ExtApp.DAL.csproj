@@ -85,21 +85,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authority\RoleDAL.cs" />
-    <Compile Include="Authority\MenuDAL.cs" />
-    <Compile Include="Authority\RoleMenuDAL.cs" />
+    <Compile Include="App\RoleDAL.cs" />
+    <Compile Include="App\MenuDAL.cs" />
+    <Compile Include="App\RoleMenuDAL.cs" />
     <Compile Include="BaseDAL.cs" />
-    <Compile Include="Core\FilesDAL.cs" />
-    <Compile Include="Core\ConfigSectionDAL.cs" />
-    <Compile Include="Core\ConfigDAL.cs" />
-    <Compile Include="Core\DatabaseBackupDAL.cs" />
-    <Compile Include="Core\DicItemDAL.cs" />
-    <Compile Include="Core\DicDAL.cs" />
-    <Compile Include="Core\LogDAL.cs" />
-    <Compile Include="Personnel\UserDAL.cs" />
-    <Compile Include="Personnel\DeptDAL.cs" />
+    <Compile Include="App\FilesDAL.cs" />
+    <Compile Include="App\ConfigSectionDAL.cs" />
+    <Compile Include="App\ConfigDAL.cs" />
+    <Compile Include="App\DatabaseBackupDAL.cs" />
+    <Compile Include="App\DicItemDAL.cs" />
+    <Compile Include="App\DicDAL.cs" />
+    <Compile Include="App\LogDAL.cs" />
+    <Compile Include="App\UserDAL.cs" />
+    <Compile Include="App\DeptDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Workflow\WorkflowDAL.cs" />
+    <Compile Include="App\WorkflowDAL.cs" />
     <Compile Include="Work\MessageReceiveDAL.cs" />
     <Compile Include="Work\MessageDAL.cs" />
   </ItemGroup>

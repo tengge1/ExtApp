@@ -115,7 +115,6 @@
     <Compile Include="App\ExtJs\TreeNode.cs" />
     <Compile Include="Work\Leave.cs" />
     <Compile Include="App\View\DeptTreeNode.cs" />
-    <Compile Include="App\View\UserListParam.cs" />
     <Compile Include="App\View\UserEditParam.cs" />
     <Compile Include="App\Result\DataResult.cs" />
     <Compile Include="App\View\DeptEditParam.cs" />

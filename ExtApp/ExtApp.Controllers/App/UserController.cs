@@ -25,38 +25,20 @@ namespace ExtApp.Controller
         private UserBLL bll;
 
         /// <summary>
-        /// 获取列表
+        /// 列表
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
+        /// <param name="deptID"></param>
+        /// <param name="roleID"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List([FromUri]UserListParam p)
+        public JsonResult List(int firstResult, int maxResults, string name = null, int? deptID = null, int? roleID = null, int? status = null)
         {
-            var total = 0;
-            var list = bll.List(p, out total);
-
-            return base.List(total, list.Select(o => new
-            {
-                ID = o.ID,
-                Username = o.Username,
-                Password = "***",
-                Name = o.Name,
-                Sex = o.Sex,
-                DeptID = o.Dept == null ? 0 : o.Dept.ID,
-                DeptName = o.Dept == null ? "" : o.Dept.Name,
-                RoleID = o.Role == null ? 0 : o.Role.ID,
-                RoleName = o.Role == null ? "" : o.Role.Name,
-                Duty = o.Duty,
-                Phone = o.Phone,
-                Email = o.Email,
-                Birthday = o.Birthday == null ? "" : o.Birthday.Value.ToString("yyyy-MM-dd"),
-                Address = o.Address,
-                FaceUrl = o.FaceUrl,
-                AddTime = o.AddTime,
-                Sort = o.Sort,
-                Status = o.Status,
-                Comment = o.Comment
-            }).ToList<object>());
+            var result = bll.List(firstResult, maxResults, name, deptID, roleID, status);
+            return base.Json(result);
         }
 
         /// <summary>

@@ -15,53 +15,58 @@ namespace ExtApp.BLL
     public class UserBLL : BaseBLL<User>
     {
         /// <summary>
-        /// 获取用户列表
+        /// 列表
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="total"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
+        /// <param name="deptID"></param>
+        /// <param name="roleID"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
-        public IList<User> List(UserListParam p, out int total)
+        public ListResult<User> List(int firstResult, int maxResults, string name = null, int? deptID = null, int? roleID = null, int? status = null)
         {
             ICriterion query = Restrictions.Gt("Status", -1);
 
             // 用户名、姓名
-            if (!string.IsNullOrEmpty(p.name))
+            if (!string.IsNullOrEmpty(name))
             {
-                var query1 = Restrictions.Like("Username", p.name, MatchMode.Anywhere);
-                var query2 = Restrictions.Like("Name", p.name, MatchMode.Anywhere);
+                var query1 = Restrictions.Like("Username", name, MatchMode.Anywhere);
+                var query2 = Restrictions.Like("Name", name, MatchMode.Anywhere);
                 var query3 = Restrictions.Or(query1, query2);
                 query = Restrictions.And(query, query3);
             }
 
             // 部门
-            if (p.DeptID != null && p.DeptID != 0)
+            if (deptID != null && deptID != 0)
             {
                 var query1 = Restrictions.Eq("Dept", new Dept
                 {
-                    ID = p.DeptID.Value
+                    ID = deptID.Value
                 });
                 query = Restrictions.And(query, query1);
             }
 
             // 角色
-            if (p.RoleID != null && p.RoleID != 0)
+            if (roleID != null && roleID != 0)
             {
                 var query1 = Restrictions.Eq("Role", new Role
                 {
-                    ID = p.RoleID.Value
+                    ID = roleID.Value
                 });
                 query = Restrictions.And(query, query1);
             }
 
             // 状态
-            if (p.Status != null)
+            if (status != null)
             {
-                var query1 = Restrictions.Eq("Status", p.Status.Value);
+                var query1 = Restrictions.Eq("Status", status.Value);
                 query = Restrictions.And(query, query1);
             }
 
-            var list = dal.List(p.firstResult, p.maxResults, out total, query);
-            return list;
+            var total = 0;
+            var list = dal.List(firstResult, maxResults, out total, query);
+            return new ListResult<User>(200, "数据获取成功", total, list);
         }
 
         /// <summary>

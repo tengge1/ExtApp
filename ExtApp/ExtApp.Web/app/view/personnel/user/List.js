@@ -52,12 +52,12 @@ Ext.define("App.view.personnel.user.List", {
                 emptyText: '用户名/姓名'
             }, {
                 xtype: 'deptselect',
-                name: 'DeptID',
+                name: 'deptID',
                 fieldLabel: '机构',
                 emptyText: '全部'
             }, {
                 xtype: 'combo',
-                name: 'RoleID',
+                name: 'roleID',
                 fieldLabel: '角色',
                 width: 150,
                 editable: false,
@@ -68,7 +68,7 @@ Ext.define("App.view.personnel.user.List", {
             }, {
                 xtype: 'combo',
                 fieldLabel: '状态',
-                name: 'Status',
+                name: 'status',
                 width: 130,
                 store: [[
                     '1', '启用'

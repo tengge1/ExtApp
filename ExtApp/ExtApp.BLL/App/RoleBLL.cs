@@ -60,7 +60,7 @@ namespace ExtApp.BLL
                 Status = p.Status,
                 Comment = p.Comment
             };
-            var result = dal.Add(role);
+            var result = dal.Save(role);
             if (result)
             {
                 return new Result(200, "添加成功！");
@@ -88,7 +88,7 @@ namespace ExtApp.BLL
             role.Name = p.Name;
             role.Sort = p.Sort;
             role.Status = p.Status;
-            var result = dal.Edit(role);
+            var result = dal.Update(role);
             if (result)
             {
                 return new Result(200, "编辑成功！");

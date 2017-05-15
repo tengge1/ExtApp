@@ -115,11 +115,11 @@ namespace ExtApp.DAL
         }
 
         /// <summary>
-        /// 添加
+        /// 保存
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public virtual bool Add(T model)
+        public virtual bool Save(T model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             try
@@ -136,16 +136,38 @@ namespace ExtApp.DAL
         }
 
         /// <summary>
-        /// 编辑
+        /// 更新
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public virtual bool Edit(T model)
+        public virtual bool Update(T model)
         {
             var session = NHibernateHelper.GetCurrentSession();
             try
             {
                 session.Update(model);
+                session.Flush();
+            }
+            catch (Exception e)
+            {
+                var log = FileLogHelper.GetLogger(this.GetType());
+                log.Error(e.Message, e);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 保存或更新
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public virtual bool SaveOrUpdate(T model)
+        {
+            var session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                session.SaveOrUpdate(model);
                 session.Flush();
             }
             catch (Exception e)

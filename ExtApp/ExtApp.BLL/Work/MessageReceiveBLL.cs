@@ -78,7 +78,7 @@ namespace ExtApp.BLL
                 return new Result(300, "数据获取失败！");
             }
             model.Status = DicHelper.Get("MessageReceiveType", "Delete");
-            var result = dal.Edit(model);
+            var result = dal.Update(model);
             if (result)
             {
                 return new Result(200, "删除成功！");

@@ -44,7 +44,7 @@ namespace ExtApp.BLL
                 Status = p.Status,
                 Value = p.Value
             };
-            var result = dal.Add(config);
+            var result = dal.Save(config);
             if (result)
             {
                 return new Result(200, "添加成功！");
@@ -74,7 +74,7 @@ namespace ExtApp.BLL
             model.Sort = p.Sort;
             model.Status = p.Status;
             model.Value = p.Value;
-            var result = dal.Edit(model);
+            var result = dal.Update(model);
             if (result)
             {
                 return new Result(200, "编辑成功！");

@@ -63,7 +63,7 @@ namespace ExtApp.BLL
                 Sort = p.Sort,
                 Status = p.Status
             };
-            var result = dal.Add(model);
+            var result = dal.Save(model);
             if (result)
             {
                 return new Result(200, "添加成功！");
@@ -90,7 +90,7 @@ namespace ExtApp.BLL
             model.Name = p.Name;
             model.Sort = p.Sort;
             model.Status = p.Status;
-            var result = dal.Edit(model);
+            var result = dal.Update(model);
             if (result)
             {
                 return new Result(200, "编辑成功！");

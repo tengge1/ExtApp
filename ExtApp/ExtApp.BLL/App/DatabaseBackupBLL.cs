@@ -93,7 +93,7 @@ namespace ExtApp.BLL
                 AddTime = now,
                 IsCurrent = false
             };
-            var result = dal.Add(model);
+            var result = dal.Save(model);
             if (result)
             {
                 // 先添加数据再备份，否则还原后该记录消失

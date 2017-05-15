@@ -116,7 +116,7 @@ namespace ExtApp.BLL
                         Role = new Role { ID = p.RoleID },
                         Menu = new Menu { ID = i }
                     };
-                    dal.Add(model);
+                    dal.Save(model);
                 };
             }
 

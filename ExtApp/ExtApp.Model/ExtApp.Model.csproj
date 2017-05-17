@@ -103,7 +103,6 @@
     <Compile Include="App\View\ConfigEditParam.cs" />
     <Compile Include="App\View\ConfigSectionNode.cs" />
     <Compile Include="App\View\ConfigSectionParam.cs" />
-    <Compile Include="App\View\DatabaseBackupParam.cs" />
     <Compile Include="App\View\DicEditParam.cs" />
     <Compile Include="App\View\DicItemEditParam.cs" />
     <Compile Include="App\View\DicNode.cs" />

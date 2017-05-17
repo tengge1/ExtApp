@@ -19,18 +19,19 @@ namespace ExtApp.BLL
         /// <summary>
         /// 列表
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
-        public ListResult<DatabaseBackup> List(DatabaseBackupListParam p)
+        public ListResult<DatabaseBackup> List(int firstResult, int maxResults, string name = null)
         {
             ICriterion query = null;
-            if (!string.IsNullOrEmpty(p.Name))
+            if (!string.IsNullOrEmpty(name))
             {
-                query = Restrictions.Like("Name", p.Name, MatchMode.Anywhere);
+                query = Restrictions.Like("Name", name, MatchMode.Anywhere);
             }
             var total = 0;
-            var list = dal.List(p.firstResult, p.maxResults, out total, query);
-            return new ListResult<DatabaseBackup>(200, "获取成功！", total, list);
+            return base.List(firstResult, maxResults, out total, query);
         }
 
         /// <summary>

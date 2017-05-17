@@ -20,6 +20,9 @@ namespace ExtApp.Model
         [Generator(Class = "identity")]
         public virtual int ID { get; set; }
 
+        /// <summary>
+        /// 消息
+        /// </summary>
         [ManyToOne(ClassType = typeof(Message), Column = "MessageID", Lazy = Laziness.False)]
         public virtual Message Message { get; set; }
 

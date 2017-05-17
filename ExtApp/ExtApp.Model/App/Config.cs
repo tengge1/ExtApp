@@ -21,7 +21,7 @@ namespace ExtApp.Model
         public virtual int ID { get; set; }
 
         /// <summary>
-        /// 所属节点
+        /// 父节点
         /// </summary>
         [ManyToOne(ClassType = typeof(ConfigSection), Column = "SectionID", Lazy = Laziness.False)]
         public virtual ConfigSection Section { get; set; }
@@ -33,13 +33,13 @@ namespace ExtApp.Model
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 配置Key
+        /// Key
         /// </summary>
         [Property(Column = "ConfigKey")]
         public virtual string Key { get; set; }
 
         /// <summary>
-        /// 配置Value
+        /// Value
         /// </summary>
         [Property(Column = "ConfigValue")]
         public virtual string Value { get; set; }

@@ -69,6 +69,9 @@ namespace ExtApp.Model
         [Property]
         public virtual string Comment { get; set; }
 
+        /// <summary>
+        /// 接收人
+        /// </summary>
         [Bag(Table = "MessageReceive", Lazy = CollectionLazy.True, Cascade = "ALL")]
         [Key(Column = "MessageID")]
         [OneToMany(ClassType = typeof(MessageReceive))]

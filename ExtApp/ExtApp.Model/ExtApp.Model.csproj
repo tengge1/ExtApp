@@ -98,8 +98,6 @@
     <Compile Include="App\View\DeptRoleMenuItem.cs" />
     <Compile Include="App\View\LoginModel.cs" />
     <Compile Include="App\View\MenuEditParam.cs" />
-    <Compile Include="App\View\RoleEditParam.cs" />
-    <Compile Include="App\View\RoleListParam.cs" />
     <Compile Include="App\Files.cs" />
     <Compile Include="App\DatabaseBackup.cs" />
     <Compile Include="App\View\ConfigEditParam.cs" />

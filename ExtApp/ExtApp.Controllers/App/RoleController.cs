@@ -1,6 +1,4 @@
-﻿using NHibernate;
-using NHibernate.Cfg;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -27,36 +25,40 @@ namespace ExtApp.Controller
         /// <summary>
         /// 列表
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
+        /// <param name="status"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List([FromUri]RoleListParam p)
+        public JsonResult List(int firstResult, int maxResults, string name = null, int? status = null)
         {
-            var total = 0;
-            var list = bll.List(p, out total);
-            return base.List<Role>(total, list);
+            var result = bll.List(firstResult, maxResults, name, status);
+            return Json(result);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(RoleEditParam p)
+        public JsonResult Add(Role model)
         {
-            return Json(bll.Add(p));
+            var result = bll.Add(model);
+            return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="role"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(RoleEditParam p)
+        public JsonResult Edit(Role model)
         {
-            return Json(bll.Edit(p));
+            var result = bll.Edit(model);
+            return Json(result);
         }
 
         /// <summary>

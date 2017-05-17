@@ -92,7 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\View\RoleMenuParam.cs" />
+    <Compile Include="App\View\RoleMenuModel.cs" />
     <Compile Include="App\View\ChangePwdModel.cs" />
     <Compile Include="App\View\DeptRoleMenuEditIn.cs" />
     <Compile Include="App\View\DeptRoleMenuItem.cs" />

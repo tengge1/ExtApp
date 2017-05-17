@@ -38,23 +38,23 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public JsonResult Add(ConfigSectionParam p)
+        public JsonResult Add(ConfigSection model)
         {
-            var result = bll.Add(p);
+            var result = bll.Add(model);
             return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(ConfigSectionParam p)
+        public JsonResult Edit(ConfigSection model)
         {
-            var result = bll.Edit(p);
+            var result = bll.Edit(model);
             return Json(result);
         }
 

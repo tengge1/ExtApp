@@ -51,54 +51,31 @@ namespace ExtApp.BLL
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Add(ConfigSectionParam p)
+        public override Result Add(ConfigSection model)
         {
-            var model = new ConfigSection
-            {
-                Comment = p.Comment,
-                ID = 0,
-                Name = p.Name,
-                Sort = p.Sort,
-                Status = p.Status
-            };
-            var result = dal.Save(model);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+            model.ID = 0;
+            return base.Add(model);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Edit(ConfigSectionParam p)
+        public override Result Edit(ConfigSection model)
         {
-            var model = dal.Get(p.ID);
+            var section = dal.Get(model.ID);
             if (model == null)
             {
                 return new Result(300, "数据不存在！");
             }
-            model.Comment = p.Comment;
-            model.Name = p.Name;
-            model.Sort = p.Sort;
-            model.Status = p.Status;
-            var result = dal.Update(model);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            else
-            {
-                return new Result(300, "编辑失败！");
-            }
+            section.Comment = model.Comment;
+            section.Name = model.Name;
+            section.Sort = model.Sort;
+            section.Status = model.Status;
+            return base.Edit(model);
         }
     }
 }

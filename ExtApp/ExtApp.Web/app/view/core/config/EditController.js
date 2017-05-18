@@ -13,6 +13,13 @@ Ext.define('App.view.core.config.EditController', {
 
         var values = form.getValues();
 
+        // PID
+        if (values.PID != 0) {
+            values.Section = {
+                ID: values.PID
+            };
+        }
+
         var url = '/api/Config/Edit';
         if (values.ID == 0) {
             url = '/api/Config/Add';

@@ -104,7 +104,6 @@
     <Compile Include="App\View\DicEditParam.cs" />
     <Compile Include="App\View\DicItemEditParam.cs" />
     <Compile Include="App\View\DicNode.cs" />
-    <Compile Include="App\View\LogListParam.cs" />
     <Compile Include="App\View\MenuNode.cs" />
     <Compile Include="App\Enum\Sort.cs" />
     <Compile Include="App\ExtJs\TreeNode.cs" />

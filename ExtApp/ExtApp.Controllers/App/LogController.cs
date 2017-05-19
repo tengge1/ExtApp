@@ -22,31 +22,20 @@ namespace ExtApp.Controller
         private LogBLL bll;
 
         /// <summary>
-        /// 获取列表
+        /// 列表
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
+        /// <param name="typeID"></param>
+        /// <param name="sourceID"></param>
+        /// <param name="levelID"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List([FromUri]LogListParam p)
+        public JsonResult List(int firstResult, int maxResults, string name = null, int? typeID = null, int? sourceID = null, int? levelID = null)
         {
-            var total = 0;
-            var list = bll.List(p, out total);
-
-            return base.List(total, list.Select(o => new
-            {
-                ID = o.ID,
-                Type = o.Type,
-                Source = o.Source,
-                Level = o.Level,
-                UserID = o.AddUser == null ? 0 : o.AddUser.ID,
-                UserName = o.AddUser == null ? "系统" : o.AddUser.Username,
-                AddTime = o.AddTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                IP = o.IP,
-                Title = o.Title,
-                Content = o.Content,
-                Status = o.Status,
-                Comment = o.Comment
-            }).ToList<object>());
+            var result = bll.List(firstResult, maxResults, name, typeID, sourceID, levelID);
+            return Json(result);
         }
 
         /// <summary>

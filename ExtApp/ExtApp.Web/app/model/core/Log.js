@@ -59,8 +59,24 @@ Ext.define('App.model.core.Log', {
                 return value.Level.Name;
             }
         },
-        'UserID',
-        'UserName',
+        {
+            name: 'UserID',
+            mapping: function (value) {
+                if (value.AddUser == null) {
+                    return 0;
+                }
+                return value.AddUser.ID;
+            }
+        },
+        {
+            name: 'UserName',
+            mapping: function (value) {
+                if (value.AddUser == null) {
+                    return '';
+                }
+                return value.AddUser.Name;
+            }
+        },
         'AddTime',
         'IP',
         'Title',

@@ -16,47 +16,51 @@ namespace ExtApp.BLL
     public class LogBLL : BaseBLL<Log>
     {
         /// <summary>
-        /// 获取列表
+        /// 列表
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="total"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
+        /// <param name="typeID"></param>
+        /// <param name="sourceID"></param>
+        /// <param name="levelID"></param>
         /// <returns></returns>
-        public IList<Log> List(LogListParam p, out int total)
+        public ListResult<Log> List(int firstResult, int maxResults, string name = null, int? typeID = null, int? sourceID = null, int? levelID = null)
         {
             ICriterion query = Restrictions.Eq("Status", 0);
 
             // 名称
-            if (p.Name != null)
+            if (name != null)
             {
-                var query1 = Restrictions.Like("Title", p.Name, MatchMode.Anywhere);
-                var query2 = Restrictions.Like("Content", p.Name, MatchMode.Anywhere);
+                var query1 = Restrictions.Like("Title", name, MatchMode.Anywhere);
+                var query2 = Restrictions.Like("Content", name, MatchMode.Anywhere);
                 var query3 = Restrictions.Or(query1, query2);
                 query = Restrictions.And(query, query3);
             }
 
             // 类型
-            if (p.TypeID != null)
+            if (typeID != null)
             {
-                var query1 = Restrictions.Eq("Type", new DicItem { ID = p.TypeID.Value });
+                var query1 = Restrictions.Eq("Type", new DicItem { ID = typeID.Value });
                 query = Restrictions.And(query, query1);
             }
 
             // 来源
-            if (p.SourceID != null)
+            if (sourceID != null)
             {
-                var query1 = Restrictions.Eq("Source", new DicItem { ID = p.SourceID.Value });
+                var query1 = Restrictions.Eq("Source", new DicItem { ID = sourceID.Value });
                 query = Restrictions.And(query, query1);
             }
 
             // 等级
-            if (p.LevelID != null)
+            if (levelID != null)
             {
-                var query1 = Restrictions.Eq("Level", new DicItem { ID = p.LevelID.Value });
+                var query1 = Restrictions.Eq("Level", new DicItem { ID = levelID.Value });
                 query = Restrictions.And(query, query1);
             }
 
-            var list = dal.List(p.firstResult, p.maxResults, out total, query);
-            return list;
+            var total = 0;
+            return base.List(firstResult, maxResults, out total, query);
         }
 
         /// <summary>

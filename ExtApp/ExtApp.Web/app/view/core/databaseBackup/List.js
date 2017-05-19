@@ -41,7 +41,7 @@ Ext.define('App.view.core.databaseBackup.List', {
                 fieldLabel: '查询',
                 labelWidth: 50,
                 width: 180,
-                name: 'Name',
+                name: 'name',
                 emptyText: '名称'
             }, {
                 xtype: 'button',

@@ -153,7 +153,7 @@ namespace ExtApp.BLL
             {
                 dept.Type = new DicItem { ID = p.TypeID.Value };
             }
-            var result = dal.Add(dept);
+            var result = dal.Save(dept);
             if (result)
             {
                 return new Result(200, "添加成功！");
@@ -207,7 +207,7 @@ namespace ExtApp.BLL
                 dept.Type = new DicItem { ID = p.TypeID.Value };
             }
 
-            var result = dal.Edit(dept);
+            var result = dal.Update(dept);
             if (result)
             {
                 return new Result(200, "编辑成功！");

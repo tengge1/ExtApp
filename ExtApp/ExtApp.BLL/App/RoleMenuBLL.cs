@@ -99,7 +99,7 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public Result Save(RoleMenuParam p)
+        public Result Save(RoleMenuModel p)
         {
             // 先获取该角色所有权限
             var query = Restrictions.Eq("Role.ID", p.RoleID);
@@ -116,7 +116,7 @@ namespace ExtApp.BLL
                         Role = new Role { ID = p.RoleID },
                         Menu = new Menu { ID = i }
                     };
-                    dal.Add(model);
+                    dal.Save(model);
                 };
             }
 

@@ -101,7 +101,7 @@ namespace ExtApp.BLL
             }
             model.Status = DicHelper.Get("MessageSendType", "Send");
             model.SendTime = DateTime.Now;
-            var result = dal.Edit(model);
+            var result = dal.Update(model);
             if (result)
             {
                 return new Result(200, "发送成功！");

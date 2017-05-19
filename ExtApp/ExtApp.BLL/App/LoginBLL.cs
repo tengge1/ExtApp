@@ -91,7 +91,7 @@ namespace ExtApp.BLL
 
             // 修改密码
             user.Password = PasswordHelper.Crypt(model.NewPwd);
-            dal.Edit(user);
+            dal.Update(user);
 
             return new Result(200, "密码修改成功！");
         }

@@ -194,7 +194,7 @@ namespace ExtApp.BLL
                 OpenType = p.OpenTypeID == null ? null : new DicItem { ID = p.OpenTypeID.Value },
                 IconType = p.IconTypeID == null ? null : new DicItem { ID = p.IconTypeID.Value }
             };
-            var result = dal.Add(menu);
+            var result = dal.Save(menu);
             if (result)
             {
                 return new Result(200, "添加成功！");
@@ -228,7 +228,7 @@ namespace ExtApp.BLL
             model.UrlType = p.UrlTypeID == null ? null : new DicItem { ID = p.UrlTypeID.Value };
             model.IconType = p.IconTypeID == null ? null : new DicItem { ID = p.IconTypeID.Value };
 
-            var result = dal.Edit(model);
+            var result = dal.Update(model);
             if (result)
             {
                 return new Result(200, "编辑成功！");

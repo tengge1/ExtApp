@@ -30,6 +30,7 @@ namespace ExtApp.Controller
         /// <param name="PID"></param>
         /// <param name="roleID"></param>
         /// <returns></returns>
+        [HttpGet]
         public JsonResult GetChildNodes(int PID, int roleID = 0)
         {
             return Json(bll.GetChildNodes(PID, roleID));
@@ -40,9 +41,11 @@ namespace ExtApp.Controller
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public JsonResult Save(RoleMenuParam p)
+        [HttpPost]
+        public JsonResult Save(RoleMenuModel p)
         {
-            return Json(bll.Save(p));
+            var result = bll.Save(p);
+            return Json(result);
         }
     }
 }

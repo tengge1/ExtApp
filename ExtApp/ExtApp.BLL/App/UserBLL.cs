@@ -182,7 +182,7 @@ namespace ExtApp.BLL
                 return new Result(300, "该用户不存在！");
             }
             model.Password = PasswordHelper.Crypt(initPassword);
-            dal.Edit(model);
+            dal.Update(model);
             return new Result(200, "密码重置成功！");
         }
     }

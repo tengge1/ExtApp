@@ -24,12 +24,14 @@ namespace ExtApp.Controller
         /// <summary>
         /// 列表
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="firstResult"></param>
+        /// <param name="maxResults"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet]
-        public JsonResult List([FromUri]DatabaseBackupListParam p)
+        public JsonResult List(int firstResult, int maxResults, string name = null)
         {
-            var result = bll.List(p);
+            var result = bll.List(firstResult, maxResults, name);
             return Json(result);
         }
 

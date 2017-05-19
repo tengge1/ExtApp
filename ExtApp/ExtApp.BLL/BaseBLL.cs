@@ -89,7 +89,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public virtual Result Add(T model)
         {
-            var result = dal.Add(model);
+            var result = dal.Save(model);
             if (result)
             {
                 return new Result(200, "添加成功！");
@@ -104,7 +104,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public virtual Result Edit(T model)
         {
-            var result = dal.Edit(model);
+            var result = dal.Update(model);
             if (result)
             {
                 return new Result(200, "编辑成功！");

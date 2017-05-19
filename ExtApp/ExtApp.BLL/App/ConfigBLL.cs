@@ -44,7 +44,7 @@ namespace ExtApp.BLL
         public override Result Edit(Config model)
         {
             var config = dal.Get(model.ID);
-            if (model == null)
+            if (config == null)
             {
                 return new Result(300, "数据不存在！");
             }

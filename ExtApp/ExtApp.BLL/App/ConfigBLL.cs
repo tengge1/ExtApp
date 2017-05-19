@@ -15,74 +15,47 @@ namespace ExtApp.BLL
     public class ConfigBLL : BaseBLL<Config>
     {
         /// <summary>
-        /// 获取列表
+        /// 列表
         /// </summary>
         /// <param name="PID"></param>
         /// <returns></returns>
-        public IList<Config> List(int PID)
+        public ListResult<Config> List(int PID)
         {
             var query = Restrictions.Eq("Section", new ConfigSection { ID = PID });
-            var list = dal.List(query, "Sort", Sort.Asc);
-            return list;
+            return base.List(query, "Sort", Sort.Asc);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Add(ConfigEditParam p)
+        public override Result Add(Config model)
         {
-            var config = new Config
-            {
-                Comment = p.Comment,
-                ID = 0,
-                Key = p.Key,
-                Name = p.Name,
-                Section = p.PID == 0 ? null : new ConfigSection { ID = p.PID },
-                Sort = p.Sort,
-                Status = p.Status,
-                Value = p.Value
-            };
-            var result = dal.Add(config);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+            model.ID = 0;
+            return base.Add(model);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Edit(ConfigEditParam p)
+        public override Result Edit(Config model)
         {
-            var model = dal.Get(p.ID);
+            var config = dal.Get(model.ID);
             if (model == null)
             {
                 return new Result(300, "数据不存在！");
             }
-            model.Comment = p.Comment;
-            model.Key = p.Key;
-            model.Name = p.Name;
-            model.Section = p.PID == 0 ? null : new ConfigSection { ID = p.PID };
-            model.Sort = p.Sort;
-            model.Status = p.Status;
-            model.Value = p.Value;
-            var result = dal.Edit(model);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            else
-            {
-                return new Result(300, "编辑失败！");
-            }
+            config.Comment = model.Comment;
+            config.Key = model.Key;
+            config.Name = model.Name;
+            config.Section = model.Section;
+            config.Sort = model.Sort;
+            config.Status = model.Status;
+            config.Value = model.Value;
+            return base.Edit(config);
         }
     }
 }

@@ -11,8 +11,19 @@ namespace ExtApp.Model
     /// </summary>
     public class ChangePwdModel
     {
+        /// <summary>
+        /// 旧密码
+        /// </summary>
         public string OldPwd { get; set; }
+
+        /// <summary>
+        /// 新密码
+        /// </summary>
         public string NewPwd { get; set; }
+
+        /// <summary>
+        /// 确认密码
+        /// </summary>
         public string ConfirmPwd { get; set; }
     }
 }

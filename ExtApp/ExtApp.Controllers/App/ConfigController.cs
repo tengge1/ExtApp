@@ -24,38 +24,38 @@ namespace ExtApp.Controller
         private ConfigBLL bll;
 
         /// <summary>
-        /// 获取列表
+        /// 列表
         /// </summary>
         /// <param name="PID"></param>
         /// <returns></returns>
         [HttpGet]
         public JsonResult List(int PID)
         {
-            var list = bll.List(PID);
-            return base.List(list.Count(), list);
+            var result = bll.List(PID);
+            return Json(result);
         }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(ConfigEditParam p)
+        public JsonResult Add(Config model)
         {
-            var result = bll.Add(p);
+            var result = bll.Add(model);
             return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(ConfigEditParam p)
+        public JsonResult Edit(Config model)
         {
-            var result = bll.Edit(p);
+            var result = bll.Edit(model);
             return Json(result);
         }
 

@@ -17,7 +17,7 @@ Ext.define('App.view.main.accordion.Home', {
     }, {
         xtype: 'displayfield',
         fieldLabel: '版本',
-        value: 'v1.0.3',
+        value: 'v1.0.4',
         labelAlign: 'right',
         labelWidth: 60
     }, {

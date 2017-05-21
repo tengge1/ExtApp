@@ -1,4 +1,4 @@
-# ExtApp v 1.0.3
+# ExtApp v 1.0.4
 
 ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创建的，用于简化政府和企业应用开发的Web应用程序框架。
 
@@ -30,6 +30,16 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 我们所做的一切都是为了您能更好更快地进行Web应用的开发！！！
 
 ### 开发日志
+
+2017年5月21日 v1.0.4
+
+* 该版本主要是后台架构优化。
+* Model层优化：删除所有列表参数类，例如RoleListParam，改为多个简单参数的接口。
+* Model层优化：删除了所有与模型重复的添加、编辑参数模型类，例如RoleAddParam、RoleEditParam等，直接由数据库模型当作参数模型。
+* DAL层优化：BaseDAL提供的Add和Edit方法修改为Save、Update、SaveOrUpdate方法。
+* BLL层优化：BLL层函数统一返回Result和它的子类，例如DataResult、ListResult、LoginResult等。
+* Controller层优化：函数统一改为将获得的参数传递给BLL层并使用ApiBase提供的Json函数将BLL层返回的Result生成JsonResult返回。
+* 文件夹合并：所有与系统管理类有关的类放在App文件夹，所有与在线办公有关的类放在Work文件夹。
 
 2017年5月7日 v1.0.3
 

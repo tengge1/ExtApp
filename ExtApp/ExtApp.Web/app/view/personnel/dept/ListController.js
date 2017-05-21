@@ -5,8 +5,15 @@ Ext.define('App.view.personnel.dept.ListController', {
 
     refresh: function () {
         var tree = this.getView().down('treepanel');
-        var store = tree.getStore();
-        store.reload();
+        var history = Ext.create('App.util.TreeHistory');
+        history.save(tree);
+        tree.getStore().load({
+            PID: 0,
+            callback: function () {
+                tree.collapseAll();
+                history.restore(tree);
+            }
+        });
     },
 
     onAddClick: function () {

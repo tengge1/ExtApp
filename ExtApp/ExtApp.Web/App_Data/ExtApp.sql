@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-05-13 23:56:28
+Date: 2017-05-21 14:36:45
 */
 
 
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[AppConfig] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppConfig]', RESEED, 4)
+DBCC CHECKIDENT(N'[dbo].[AppConfig]', RESEED, 6)
 GO
 
 -- ----------------------------
@@ -72,7 +72,7 @@ CREATE TABLE [dbo].[AppConfigSection] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppConfigSection]', RESEED, 1004)
+DBCC CHECKIDENT(N'[dbo].[AppConfigSection]', RESEED, 1005)
 GO
 
 -- ----------------------------
@@ -80,10 +80,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppConfigSection] ON
 GO
-INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'2', N'用户管理配置', N'1', null, N'1', null)
+INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'2', N'用户管理配置', N'1', null, N'1', N'')
 GO
 GO
-INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'1003', N'数据库配置', N'1', null, N'2', null)
+INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'1003', N'数据库配置', N'1', null, N'2', N'')
 GO
 GO
 INSERT INTO [dbo].[AppConfigSection] ([ID], [Name], [Status], [SectionID], [Sort], [Comment]) VALUES (N'1004', N'用户界面配置', N'1', null, N'0', null)
@@ -144,7 +144,7 @@ CREATE TABLE [dbo].[AppDept] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDept]', RESEED, 3026)
+DBCC CHECKIDENT(N'[dbo].[AppDept]', RESEED, 3030)
 GO
 
 -- ----------------------------
@@ -155,7 +155,7 @@ GO
 INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3014', null, N'001', N'董事会', N'1', N'2017-03-17 07:34:24.000', N'1', null, N'1', N'1', N'22')
 GO
 GO
-INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3015', N'3014', N'001001', N'总经理办', N'1', N'2017-03-17 07:40:10.000', N'1', null, N'1', N'1', N'22')
+INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3015', N'3014', N'001001', N'总经理办', N'1', N'2017-03-17 07:40:10.000', N'1', N'', N'1', N'1', N'22')
 GO
 GO
 INSERT INTO [dbo].[AppDept] ([ID], [PID], [Code], [Name], [Status], [AddTime], [Sort], [Comment], [AddUserID], [Type], [TypeID]) VALUES (N'3017', N'3014', N'001002', N'研发部', N'1', N'2017-03-18 07:41:25.000', N'2', null, N'1', N'1', N'22')
@@ -202,7 +202,7 @@ CREATE TABLE [dbo].[AppDic] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 15)
+DBCC CHECKIDENT(N'[dbo].[AppDic]', RESEED, 17)
 GO
 
 -- ----------------------------
@@ -275,7 +275,7 @@ CREATE TABLE [dbo].[AppDicItem] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 49)
+DBCC CHECKIDENT(N'[dbo].[AppDicItem]', RESEED, 50)
 GO
 
 -- ----------------------------
@@ -481,106 +481,13 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 67)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 78)
 GO
 
 -- ----------------------------
 -- Records of AppLog
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[AppLog] ON
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'37', N'7', N'8', N'4', N'1', N'2017-04-25 07:32:02.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'38', N'7', N'8', N'4', N'1', N'2017-04-25 19:20:39.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'39', N'7', N'8', N'4', N'1', N'2017-04-25 20:41:15.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'40', N'7', N'8', N'4', N'1', N'2017-04-25 21:16:37.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'41', N'7', N'8', N'4', N'1', N'2017-04-26 07:19:02.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'42', N'7', N'8', N'4', N'1', N'2017-04-26 11:51:11.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'43', N'7', N'8', N'4', N'1', N'2017-04-26 20:14:39.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'44', N'7', N'8', N'4', N'1', N'2017-04-27 20:37:00.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'45', N'7', N'8', N'4', N'1', N'2017-04-28 21:20:36.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'46', N'7', N'8', N'4', N'1', N'2017-04-29 17:41:53.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'47', N'7', N'8', N'4', N'1', N'2017-04-29 21:07:26.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'48', N'7', N'8', N'4', N'1', N'2017-04-30 08:11:25.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'49', N'7', N'8', N'4', N'2', N'2017-04-30 15:32:36.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'50', N'7', N'8', N'4', N'1', N'2017-04-30 15:38:45.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'51', N'7', N'8', N'4', N'2', N'2017-04-30 15:41:48.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'52', N'7', N'8', N'4', N'1', N'2017-04-30 16:00:10.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'53', N'7', N'8', N'4', N'2', N'2017-04-30 16:01:00.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'54', N'7', N'8', N'4', N'1', N'2017-04-30 16:21:23.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'55', N'7', N'8', N'4', N'2', N'2017-04-30 17:14:52.000', N'::1', N'用户test登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'56', N'7', N'8', N'4', N'1', N'2017-04-30 17:15:10.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'57', N'7', N'8', N'4', N'1', N'2017-04-30 17:15:26.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'58', N'7', N'8', N'4', N'1', N'2017-05-01 10:48:21.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'59', N'7', N'8', N'4', N'1', N'2017-05-01 11:59:30.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'60', N'7', N'8', N'4', N'1', N'2017-05-02 20:01:24.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'61', N'7', N'8', N'4', N'1', N'2017-05-03 20:17:06.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'62', N'7', N'8', N'4', N'1', N'2017-05-04 20:04:45.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'63', N'7', N'8', N'4', N'1', N'2017-05-05 19:51:03.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'64', N'7', N'8', N'4', N'1', N'2017-05-06 21:21:14.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'65', N'7', N'8', N'4', N'1', N'2017-05-07 09:23:54.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'66', N'7', N'8', N'4', N'1', N'2017-05-08 20:47:52.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
-GO
-INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'67', N'7', N'8', N'4', N'1', N'2017-05-13 23:41:35.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
-GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
 GO
@@ -607,7 +514,7 @@ CREATE TABLE [dbo].[AppMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4036)
+DBCC CHECKIDENT(N'[dbo].[AppMenu]', RESEED, 4040)
 GO
 
 -- ----------------------------
@@ -745,7 +652,7 @@ CREATE TABLE [dbo].[AppRole] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppRole]', RESEED, 2006)
+DBCC CHECKIDENT(N'[dbo].[AppRole]', RESEED, 2007)
 GO
 
 -- ----------------------------
@@ -775,7 +682,7 @@ CREATE TABLE [dbo].[AppRoleMenu] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 62)
+DBCC CHECKIDENT(N'[dbo].[AppRoleMenu]', RESEED, 76)
 GO
 
 -- ----------------------------
@@ -930,6 +837,18 @@ GO
 INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'62', N'5', N'4036')
 GO
 GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'63', N'2006', N'4033')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'64', N'2006', N'4034')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'65', N'2006', N'4035')
+GO
+GO
+INSERT INTO [dbo].[AppRoleMenu] ([ID], [RoleID], [MenuID]) VALUES (N'66', N'2006', N'4036')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[AppRoleMenu] OFF
 GO
 
@@ -962,7 +881,7 @@ CREATE TABLE [dbo].[AppUser] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppUser]', RESEED, 2)
+DBCC CHECKIDENT(N'[dbo].[AppUser]', RESEED, 4)
 GO
 
 -- ----------------------------
@@ -973,7 +892,7 @@ GO
 INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin], [UserID]) VALUES (N'1', N'admin', N'OhpHH5gn55nuplWK0h2esw==', N'管理员', N'11', N'5', N'3014', N'1', null, null, null, null, null, N'1', null, N'1990-01-01 00:00:00.000', null, N'1', null)
 GO
 GO
-INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin], [UserID]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'12', N'2006', N'3014', N'1', null, null, null, null, N'2017-04-16 09:33:28.000', N'2', null, null, null, N'0', null)
+INSERT INTO [dbo].[AppUser] ([ID], [Username], [Password], [Name], [Sex], [RoleID], [DeptID], [Status], [Duty], [Phone], [Email], [FaceUrl], [AddTime], [Sort], [Comment], [Birthday], [Address], [isAdmin], [UserID]) VALUES (N'2', N'test', N'OhpHH5gn55nuplWK0h2esw==', N'测试', N'12', N'2006', N'3014', N'1', N'测试系统', N'10086', N'', null, N'2017-04-16 09:33:28.000', N'2', N'测试', null, N'', N'0', null)
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppUser] OFF
@@ -1111,9 +1030,6 @@ GO
 SET IDENTITY_INSERT [dbo].[Workflow] ON
 GO
 INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'1', N'请销假流程', N'1', N'<mxGraphModel><root><Workflow label="MyWorkflow" description="" href="" id="0"><mxCell/></Workflow><Layer label="Default Layer" id="1"><mxCell parent="0"/></Layer><Symbol label="Symbol" description="" href="" id="2"><mxCell style="symbol;image=images/symbols/event.png" vertex="1" parent="1"><mxGeometry x="350" y="30" width="32" height="32" as="geometry"/></mxCell></Symbol><Task label="Task" description="" href="" id="3"><mxCell vertex="1" parent="1"><mxGeometry x="330" y="130" width="72" height="32" as="geometry"/></mxCell></Task><Symbol label="Symbol" description="" href="" id="4"><mxCell style="symbol;image=images/symbols/event_end.png" vertex="1" parent="1"><mxGeometry x="350" y="222" width="32" height="32" as="geometry"/></mxCell></Symbol><Edge label="" description="" id="5"><mxCell edge="1" parent="1" source="2" target="3"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Edge label="" description="" id="6"><mxCell edge="1" parent="1" source="3" target="4"><mxGeometry relative="1" as="geometry"/></mxCell></Edge></root></mxGraphModel>', N'2017-04-27 21:56:27.000', N'测试', N'1')
-GO
-GO
-INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'4', N'工资发放流程', N'1', null, N'2017-05-08 21:00:51.000', N'', N'1')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Workflow] OFF

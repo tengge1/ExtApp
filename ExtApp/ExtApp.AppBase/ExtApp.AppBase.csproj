@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiAuthAttribute.cs" />
-    <Compile Include="BaseController.cs" />
+    <Compile Include="ApiBase.cs" />
     <Compile Include="JsonResult.cs" />
     <Compile Include="WebApiConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -53,8 +53,6 @@ namespace ExtApp.BLL
                     leaf = true,
                     Name = i.Name,
                     PDept = i.PDept,
-                    PID = i.PDept == null ? 0 : i.PDept.ID,
-                    PName = i.PDept == null ? "顶级机构" : i.PDept.Name,
                     Sort = i.Sort,
                     Status = i.Status,
                     text = i.Name,

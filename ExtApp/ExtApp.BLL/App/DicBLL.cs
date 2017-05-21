@@ -79,8 +79,7 @@ namespace ExtApp.BLL
                     Sort = i.Sort,
                     Status = i.Status,
                     text = i.Name + "[" + i.Code + "]",
-                    TypeID = i.Type == null ? 0 : i.Type.ID,
-                    TypeName = i.Type == null ? "" : i.Type.Name
+                    Type = i.Type
                 };
                 nodes.Add(node);
             }

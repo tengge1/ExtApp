@@ -5,8 +5,24 @@ Ext.define('App.model.personnel.Dept', {
     idProperty: 'ID',
     fields: [
         'ID',
-        'PID',
-        'PName',
+        {
+            name: 'PID',
+            mapping: function (value) {
+                if (value.PDept != null) {
+                    return value.PDept.ID;
+                }
+                return 0;
+            }
+        },
+        {
+            name: 'PName',
+            mapping: function (value) {
+                if (value.PDept != null) {
+                    return value.PDept.Name;
+                }
+                return '顶级机构';
+            }
+        },
         'Code',
         'Name',
         {

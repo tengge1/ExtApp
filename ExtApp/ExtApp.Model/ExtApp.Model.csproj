@@ -110,7 +110,6 @@
     <Compile Include="Work\Leave.cs" />
     <Compile Include="App\View\DeptTreeNode.cs" />
     <Compile Include="App\Result\DataResult.cs" />
-    <Compile Include="App\View\DeptEditParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\Result\LoginResult.cs" />
     <Compile Include="App\Result\ListResult.cs" />

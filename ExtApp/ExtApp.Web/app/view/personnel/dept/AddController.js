@@ -17,6 +17,16 @@ Ext.define('App.view.personnel.dept.AddController', {
             return;
         }
         var values = form.getValues();
+        if (values.PID != '' && parseInt(values.PID) > 0) {
+            values.PDept = {
+                ID: values.PID
+            };
+        }
+        if (values.TypeID != '' && parseInt(values.TypeID) > 0) {
+            values.Type = {
+                ID: values.TypeID
+            };
+        }
 
         App.post('/api/Dept/Add', values, function (data) {
             var obj = JSON.parse(data);

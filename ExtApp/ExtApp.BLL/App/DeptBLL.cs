@@ -72,20 +72,20 @@ namespace ExtApp.BLL
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Add(DeptEditParam p)
+        public override Result Add(Dept model)
         {
             // 判断机构名称是否重复
-            var query1 = Restrictions.Eq("Name", p.Name);
+            var query1 = Restrictions.Eq("Name", model.Name);
             ICriterion query2 = null;
-            if (p.PID == 0) // 顶级机构
+            if (model.PDept == null) // 顶级机构
             {
                 query2 = Restrictions.Eq("PDept", null);
             }
             else // 不是顶级机构
             {
-                query2 = Restrictions.Eq("PDept", new Dept { ID = p.PID });
+                query2 = Restrictions.Eq("PDept", new Dept { ID = model.PDept.ID });
             }
             var query = Restrictions.And(query1, query2);
             var count = dal.Count(query);
@@ -96,9 +96,9 @@ namespace ExtApp.BLL
 
             // 查找父节点的Code
             var PCode = "";
-            if (p.PID > 0) // 不是顶级机构
+            if (model.PDept != null) // 不是顶级机构
             {
-                var pdept = dal.Get(p.PID);
+                var pdept = dal.Get(model.PDept.ID);
                 if (pdept != null)
                 {
                     PCode = pdept.Code;
@@ -107,7 +107,7 @@ namespace ExtApp.BLL
 
             // 为当前结点生成Code
             var Code = "";
-            if (p.PID == 0) // 顶级机构
+            if (model.PDept == null) // 顶级机构
             {
                 var query3 = Restrictions.Eq("PDept", null);
                 var dept1 = dal.List(query3, "Code", Sort.Desc).FirstOrDefault();
@@ -122,7 +122,7 @@ namespace ExtApp.BLL
             }
             else // 不是顶级机构
             {
-                var query3 = Restrictions.Eq("PDept", null);
+                var query3 = Restrictions.Eq("PDept", model.PDept);
                 var dept1 = dal.List(query3, "Code", Sort.Desc).FirstOrDefault();
                 if (dept1 == null) // 第一个
                 {
@@ -135,52 +135,32 @@ namespace ExtApp.BLL
             }
 
             // 添加
-            var dept = new Dept
-            {
-                AddTime = DateTime.Now,
-                AddUser = AdminHelper.Admin,
-                Code = Code,
-                Comment = p.Comment,
-                ID = 0,
-                Name = p.Name,
-                PDept = p.PID == 0 ? null : new Dept { ID = p.PID },
-                Sort = p.Sort,
-                Status = p.Status
-            };
-            if (p.TypeID != null)
-            {
-                dept.Type = new DicItem { ID = p.TypeID.Value };
-            }
-            var result = dal.Save(dept);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+            model.AddTime = DateTime.Now;
+            model.AddUser = AdminHelper.Admin;
+            model.Code = Code;
+            model.ID = 0;
+            return base.Add(model);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Edit(DeptEditParam p)
+        public override Result Edit(Dept model)
         {
             // 判断机构名称是否重复
-            var query1 = Restrictions.Eq("Name", p.Name);
+            var query1 = Restrictions.Eq("Name", model.Name);
             ICriterion query2 = null;
-            if (p.PID == 0) // 顶级机构
+            if (model.PDept == null) // 顶级机构
             {
                 query2 = Restrictions.Eq("PDept", null);
             }
             else // 不是顶级机构
             {
-                query2 = Restrictions.Eq("PDept", new Dept { ID = p.PID });
+                query2 = Restrictions.Eq("PDept", new Dept { ID = model.PDept.ID });
             }
-            var query3 = Restrictions.Not(Restrictions.Eq("ID", p.ID));
+            var query3 = Restrictions.Not(Restrictions.Eq("ID", model.ID));
             var query = Restrictions.And(query1, query2);
             query = Restrictions.And(query, query3);
 
@@ -191,26 +171,17 @@ namespace ExtApp.BLL
             }
 
             // 保存机构
-            var dept = dal.Get(p.ID);
+            var dept = dal.Get(model.ID);
             if (dept == null)
             {
                 return new Result(300, "数据不存在！");
             }
-            dept.Comment = p.Comment;
-            dept.Name = p.Name;
-            dept.Sort = p.Sort;
-            dept.Status = p.Status;
-            if (p.TypeID != null)
-            {
-                dept.Type = new DicItem { ID = p.TypeID.Value };
-            }
-
-            var result = dal.Update(dept);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            return new Result(300, "编辑失败！");
+            dept.Comment = model.Comment;
+            dept.Name = model.Name;
+            dept.Sort = model.Sort;
+            dept.Status = model.Status;
+            dept.Type = model.Type;
+            return base.Edit(dept);
         }
     }
 }

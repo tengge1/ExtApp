@@ -89,64 +89,33 @@ namespace ExtApp.BLL
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Add(DicEditParam p)
+        public override Result Add(Dic model)
         {
-            var model = new Dic
-            {
-                Code = p.Code,
-                Comment = p.Comment,
-                ID = 0,
-                Name = p.Name,
-                Sort = p.Sort,
-                Status = p.Status
-            };
-            if (p.TypeID != null)
-            {
-                model.Type = new DicItem { ID = p.TypeID.Value };
-            }
-            var result = dal.Save(model);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+            model.ID = 0;
+            return base.Add(model);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Edit(DicEditParam p)
+        public override Result Edit(Dic model)
         {
-            var model = dal.Get(p.ID);
-            if (model == null)
+            var dic = dal.Get(model.ID);
+            if (dic == null)
             {
                 return new Result(300, "数据获取失败！");
             }
-            model.Code = p.Code;
-            model.Comment = p.Comment;
-            model.Name = p.Name;
-            model.Sort = p.Sort;
-            model.Status = p.Status;
-            if (p.TypeID != null)
-            {
-                model.Type = new DicItem { ID = p.TypeID.Value };
-            }
-            var result = dal.Update(model);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            else
-            {
-                return new Result(300, "编辑失败！");
-            }
+            dic.Code = model.Code;
+            dic.Comment = model.Comment;
+            dic.Name = model.Name;
+            dic.Sort = model.Sort;
+            dic.Status = model.Status;
+            dic.Type = model.Type;
+            return base.Edit(dic);
         }
     }
 }

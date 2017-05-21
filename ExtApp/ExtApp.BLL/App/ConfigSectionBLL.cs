@@ -34,6 +34,7 @@ namespace ExtApp.BLL
                 var node = new ConfigSectionNode
                 {
                     Comment = i.Comment,
+                    Status = i.Status,
                     expandable = false,
                     expanded = false,
                     ID = i.ID,
@@ -67,7 +68,7 @@ namespace ExtApp.BLL
         public override Result Edit(ConfigSection model)
         {
             var section = dal.Get(model.ID);
-            if (model == null)
+            if (section == null)
             {
                 return new Result(300, "数据不存在！");
             }
@@ -75,7 +76,7 @@ namespace ExtApp.BLL
             section.Name = model.Name;
             section.Sort = model.Sort;
             section.Status = model.Status;
-            return base.Edit(model);
+            return base.Edit(section);
         }
     }
 }

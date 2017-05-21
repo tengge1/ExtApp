@@ -47,24 +47,24 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(MenuEditParam p)
+        public JsonResult Add(Menu model)
         {
-            var result = bll.Add(p);
+            var result = bll.Add(model);
             return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(MenuEditParam p)
+        public JsonResult Edit(Menu model)
         {
-            var result = bll.Edit(p);
+            var result = bll.Edit(model);
             return Json(result);
         }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ExtApp.Model
 {
     /// <summary>
-    /// 菜单树一个节点
+    /// 菜单树节点
     /// </summary>
     public class MenuNode : Menu, ITreeNode
     {

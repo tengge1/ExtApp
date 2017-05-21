@@ -17,6 +17,27 @@ Ext.define('App.view.authority.menu.EditController', {
             return;
         }
         var values = form.getValues();
+        if (values.PID != '' && parseInt(values.PID) > 0) {
+            values.PMenu = {
+                ID: values.PID
+            };
+        }
+        if (values.UrlTypeID != '' && parseInt(values.UrlTypeID) > 0) {
+            values.UrlType = {
+                ID: values.UrlTypeID
+            };
+        }
+        if (values.OpenTypeID != '' && parseInt(values.OpenTypeID) > 0) {
+            values.OpenType = {
+                ID: values.OpenTypeID
+            };
+        }
+        if (values.IconTypeID != '' && parseInt(values.IconTypeID) > 0) {
+            values.IconType = {
+                ID: values.IconTypeID
+            };
+        }
+
         var url = '/api/Menu/Edit';
         if (values.ID == 0) {
             url = '/api/Menu/Add';

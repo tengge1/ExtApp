@@ -123,15 +123,15 @@ namespace ExtApp.BLL
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Add(MenuEditParam p)
+        public override Result Add(Menu model)
         {
             // 查找父节点的Code
             string PCode = "";
-            if (p.PID > 0) // 不是顶级菜单
+            if (model.PMenu != null) // 不是顶级菜单
             {
-                var query1 = Restrictions.Eq("ID", p.PID);
+                var query1 = Restrictions.Eq("ID", model.PMenu.ID);
                 var appMenu1 = dal.Get(query1);
                 if (appMenu1 != null)
                 {
@@ -141,15 +141,7 @@ namespace ExtApp.BLL
 
             // 为当前结点生成Code
             string Code = "";
-            ICriterion query;
-            if (p.PID == 0)
-            {
-                query = Restrictions.Eq("PMenu", null);
-            }
-            else
-            {
-                query = Restrictions.Eq("PMenu", new Menu { ID = p.PID });
-            }
+            ICriterion query = Restrictions.Eq("PMenu", null);
             var list = dal.List(query);
             for (var i = 1; i <= 999; i++)
             {
@@ -170,66 +162,34 @@ namespace ExtApp.BLL
                     break;
                 }
             }
-
-            // 添加菜单
-            var menu = new Menu
-            {
-                Code = Code,
-                Comment = p.Comment,
-                Icon = p.Icon,
-                ID = 0,
-                Name = p.Name,
-                PMenu = p.PID == 0 ? null : new Menu { ID = p.PID },
-                Sort = p.Sort,
-                Status = p.Status,
-                Url = p.Url,
-                UrlType = p.UrlTypeID == null ? null : new DicItem { ID = p.UrlTypeID.Value },
-                OpenType = p.OpenTypeID == null ? null : new DicItem { ID = p.OpenTypeID.Value },
-                IconType = p.IconTypeID == null ? null : new DicItem { ID = p.IconTypeID.Value }
-            };
-            var result = dal.Save(menu);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+            model.Code = Code;
+            model.ID = 0;
+            return base.Add(model);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Edit(MenuEditParam p)
+        public override Result Edit(Menu model)
         {
-            var model = dal.Get(p.ID);
-            if (model == null)
+            var menu = dal.Get(model.ID);
+            if (menu == null)
             {
                 return new Result(300, "数据不存在！");
             }
-            model.Comment = p.Comment;
-            model.Icon = p.Icon;
-            model.Name = p.Name;
-            model.PMenu = p.PID == 0 ? null : new Menu { ID = p.PID };
-            model.Sort = p.Sort;
-            model.Status = p.Status;
-            model.Url = p.Url;
-            model.OpenType = p.OpenTypeID == null ? null : new DicItem { ID = p.OpenTypeID.Value };
-            model.UrlType = p.UrlTypeID == null ? null : new DicItem { ID = p.UrlTypeID.Value };
-            model.IconType = p.IconTypeID == null ? null : new DicItem { ID = p.IconTypeID.Value };
-
-            var result = dal.Update(model);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            else
-            {
-                return new Result(300, "编辑失败！");
-            }
+            menu.Comment = model.Comment;
+            menu.Icon = model.Icon;
+            menu.Name = model.Name;
+            menu.PMenu = model.PMenu;
+            menu.Sort = model.Sort;
+            menu.Status = model.Status;
+            menu.Url = model.Url;
+            menu.OpenType = model.OpenType;
+            menu.UrlType = model.UrlType;
+            menu.IconType = model.IconType;
+            return base.Edit(menu);
         }
     }
 }

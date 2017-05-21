@@ -29,29 +29,12 @@ namespace ExtApp.BLL
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public Result Add(DicItemEditParam p)
+        public override Result Add(DicItem model)
         {
-            var model = new DicItem
-            {
-                Code = p.Code,
-                Comment = p.Comment,
-                Dic = new Dic { ID = p.PID },
-                ID = 0,
-                Name = p.Name,
-                Sort = p.Sort,
-                Status = p.Status
-            };
-            var result = dal.Save(model);
-            if (result)
-            {
-                return new Result(200, "添加成功！");
-            }
-            else
-            {
-                return new Result(300, "添加失败！");
-            }
+            model.ID = 0;
+            return base.Add(model);
         }
 
         /// <summary>
@@ -59,28 +42,20 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public Result Edit(DicItemEditParam p)
+        public override Result Edit(DicItem model)
         {
-            var model = dal.Get(p.ID);
-            if (model == null)
+            var dicItem = dal.Get(model.ID);
+            if (dicItem == null)
             {
                 return new Result(300, "数据获取失败！");
             }
-            model.Code = p.Code;
-            model.Comment = p.Comment;
-            model.Dic = new Dic { ID = p.PID };
-            model.Name = p.Name;
-            model.Sort = p.Sort;
-            model.Status = p.Status;
-            var result = dal.Update(model);
-            if (result)
-            {
-                return new Result(200, "编辑成功！");
-            }
-            else
-            {
-                return new Result(300, "编辑失败！");
-            }
+            dicItem.Code = model.Code;
+            dicItem.Comment = model.Comment;
+            dicItem.Dic = model.Dic;
+            dicItem.Name = model.Name;
+            dicItem.Sort = model.Sort;
+            dicItem.Status = model.Status;
+            return base.Edit(dicItem);
         }
     }
 }

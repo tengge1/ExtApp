@@ -99,7 +99,6 @@
     <Compile Include="App\Files.cs" />
     <Compile Include="App\DatabaseBackup.cs" />
     <Compile Include="App\View\ConfigSectionNode.cs" />
-    <Compile Include="App\View\DicItemEditParam.cs" />
     <Compile Include="App\View\DicNode.cs" />
     <Compile Include="App\View\MenuNode.cs" />
     <Compile Include="App\Enum\Sort.cs" />

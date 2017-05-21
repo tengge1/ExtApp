@@ -38,24 +38,24 @@ namespace ExtApp.Controller
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Add(DicItemEditParam p)
+        public JsonResult Add(DicItem model)
         {
-            var result = bll.Add(p);
+            var result = bll.Add(model);
             return Json(result);
         }
 
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Edit(DicItemEditParam p)
+        public JsonResult Edit(DicItem model)
         {
-            var result = bll.Edit(p);
+            var result = bll.Edit(model);
             return Json(result);
         }
 

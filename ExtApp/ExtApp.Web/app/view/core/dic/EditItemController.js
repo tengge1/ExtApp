@@ -11,6 +11,12 @@ Ext.define('App.view.core.dic.EditItemController', {
             return;
         }
         var values = form.getValues();
+        if (values.PID != '' && parseInt(values.PID) > 0) {
+            values.Dic = {
+                ID: values.PID
+            };
+        }
+
         var url = '/api/DicItem/Edit';
         if (values.ID == 0) {
             url = '/api/DicItem/Add';

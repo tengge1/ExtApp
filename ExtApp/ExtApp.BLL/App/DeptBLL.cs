@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ExtApp.Model;
-using ExtApp.DAL;
 using NHibernate.Criterion;
 
 namespace ExtApp.BLL
@@ -20,7 +19,7 @@ namespace ExtApp.BLL
         /// </summary>
         /// <param name="PID"></param>
         /// <returns></returns>
-        public IList<DeptTreeNode> GetChildNodes(int PID)
+        public ListResult<DeptTreeNode> GetChildNodes(int PID)
         {
             // 先获取所有数据
             var list = dal.List(null, "Sort", Sort.Asc);
@@ -66,7 +65,7 @@ namespace ExtApp.BLL
                 }
                 nodes.Add(node);
             }
-            return nodes;
+            return new ListResult<DeptTreeNode>(200, "数据获取成功！", nodes.Count, nodes);
         }
 
         /// <summary>

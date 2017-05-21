@@ -69,15 +69,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public Result ClearAll()
         {
-            var result = dal.Delete();
-            if (result)
-            {
-                return new Result(200, "清空成功！");
-            }
-            else
-            {
-                return new Result(300, "清空失败！");
-            }
+            return base.Delete();
         }
     }
 }

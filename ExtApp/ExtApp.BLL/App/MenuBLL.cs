@@ -46,7 +46,7 @@ namespace ExtApp.BLL
         /// <param name="PID"></param>
         /// <param name="authorize"></param>
         /// <returns></returns>
-        public IList<MenuNode> GetChildNodes(int PID, bool? authorize = false)
+        public ListResult<MenuNode> GetChildNodes(int PID, bool? authorize = false)
         {
             // 节点
             var nodes = new List<MenuNode>();
@@ -57,7 +57,7 @@ namespace ExtApp.BLL
                 // 权限
                 if (AdminHelper.Admin == null || AdminHelper.Admin.Role == null) // 尚未登录或者未设置角色
                 {
-                    return nodes;
+                    return new ListResult<MenuNode>(200, "无权限", 0, nodes);
                 }
                 var roleID = AdminHelper.Admin.Role.ID;
                 var query = Restrictions.Eq("Role", new Role { ID = roleID });
@@ -117,7 +117,7 @@ namespace ExtApp.BLL
                 nodes.Add(node);
             }
 
-            return nodes;
+            return new ListResult<MenuNode>(200, "数据获取成功！", nodes.Count, nodes);
         }
 
         /// <summary>

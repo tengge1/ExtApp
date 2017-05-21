@@ -22,8 +22,7 @@ namespace ExtApp.BLL
         public ListResult<DicItem> List(int PID)
         {
             var query = Restrictions.Eq("Dic", new Dic { ID = PID });
-            var list = dal.List(query, "Sort", Sort.Asc);
-            return new ListResult<DicItem>(200, "获取成功！", list.Count(), list);
+            return base.List(query, "Sort", Sort.Asc);
         }
 
         /// <summary>

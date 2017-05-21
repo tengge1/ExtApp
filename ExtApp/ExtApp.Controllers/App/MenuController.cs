@@ -40,8 +40,8 @@ namespace ExtApp.Controller
         [HttpGet]
         public JsonResult GetChildNodes(int PID, bool? authorize = false)
         {
-            var list = bll.GetChildNodes(PID, authorize);
-            return base.List<MenuNode>(list.Count(), list);
+            var result = bll.GetChildNodes(PID, authorize);
+            return Json(result);
         }
 
         /// <summary>

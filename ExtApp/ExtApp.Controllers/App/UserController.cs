@@ -85,7 +85,8 @@ namespace ExtApp.Controller
         [HttpPost]
         public JsonResult ResetPassword(int ID)
         {
-            return Json(bll.ResetPassword(ID));
+            var result = bll.ResetPassword(ID);
+            return Json(result);
         }
     }
 }

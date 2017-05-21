@@ -26,8 +26,7 @@ namespace ExtApp.BLL
         /// <returns></returns>
         public ListResult<Dic> List()
         {
-            var list = dal.List(null, "ID", Sort.Desc);
-            return new ListResult<Dic>(200, "获取数据成功！", list.Count(), list);
+            return base.List(null, "ID", Sort.Asc);
         }
 
         /// <summary>

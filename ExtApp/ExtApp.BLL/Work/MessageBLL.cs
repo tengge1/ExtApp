@@ -29,8 +29,7 @@ namespace ExtApp.BLL
             var query4 = Restrictions.Eq("AddUser", AdminHelper.Admin);
             var query = Restrictions.And(query3, query4);
             var total = 0;
-            var list = dal.List(firstResult, maxResults, out total, query);
-            return new ListResult<Message>(200, "获取成功！", total, list);
+            return base.List(firstResult, maxResults, out total, query);
         }
 
         /// <summary>

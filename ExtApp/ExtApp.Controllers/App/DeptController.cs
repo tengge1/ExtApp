@@ -31,8 +31,8 @@ namespace ExtApp.Controller
         /// <returns></returns>
         public JsonResult GetChildNodes(int PID)
         {
-            var list = bll.GetChildNodes(PID);
-            return base.List<DeptTreeNode>(list.Count(), list);
+            var result = bll.GetChildNodes(PID);
+            return Json(result);
         }
 
         /// <summary>

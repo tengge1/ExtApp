@@ -94,8 +94,6 @@
   <ItemGroup>
     <Compile Include="App\View\RoleMenuModel.cs" />
     <Compile Include="App\View\ChangePwdModel.cs" />
-    <Compile Include="App\View\DeptRoleMenuEditIn.cs" />
-    <Compile Include="App\View\DeptRoleMenuItem.cs" />
     <Compile Include="App\View\LoginModel.cs" />
     <Compile Include="App\View\MenuEditParam.cs" />
     <Compile Include="App\Files.cs" />

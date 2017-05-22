@@ -1,13 +1,13 @@
 ﻿
-Ext.define('App.view.main.accordion.Index', {
+Ext.define('App.main.accordion.Index', {
     extend: 'Ext.container.Container',
     alias: 'widget.index',
 
     requires: [
-        'App.view.main.accordion.IndexController',
-        'App.view.main.accordion.Menu',
+        'App.main.accordion.IndexController',
+        'App.main.accordion.Menu',
         'App.plugin.TabCloseMenu',
-        'App.view.main.accordion.Home'
+        'App.main.accordion.Home'
     ],
 
     controller: 'index',

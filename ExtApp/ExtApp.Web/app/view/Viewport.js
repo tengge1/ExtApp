@@ -4,13 +4,13 @@ Ext.define('App.view.Viewport', {
     alias: 'widget.mainviewport',
 
     requires: [
-        'App.view.main.desktop.Index',
+        'App.main.desktop.Index',
         'App.util.Config'
     ],
 
     layout: 'fit',
 
-    initComponent: function () { // 根据是否登录判断显示哪个视图
+    initComponent: function () {
         this.callParent();
 
         // 判断是否登录
@@ -18,22 +18,22 @@ Ext.define('App.view.Viewport', {
         if (tool.isLogin()) { // 已经登录
             var style = tool.getStyle();
             if (style == 'accordion') { // 折叠面板
-                var view = Ext.create('App.view.main.accordion.Index');
+                var view = Ext.create('App.main.accordion.Index');
                 this.removeAll();
                 this.add(view);
             } else if (style == 'desktop') { // 桌面样式
-                new App.view.main.desktop.Index();
+                new App.main.desktop.Index();
             } else if (style == 'navigation') { // 导航样式
-                var view = Ext.create('App.view.main.accordion.Index');
+                var view = Ext.create('App.main.accordion.Index');
                 this.removeAll();
                 this.add(view);
             } else {
-                var view = Ext.create('App.view.main.accordion.Index');
+                var view = Ext.create('App.main.accordion.Index');
                 this.removeAll();
                 this.add(view);
             }
         } else { // 没有登录
-            var view = Ext.create('App.view.main.Login');
+            var view = Ext.create('App.main.Login');
             this.removeAll();
             this.add(view);
         }

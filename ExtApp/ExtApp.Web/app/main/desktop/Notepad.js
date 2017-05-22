@@ -2,7 +2,7 @@
 * 记事本模块
 */
 
-Ext.define('App.view.main.desktop.Notepad', {
+Ext.define('App.main.desktop.Notepad', {
     extend: 'Ext.ux.desktop.Module',
 
     requires: [

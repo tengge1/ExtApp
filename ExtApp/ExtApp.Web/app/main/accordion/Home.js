@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.main.accordion.Home', {
+Ext.define('App.main.accordion.Home', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.home',
 

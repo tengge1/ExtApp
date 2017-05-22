@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.main.accordion.MenuController', {
+Ext.define('App.main.accordion.MenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menu',
 

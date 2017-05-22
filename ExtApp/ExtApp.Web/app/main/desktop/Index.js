@@ -1,12 +1,12 @@
 ﻿
-Ext.define('App.view.main.desktop.Index', {
+Ext.define('App.main.desktop.Index', {
     extend: 'Ext.ux.desktop.App',
     alias: 'widget.extappdesktop',
 
     requires: [
         'Ext.ux.desktop.ShortcutModel',
-        'App.view.main.desktop.Notepad',
-        'App.view.main.desktop.Settings'
+        'App.main.desktop.Notepad',
+        'App.main.desktop.Settings'
     ],
 
     init: function () {
@@ -18,6 +18,7 @@ Ext.define('App.view.main.desktop.Index', {
         var taskbar = desktop.taskbar;
         var startMenu = taskbar.startMenu;
 
+        debugger;
         App.get('/api/Menu/List', function (data) {
             var list = JSON.parse(data);
             var tree = {
@@ -88,7 +89,7 @@ Ext.define('App.view.main.desktop.Index', {
 
     getModules: function () { // 获取模块
         return [
-            new App.view.main.desktop.Notepad(),
+            new App.main.desktop.Notepad(),
         ];
     },
 
@@ -172,7 +173,7 @@ Ext.define('App.view.main.desktop.Index', {
     },
 
     onSettings: function () { // 个性化设置
-        var dlg = new App.view.main.desktop.Settings({
+        var dlg = new App.main.desktop.Settings({
             desktop: this.desktop
         });
         dlg.show();

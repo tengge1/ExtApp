@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.main.LoginController', {
+Ext.define('App.main.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
 

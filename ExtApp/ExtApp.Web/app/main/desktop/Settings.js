@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.main.desktop.Settings', {
+Ext.define('App.main.desktop.Settings', {
     extend: 'Ext.window.Window',
 
     requires: [
         'Ext.ux.desktop.Wallpaper',
-         'App.view.main.desktop.SettingsController'
+         'App.main.desktop.SettingsController'
     ],
 
     layout: 'fit',
@@ -68,7 +68,7 @@ Ext.define('App.view.main.desktop.Settings', {
                 layout: 'border',
                 items: [{
                     xtype: 'treepanel',
-                    store: Ext.create('App.view.main.desktop.Wallpaper'),
+                    store: Ext.create('App.main.desktop.Wallpaper'),
                     title: '桌面背景',
                     rootVisible: false,
                     lines: false,

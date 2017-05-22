@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.main.desktop.SettingsController', {
+Ext.define('App.main.desktop.SettingsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.settings',
 

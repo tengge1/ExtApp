@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.core.DatabaseBackup', {
+Ext.define('App.app.store.DatabaseBackup', {
     extend: 'Ext.data.Store',
     alias: 'store.databasebackuplist',
     storeId: 'databasebackuplist',
 
-    model: 'App.model.core.DatabaseBackup',
+    model: 'App.app.model.DatabaseBackup',
 
     proxy: {
         type: 'ajax',

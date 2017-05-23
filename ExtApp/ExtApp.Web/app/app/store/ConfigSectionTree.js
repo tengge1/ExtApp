@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.core.ConfigSectionTree', {
+Ext.define('App.app.store.ConfigSectionTree', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.configsectiontree',
     storeId: 'configsectiontree',
 
-    model: 'App.model.core.ConfigSection',
+    model: 'App.app.model.ConfigSection',
     defaultRootId: '0',
     defaultRootText: '顶级配置',
     rootVisible: true,

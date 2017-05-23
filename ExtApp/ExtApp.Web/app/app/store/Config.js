@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.core.Config', {
+Ext.define('App.app.store.Config', {
     extend: 'Ext.data.Store',
     alias: 'store.configlist',
     storeId: 'configlist',
 
-    model: 'App.model.core.Config',
+    model: 'App.app.model.Config',
 
     proxy: {
         type: 'ajax',

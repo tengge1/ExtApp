@@ -6,12 +6,14 @@ Ext.define('App.app.model.DatabaseBackup', {
     fields: [
         'ID',
         'Name',
-        'FileName', {
+        'FileName',
+        {
             name: 'AddUserID',
             mapping: function (value) {
                 return value.AddUser.ID;
             }
-        }, {
+        },
+        {
             name: 'AddUserName',
             mapping: function (value) {
                 return value.AddUser.Name;

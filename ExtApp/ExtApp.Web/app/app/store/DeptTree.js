@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.personnel.DeptTree', {
+Ext.define('App.app.store.DeptTree', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.depttreelist',
     storeId: 'depttreelist',
 
-    model: 'App.model.personnel.Dept',
+    model: 'App.app.model.Dept',
     defaultRootId: '0',
     rootVisible: true,
     nodeParam: 'PID',

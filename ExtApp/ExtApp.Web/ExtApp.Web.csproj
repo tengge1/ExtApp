@@ -257,6 +257,17 @@
     <Content Include="app\widget\FileUpload.js" />
     <Content Include="app\widget\MapShow.js" />
     <Content Include="app\widget\MapDraw.js" />
+    <Content Include="app\work\messageReceive\List.js" />
+    <Content Include="app\work\messageReceive\ListController.js" />
+    <Content Include="app\work\messageReceive\View.js" />
+    <Content Include="app\work\message\Edit.js" />
+    <Content Include="app\work\message\EditController.js" />
+    <Content Include="app\work\message\List.js" />
+    <Content Include="app\work\message\ListController.js" />
+    <Content Include="app\work\model\Message.js" />
+    <Content Include="app\work\model\MessageReceive.js" />
+    <Content Include="app\work\store\Message.js" />
+    <Content Include="app\work\store\MessageReceive.js" />
     <Content Include="packages\jquery\jquery.js" />
     <Content Include="packages\jquery\jquery.min.js" />
     <Content Include="packages\map\css\map.css" />
@@ -4284,7 +4295,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\work\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

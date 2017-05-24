@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.core.DicItem', {
+Ext.define('App.app.store.DicItem', {
     extend: 'Ext.data.Store',
     alias: 'store.dicitemlist',
     storeId: 'dicitemlist',
 
-    model: 'App.model.core.DicItem',
+    model: 'App.app.model.DicItem',
 
     proxy: {
         type: 'ajax',

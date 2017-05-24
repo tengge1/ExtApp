@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.UrlType', {
+Ext.define('App.app.store.UrlType', {
     extend: 'Ext.data.Store',
     alias: 'store.urltypelist',
     storeId: 'urltypelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

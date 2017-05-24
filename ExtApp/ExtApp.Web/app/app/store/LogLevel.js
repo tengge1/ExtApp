@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.LogLevel', {
+Ext.define('App.app.store.LogLevel', {
     extend: 'Ext.data.Store',
     alias: 'store.loglevellist',
     storeId: 'loglevellist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

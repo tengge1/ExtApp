@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.core.Log', {
+Ext.define('App.app.store.Log', {
     extend: 'Ext.data.Store',
     alias: 'store.loglist',
     storeId: 'loglist',
 
-    model: 'App.model.core.Log',
+    model: 'App.app.model.Log',
 
     proxy: {
         type: 'ajax',

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.LogType', {
+Ext.define('App.app.store.LogType', {
     extend: 'Ext.data.Store',
     alias: 'store.logtypelist',
     storeId: 'logtypelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

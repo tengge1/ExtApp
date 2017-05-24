@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.authority.RoleMenuTree', {
+Ext.define('App.app.store.RoleMenuTree', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.rolemenutree',
     storeId: 'rolemenutree',
 
-    model: 'App.model.authority.Menu',
+    model: 'App.app.model.Menu',
     defaultRootId: '0',
     defaultRootText: '顶级菜单',
     rootVisible: true,

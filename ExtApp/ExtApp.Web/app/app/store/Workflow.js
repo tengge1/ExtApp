@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.workflow.Workflow', {
+Ext.define('App.app.store.Workflow', {
     extend: 'Ext.data.Store',
     alias: 'store.workflowlist',
     storeId: 'workflowlist',
 
-    model: 'App.model.workflow.Workflow',
+    model: 'App.app.model.Workflow',
 
     proxy: {
         type: 'ajax',

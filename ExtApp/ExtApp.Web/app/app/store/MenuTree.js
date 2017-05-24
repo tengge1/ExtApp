@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.authority.MenuTree', {
+Ext.define('App.app.store.MenuTree', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.menutree',
     storeId: 'menutree',
 
-    model: 'App.model.authority.Menu',
+    model: 'App.app.model.Menu',
     defaultRootId: '0',
     rootVisible: true,
     nodeParam: 'PID',

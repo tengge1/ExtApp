@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.IconType', {
+Ext.define('App.app.store.IconType', {
     extend: 'Ext.data.Store',
     alias: 'store.icontypelist',
     storeId: 'icontypelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.core.DicTree', {
+Ext.define('App.app.store.DicTree', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.dictree',
     storeId: 'dictree',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
     defaultRootId: '0',
     defaultRootText: '所有字典',
     rootVisible: true,

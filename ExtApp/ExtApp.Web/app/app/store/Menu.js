@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.authority.Menu', {
+Ext.define('App.app.store.Menu', {
     extend: 'Ext.data.Store',
     alias: 'store.menulist',
     storeId: 'menulist',
 
-    model: 'App.model.authority.Menu',
+    model: 'App.app.model.Menu',
 
     proxy: {
         type: 'ajax',

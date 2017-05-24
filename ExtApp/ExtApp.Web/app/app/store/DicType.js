@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.DicType', {
+Ext.define('App.app.store.DicType', {
     extend: 'Ext.data.Store',
     alias: 'store.dictypelist',
     storeId: 'dictypelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

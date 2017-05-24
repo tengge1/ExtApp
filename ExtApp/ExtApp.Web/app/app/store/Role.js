@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.authority.Role', {
+Ext.define('App.app.store.Role', {
     extend: 'Ext.data.Store',
     alias: 'store.rolelist',
     storeId: 'rolelist',
 
-    model: 'App.model.authority.Role',
+    model: 'App.app.model.Role',
 
     proxy: {
         type: 'ajax',

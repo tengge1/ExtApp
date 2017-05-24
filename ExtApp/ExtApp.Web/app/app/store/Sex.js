@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.Sex', {
+Ext.define('App.app.store.Sex', {
     extend: 'Ext.data.Store',
     alias: 'store.sexlist',
     storeId: 'sexlist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

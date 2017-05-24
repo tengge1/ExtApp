@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.OpenType', {
+Ext.define('App.app.store.OpenType', {
     extend: 'Ext.data.Store',
     alias: 'store.opentypelist',
     storeId: 'opentypelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.Theme', {
+Ext.define('App.app.store.Theme', {
     extend: 'Ext.data.Store',
     alias: 'store.themelist',
     storeId: 'themelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.dic.LogSource', {
+Ext.define('App.app.store.LogSource', {
     extend: 'Ext.data.Store',
     alias: 'store.logsourcelist',
     storeId: 'logsourcelist',
 
-    model: 'App.model.core.Dic',
+    model: 'App.app.model.Dic',
 
     proxy: {
         type: 'ajax',

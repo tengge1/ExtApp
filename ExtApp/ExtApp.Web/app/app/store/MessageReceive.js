@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.work.MessageReceive', {
+Ext.define('App.app.store.MessageReceive', {
     extend: 'Ext.data.Store',
     alias: 'store.messagereceivelist',
     storeId: 'messagereceivelist',
 
-    model: 'App.model.work.MessageReceive',
+    model: 'App.app.model.MessageReceive',
 
     proxy: {
         type: 'ajax',

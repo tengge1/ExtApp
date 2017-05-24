@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.store.personnel.User', {
+Ext.define('App.app.store.User', {
     extend: 'Ext.data.Store',
     alias: 'store.userlist',
     storeId: 'userlist',
 
-    model: 'App.model.personnel.User',
+    model: 'App.app.model.User',
 
     proxy: {
         type: 'ajax',

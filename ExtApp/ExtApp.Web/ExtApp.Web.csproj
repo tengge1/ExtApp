@@ -269,6 +269,7 @@
     <Content Include="app\work\model\MessageReceive.js" />
     <Content Include="app\work\store\Message.js" />
     <Content Include="app\work\store\MessageReceive.js" />
+    <Content Include="App_Data\test.sql" />
     <Content Include="test.html" />
     <Content Include="packages\jquery\jquery.js" />
     <Content Include="packages\jquery\jquery.min.js" />

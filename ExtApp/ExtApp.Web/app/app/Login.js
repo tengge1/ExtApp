@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.main.Login', {
+Ext.define('App.app.Login', {
     extend: 'Ext.container.Container',
     alias: 'widget.login',
 
     requires: [
-        'App.main.LoginController'
+        'App.app.LoginController'
     ],
 
     controller: 'login',

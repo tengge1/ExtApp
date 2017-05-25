@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.main.ChangePwd', {
+Ext.define('App.app.ChangePwd', {
     extend: 'Ext.window.Window',
     alias: 'widget.changepwd',
 
     requires: [
-        'App.main.ChangePwdController'
+        'App.app.ChangePwdController'
     ],
 
     controller: 'changepwd',

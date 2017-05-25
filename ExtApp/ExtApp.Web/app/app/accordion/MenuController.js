@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.main.accordion.MenuController', {
+Ext.define('App.app.accordion.MenuController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menu',
 
     init: function () {
         var view = this.getView();
-        var store = Ext.create('App.store.authority.MenuTreeAuth');
+        var store = Ext.create('App.app.store.MenuTreeAuth');
         store.on('load', function (sender, records, successful, operation, node, eOpts) {
             if (!successful) {
                 return;
@@ -24,7 +24,7 @@ Ext.define('App.main.accordion.MenuController', {
                             expanded: true
                         },
                         rootVisible: false,
-                        store: Ext.create('App.store.authority.MenuTreeAuth', {
+                        store: Ext.create('App.app.store.MenuTreeAuth', {
                             authorize: true
                         }),
                         listeners: {

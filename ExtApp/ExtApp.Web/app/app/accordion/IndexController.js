@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.main.accordion.IndexController', {
+Ext.define('App.app.accordion.IndexController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.index',
 
     requires: [
         'App.util.Config',
-        'App.main.ChangePwd'
+        'App.app.ChangePwd'
     ],
 
     init: function () {

@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.main.ChangePwdController', {
+Ext.define('App.app.ChangePwdController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.changepwd',
 

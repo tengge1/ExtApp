@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.config.Edit', {
+Ext.define('App.app.config.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.configedit',
 
     requires: [
-        'App.view.core.config.EditController'
+        'App.app.config.EditController'
     ],
 
     layout: 'fit',

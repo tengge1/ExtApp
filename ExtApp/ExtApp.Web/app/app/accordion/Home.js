@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.main.accordion.Home', {
+Ext.define('App.app.accordion.Home', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.home',
 
@@ -17,7 +17,7 @@ Ext.define('App.main.accordion.Home', {
     }, {
         xtype: 'displayfield',
         fieldLabel: '版本',
-        value: 'v1.0.4',
+        value: 'v1.0.5',
         labelAlign: 'right',
         labelWidth: 60
     }, {

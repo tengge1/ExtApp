@@ -1,13 +1,13 @@
 ﻿
-Ext.define('App.main.accordion.Index', {
+Ext.define('App.app.accordion.Index', {
     extend: 'Ext.container.Container',
     alias: 'widget.index',
 
     requires: [
-        'App.main.accordion.IndexController',
-        'App.main.accordion.Menu',
+        'App.app.accordion.IndexController',
+        'App.app.accordion.Menu',
         'App.plugin.TabCloseMenu',
-        'App.main.accordion.Home'
+        'App.app.accordion.Home'
     ],
 
     controller: 'index',
@@ -52,7 +52,7 @@ Ext.define('App.main.accordion.Index', {
             items: [{
                 xtype: 'combo',
                 name: 'style',
-                store: Ext.create('App.store.dic.Style'),
+                store: Ext.create('App.app.store.Style'),
                 valueField: 'Code',
                 displayField: 'Name',
                 width: 120,
@@ -64,7 +64,7 @@ Ext.define('App.main.accordion.Index', {
             }, {
                 xtype: 'combo',
                 name: 'theme',
-                store: Ext.create('App.store.dic.Theme'),
+                store: Ext.create('App.app.store.Theme'),
                 valueField: 'Code',
                 displayField: 'Name',
                 width: 120,

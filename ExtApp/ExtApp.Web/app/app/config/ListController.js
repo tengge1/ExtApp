@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.view.core.config.ListController', {
+Ext.define('App.app.config.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.configlist',
 
     requires: [
-        'App.view.core.config.EditSection',
-        'App.view.core.config.Edit'
+        'App.app.config.EditSection',
+        'App.app.config.Edit'
     ],
 
     init: function () {
@@ -17,7 +17,7 @@ Ext.define('App.view.core.config.ListController', {
     },
 
     onAddSectionClick: function () {
-        var win = Ext.create('App.view.core.config.EditSection');
+        var win = Ext.create('App.app.config.EditSection');
         win.setTitle('添加配置节');
         win.down('form').getForm().reset();
         win.show();
@@ -31,7 +31,7 @@ Ext.define('App.view.core.config.ListController', {
             App.notify('消息', '请选择配置节');
             return;
         }
-        var win = Ext.create('App.view.core.config.EditSection');
+        var win = Ext.create('App.app.config.EditSection');
         win.setTitle('编辑配置节');
         win.down('form').getForm().loadRecord(selected[0]);
         win.show();
@@ -78,7 +78,7 @@ Ext.define('App.view.core.config.ListController', {
             return;
         }
 
-        var win = Ext.create('App.view.core.config.Edit');
+        var win = Ext.create('App.app.config.Edit');
         win.setTitle('添加配置');
         var form = win.down('form').getForm();
         form.reset();
@@ -96,7 +96,7 @@ Ext.define('App.view.core.config.ListController', {
             return;
         }
 
-        var win = Ext.create('App.view.core.config.Edit');
+        var win = Ext.create('App.app.config.Edit');
         win.setTitle('编辑配置');
         var form = win.down('form').getForm();
         form.reset();

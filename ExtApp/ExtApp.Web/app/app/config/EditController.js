@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.core.config.EditController', {
+Ext.define('App.app.config.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.configedit',
 

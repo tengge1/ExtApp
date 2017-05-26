@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.config.List', {
+Ext.define('App.app.config.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.configlist',
 
     requires: [
-        'App.view.core.config.ListController',
+        'App.app.config.ListController',
         'Ext.ux.form.SearchField'
     ],
 
@@ -30,7 +30,7 @@ Ext.define('App.view.core.config.List', {
             labelAlign: 'right',
             paramName: 'name',
             emptyText: '名称',
-            store: Ext.create('App.store.core.ConfigSectionTree')
+            store: Ext.create('App.app.store.ConfigSectionTree')
         }],
 
         bbar: [{
@@ -58,7 +58,7 @@ Ext.define('App.view.core.config.List', {
         region: 'center',
         title: '系统配置',
 
-        store: Ext.create('App.store.core.Config'),
+        store: Ext.create('App.app.store.Config'),
 
         tbar: [{
             xtype: 'button',

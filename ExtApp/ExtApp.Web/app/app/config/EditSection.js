@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.config.EditSection', {
+Ext.define('App.app.config.EditSection', {
     extend: 'Ext.window.Window',
     alias: 'widget.configsectionedit',
 
     requires: [
-        'App.view.core.config.EditSectionController'
+        'App.app.config.EditSectionController'
     ],
 
     title: '编辑配置节',

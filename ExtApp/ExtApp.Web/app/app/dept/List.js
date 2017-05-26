@@ -1,11 +1,11 @@
 ﻿
-Ext.define("App.view.personnel.dept.List", {
+Ext.define("App.app.dept.List", {
     extend: 'Ext.panel.Panel',
     alias: 'widget.deptlist',
 
     requires: [
         'App.widget.DeptSelect',
-        'App.view.personnel.dept.ListController'
+        'App.app.dept.ListController'
     ],
 
     controller: 'deptlist',
@@ -22,7 +22,7 @@ Ext.define("App.view.personnel.dept.List", {
         rootVisible: true,
         collapsible: true,
         split: true,
-        store: Ext.create('App.store.personnel.DeptTree'),
+        store: Ext.create('App.app.store.DeptTree'),
         tools: [{
             itemId: 'refresh',
             type: 'refresh',

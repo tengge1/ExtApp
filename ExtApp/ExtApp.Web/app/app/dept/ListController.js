@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.personnel.dept.ListController', {
+Ext.define('App.app.dept.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptlist',
 
@@ -17,7 +17,7 @@ Ext.define('App.view.personnel.dept.ListController', {
     },
 
     onAddClick: function () {
-        var view = Ext.create('App.view.personnel.dept.Add');
+        var view = Ext.create('App.app.dept.Add');
         view.controller.reset();
         view.show();
     },

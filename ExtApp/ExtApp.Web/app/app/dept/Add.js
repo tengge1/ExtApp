@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.view.personnel.dept.Add', {
+Ext.define('App.app.dept.Add', {
     extend: 'Ext.window.Window',
     alias: 'widget.deptadd',
 
     requires: [
         'App.widget.DeptSelect',
-        'App.view.personnel.dept.AddController'
+        'App.app.dept.AddController'
     ],
 
     controller: 'deptadd',

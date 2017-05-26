@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.personnel.dept.AddController', {
+Ext.define('App.app.dept.AddController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.deptadd',
 

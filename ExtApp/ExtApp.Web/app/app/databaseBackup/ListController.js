@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.databaseBackup.ListController', {
+Ext.define('App.app.databaseBackup.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.databasebackuplist',
 
     requires: [
-        'App.store.core.DatabaseBackup'
+        'App.app.store.DatabaseBackup'
     ],
 
     init: function () {

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.databaseBackup.List', {
+Ext.define('App.app.databaseBackup.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.databasebackuplist',
 
     requires: [
-        'App.view.core.databaseBackup.ListController'
+        'App.app.databaseBackup.ListController'
     ],
 
     controller: 'databasebackuplist',

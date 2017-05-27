@@ -24,12 +24,12 @@ namespace ExtApp.BLL
         /// 获取所有菜单
         /// </summary>
         /// <returns></returns>
-        public IList<Menu> List()
+        public ListResult<Menu> List()
         {
             // 权限
             if (AdminHelper.Admin == null || AdminHelper.Admin.Role == null) // 尚未登录或者未设置角色
             {
-                return new List<Menu>();
+                return new ListResult<Menu>(301, "无权限！");
             }
             var roleID = AdminHelper.Admin.Role.ID;
             var query = Restrictions.Eq("Role", new Role { ID = roleID });
@@ -37,7 +37,7 @@ namespace ExtApp.BLL
 
             // 菜单
             var list = auth.Where(o => o.Status > -1).OrderBy(o => o.Sort).ToList();
-            return list;
+            return new ListResult<Menu>(200, "获取成功！", list.Count(), list);
         }
 
         /// <summary>

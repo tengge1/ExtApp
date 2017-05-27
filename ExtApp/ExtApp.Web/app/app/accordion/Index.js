@@ -50,29 +50,6 @@ Ext.define('App.app.accordion.Index', {
                 margin: '10 5 10 5'
             },
             items: [{
-                xtype: 'combo',
-                name: 'style',
-                store: Ext.create('App.app.store.Style'),
-                valueField: 'Code',
-                displayField: 'Name',
-                width: 120,
-                editable: false,
-                value: 'accordion',
-                listeners: {
-                    select: 'onStyleSelect'
-                }
-            }, {
-                xtype: 'combo',
-                name: 'theme',
-                store: Ext.create('App.app.store.Theme'),
-                valueField: 'Code',
-                displayField: 'Name',
-                width: 120,
-                editable: false,
-                listeners: {
-                    select: 'onThemeSelect'
-                }
-            }, {
                 xtype: 'button',
                 text: '修改密码',
                 listeners: {

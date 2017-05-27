@@ -116,8 +116,3 @@ Ext.apply(App, {
         status: Ext.create('App.renderer.StatusRenderer').render // 渲染状态
     }
 });
-
-// 获取当前系统配置
-var tool = Ext.create('App.util.Theme');
-var theme = tool.getCurrentTheme();
-tool.setTheme(theme);

@@ -167,10 +167,10 @@
     <Content Include="app\app\dept\AddController.js" />
     <Content Include="app\app\dept\List.js" />
     <Content Include="app\app\dept\ListController.js" />
-    <Content Include="app\app\design\Edit.js" />
-    <Content Include="app\app\design\EditController.js" />
-    <Content Include="app\app\design\List.js" />
-    <Content Include="app\app\design\ListController.js" />
+    <Content Include="app\app\workflowDesign\Edit.js" />
+    <Content Include="app\app\workflowDesign\EditController.js" />
+    <Content Include="app\app\workflowDesign\List.js" />
+    <Content Include="app\app\workflowDesign\ListController.js" />
     <Content Include="app\app\dic\Edit.js" />
     <Content Include="app\app\dic\EditController.js" />
     <Content Include="app\app\dic\EditItem.js" />
@@ -188,7 +188,6 @@
     <Content Include="app\app\ChangePwd.js" />
     <Content Include="app\app\ChangePwdController.js" />
     <Content Include="app\app\desktop\Index.js" />
-    <Content Include="app\app\desktop\Notepad.js" />
     <Content Include="app\app\desktop\Settings.js" />
     <Content Include="app\app\desktop\SettingsController.js" />
     <Content Include="app\app\desktop\Wallpaper.js" />
@@ -251,6 +250,7 @@
     <Content Include="app\app\user\EditController.js" />
     <Content Include="app\app\user\List.js" />
     <Content Include="app\app\user\ListController.js" />
+    <Content Include="app\Config.js" />
     <Content Include="app\test\FileUploadTest.js" />
     <Content Include="app\test\MapShowTest.js" />
     <Content Include="app\test\MapDrawTest.js" />
@@ -270,6 +270,7 @@
     <Content Include="app\work\store\Message.js" />
     <Content Include="app\work\store\MessageReceive.js" />
     <Content Include="App_Data\test.sql" />
+    <Content Include="desktop.html" />
     <Content Include="test.html" />
     <Content Include="packages\jquery\jquery.js" />
     <Content Include="packages\jquery\jquery.min.js" />

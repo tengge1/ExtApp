@@ -1,5 +1,5 @@
 
-Ext.define('App.main.desktop.Wallpaper', {
+Ext.define('App.app.desktop.Wallpaper', {
     extend: 'Ext.data.TreeStore',
 
     model: Ext.create('Ext.data.TreeModel', {

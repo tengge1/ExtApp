@@ -4,7 +4,6 @@ Ext.define('App.app.Viewport', {
     alias: 'widget.mainviewport',
 
     requires: [
-        'App.main.desktop.Index',
         'App.util.Config'
     ],
 
@@ -22,7 +21,7 @@ Ext.define('App.app.Viewport', {
                 this.removeAll();
                 this.add(view);
             } else if (style == 'desktop') { // 桌面样式
-                new App.app.desktop.Index();
+                Ext.create('App.app.desktop.Index');
             } else {
                 var view = Ext.create('App.app.accordion.Index');
                 this.removeAll();

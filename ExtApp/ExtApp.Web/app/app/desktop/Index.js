@@ -1,12 +1,11 @@
 ﻿
-Ext.define('App.main.desktop.Index', {
+Ext.define('App.app.desktop.Index', {
     extend: 'Ext.ux.desktop.App',
     alias: 'widget.extappdesktop',
 
     requires: [
         'Ext.ux.desktop.ShortcutModel',
-        'App.main.desktop.Notepad',
-        'App.main.desktop.Settings'
+        'App.app.desktop.Settings'
     ],
 
     init: function () {
@@ -24,6 +23,7 @@ Ext.define('App.main.desktop.Index', {
                 text: '根节点',
                 menu: []
             };
+            debugger;
             me.createMenuTree(tree, 0, list);
             for (var i = 0; i < tree.menu.length; i++) {
                 var item = tree.menu[i];
@@ -86,12 +86,6 @@ Ext.define('App.main.desktop.Index', {
         win.show();
     },
 
-    getModules: function () { // 获取模块
-        return [
-            new App.main.desktop.Notepad(),
-        ];
-    },
-
     getDesktopConfig: function () { // 获取桌面设置
         var me = this, ret = me.callParent();
 
@@ -102,14 +96,13 @@ Ext.define('App.main.desktop.Index', {
                 handler: me.onSettings, scope: me
             }],
 
-            shortcuts: Ext.create('Ext.data.Store', { // 桌面快捷方式
-                model: 'Ext.ux.desktop.ShortcutModel',
-                data: [{
-                    name: '记事本',
-                    iconCls: 'notepad-shortcut',
-                    module: 'notepad'
-                }]
-            }),
+            //shortcuts: Ext.create('Ext.data.Store', { // 桌面快捷方式
+            //    model: 'Ext.ux.desktop.ShortcutModel',
+            //    data: [{
+            //        name: '记事本',
+            //        iconCls: 'notepad-shortcut'
+            //    }]
+            //}),
 
             wallpaper: '/images/wallpapers/Blue-Sencha.jpg', // 桌面背景
 
@@ -172,7 +165,7 @@ Ext.define('App.main.desktop.Index', {
     },
 
     onSettings: function () { // 个性化设置
-        var dlg = new App.main.desktop.Settings({
+        var dlg = new App.app.desktop.Settings({
             desktop: this.desktop
         });
         dlg.show();

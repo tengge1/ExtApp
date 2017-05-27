@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.main.desktop.Settings', {
+Ext.define('App.app.desktop.Settings', {
     extend: 'Ext.window.Window',
 
     requires: [
         'Ext.ux.desktop.Wallpaper',
-         'App.main.desktop.SettingsController'
+         'App.app.desktop.SettingsController'
     ],
 
     layout: 'fit',
@@ -19,47 +19,6 @@ Ext.define('App.main.desktop.Settings', {
     items: [{
         xtype: 'tabpanel',
         items: [{
-            xtype: 'panel',
-            title: '基本设置',
-            layout: 'vbox',
-            defaults: {
-                margin: 5
-            },
-            items: [{
-                xtype: 'combo',
-                name: 'style',
-                store: Ext.create('App.store.dic.Style'),
-                valueField: 'Code',
-                displayField: 'Name',
-                fieldLabel: '样式',
-                labelWidth: 60,
-                labelAlign: 'right',
-                editable: false,
-                value: 'desktop',
-                listeners: {
-                    select: 'onStyleSelect'
-                }
-            }, {
-                xtype: 'combo',
-                name: 'theme',
-                store: Ext.create('App.store.dic.Theme'),
-                valueField: 'Code',
-                displayField: 'Name',
-                fieldLabel: '主题',
-                labelWidth: 60,
-                labelAlign: 'right',
-                editable: false,
-                listeners: {
-                    select: 'onThemeSelect'
-                }
-            }],
-            listeners: {
-                afterrender: {
-                    fn: 'afterBasicRenderer',
-                    delay: 100
-                }
-            }
-        }, {
             title: '壁纸设置',
             layout: 'anchor',
             items: [{
@@ -68,7 +27,7 @@ Ext.define('App.main.desktop.Settings', {
                 layout: 'border',
                 items: [{
                     xtype: 'treepanel',
-                    store: Ext.create('App.main.desktop.Wallpaper'),
+                    store: Ext.create('App.app.desktop.Wallpaper'),
                     title: '桌面背景',
                     rootVisible: false,
                     lines: false,

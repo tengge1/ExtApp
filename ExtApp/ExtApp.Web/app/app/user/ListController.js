@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.personnel.user.ListController', {
+Ext.define('App.app.user.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.userlist',
 
     requires: [
-        'App.store.personnel.User'
+        'App.app.store.User'
     ],
 
     init: function () {
@@ -21,7 +21,7 @@ Ext.define('App.view.personnel.user.ListController', {
     },
 
     onAddClick: function () {
-        var win = Ext.create('App.view.personnel.user.Edit');
+        var win = Ext.create('App.app.user.Edit');
         win.setTitle('添加用户');
         win.down('textfield[name=Password]').show();
         win.down('combo[name=Status]').hide();
@@ -35,7 +35,7 @@ Ext.define('App.view.personnel.user.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.personnel.user.Edit');
+        var win = Ext.create('App.app.user.Edit');
         win.setTitle('编辑用户');
         win.down('textfield[name=Password]').hide();
         win.down('combo[name=Status]').show();

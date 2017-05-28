@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.view.personnel.user.Edit', {
+Ext.define('App.app.user.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.useredit',
 
     requires: [
         'App.widget.DeptSelect',
-        'App.view.personnel.user.EditController'
+        'App.app.user.EditController'
     ],
 
     controller: 'useredit',

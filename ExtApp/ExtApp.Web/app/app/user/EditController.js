@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.personnel.user.EditController', {
+Ext.define('App.app.user.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.useredit',
 

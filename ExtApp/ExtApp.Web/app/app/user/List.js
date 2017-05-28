@@ -1,11 +1,11 @@
 ﻿
-Ext.define("App.view.personnel.user.List", {
+Ext.define("App.app.user.List", {
     extend: 'Ext.panel.Panel',
     alias: 'widget.userlist',
 
     requires: [
         'App.widget.DeptSelect',
-        'App.view.personnel.user.ListController'
+        'App.app.user.ListController'
     ],
 
     controller: 'userlist',
@@ -61,7 +61,7 @@ Ext.define("App.view.personnel.user.List", {
                 fieldLabel: '角色',
                 width: 150,
                 editable: false,
-                store: Ext.create('App.store.authority.RoleAll'),
+                store: Ext.create('App.app.store.RoleAll'),
                 valueField: 'ID',
                 displayField: 'Name',
                 emptyText: '全部'

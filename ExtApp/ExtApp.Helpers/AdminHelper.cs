@@ -22,7 +22,7 @@ namespace ExtApp
         {
             get
             {
-                var userID = HttpContext.Current.Items["__userID"];
+                var userID = HttpContext.Current.Session["__userID"];
                 if (userID == null)
                 {
                     return null;

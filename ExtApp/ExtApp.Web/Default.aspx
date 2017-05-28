@@ -2,16 +2,47 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ExtJs权限管理系统</title>
+    <link href="<%=theme %>" rel="stylesheet" />
+    <link href="packages/extjs/icon.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <script src="packages/extjs/ext-all-debug.js"></script>
+    <script src="packages/extjs/locale/locale-zh_CN.js"></script>
+    <script src="app/App.js"></script>
+    <script>
+        Ext.require('App.app.desktop.Index');
+        Ext.onReady(function () {
+            var cls = App.getQueryString('cls');
+            var p = null;
+            if (cls == null) {
+                if ('<%=style %>' == 'Desktop') {
+                    new App.app.desktop.Index();
+                    return;
+                } else {
+                    p = Ext.create('App.app.accordion.Index');
+                }
+            } else {
+                p = Ext.create(cls, {
+                    header: false,
+                    border: false
+                });
+            }
+            if (p != null) {
+                Ext.create('Ext.container.Viewport', {
+                    layout: 'fit',
+                    listeners: {
+                        beforerender: function (sender) {
+                            sender.add(p);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
 </body>
 </html>

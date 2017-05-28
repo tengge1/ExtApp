@@ -3,10 +3,6 @@ Ext.define('App.app.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
 
-    requires: [
-        'App.util.Config'
-    ],
-
     init: function () {
         var me = this;
         Ext.getBody().on('keypress', function (e) {
@@ -17,7 +13,8 @@ Ext.define('App.app.LoginController', {
     },
 
     onLoginClick: function () {
-        var form = this.getView().up('viewport').down('form').getForm();
+        var view = this.getView();
+        var form = view.down('form').getForm();
         if (!form.isValid()) {
             return;
         }
@@ -35,10 +32,7 @@ Ext.define('App.app.LoginController', {
             mask.hide();
             var obj = JSON.parse(r);
             if (obj.Code == 200) {
-                //var config = Ext.create('util.config');
-                //config.setState('login');
-                //window.location.reload();
-                window.location = window.location.origin + window.location.pathname;
+                window.location = 'Default.aspx';
             } else {
                 App.alert('消息', obj.Msg);
             }
@@ -46,6 +40,6 @@ Ext.define('App.app.LoginController', {
     },
 
     onResetClick: function () {
-        this.getView().up('viewport').down('form').getForm().reset();
+        this.getView().down('form').getForm().reset();
     }
 });

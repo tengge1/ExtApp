@@ -269,8 +269,6 @@
     <Content Include="app\work\store\Message.js" />
     <Content Include="app\work\store\MessageReceive.js" />
     <Content Include="Default.aspx" />
-    <Content Include="desktop.html" />
-    <Content Include="index.html" />
     <Content Include="Login.aspx" />
     <Content Include="packages\jquery\jquery.js" />
     <Content Include="packages\jquery\jquery.min.js" />

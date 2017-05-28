@@ -47,7 +47,7 @@ namespace ExtApp.BLL
             HttpContext.Current.Response.Cookies.Add(cookie);
 
             // 验证权限后将获得的用户信息写入Session
-            HttpContext.Current.Items.Add("__userID", user.ID.ToString());
+            HttpContext.Current.Session["__userID"] = user.ID.ToString();
             LogHelper.Info("用户" + model.Username + "登录成功！", type: LogType.User);
             return new LoginResult(200, "登录成功！", user, cookie.Value);
         }

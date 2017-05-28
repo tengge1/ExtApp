@@ -11,11 +11,15 @@ namespace ExtApp.Web
 {
     public partial class Login : System.Web.UI.Page
     {
-        protected string style = "";
         protected string theme = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (AdminHelper.Admin != null)
+            {
+                Response.Redirect("Default.aspx");
+                return;
+            }
             if (!IsPostBack)
             {
                 init();
@@ -24,7 +28,6 @@ namespace ExtApp.Web
 
         private void init()
         {
-            style = ConfigurationManager.AppSettings["Style"];
             theme = ConfigurationManager.AppSettings["Theme"];
         }
     }

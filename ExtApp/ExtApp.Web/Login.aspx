@@ -16,9 +16,7 @@
         Ext.onReady(function () {
             Ext.create('Ext.container.Viewport', {
                 layout: 'fit',
-                items: Ext.create('App.app.Login', {
-                    style: '<%=style %>'
-                })
+                items: Ext.create('App.app.Login')
             });
         });
     </script>

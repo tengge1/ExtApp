@@ -1,12 +1,7 @@
 ﻿
-Ext.define('App.view.core.dic.ListController', {
+Ext.define('App.app.dic.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.diclist',
-
-    requires: [
-        'App.view.core.dic.Edit',
-        'App.view.core.dic.EditItem'
-    ],
 
     init: function () {
         var view = this.getView();
@@ -17,7 +12,7 @@ Ext.define('App.view.core.dic.ListController', {
     },
 
     onAddClick: function () {
-        var win = Ext.create('App.view.core.dic.Edit');
+        var win = Ext.create('App.app.dic.Edit');
         win.setTitle('添加字典');
         win.down('form').getForm().reset();
         win.show();
@@ -30,7 +25,7 @@ Ext.define('App.view.core.dic.ListController', {
             App.notify('消息', '请选择字典！');
             return;
         }
-        var win = Ext.create('App.view.core.dic.Edit');
+        var win = Ext.create('App.app.dic.Edit');
         win.setTitle('编辑字典');
         win.down('form').getForm().loadRecord(selected[0]);
         win.down('combo[name=TypeID]').getStore().load({
@@ -81,7 +76,7 @@ Ext.define('App.view.core.dic.ListController', {
             return;
         }
 
-        var win = Ext.create('App.view.core.dic.EditItem');
+        var win = Ext.create('App.app.dic.EditItem');
         win.setTitle('添加子项');
         var form = win.down('form').getForm();
         form.reset();
@@ -99,7 +94,7 @@ Ext.define('App.view.core.dic.ListController', {
             return;
         }
 
-        var win = Ext.create('App.view.core.dic.EditItem');
+        var win = Ext.create('App.app.dic.EditItem');
         win.setTitle('编辑子项');
         var form = win.down('form').getForm();
         form.reset();

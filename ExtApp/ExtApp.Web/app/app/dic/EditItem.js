@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.dic.EditItem', {
+Ext.define('App.app.dic.EditItem', {
     extend: 'Ext.window.Window',
     alias: 'widget.dicedititem',
 
     requires: [
-        'App.view.core.dic.EditItemController'
+        'App.app.dic.EditItemController'
     ],
 
     layout: 'fit',

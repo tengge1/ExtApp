@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.dic.List', {
+Ext.define('App.app.dic.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.diclist',
 
     requires: [
-        'App.view.core.dic.ListController',
+        'App.app.dic.ListController',
         'Ext.ux.form.SearchField'
     ],
 
@@ -19,7 +19,7 @@ Ext.define('App.view.core.dic.List', {
         region: 'west',
         width: 200,
         title: '字典列表',
-        store: Ext.create('App.store.core.DicTree'),
+        store: Ext.create('App.app.store.DicTree'),
         split: true,
         collapsible: true,
         rootVisible: false,
@@ -31,7 +31,7 @@ Ext.define('App.view.core.dic.List', {
             labelAlign: 'right',
             paramName: 'name',
             emptyText: '名称',
-            store: Ext.create('App.store.core.DicTree')
+            store: Ext.create('App.app.store.DicTree')
         }],
 
         bbar: [{
@@ -58,7 +58,7 @@ Ext.define('App.view.core.dic.List', {
         xtype: 'gridpanel',
         region: 'center',
         title: '字典项列表',
-        store: Ext.create('App.store.core.DicItem'),
+        store: Ext.create('App.app.store.DicItem'),
 
         tbar: [{
             xtype: 'button',

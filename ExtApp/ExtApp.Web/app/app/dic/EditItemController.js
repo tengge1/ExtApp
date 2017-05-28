@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.core.dic.EditItemController', {
+Ext.define('App.app.dic.EditItemController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.dicedititem',
 

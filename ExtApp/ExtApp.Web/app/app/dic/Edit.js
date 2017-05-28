@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.dic.Edit', {
+Ext.define('App.app.dic.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.dicedit',
 
     requires: [
-        'App.view.core.dic.EditController'
+        'App.app.dic.EditController'
     ],
 
     title: '编辑字典',
@@ -43,7 +43,7 @@ Ext.define('App.view.core.dic.Edit', {
             valueField: 'ID',
             displayField: 'Name',
             fieldLabel: '类型',
-            store: Ext.create('App.store.dic.DicType'),
+            store: Ext.create('App.app.store.DicType'),
             allowBlank: false,
             emptyText: '请选择',
             editable: false

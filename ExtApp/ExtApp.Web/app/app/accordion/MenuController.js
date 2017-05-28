@@ -29,11 +29,11 @@ Ext.define('App.app.accordion.MenuController', {
                         }),
                         listeners: {
                             beforeload: function (store, operation, eOpts) {
-                                //this.mask('加载中...');
+                                this.mask('加载中...');
                             },
                             itemclick: view.controller.onTreeItemClick,
                             load: function (view, records, successful, operation, node, eOpts) {
-                                //this.unmask();
+                                this.unmask();
                             }
                         }
                     });
@@ -64,7 +64,7 @@ Ext.define('App.app.accordion.MenuController', {
         }
 
         // 标签页存在就切换标签页，不存在就添加标签页
-        var tp = Ext.getCmp('tpMain');
+        var tp = this.getView().up('viewport').down('panel[region=center]');
         var p = tp.items.findBy(function (item) {
             return item.title == text;
         });

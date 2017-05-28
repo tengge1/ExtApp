@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.work.messageReceive.ListController', {
+Ext.define('App.work.messageReceive.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.messagereceivelist',
 
     requires: [
-        'App.store.work.MessageReceive'
+        'App.work.store.MessageReceive'
     ],
 
     init: function () {
@@ -23,7 +23,7 @@ Ext.define('App.view.work.messageReceive.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.work.messageReceive.View');
+        var win = Ext.create('App.work.messageReceive.View');
         win.down('form').getForm().loadRecord(selected.items[0]);
         win.show();
         App.get('/api/MessageReceive/Read?ID=' + selected.items[0].data.ID, function (result) {

@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.model.work.MessageReceive', {
+Ext.define('App.work.model.MessageReceive', {
     extend: 'Ext.data.Model',
 
     fields: [

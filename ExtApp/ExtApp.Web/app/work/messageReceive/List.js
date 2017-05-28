@@ -1,11 +1,11 @@
 ﻿
-Ext.define("App.view.work.messageReceive.List", {
+Ext.define("App.work.messageReceive.List", {
     extend: 'Ext.panel.Panel',
     alias: 'widget.messagereceivelist',
 
     requires: [
         'App.widget.DeptSelect',
-        'App.view.work.messageReceive.ListController'
+        'App.work.messageReceive.ListController'
     ],
 
     controller: 'messagereceivelist',

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.work.message.Edit', {
+Ext.define('App.work.message.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.messageedit',
 
     requires: [
-        'App.view.work.message.EditController'
+        'App.work.message.EditController'
     ],
 
     controller: 'messageedit',

@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.work.messageReceive.View', {
+Ext.define('App.work.messageReceive.View', {
     extend: 'Ext.window.Window',
     alias: 'widget.messagereceiveview',
 

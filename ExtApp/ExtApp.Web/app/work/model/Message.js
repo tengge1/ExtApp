@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.model.work.Message', {
+Ext.define('App.work.model.Message', {
     extend: 'Ext.data.Model',
 
     fields: [

@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.work.message.EditController', {
+Ext.define('App.work.message.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.messageedit',
 

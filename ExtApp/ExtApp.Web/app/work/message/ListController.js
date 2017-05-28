@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.work.message.ListController', {
+Ext.define('App.work.message.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.messagelist',
 
     requires: [
-        'App.store.work.Message'
+        'App.work.store.Message'
     ],
 
     init: function () {
@@ -17,7 +17,7 @@ Ext.define('App.view.work.message.ListController', {
     },
 
     onAddClick: function () {
-        var win = Ext.create('App.view.work.message.Edit');
+        var win = Ext.create('App.work.message.Edit');
         win.setTitle('添加消息');
         win.down('form').reset();
         win.show();
@@ -29,7 +29,7 @@ Ext.define('App.view.work.message.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.work.message.Edit');
+        var win = Ext.create('App.work.message.Edit');
         win.setTitle('编辑消息');
         win.down('form').getForm().loadRecord(selected.items[0]);
         win.show();

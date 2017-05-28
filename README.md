@@ -1,4 +1,4 @@
-# ExtApp v 1.0.4
+# ExtApp v 1.0.5
 
 ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创建的，用于简化政府和企业应用开发的Web应用程序框架。
 
@@ -7,7 +7,7 @@ ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创
   - PC和手机端共享同样的API Controller接口。
   - ExtJs动态加载js文件。
   - 支持折叠面板和桌面模式。
-  - 多种皮肤动态切换。
+  - 自带6种皮肤。
   - 8种常用控件封装。
   - 地图绘制展示。
   - 旧版本Demo：https://tengge1.github.io/ExtApp
@@ -30,6 +30,33 @@ ExtApp提供全面的政府级和企业级Web应用解决方案：
 我们所做的一切都是为了您能更好更快地进行Web应用的开发！！！
 
 ### 开发日志
+
+2017年5月28日 v1.0.5
+
+* 前台架构优化
+* /app/app          系统管理模块
+* /app/app/model    系统管理模型
+* /app/app/store    系统管理数据仓库
+* /app/plugin       插件
+* /app/renderer     渲染器（即将弃用）
+* /app/util         工具类
+* /app/widget       封装的常用控件
+* /app/work         在线办公模块
+* /app/work/model   在线办公模型
+* /app/work/store   在线办公数据仓库
+* /app/App.js       ExtApp提供的帮助方法
+* /app/App_Data     生成数据库的sql脚本
+* /app/packages     引用的javascript类库
+* /app/resources/css  项目css文件
+* /app/resources/images 项目图片文件
+* /app/resources/js   项目js文件
+* /app/uploads      上传文件所在文件夹
+* /Default.aspx     首页（可显示折叠面板或桌面样式）
+* /Global.asax      全局应用类
+* /packages.config  Nuget可以根据该配置自动下载包
+* /Web.config       配置文件（可以配置样式和主题等）
+
+==================================
 
 2017年5月21日 v1.0.4
 

@@ -250,7 +250,6 @@
     <Content Include="app\app\user\EditController.js" />
     <Content Include="app\app\user\List.js" />
     <Content Include="app\app\user\ListController.js" />
-    <Content Include="app\Config.js" />
     <Content Include="app\app\test\FileUploadTest.js" />
     <Content Include="app\app\test\MapShowTest.js" />
     <Content Include="app\app\test\MapDrawTest.js" />

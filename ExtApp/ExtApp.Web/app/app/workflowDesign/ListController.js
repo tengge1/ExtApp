@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.view.workflow.design.ListController', {
+Ext.define('App.app.workflowDesign.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.workflowlist',
 
     init: function () {
         var view = this.getView();
-        var store = Ext.create('App.store.workflow.Workflow');
+        var store = Ext.create('App.app.store.Workflow');
         view.down('gridpanel').setStore(store);
         view.down('pagingtoolbar').setStore(store);
         store.reload();
@@ -17,7 +17,7 @@ Ext.define('App.view.workflow.design.ListController', {
     },
 
     onAddClick: function () {
-        var win = Ext.create('App.view.workflow.design.Edit');
+        var win = Ext.create('App.app.workflowDesign.Edit');
         win.setTitle('添加工作流');
         win.down('form').getForm().reset();
         win.show();
@@ -29,7 +29,7 @@ Ext.define('App.view.workflow.design.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.workflow.design.Edit');
+        var win = Ext.create('App.app.workflowDesign.Edit');
         win.setTitle('编辑工作流');
         win.down('form').loadRecord(selected.items[0]);
         win.show();

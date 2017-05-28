@@ -1,10 +1,10 @@
 ﻿
-Ext.define("App.view.workflow.design.List", {
+Ext.define("App.app.workflowDesign.List", {
     extend: 'Ext.panel.Panel',
     alias: 'widget.workflowlist',
 
     requires: [
-        'App.view.workflow.design.ListController'
+        'App.app.workflowDesign.ListController'
     ],
 
     controller: 'workflowlist',

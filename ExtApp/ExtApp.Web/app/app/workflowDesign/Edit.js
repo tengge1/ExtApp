@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.workflow.design.Edit', {
+Ext.define('App.app.workflowDesign.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.workflowedit',
 
     requires: [
-        'App.view.workflow.design.EditController'
+        'App.app.workflowDesign.EditController'
     ],
 
     controller: 'workflowedit',

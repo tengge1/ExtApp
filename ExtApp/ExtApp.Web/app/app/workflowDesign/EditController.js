@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.workflow.design.EditController', {
+Ext.define('App.app.workflowDesign.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.workflowedit',
 

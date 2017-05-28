@@ -254,7 +254,6 @@
     <Content Include="app\test\FileUploadTest.js" />
     <Content Include="app\test\MapShowTest.js" />
     <Content Include="app\test\MapDrawTest.js" />
-    <Content Include="app\app\Viewport.js" />
     <Content Include="app\widget\FileUpload.js" />
     <Content Include="app\widget\MapShow.js" />
     <Content Include="app\widget\MapDraw.js" />

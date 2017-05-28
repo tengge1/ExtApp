@@ -118,7 +118,7 @@ Ext.apply(App, {
             closable: true,
             html: '<iframe src="' + url + '" width="100%" height="100%" frameborder="0" scrolling="auto" onload="top.App.query(\'viewport\').unmask();"></iframe>'
         });
-        var tp = top.Ext.getCmp('tpMain');
+        var tp = top.App.query('panel[region=center]');
         tp.add(p);
         tp.setActiveTab(p);
     },

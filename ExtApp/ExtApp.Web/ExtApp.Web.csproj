@@ -461,7 +461,7 @@
     <Content Include="packages\workflow\resources\app.txt" />
     <Content Include="packages\workflow\resources\app_zh.txt" />
     <Content Include="app\widget\UserSelect.js" />
-    <Content Include="css\common.css" />
+    <Content Include="resources\css\common.css" />
     <Content Include="app\plugin\ProgressBarPager.js" />
     <Content Include="app\renderer\SexRenderer.js" />
     <Content Include="app\renderer\StatusRenderer.js" />
@@ -475,7 +475,7 @@
     <Content Include="app\util\Config.js" />
     <Content Include="app\util\Theme.js" />
     <Content Include="App_Data\ExtApp.sql" />
-    <Content Include="css\desktop.css" />
+    <Content Include="resources\css\desktop.css" />
     <Content Include="images\workflow\grid.gif" />
     <Content Include="packages\CodeMirror\lib\codemirror.css" />
     <Content Include="packages\CodeMirror\lib\codemirror.js" />
@@ -4206,7 +4206,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="resources\css\" />
     <Folder Include="resources\images\" />
     <Folder Include="uploads\" />
   </ItemGroup>

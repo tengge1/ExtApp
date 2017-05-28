@@ -9,7 +9,7 @@
     <title>登录</title>
     <link href="<%=theme %>" rel="stylesheet" />
     <link href="packages/extjs/icon.css" rel="stylesheet" />
-    <link href="css/common.css" rel="stylesheet" />
+    <link href="/resources/css/common.css" rel="stylesheet" />
     <script src="packages/extjs/ext-all-debug.js"></script>
     <script src="packages/extjs/locale/locale-zh_CN.js"></script>
     <script src="app/App.js"></script>

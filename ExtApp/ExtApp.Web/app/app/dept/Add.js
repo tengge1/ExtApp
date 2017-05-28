@@ -39,7 +39,7 @@ Ext.define('App.app.dept.Add', {
             allowBlank: false
         }, {
             xtype: 'combo',
-            store: Ext.create('App.store.dic.DeptType'),
+            store: Ext.create('App.app.store.DeptType'),
             name: 'TypeID',
             valueField: 'ID',
             displayField: 'Name',

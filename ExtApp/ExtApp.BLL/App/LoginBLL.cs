@@ -59,6 +59,7 @@ namespace ExtApp.BLL
         public Result Logout()
         {
             HttpContext.Current.Response.Cookies.Clear();
+            HttpContext.Current.Session.Clear();
             return new Result(200, "注销成功！");
         }
 

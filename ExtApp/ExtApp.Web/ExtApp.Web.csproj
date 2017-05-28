@@ -270,8 +270,8 @@
     <Content Include="app\work\store\MessageReceive.js" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="packages\jquery\jquery.js" />
-    <Content Include="packages\jquery\jquery.min.js" />
+    <Content Include="resources\js\jquery.js" />
+    <Content Include="resources\js\jquery.min.js" />
     <Content Include="packages\map\css\map.css" />
     <Content Include="packages\map\js\mapShow.js" />
     <Content Include="packages\map\js\mapDraw.js" />
@@ -4170,8 +4170,8 @@
     <Content Include="packages\mxGraph\resources\graph.txt" />
     <Content Include="packages\mxGraph\resources\graph_de.txt" />
     <Content Include="packages\mxGraph\resources\graph_zh.txt" />
-    <Content Include="packages\RequireJs\require.js" />
-    <Content Include="packages\RequireJs\require.min.js" />
+    <Content Include="resources\js\require.js" />
+    <Content Include="resources\js\require.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -4208,7 +4208,6 @@
   <ItemGroup>
     <Folder Include="resources\css\" />
     <Folder Include="resources\images\" />
-    <Folder Include="resources\js\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

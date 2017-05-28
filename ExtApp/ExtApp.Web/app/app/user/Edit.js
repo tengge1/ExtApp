@@ -54,7 +54,7 @@ Ext.define('App.app.user.Edit', {
             valueField: 'ID',
             displayField: 'Name',
             fieldLabel: '<span style="color:red;">*</span>性别',
-            store: Ext.create('App.store.dic.Sex'),
+            store: Ext.create('App.app.store.Sex'),
             editable: false,
             allowBlank: false,
             emptyText: '请选择'
@@ -69,7 +69,7 @@ Ext.define('App.app.user.Edit', {
             name: 'RoleID',
             fieldLabel: '<span style="color:red;">*</span>角色',
             editable: false,
-            store: Ext.create('App.store.authority.RoleAll'),
+            store: Ext.create('App.app.store.RoleAll'),
             valueField: 'ID',
             displayField: 'Name',
             allowBlank: false,

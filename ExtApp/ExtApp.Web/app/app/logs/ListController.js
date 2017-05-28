@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.logs.ListController', {
+Ext.define('App.app.logs.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.loglist',
 
     requires: [
-        'App.store.core.Log'
+        'App.app.store.Log'
     ],
 
     init: function () {
@@ -51,14 +51,14 @@ Ext.define('App.view.core.logs.ListController', {
             App.notify('消息', '请选择！');
             return;
         }
-        var win = Ext.create('App.view.core.logs.View');
+        var win = Ext.create('App.app.logs.View');
         win.down('form').getForm().loadRecord(selected.items[0]);
         win.show();
     },
 
     onCellDblClick: function (grid, cell, colIndex, record, row, rowIndex) {
         var record = grid.getStore().getAt(rowIndex);
-        var win = Ext.create('App.view.core.logs.View');
+        var win = Ext.create('App.app.logs.View');
         win.down('form').getForm().loadRecord(record);
         win.show();
     }

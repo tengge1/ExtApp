@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.core.logs.View', {
+Ext.define('App.app.logs.View', {
     extend: 'Ext.window.Window',
     alias: 'widget.logview',
 

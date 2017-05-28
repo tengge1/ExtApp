@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.core.logs.List', {
+Ext.define('App.app.logs.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.loglist',
 
     requires: [
-        'App.view.core.logs.ListController'
+        'App.app.logs.ListController'
     ],
 
     controller: 'loglist',
@@ -47,7 +47,7 @@ Ext.define('App.view.core.logs.List', {
                 name: 'typeID',
                 valueField: 'ID',
                 displayField: 'Name',
-                store: Ext.create('App.store.dic.LogType'),
+                store: Ext.create('App.app.store.LogType'),
                 emptyText: '全部'
             }, {
                 xtype: 'combo',
@@ -57,7 +57,7 @@ Ext.define('App.view.core.logs.List', {
                 name: 'sourceID',
                 valueField: 'ID',
                 displayField: 'Name',
-                store: Ext.create('App.store.dic.LogSource'),
+                store: Ext.create('App.app.store.LogSource'),
                 emptyText: '全部'
             }, {
                 xtype: 'combo',
@@ -67,7 +67,7 @@ Ext.define('App.view.core.logs.List', {
                 name: 'levelID',
                 valueField: 'ID',
                 displayField: 'Name',
-                store: Ext.create('App.store.dic.LogLevel'),
+                store: Ext.create('App.app.store.LogLevel'),
                 emptyText: '全部'
             }, {
                 xtype: 'button',

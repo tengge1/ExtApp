@@ -1,11 +1,11 @@
 ﻿
-Ext.define("App.view.authority.menu.List", {
+Ext.define("App.app.menu.List", {
     extend: 'Ext.panel.Panel',
     alias: 'widget.menulist',
 
     requires: [
         'App.widget.DeptSelect',
-        'App.view.authority.menu.ListController'
+        'App.app.menu.ListController'
     ],
 
     controller: 'menulist',
@@ -22,7 +22,7 @@ Ext.define("App.view.authority.menu.List", {
         rootVisible: true,
         collapsible: true,
         split: true,
-        store: Ext.create('App.store.authority.MenuTree', {
+        store: Ext.create('App.app.store.MenuTree', {
             authorize: false
         }),
 

@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.authority.menu.EditController', {
+Ext.define('App.app.menu.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menuedit',
 

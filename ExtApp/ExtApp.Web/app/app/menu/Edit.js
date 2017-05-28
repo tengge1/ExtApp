@@ -1,11 +1,11 @@
 ﻿
-Ext.define('App.view.authority.menu.Edit', {
+Ext.define('App.app.menu.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.menuedit',
 
     requires: [
         'App.widget.MenuSelect',
-        'App.view.authority.menu.EditController'
+        'App.app.menu.EditController'
     ],
 
     controller: 'menuedit',
@@ -44,7 +44,7 @@ Ext.define('App.view.authority.menu.Edit', {
         }, {
             xtype: 'combo',
             name: 'UrlTypeID',
-            store: Ext.create('App.store.dic.UrlType'),
+            store: Ext.create('App.app.store.UrlType'),
             valueField: 'ID',
             displayField: 'Name',
             fieldLabel: '链接类型',
@@ -57,7 +57,7 @@ Ext.define('App.view.authority.menu.Edit', {
         }, {
             xtype: 'combo',
             name: 'OpenTypeID',
-            store: Ext.create('App.store.dic.OpenType'),
+            store: Ext.create('App.app.store.OpenType'),
             valueField: 'ID',
             displayField: 'Name',
             fieldLabel: '打开方式',
@@ -66,7 +66,7 @@ Ext.define('App.view.authority.menu.Edit', {
         }, {
             xtype: 'combo',
             name: 'IconTypeID',
-            store: Ext.create('App.store.dic.IconType'),
+            store: Ext.create('App.app.store.IconType'),
             valueField: 'ID',
             displayField: 'Name',
             fieldLabel: '图标类型',

@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.authority.menu.ListController', {
+Ext.define('App.app.menu.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.menulist',
 
     onAddClick: function () {
-        var win = Ext.create('App.view.authority.menu.Edit');
+        var win = Ext.create('App.app.menu.Edit');
         win.setTitle('添加菜单');
         win.controller.reset();
         win.down('menuselect').setReadOnly(false);
@@ -18,7 +18,7 @@ Ext.define('App.view.authority.menu.ListController', {
             App.notify('消息', '请选择菜单！');
             return;
         }
-        var win = Ext.create('App.view.authority.menu.Edit');
+        var win = Ext.create('App.app.menu.Edit');
         win.setTitle('编辑菜单');
         win.controller.reset();
         win.down('menuselect').setReadOnly(true);

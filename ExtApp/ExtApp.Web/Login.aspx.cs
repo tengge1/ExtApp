@@ -11,6 +11,9 @@ namespace ExtApp.Web
 {
     public partial class Login : System.Web.UI.Page
     {
+        protected string style = "";
+        protected string theme = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,12 +24,8 @@ namespace ExtApp.Web
 
         private void init()
         {
-            var path = ConfigurationManager.AppSettings["Theme"];
-            var control = new HtmlGenericControl();
-            control.TagName = "link";
-            control.Attributes.Add("rel", "stylesheet");
-            control.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl(path)));
-            Page.Header.Controls.AddAt(0, control);
+            style = ConfigurationManager.AppSettings["Style"];
+            theme = ConfigurationManager.AppSettings["Theme"];
         }
     }
 }

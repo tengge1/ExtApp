@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ExtJs权限管理平台</title>
+    <title>>ExtJs权限管理平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="packages/extjs/themes/theme-classic/theme-classic-all.css" rel="stylesheet" />
     <link href="packages/extjs/icon.css" rel="stylesheet" />
@@ -16,13 +16,16 @@
     <script>
         Ext.onReady(function () {
             var cls = App.getQueryString('cls');
+            var p = null;
             if (cls == null) { // 打开首页
-                Ext.create('App.view.Viewport');
+                p = Ext.create('App.app.accordion.Index');
             } else { // 打开cls对应的页面
-                var p = Ext.create(cls, {
+                p = Ext.create(cls, {
                     header: false,
                     border: false
                 });
+            }
+            if (p != null) {
                 Ext.create('Ext.container.Viewport', {
                     layout: 'fit',
                     listeners: {

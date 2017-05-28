@@ -271,7 +271,7 @@
     <Content Include="app\work\store\MessageReceive.js" />
     <Content Include="App_Data\test.sql" />
     <Content Include="desktop.html" />
-    <Content Include="test.html" />
+    <Content Include="index.html" />
     <Content Include="packages\jquery\jquery.js" />
     <Content Include="packages\jquery\jquery.min.js" />
     <Content Include="packages\map\css\map.css" />
@@ -481,7 +481,6 @@
     <Content Include="app\view\work\message\ListController.js" />
     <Content Include="app\widget\UserSelect.js" />
     <Content Include="css\common.css" />
-    <Content Include="index.html" />
     <Content Include="app\model\core\DicItem.js" />
     <Content Include="app\model\core\Dic.js" />
     <Content Include="app\model\core\ConfigSection.js" />

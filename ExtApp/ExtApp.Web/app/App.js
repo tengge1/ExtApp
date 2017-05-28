@@ -100,6 +100,17 @@ Ext.apply(App, {
         return null;
     },
 
+    getAllQueryString: function () { // 获取url中所有参数
+        var p = {};
+        window.location.search.substr(1).split('&').forEach((n, i) => {
+            var nvs = n.split('=');
+            if (nvs.length > 1) {
+                p[nvs[0]] = nvs[1];
+            }
+        });
+        return p;
+    },
+
     openInNewTab: function (title, url) { // 打开新标签页
         top.App.query('viewport').mask('请稍后...');
         var p = top.Ext.create('Ext.Container', {

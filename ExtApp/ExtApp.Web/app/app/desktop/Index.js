@@ -19,12 +19,15 @@ Ext.define('App.app.desktop.Index', {
 
         App.get('/api/Menu/List', function (data) {
             var list = JSON.parse(data);
+            if (list.Code == 301) { // 无权限
+                window.location = 'desktop.html?cls=App.app.Login'
+                return;
+            }
             var tree = {
                 text: '根节点',
                 menu: []
             };
-            debugger;
-            me.createMenuTree(tree, 0, list);
+            me.createMenuTree(tree, 0, list.Items);
             for (var i = 0; i < tree.menu.length; i++) {
                 var item = tree.menu[i];
                 startMenu.add(item);
@@ -106,7 +109,7 @@ Ext.define('App.app.desktop.Index', {
 
             wallpaper: '/images/wallpapers/Blue-Sencha.jpg', // 桌面背景
 
-            wallpaperStretch: false // 背景拉伸
+            wallpaperStretch: true // 背景拉伸
         });
     },
 

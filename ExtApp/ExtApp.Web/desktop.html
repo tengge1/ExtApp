@@ -17,14 +17,12 @@
         Ext.require('App.app.desktop.Index');
         Ext.onReady(function () {
             var cls = App.getQueryString('cls');
-            var query = App.getAllQueryString();
             if (cls == null) {
                 new App.app.desktop.Index();
             } else {
                 var p = Ext.create(cls, {
                     header: false,
-                    border: false,
-                    query: query
+                    border: false
                 });
                 Ext.create('Ext.container.Viewport', {
                     layout: 'fit',

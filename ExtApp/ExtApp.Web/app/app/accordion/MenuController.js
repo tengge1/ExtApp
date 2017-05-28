@@ -29,11 +29,11 @@ Ext.define('App.app.accordion.MenuController', {
                         }),
                         listeners: {
                             beforeload: function (store, operation, eOpts) {
-                                this.mask('加载中...');
+                                //this.mask('加载中...');
                             },
                             itemclick: view.controller.onTreeItemClick,
                             load: function (view, records, successful, operation, node, eOpts) {
-                                this.unmask();
+                                //this.unmask();
                             }
                         }
                     });

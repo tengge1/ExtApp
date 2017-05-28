@@ -16,13 +16,16 @@
     <script>
         Ext.onReady(function () {
             var cls = App.getQueryString('cls');
+            var p = null;
             if (cls == null) { // 打开首页
-                Ext.create('App.app.Viewport');
+                p = Ext.create('App.app.accordion.Index');
             } else { // 打开cls对应的页面
-                var p = Ext.create(cls, {
+                p = Ext.create(cls, {
                     header: false,
                     border: false
                 });
+            }
+            if (p != null) {
                 Ext.create('Ext.container.Viewport', {
                     layout: 'fit',
                     listeners: {

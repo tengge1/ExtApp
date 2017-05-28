@@ -88,7 +88,6 @@ Ext.define('App.app.accordion.Index', {
             margin: 0
         }
     }, {
-        id: 'tpMain',
         region: 'center',
         xtype: 'tabpanel',
         items: [{

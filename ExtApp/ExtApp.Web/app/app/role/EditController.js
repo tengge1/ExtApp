@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.view.authority.role.EditController', {
+Ext.define('App.app.role.EditController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.roleedit',
 

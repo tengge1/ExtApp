@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.authority.role.Edit', {
+Ext.define('App.app.role.Edit', {
     extend: 'Ext.window.Window',
     alias: 'widget.roleedit',
 
     requires: [
-        'App.view.authority.role.EditController'
+        'App.app.role.EditController'
     ],
 
     controller: 'roleedit',

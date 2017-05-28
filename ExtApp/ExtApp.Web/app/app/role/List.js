@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.authority.role.List', {
+Ext.define('App.app.role.List', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.rolelist',
 
     requires: [
-        'App.view.authority.role.ListController'
+        'App.app.role.ListController'
     ],
 
     controller: 'rolelist',

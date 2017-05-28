@@ -1,12 +1,12 @@
 ﻿
-Ext.define('App.view.authority.role.ListController', {
+Ext.define('App.app.role.ListController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.rolelist',
 
     requires: [
-        'App.store.authority.Role',
-        'App.view.authority.role.Edit',
-        'App.view.authority.role.Auth'
+        'App.app.store.Role',
+        'App.app.role.Edit',
+        'App.app.role.Auth'
     ],
 
     init: function () {

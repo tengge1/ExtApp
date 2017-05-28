@@ -1,10 +1,10 @@
 ﻿
-Ext.define('App.view.authority.role.Auth', {
+Ext.define('App.app.role.Auth', {
     extend: 'Ext.window.Window',
     alias: 'widget.roleauth',
 
     requires: [
-        'App.view.authority.role.AuthController'
+        'App.app.role.AuthController'
     ],
 
     controller: 'roleauth',
@@ -26,7 +26,7 @@ Ext.define('App.view.authority.role.Auth', {
             xtype: 'treepanel',
             title: '访问权限',
             rootVisible: true,
-            store: Ext.create('App.store.authority.RoleMenuTree'),
+            store: Ext.create('App.app.store.RoleMenuTree'),
             listeners: {
                 checkchange: 'onCheckChange'
             }

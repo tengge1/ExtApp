@@ -2,17 +2,17 @@
     position: relative;
     width: 150px;
     height: 25px;
-    background-image: url(/images/powered-by-ext-js.png);
+    background-image: url(../images/powered-by-ext-js.png);
     background-repeat: no-repeat;
 }
 
 .x-ie6 #poweredby div, .x-ie7 #poweredby div, .x-ie8 #poweredby div {
     background-image: none;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/powered-by-ext-js.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/powered-by-ext-js.png', sizingMethod='scale');
 }
 
 .ux-start-button-icon {
-    background-image: url(/images/taskbar/sencha.gif) !important;
+    background-image: url(../images/taskbar/sencha.gif) !important;
     background-color: transparent;
 }
 
@@ -65,12 +65,12 @@ div.ux-taskbar div.x-toolbar {
 }
 
 .ux-desktop-black .ux-taskbar {
-    background: transparent url('/images/taskbar/black/taskbar-start-panel-bg.gif') repeat-x left top;
+    background: transparent url('../images/taskbar/black/taskbar-start-panel-bg.gif') repeat-x left top;
     border-color: transparent;
 }
 
     .ux-desktop-black .ux-taskbar .x-splitter {
-        background: transparent url(/images/taskbar/black/taskbar-split-h.gif) no-repeat scroll 0 -2px;
+        background: transparent url(../images/taskbar/black/taskbar-split-h.gif) no-repeat scroll 0 -2px;
     }
 
     .ux-desktop-black .ux-taskbar .x-toolbar-text {
@@ -131,115 +131,115 @@ div.ux-taskbar div.x-toolbar {
 }
 
 .accordion-shortcut {
-    background-image: url(/images/im48x48.png);
+    background-image: url(../images/im48x48.png);
 }
 
 .cpu-shortcut {
-    background-image: url(/images/statusLarge.png);
+    background-image: url(../images/statusLarge.png);
 }
 
 .grid-shortcut {
-    background-image: url(/images/grid48x48.png);
+    background-image: url(../images/grid48x48.png);
 }
 
 .notepad-shortcut {
-    background-image: url(/images/notepadLarge.png);
+    background-image: url(../images/notepadLarge.png);
     width: 46px;
     height: 46px;
 }
 
 .x-ie6 .accordion-shortcut {
     background-image: none;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/im48x48.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/im48x48.png', sizingMethod='scale');
 }
 
 .x-ie6 .cpu-shortcut {
     background-image: none;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/statusLarge.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/statusLarge.png', sizingMethod='scale');
 }
 
 .x-ie6 .grid-shortcut {
     background-image: none;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/grid48x48.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/grid48x48.png', sizingMethod='scale');
 }
 
 .x-ie6 .notepad-shortcut {
     background-image: none;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/notepadLarge.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/notepadLarge.png', sizingMethod='scale');
 }
 
 .video {
-    background-image: url(/images/gears.gif);
+    background-image: url(../images/gears.gif);
 }
 
 .bogus {
-    background-image: url(/images/bogus.png ) !important;
+    background-image: url(../images/bogus.png ) !important;
 }
 
 .notepad {
-    background-image: url(/images/bogus.png ) !important;
+    background-image: url(../images/bogus.png ) !important;
 }
 
 .logout {
-    background-image: url(/images/logout.gif ) !important;
+    background-image: url(../images/logout.gif ) !important;
 }
 
 .settings {
-    background-image: url(/images/gears.gif ) !important;
+    background-image: url(../images/gears.gif ) !important;
 }
 
 .icon-grid {
-    background-image: url(/images/grid.png ) !important;
+    background-image: url(../images/grid.png ) !important;
 }
 
 .add {
-    background-image: url(/images/shared/icons/fam/add.gif) !important;
+    background-image: url(../images/shared/icons/fam/add.gif) !important;
 }
 
 .option {
-    background-image: url(/images/shared/icons/fam/plugin.gif) !important;
+    background-image: url(../images/shared/icons/fam/plugin.gif) !important;
 }
 
 .remove {
-    background-image: url(/images/shared/icons/fam/delete.gif) !important;
+    background-image: url(../images/shared/icons/fam/delete.gif) !important;
 }
 
 .save {
-    background-image: url(/images/shared/icons/save.gif) !important;
+    background-image: url(../images/shared/icons/save.gif) !important;
 }
 
 .accordion {
-    background-image: url(/images/accordian.gif) !important;
+    background-image: url(../images/accordian.gif) !important;
 }
 
 .tabs {
-    background-image: url(/images/tabs.gif) !important;
+    background-image: url(../images/tabs.gif) !important;
 }
 
 .user {
-    background-image: url(/images/shared/icons/fam/user.gif ) !important;
+    background-image: url(../images/shared/icons/fam/user.gif ) !important;
 }
 
 .user-add {
-    background-image: url(/images/shared/icons/fam/user_add.gif) !important;
+    background-image: url(../images/shared/icons/fam/user_add.gif) !important;
 }
 
 .user-delete {
-    background-image: url(/images/shared/icons/fam/user_delete.gif) !important;
+    background-image: url(../images/shared/icons/fam/user_delete.gif) !important;
 }
 
 .connect {
-    background-image: url(/images/shared/icons/fam/connect.gif) !important;
+    background-image: url(../images/shared/icons/fam/connect.gif) !important;
 }
 
 .user-girl {
-    background-image: url(/images/shared/icons/fam/user_female.gif) !important;
+    background-image: url(../images/shared/icons/fam/user_female.gif) !important;
 }
 
 .user-kid {
-    background-image: url(/images/shared/icons/fam/user_green.gif) !important;
+    background-image: url(../images/shared/icons/fam/user_green.gif) !important;
 }
 
 .user-suit {
-    background-image: url(/images/shared/icons/fam/user_suit.gif) !important;
+    background-image: url(../images/shared/icons/fam/user_suit.gif) !important;
 }

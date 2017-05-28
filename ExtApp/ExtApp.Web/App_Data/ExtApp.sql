@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-05-28 09:58:57
+Date: 2017-05-28 10:29:39
 */
 
 
@@ -822,13 +822,13 @@ GO
 INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4033', N'请假管理', N'002002', N'4', null, N'', N'28', N'Applicationedit', N'1', N'20', N'', null)
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4034', N'在线请假', N'002002001', N'4033', N'26', N'App.work.leave.apply.List', N'28', N'User', N'1', N'10', N'', N'31')
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4034', N'在线请假', N'002002001', N'4033', N'26', null, N'28', N'User', N'1', N'10', N'', N'31')
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4035', N'请假审批', N'002002002', N'4033', N'26', N'App.work.leave.assign.List', N'28', N'User', N'1', N'20', N'', N'31')
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4035', N'请假审批', N'002002002', N'4033', N'26', null, N'28', N'User', N'1', N'20', N'', N'31')
 GO
 GO
-INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4036', N'请假查询', N'002002003', N'4033', N'26', N'App.work.leave.query.List', N'28', N'User', N'1', N'30', N'', N'31')
+INSERT INTO [dbo].[AppMenu] ([ID], [Name], [Code], [PID], [UrlType], [Url], [IconType], [Icon], [Status], [Sort], [Comment], [OpenType]) VALUES (N'4036', N'请假查询', N'002002003', N'4033', N'26', null, N'28', N'User', N'1', N'30', N'', N'31')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppMenu] OFF
@@ -1161,7 +1161,7 @@ CREATE TABLE [dbo].[Message] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[Message]', RESEED, 3)
+DBCC CHECKIDENT(N'[dbo].[Message]', RESEED, 4)
 GO
 
 -- ----------------------------
@@ -1169,13 +1169,13 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Message] ON
 GO
-INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [SendTime], [Comment], [TypeID], [AddUserID], [Status]) VALUES (N'1', N'你好，测试', N'这是管理员发给测试的消息。', N'2017-04-30 15:41:28.000', N'2017-04-30 15:41:31.000', N'', N'36', N'1', N'38')
-GO
-GO
 INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [SendTime], [Comment], [TypeID], [AddUserID], [Status]) VALUES (N'2', N'你好，管理员', N'这是测试发给管理员的消息。', N'2017-04-30 15:42:29.000', N'2017-04-30 15:42:31.000', N'', N'36', N'2', N'38')
 GO
 GO
 INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [SendTime], [Comment], [TypeID], [AddUserID], [Status]) VALUES (N'3', N'草稿消息', N'测试看不到。。。', N'2017-04-30 16:00:45.000', null, N'', N'36', N'1', N'37')
+GO
+GO
+INSERT INTO [dbo].[Message] ([ID], [Title], [Content], [AddTime], [SendTime], [Comment], [TypeID], [AddUserID], [Status]) VALUES (N'4', N'11', N'111', N'2017-05-28 10:27:59.000', null, N'', N'36', N'1', N'37')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Message] OFF
@@ -1197,7 +1197,7 @@ CREATE TABLE [dbo].[MessageReceive] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[MessageReceive]', RESEED, 3)
+DBCC CHECKIDENT(N'[dbo].[MessageReceive]', RESEED, 4)
 GO
 
 -- ----------------------------
@@ -1205,13 +1205,13 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[MessageReceive] ON
 GO
-INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID], [Status]) VALUES (N'1', null, null, N'1', N'2', N'39')
-GO
-GO
 INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID], [Status]) VALUES (N'2', N'2017-04-30 16:36:35.000', null, N'2', N'1', N'40')
 GO
 GO
 INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID], [Status]) VALUES (N'3', null, null, N'3', N'2', N'39')
+GO
+GO
+INSERT INTO [dbo].[MessageReceive] ([ID], [ReadTime], [Comment], [MessageID], [UserID], [Status]) VALUES (N'4', null, null, N'4', N'2', N'39')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[MessageReceive] OFF

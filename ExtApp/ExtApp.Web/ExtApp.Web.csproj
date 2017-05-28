@@ -268,8 +268,10 @@
     <Content Include="app\work\model\MessageReceive.js" />
     <Content Include="app\work\store\Message.js" />
     <Content Include="app\work\store\MessageReceive.js" />
+    <Content Include="Default.aspx" />
     <Content Include="desktop.html" />
     <Content Include="index.html" />
+    <Content Include="Login.aspx" />
     <Content Include="packages\jquery\jquery.js" />
     <Content Include="packages\jquery\jquery.min.js" />
     <Content Include="packages\map\css\map.css" />
@@ -4177,8 +4179,22 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -4192,6 +4208,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="resources\css\" />
+    <Folder Include="resources\images\" />
+    <Folder Include="resources\js\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>

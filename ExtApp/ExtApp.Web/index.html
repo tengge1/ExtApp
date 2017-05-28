@@ -7,7 +7,6 @@
     <link href="packages/extjs/themes/theme-classic/theme-classic-all.css" rel="stylesheet" />
     <link href="packages/extjs/icon.css" rel="stylesheet" />
     <link href="css/common.css" rel="stylesheet" />
-    <link href="css/desktop.css" rel="stylesheet" />
     <script src="packages/extjs/ext-all-debug.js"></script>
     <script src="packages/extjs/locale/locale-zh_CN.js"></script>
     <script src="packages/RequireJs/require.min.js"></script>
@@ -17,9 +16,9 @@
         Ext.onReady(function () {
             var cls = App.getQueryString('cls');
             var p = null;
-            if (cls == null) { // 打开首页
+            if (cls == null) {
                 p = Ext.create('App.app.accordion.Index');
-            } else { // 打开cls对应的页面
+            } else {
                 p = Ext.create(cls, {
                     header: false,
                     border: false

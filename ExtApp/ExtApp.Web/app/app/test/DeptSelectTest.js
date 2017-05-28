@@ -1,5 +1,5 @@
 ﻿
-Ext.define('App.test.DeptSelectTest', {
+Ext.define('App.app.test.DeptSelectTest', {
     extend: 'Ext.panel.Panel',
 
     requires: [

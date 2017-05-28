@@ -8,7 +8,7 @@ Ext.define('App.widget.MenuSelect', {
     idField: 'ID',
     displayField: 'text',
     fieldLabel: '菜单',
-    store: Ext.create('App.store.authority.MenuTree'),
+    store: Ext.create('App.app.store.MenuTree'),
 
     reset: function () {
         this.setValue('');

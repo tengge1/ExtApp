@@ -61,7 +61,7 @@ Ext.define('App.widget.UserSelect', {
         title: '机构',
         region: 'west',
         width: 250,
-        store: Ext.create('App.store.personnel.DeptTree'),
+        store: Ext.create('App.app.store.DeptTree'),
         listeners: {
             itemclick: function (sender) {
                 var selection = sender.getSelection();
@@ -77,7 +77,7 @@ Ext.define('App.widget.UserSelect', {
         title: '全部',
         region: 'center',
         width: 275,
-        store: Ext.create('App.store.personnel.User', {
+        store: Ext.create('App.app.store.User', {
             autoLoad: false
         }),
         columns: [{
@@ -112,7 +112,7 @@ Ext.define('App.widget.UserSelect', {
         region: 'east',
         width: 275,
         store: Ext.create('Ext.data.Store', {
-            model: 'App.model.personnel.User'
+            model: 'App.app.model.User'
         }),
         columns: [{
             xtype: 'rownumberer'

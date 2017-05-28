@@ -8,7 +8,7 @@ Ext.define('App.widget.DeptSelect', {
     idField: 'ID',
     displayField: 'text',
     fieldLabel: '机构',
-    store: Ext.create('App.store.personnel.DeptTree'),
+    store: Ext.create('App.app.store.DeptTree'),
 
     reset: function () {
         this.setValue('');

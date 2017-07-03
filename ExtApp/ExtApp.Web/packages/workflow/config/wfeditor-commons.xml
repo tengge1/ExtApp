@@ -78,12 +78,6 @@
 				mxUtils.linkInvoke(div, mxResources.get('newDiagram'), this,
 					'open', 'diagrams/empty.xml', off);
 				mxUtils.br(div);
-				mxUtils.linkInvoke(div, mxResources.get('swimlanes'), this,
-					'open', 'diagrams/swimlanes.xml', off);
-				mxUtils.br(div);
-				mxUtils.linkInvoke(div, mxResources.get('travelBooking'), this,
-					'open', 'diagrams/travel-booking.xml', off);
-				mxUtils.br(div);
 				
 				if (!this.graph.isSelectionEmpty())
 				{

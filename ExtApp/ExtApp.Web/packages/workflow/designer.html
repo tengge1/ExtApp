@@ -43,7 +43,7 @@
         // Enables snapping waypoints to terminals
         mxEdgeHandler.prototype.snapToTerminals = true;
 
-        window.onbeforeunload = function () { return mxResources.get('changesLost'); };
+        //window.onbeforeunload = function () { return mxResources.get('changesLost'); };
 
         var ID = getQueryString('ID');
         mxEditor.prototype.urlPost = '/api/Workflow/SaveXml?ID=' + (ID == null ? 0 : ID);

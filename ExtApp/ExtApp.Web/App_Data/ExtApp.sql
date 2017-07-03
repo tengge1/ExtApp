@@ -1,7 +1,7 @@
 /*
 Navicat SQL Server Data Transfer
 
-Source Server         : SQL Server
+Source Server         : SQLEXPRESS
 Source Server Version : 130000
 Source Host           : .\SQLEXPRESS:1433
 Source Database       : ExtApp
@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-05-28 10:29:39
+Date: 2017-07-04 06:50:08
 */
 
 
@@ -478,7 +478,7 @@ CREATE TABLE [dbo].[AppLog] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 103)
+DBCC CHECKIDENT(N'[dbo].[AppLog]', RESEED, 105)
 GO
 
 -- ----------------------------
@@ -685,6 +685,12 @@ INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime]
 GO
 GO
 INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'103', N'7', N'8', N'4', N'1', N'2017-05-28 08:42:11.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'104', N'7', N'8', N'4', N'1', N'2017-07-03 07:25:08.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
+GO
+GO
+INSERT INTO [dbo].[AppLog] ([ID], [Type], [Source], [Level], [UserID], [AddTime], [IP], [Title], [Content], [Status], [Comment]) VALUES (N'105', N'7', N'8', N'4', N'1', N'2017-07-04 06:44:22.000', N'::1', N'用户admin登录成功！', N'', N'0', N'')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AppLog] OFF
@@ -1242,7 +1248,7 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[Workflow] ON
 GO
-INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'1', N'请销假流程', N'1', N'<mxGraphModel><root><Workflow label="MyWorkflow" description="" href="" id="0"><mxCell/></Workflow><Layer label="Default Layer" id="1"><mxCell parent="0"/></Layer><Symbol label="Symbol" description="" href="" id="2"><mxCell style="symbol;image=images/symbols/event.png" vertex="1" parent="1"><mxGeometry x="350" y="30" width="32" height="32" as="geometry"/></mxCell></Symbol><Task label="Task" description="" href="" id="3"><mxCell vertex="1" parent="1"><mxGeometry x="330" y="130" width="72" height="32" as="geometry"/></mxCell></Task><Symbol label="Symbol" description="" href="" id="4"><mxCell style="symbol;image=images/symbols/event_end.png" vertex="1" parent="1"><mxGeometry x="350" y="222" width="32" height="32" as="geometry"/></mxCell></Symbol><Edge label="" description="" id="5"><mxCell edge="1" parent="1" source="2" target="3"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Edge label="" description="" id="6"><mxCell edge="1" parent="1" source="3" target="4"><mxGeometry relative="1" as="geometry"/></mxCell></Edge></root></mxGraphModel>', N'2017-04-27 21:56:27.000', N'测试', N'1')
+INSERT INTO [dbo].[Workflow] ([ID], [Name], [Version], [Data], [AddTime], [Comment], [AddUserID]) VALUES (N'1', N'请销假流程', N'1', N'<mxGraphModel><root><Workflow label="MyWorkflow" description="" href="" id="0"><mxCell/></Workflow><Layer label="Default Layer" id="1"><mxCell parent="0"/></Layer><Symbol label="开始" description="" href="" id="2"><mxCell style="symbol;image=images/symbols/event.png" parent="1" vertex="1"><mxGeometry x="350" y="30" width="32" height="32" as="geometry"/></mxCell></Symbol><Task label="部门领导" description="" href="" id="3"><mxCell parent="1" vertex="1"><mxGeometry x="330" y="130" width="72" height="32" as="geometry"/></mxCell></Task><Edge label="" description="" id="5"><mxCell parent="1" source="2" target="3" edge="1"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Shape label="大于3天" description="" href="" id="6"><mxCell style="rhombus" vertex="1" parent="1"><mxGeometry x="320" y="200" width="90" height="40" as="geometry"/></mxCell></Shape><Task label="主管领导" description="" href="" id="7"><mxCell vertex="1" parent="1"><mxGeometry x="330" y="310" width="72" height="32" as="geometry"/></mxCell></Task><Symbol label="结束" description="" href="" id="8"><mxCell style="symbol;image=images/symbols/event_end.png" vertex="1" parent="1"><mxGeometry x="350" y="380" width="32" height="32" as="geometry"/></mxCell></Symbol><Edge label="" description="" id="9"><mxCell edge="1" parent="1" source="3" target="6"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Edge label="是" description="" id="10"><mxCell edge="1" parent="1" source="6" target="7"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Edge label="" description="" id="11"><mxCell edge="1" parent="1" source="7" target="8"><mxGeometry relative="1" as="geometry"/></mxCell></Edge><Edge label="否" description="" id="12"><mxCell edge="1" parent="1" source="6" target="8"><mxGeometry relative="1" as="geometry"><mxPoint x="530" y="260" as="targetPoint"/><Array as="points"><mxPoint x="490" y="320"/></Array></mxGeometry></mxCell></Edge></root></mxGraphModel>', N'2017-04-27 21:56:27.000', N'测试', N'1')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[Workflow] OFF
@@ -1557,6 +1563,8 @@ ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[Ap
 GO
 ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppConfig] ADD FOREIGN KEY ([SectionID]) REFERENCES [dbo].[AppConfigSection] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppConfigSection]
@@ -1573,6 +1581,8 @@ GO
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppDatabaseBackup]
 -- ----------------------------
+ALTER TABLE [dbo].[AppDatabaseBackup] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppDatabaseBackup] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDatabaseBackup] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -1617,7 +1627,7 @@ ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppU
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
-ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1636,6 +1646,12 @@ GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDept] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1681,10 +1697,14 @@ ALTER TABLE [dbo].[AppDic] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem
 GO
 ALTER TABLE [dbo].[AppDic] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppDic] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[AppDicItem]
 -- ----------------------------
+ALTER TABLE [dbo].[AppDicItem] ADD FOREIGN KEY ([DicID]) REFERENCES [dbo].[AppDic] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppDicItem] ADD FOREIGN KEY ([DicID]) REFERENCES [dbo].[AppDic] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppDicItem] ADD FOREIGN KEY ([DicID]) REFERENCES [dbo].[AppDic] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -1715,6 +1735,10 @@ ALTER TABLE [dbo].[AppFiles] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[App
 GO
 ALTER TABLE [dbo].[AppFiles] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppFiles] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppFiles] ADD FOREIGN KEY ([ModuleID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppFiles] ADD FOREIGN KEY ([ModuleID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppFiles] ADD FOREIGN KEY ([ModuleID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -1743,6 +1767,10 @@ ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Level]) REFERENCES [dbo].[AppDicIte
 GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Level]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Level]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Source]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Source]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Source]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -1774,6 +1802,10 @@ GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppLog] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1821,7 +1853,7 @@ ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([IconType]) REFERENCES [dbo].[AppDi
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([IconType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
-ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([OpenType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([IconType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([OpenType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1831,7 +1863,9 @@ ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([OpenType]) REFERENCES [dbo].[AppDi
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([OpenType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
-ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([OpenType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([OpenType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1850,6 +1884,12 @@ GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([PID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([UrlType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppMenu] ADD FOREIGN KEY ([UrlType]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1890,6 +1930,10 @@ GO
 ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([MenuID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([MenuID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([MenuID]) REFERENCES [dbo].[AppMenu] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppRoleMenu] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1935,6 +1979,10 @@ ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([DeptID]) REFERENCES [dbo].[AppDept] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([RoleID]) REFERENCES [dbo].[AppRole] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -1970,6 +2018,10 @@ GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([Sex]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([Sex]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([Sex]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[Leave] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[AppUser] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[Leave] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -1991,9 +2043,15 @@ ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([AddUser]) REFERENCES [dbo].[AppUser]
 GO
 ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([AddUser]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([AddUser]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[Leave] ADD FOREIGN KEY ([Type]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -2013,9 +2071,15 @@ ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppU
 GO
 ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[Message] ADD FOREIGN KEY ([TypeID]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -2035,9 +2099,15 @@ ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([MessageID]) REFERENCES [dbo
 GO
 ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([MessageID]) REFERENCES [dbo].[Message] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
+ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([MessageID]) REFERENCES [dbo].[Message] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([Status]) REFERENCES [dbo].[AppDicItem] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[MessageReceive] ADD FOREIGN KEY ([UserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
@@ -2053,6 +2123,8 @@ GO
 -- ----------------------------
 -- Foreign Key structure for table [dbo].[Workflow]
 -- ----------------------------
+ALTER TABLE [dbo].[Workflow] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
 ALTER TABLE [dbo].[Workflow] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION
 GO
 ALTER TABLE [dbo].[Workflow] ADD FOREIGN KEY ([AddUserID]) REFERENCES [dbo].[AppUser] ([ID]) ON DELETE NO ACTION ON UPDATE NO ACTION

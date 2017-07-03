@@ -23,5 +23,15 @@ namespace ExtApp
             var json = JsonHelper.ToJson(obj);
             return new JsonResult(json);
         }
+
+        /// <summary>
+        /// 返回XML执行结果
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public XmlResult Xml(string data)
+        {
+            return new XmlResult(data);
+        }
     }
 }

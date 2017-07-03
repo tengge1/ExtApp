@@ -51,8 +51,10 @@
         var start = function () {
             // 创建画布并加载工作流
             var editor = createEditor('config/workfloweditor.xml');
-            var node = mxUtils.load('/api/Workflow/GetXml?ID=' + (ID == null ? 0 : ID)).getDocumentElement();
-            editor.configure(node);
+            //var node = mxUtils.load('/api/Workflow/GetXml?ID=' + (ID == null ? 0 : ID)).getDocumentElement();
+            //editor.configure(node);
+            var url = '/api/Workflow/GetXml?ID=' + (ID == null ? 0 : ID);
+            editor.open(url);
         }
     </script>
 </head>

@@ -102,10 +102,10 @@ namespace ExtApp.Controller
         /// <param name="ID"></param>
         /// <returns></returns>
         [HttpGet]
-        public string GetXml(int ID)
+        public XmlResult GetXml(int ID)
         {
-            var xml = bll.GetXml(ID);
-            return xml;
+            var data = bll.GetXml(ID);
+            return Xml(data);
         }
     }
 }

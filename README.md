@@ -10,9 +10,9 @@ ExtApp是一个基于三层架构，使用NHibernate、API Controller和ExtJs创
   - 自带6种皮肤。
   - 8种常用控件封装。
   - 地图绘制展示。
-  - 旧版本Demo：https://tengge1.github.io/ExtApp
+  - 旧版本Demo：https://tengge1.github.io/ext-app
   - 用户：管理员（admin、123）、一般用户（test、123）
-  - 最新版下载：https://github.com/tengge1/ExtApp/releases
+  - 最新版下载：https://github.com/tengge1/ext-app/releases
 
 ### 主要功能
 

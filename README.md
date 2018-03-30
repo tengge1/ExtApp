@@ -2,11 +2,11 @@
 
 经过两年的不断学习，随着React.js和Vue等前端热门框架的兴起，我感觉ExtJs已经不太符合时代潮流，将在ExtJs v1.0.6做出重大调整。
 
-1、不再使用ExtJs模块加载器，改为使用import和export引入和导出模块，并使用rollup.js将所有js文件打包。 
-2、删除不符合时代潮流的classic风格，专注modern风格，并修改css尽量向google material design风格靠拢。 
-3、所有图标不再使用图片，改为字体文件。 
-4、删除工作流和GIS等与框架核心不相关的内容，专注框架研发。 
-5、升级ExtJs版本到最新版本。 
+1. 不再使用ExtJs模块加载器，改为使用import和export引入和导出模块，并使用rollup.js将所有js文件打包。  
+2. 删除不符合时代潮流的classic风格，专注modern风格，并修改css尽量向google material design风格靠拢。  
+3. 所有图标不再使用图片，改为字体文件。  
+4. 删除工作流和GIS等与框架核心不相关的内容，专注框架研发。  
+5. 升级ExtJs版本到最新版本。  
 
 # ExtApp 1.0.5
 
